@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="hscan 网络资产收集与漏洞扫描github:https://github.com/perlh/hscan
+✨ 功能
+探活
+服务扫描(常规 &amp;amp; 非常规端口)
+poc探测( xray v2 &amp;amp; nuclei 格式)
+数据库等弱口令爆破
+内网常见漏洞利用
+
+快速使用1234sudo .">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="杨CC">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="hscan-资产测绘合漏洞扫描"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="杨CC的小世界"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>hscan-资产测绘合漏洞扫描 - 杨CC的小世界</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杨CC的小世界" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    关于我?
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档文章
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2025/01/17/hscan-%E8%B5%84%E4%BA%A7%E6%B5%8B%E7%BB%98%E5%90%88%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/">
+                hscan-资产测绘合漏洞扫描
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-17</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="hscan-网络资产收集与漏洞扫描"><a href="#hscan-网络资产收集与漏洞扫描" class="headerlink" title="hscan 网络资产收集与漏洞扫描"></a>hscan 网络资产收集与漏洞扫描</h1><p>github:<a target="_blank" rel="noopener" href="https://github.com/perlh/hscan">https://github.com/perlh/hscan</a></p>
+<h2 id="✨-功能"><a href="#✨-功能" class="headerlink" title="✨ 功能"></a>✨ 功能</h2><ul>
+<li>探活</li>
+<li>服务扫描(常规 &amp; 非常规端口)</li>
+<li>poc探测( xray v2 &amp; nuclei 格式)</li>
+<li>数据库等弱口令爆破</li>
+<li>内网常见漏洞利用</li>
+</ul>
+<h3 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ./hscan -h IP或IP段 </span><br><span class="line">sudo ./hscan -hf IP或IP段的文件 </span><br><span class="line">sudo ./hscan -u url(支持http、ssh、ftp、smb等) </span><br><span class="line">sudo ./hscan -uf url文件 </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><p>(1) 资产扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./hscan -h 127.0.0.1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/perlh/hscan/blob/main/docs/pages1.png"><img src="https://github.com/perlh/hscan/raw/main/docs/pages1.png" alt="pages1"></a></p>
+<ul>
+<li><p>(2) poc探测 (默认使用 xray poc 和 neclei poc 扫描),如需反联验证，请配置好 ceyeKey 和 ceyedomain 参数（命令行 | config.yaml）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./hscan -u http://127.0.0.1</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>(3) poc探测 (使用xray)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./hscan -u http://127.0.0.1 --xray</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>(4) poc探测 (使用neclei)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./hscan -u http://127.0.0.1 --neclei</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>poc路径分别在&#x2F;web&#x2F;pocs&#x2F;xray2和&#x2F;web&#x2F;pocs&#x2F;nuclei&#x2F;目录下，其中xray poc随编译嵌入到程序中，nuclei poc需要根据路径动态加载。</p>
+</blockquote>
+<blockquote>
+<p>如不想使用很多参数，可以更改默认参数，在hascn相同目录下创建config.yaml文件并进行配置即可。</p>
+</blockquote>
+<h2 id="借鉴"><a href="#借鉴" class="headerlink" title="借鉴"></a>借鉴</h2><p>借鉴参考了下列优秀作品</p>
+<ul>
+<li>nacs <a target="_blank" rel="noopener" href="https://github.com/u21h2/nacs">https://github.com/u21h2/nacs</a> 事件驱动的渗透测试扫描器</li>
+<li>kscan <a target="_blank" rel="noopener" href="https://github.com/lcvvvv/kscan">https://github.com/lcvvvv/kscan</a> 专注于信息收集 能探测到非常规端口开的服务 比如2222的ssh</li>
+<li>dismap <a target="_blank" rel="noopener" href="https://github.com/zhzyker/dismap">https://github.com/zhzyker/dismap</a> 资产收集</li>
+<li>pocV <a target="_blank" rel="noopener" href="https://github.com/WAY29/pocV">https://github.com/WAY29/pocV</a> 能扫描xray和nuclei的poc</li>
+</ul>
+<h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><p>本工具仅面向合法授权的企业安全建设行为，如您需要测试本工具的可用性，请自行搭建靶机环境。 为避免被恶意使用，本项目所有收录的poc均为漏洞的理论判断，不存在漏洞利用过程，不会对目标发起真实攻击和漏洞利用。 在使用本工具进行检测时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权。请勿对非授权目标进行扫描。 如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任。</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/信息收集-漏扫类/">#信息收集-漏扫类</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                     渗 透 测 试 ， 让 漏 洞 无 所 遁 形 ！ 电 子 取 证 ， 让 证 据 诉 说 答 案 ！ 占 卜 术 ， 一 起 揭 示 宇 宙 奥 秘 ！ 
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/FTK-%E9%95%9C%E5%83%8F%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/">FTK-镜像取证工具</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-MagNet/">内存取证-MagNet</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81-%E7%9B%AE%E5%BD%95/">电子取证-目录</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/%E8%93%9D%E9%98%9F%E5%8F%8D%E5%87%BB%E5%B7%A5%E5%85%B7-HuntBack/">蓝队反击工具-HuntBack</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Hack-tools">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://t.me/time_766">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:sgyling@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    这里要填写备案信息,但...但...但是我忘啦~
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

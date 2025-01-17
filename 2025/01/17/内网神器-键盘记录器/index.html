@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="新时代-键盘记录器1. 前言在网络安全领域，攻击者不断寻找新的方法来获取敏感信息，绕过防御系统并渗透目标网络。在红队操作中，键盘记录（Keylogging）和剪切板记录（Clipboard Logging）是两种常用且高效的技术手段。通过捕获用户的键盘输入和剪切板内容，红队能够获取大量宝贵的信息，从">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="杨CC">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="内网神器-键盘记录器"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="杨CC的小世界"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>内网神器-键盘记录器 - 杨CC的小世界</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杨CC的小世界" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    关于我?
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档文章
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2025/01/17/%E5%86%85%E7%BD%91%E7%A5%9E%E5%99%A8-%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%99%A8/">
+                内网神器-键盘记录器
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-17</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="新时代-键盘记录器"><a href="#新时代-键盘记录器" class="headerlink" title="新时代-键盘记录器"></a>新时代-键盘记录器</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a><strong>1. 前言</strong></h2><p>在网络安全领域，攻击者不断寻找新的方法来获取敏感信息，绕过防御系统并渗透目标网络。在红队操作中，键盘记录（Keylogging）和剪切板记录（Clipboard Logging）是两种常用且高效的技术手段。通过捕获用户的键盘输入和剪切板内容，红队能够获取大量宝贵的信息，从而推进其渗透测试和攻击活动。</p>
+<h3 id="1-1-为什么说他是新时代的？"><a href="#1-1-为什么说他是新时代的？" class="headerlink" title="1.1 为什么说他是新时代的？"></a><strong>1.1 为什么说他是新时代的？</strong></h3><p>之前的所有键盘记录都是一次运行监控全部程序，导致数据监控的不是很直观，因为也有一些其他的键盘输入。这也导致系统占用较大。</p>
+<p>这个工具，是可以指定某个进程单独的去监控用户的输入，这样就筛选掉了大量的垃圾内容，只留下我们想要的。 那么问题来了，只监控一个是否会有一点单一？比如我们要监控 keeppass 和 浏览器，两个，是否要进行两次？不是的，他不仅能够在单一进程中监控GUI事件，还能在不同进程之间进行监控。这意味着它可以同时对多个应用程序的界面进行操作捕捉，扩大了监控的范围。 这就比较厉害了！具体我们往下看</p>
+<h2 id="2-什么是键盘记录？"><a href="#2-什么是键盘记录？" class="headerlink" title="2. 什么是键盘记录？"></a><strong>2. 什么是键盘记录？</strong></h2><p>键盘记录器是一种监控并记录计算机上键盘输入的软件。虽然它们可用于合法的用户监视，但常被恶意行为者滥用，用于窃取敏感信息，如身份验证凭据、信用卡详细信息及其他机密数据。本文重点介绍软件键盘记录器，尽管也存在通过USB直接连接到PC的硬件键盘记录器。通过键盘记录器窃取的敏感信息可能用于盗窃资金或作为进一步网络攻击的跳板。因此，尽管键盘记录器本身不会直接损坏计算机，但早期检测对于防止后续更具侵入性的网络攻击至关重要。</p>
+<h2 id="3-键盘记录的作用？"><a href="#3-键盘记录的作用？" class="headerlink" title="3. 键盘记录的作用？"></a><strong>3. 键盘记录的作用？</strong></h2><ul>
+<li><strong>获取凭证和敏感信息</strong>：记录目标用户的键盘输入，获取用户名、密码和其他敏感数据。</li>
+<li><strong>定制攻击策略</strong>：分析用户操作模式，帮助设计针对性更强的钓鱼和社会工程攻击。</li>
+<li><strong>支持横向移动和权限提升</strong>：利用记录到的凭证进行系统内部横向移动和提升权限。</li>
+<li><strong>持久性访问</strong>：确保长期对目标系统的访问，收集信息和跟踪活动而不被发现。</li>
+</ul>
+<h2 id="4-工具原理"><a href="#4-工具原理" class="headerlink" title="4. 工具原理"></a><strong>4. 工具原理</strong></h2><h3 id="4-1-利用UIA框架监控GUI变化"><a href="#4-1-利用UIA框架监控GUI变化" class="headerlink" title="4.1 利用UIA框架监控GUI变化"></a><strong>4.1 利用UIA框架监控GUI变化</strong></h3><p><strong>UIA基础</strong>：Windows UIA是一个允许程序与Windows图形元素交互的框架。此工具通过研究和利用UIA，能够对各种Windows应用程序的图形用户界面（GUI）进行监控。</p>
+<p><strong>事件处理</strong>：程序中定义了两个主要的事件处理函数。</p>
+<ul>
+<li><code>MyAutomationEventHandler</code>：用于处理UIA的基本事件，例如新窗口的打开等；</li>
+<li><code>MyPropertyChangedEventHandler</code>：则用于处理属性改变事件，比如文本框中内容的输入、修改等。这两个处理函数能够捕捉到用户在GUI上进行的各种操作和数据输入，从而实现对用户行为的监控。</li>
+</ul>
+<h2 id="5-工具特点"><a href="#5-工具特点" class="headerlink" title="5. 工具特点"></a><strong>5. 工具特点</strong></h2><p><strong>跨进程和域的监控能力</strong>：此工具不仅能够在单一进程中监控GUI事件，还能在不同进程之间进行监控。这意味着它可以同时对多个应用程序的界面进行操作捕捉，扩大了监控的范围。</p>
+<p><strong>浏览器域监控</strong>：程序甚至能够在浏览器的不同域中添加处理函数，进一步拓展了其监控能力。例如在使用浏览器时，无论用户访问的是哪个网站或网页应用,此工具都有可能对其进行界面事件的监控。</p>
+<h2 id="6-使用示例"><a href="#6-使用示例" class="headerlink" title="6. 使用示例"></a><strong>6. 使用示例</strong></h2><p>说了那么多，我们现在来体验一下这个工具所能达到的效果：</p>
+<h3 id="6-1-监控整个系统-【建议不要使用】"><a href="#6-1-监控整个系统-【建议不要使用】" class="headerlink" title="6.1 监控整个系统 【建议不要使用】"></a><strong>6.1 监控整个系统 【建议不要使用】</strong></h3><p>为什么不建议使用呢？</p>
+<p>这样资源占用较大，文件内容也过大，如果想使用这一种，使用老版的就行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spyndicapped.exe spy</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqgEYAbfpuDAastl4NnVJ2IDuic2UkvYEuSicc3PIlITicZtmGqJJPbiarZw/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqdyWKB93TIticZtib3IFLC4NwOer4iahWepH1YYpWicQdfeoibUTicc8K2ibLw/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<p>他会将剪切板和用户的输入都记录下来</p>
+<h3 id="6-2-监控某个特定进程-【推荐】"><a href="#6-2-监控某个特定进程-【推荐】" class="headerlink" title="6.2 监控某个特定进程 【推荐】"></a><strong>6.2 监控某个特定进程 【推荐】</strong></h3><ol>
+<li>查看现在已经开启的进程</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spyndicapped.exe find</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqP2Y7ChGeHcMuwC0HSIZlGiaYEicxkh8ib0E3zpG8ickn4GsmKanWAQRsiag/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<ol>
+<li>指定进程进行监控，并生成文件 我这边监控微信的输入，并且生成123.log</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spyndicapped.exe spy  --pid 16896 --logfile 123.log</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqfeWiaIxaOwjgLlZbTBZ2OMicgk5BaibZhjQhpYmf1098EzVtQPIcqrOtA/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<p>我们看到已经成功记录</p>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a><strong>7. 总结</strong></h2><p>此工具的出现，其实对于HW的红队来说，意义不大，因为HW是对于时间的要求极高，其他的都可以排后，所以什么简单使用什么就可以了。但是对于APT组织来说……可以有很多的思考空间！</p>
+<h2 id="8-工具下载地址"><a href="#8-工具下载地址" class="headerlink" title="8. 工具下载地址"></a><strong>8. 工具下载地址</strong></h2><p>Github:<a target="_blank" rel="noopener" href="https://github.com/CICADA8-Research/Spyndicapped">https://github.com/CICADA8-Research/Spyndicapped</a></p>
+<p>或者夸克网盘:<br>链接：<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/0a414077c29f">https://pan.quark.cn/s/0a414077c29f</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/内网工具/">#内网工具</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                     渗 透 测 试 ， 让 漏 洞 无 所 遁 形 ！ 电 子 取 证 ， 让 证 据 诉 说 答 案 ！ 占 卜 术 ， 一 起 揭 示 宇 宙 奥 秘 ！ 
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/FTK-%E9%95%9C%E5%83%8F%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/">FTK-镜像取证工具</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-MagNet/">内存取证-MagNet</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81-%E7%9B%AE%E5%BD%95/">电子取证-目录</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/17/%E8%93%9D%E9%98%9F%E5%8F%8D%E5%87%BB%E5%B7%A5%E5%85%B7-HuntBack/">蓝队反击工具-HuntBack</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Hack-tools">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://t.me/time_766">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:sgyling@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    这里要填写备案信息,但...但...但是我忘啦~
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
