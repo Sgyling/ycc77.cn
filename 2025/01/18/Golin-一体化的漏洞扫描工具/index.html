@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="GOlin 一体化的漏洞扫描工具||链接https://github.com/selinuxG/Golin
+下载链接:https://github.com/selinuxG/Golin/releases/tag/1.2.5
+主要功能
+主机覆盖探测、漏洞扫描、子域名扫描、端口扫描、各类服务数据库爆破、">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="杨CC">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Golin-一体化的漏洞扫描工具"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="杨CC的小世界"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>Golin-一体化的漏洞扫描工具 - 杨CC的小世界</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杨CC的小世界" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    关于我?
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档文章
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2025/01/18/Golin-%E4%B8%80%E4%BD%93%E5%8C%96%E7%9A%84%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7/">
+                Golin-一体化的漏洞扫描工具
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-18</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="GOlin-一体化的漏洞扫描工具-链接"><a href="#GOlin-一体化的漏洞扫描工具-链接" class="headerlink" title="GOlin 一体化的漏洞扫描工具||链接"></a>GOlin 一体化的漏洞扫描工具||链接</h2><p><a target="_blank" rel="noopener" href="https://github.com/selinuxG/Golin">https://github.com/selinuxG/Golin</a></p>
+<h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接:"></a>下载链接:</h2><p><a target="_blank" rel="noopener" href="https://github.com/selinuxG/Golin/releases/tag/1.2.5">https://github.com/selinuxG/Golin/releases/tag/1.2.5</a></p>
+<h1 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h1><blockquote>
+<p>主机覆盖探测、漏洞扫描、子域名扫描、端口扫描、各类服务数据库爆破、poc扫描、xss扫描、web标题探测、web指纹识别、web敏感信息泄露、web目录浏览、web文件下载、保障安全风险等问题风险自查等； 弱口令&#x2F;未授权访问：40余种??组件； WEB识别：300余种； 漏洞扫描：XSS、任意文件访问、任意命令执行、敏感信息泄露、默认账户密码…； 资产扫描：扫描每个主机-&gt;评估每个端口-&gt;识别协议&#x2F;组件-&gt;基于组件协议进行弱口令、漏洞扫描-&gt;输出报告</p>
+</blockquote>
+<h2 id="web模式预约-仅支持运行等保-安全配置配置功能"><a href="#web模式预约-仅支持运行等保-安全配置配置功能" class="headerlink" title="web模式预约(仅支持运行等保&#x2F;安全配置配置功能)"></a>web模式预约(仅支持运行等保&#x2F;安全配置配置功能)</h2><p><a target="_blank" rel="noopener" href="https://github.com/selinuxG/Golin/blob/master/images/web.jpg"><img src="https://github.com/selinuxG/Golin/raw/master/images/web.jpg" alt="网络"></a></p>
+<h2 id="资产-组件-漏洞扫描功能预览"><a href="#资产-组件-漏洞扫描功能预览" class="headerlink" title="资产&#x2F;组件&#x2F;漏洞扫描功能预览"></a>资产&#x2F;组件&#x2F;漏洞扫描功能预览</h2><p><a target="_blank" rel="noopener" href="https://github.com/selinuxG/Golin/blob/master/images/port.jpg"><img src="https://github.com/selinuxG/Golin/raw/master/images/port.jpg" alt="港口"></a></p>
+<h2 id="WEB目录扫描模式预览"><a href="#WEB目录扫描模式预览" class="headerlink" title="WEB目录扫描模式预览"></a>WEB目录扫描模式预览</h2><p><a target="_blank" rel="noopener" href="https://github.com/selinuxG/Golin/blob/master/images/dirsearch.jpg"><img src="https://github.com/selinuxG/Golin/raw/master/images/dirsearch.jpg" alt="目录搜索"></a></p>
+<h2 id="弱口令-未授权现阶段支持类型"><a href="#弱口令-未授权现阶段支持类型" class="headerlink" title="弱口令&#x2F;未授权现阶段支持类型"></a>弱口令&#x2F;未授权现阶段支持类型</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型</th>
+<th>是否支持</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SSH</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>远程开发计划</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>文件传输协议</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>MySQL</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>PostgreSQL</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>雷迪斯</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>SQL数据库</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>中小企业</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>远程登录</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>雄猫</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>芒果数据库</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>12</td>
+<td>弹性搜索</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>13</td>
+<td>甲骨文</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>动物园管理员</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>15</td>
+<td>达博</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>16</td>
+<td>NPS</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>17 号</td>
+<td>德鲁伊</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>18</td>
+<td>活跃的MQ</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>20</td>
+<td>沙发数据库</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Hadoop-管理</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>22</td>
+<td>阿帕奇Spark</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>23</td>
+<td>昂首阔步</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>24</td>
+<td>木花</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>25</td>
+<td>卡夫卡管理器</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>26</td>
+<td>詹金斯</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>27</td>
+<td>一切</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>28</td>
+<td>D-Link 路由器</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>29</td>
+<td>纳科斯</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Hive服务器</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>31</td>
+<td>DockerRegistry</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>32</td>
+<td>阿帕奇风暴</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>33</td>
+<td>普罗米修斯</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>34</td>
+<td>节点导出器</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>35</td>
+<td>阿帕奇德鲁伊</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>36</td>
+<td>扎比克斯</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Jupyter实验室</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>38</td>
+<td>XXL工作</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>39</td>
+<td>WIFISKY7层流控路由器</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Apache-APISIX</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>41</td>
+<td>阿里巴巴-哨兵</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>42</td>
+<td>飞致云-DateEase</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Apache-Solr-管理</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>44</td>
+<td>EasyCVR视频管理平台</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>45</td>
+<td>使用友-移动系统管理</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+<tr>
+<td>46</td>
+<td>杰拉皮</td>
+<td>√</td>
+<td>仅验证默认账户</td>
+</tr>
+<tr>
+<td>47</td>
+<td>蒙戈快递</td>
+<td>√</td>
+<td>仅验证未授权访问</td>
+</tr>
+</tbody></table>
+<h2 id="资产扫描现阶段支持功能"><a href="#资产扫描现阶段支持功能" class="headerlink" title="资产扫描现阶段支持功能"></a>资产扫描现阶段支持功能</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>功能</th>
+<th>是否支持</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>多线程</td>
+<td>√</td>
+<td>默认为100梯度，可通过-c指定梯度数</td>
+</tr>
+<tr>
+<td>2</td>
+<td>指定端口</td>
+<td>√</td>
+<td>格式支持1,2,3,2-20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>指定IP</td>
+<td>√</td>
+<td>格式支持192.168.1.1,192.168.1.1&#x2F;24,192.168.1-10, <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>故障排除端口&#x2F;主机</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>扫描前探测主机主机</td>
+<td>√</td>
+<td>基于ping，可通过–noping跳过探测</td>
+</tr>
+<tr>
+<td>6</td>
+<td>打乱主机顺序</td>
+<td>√</td>
+<td>默认不打乱,可通过–随机进行打乱</td>
+</tr>
+<tr>
+<td>7</td>
+<td>协议识别</td>
+<td>√</td>
+<td>目前支持常见协议：ssh、redis、https、https、MySQL、pgsql、ftp等</td>
+</tr>
+<tr>
+<td>8</td>
+<td>超时时间</td>
+<td>√</td>
+<td>默认5秒，可通过-t指定</td>
+</tr>
+<tr>
+<td>9</td>
+<td>识别网</td>
+<td>√</td>
+<td>目前支持识别服务器、标题、ssl证书</td>
+</tr>
+<tr>
+<td>10</td>
+<td>结果保存</td>
+<td>√</td>
+<td>默认保存保存到portscan.xlsx</td>
+</tr>
+<tr>
+<td>11</td>
+<td>主机操作系统识别</td>
+<td>√</td>
+<td>基于ttl</td>
+</tr>
+<tr>
+<td>12</td>
+<td>组件识别</td>
+<td>√</td>
+<td>目前使用300+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>自动扫描弱口令</td>
+<td>√</td>
+<td>rdp、ssh、redis、mysql、oracle、es、telnet、pgsql等40+种</td>
+</tr>
+<tr>
+<td>14</td>
+<td>web自动扫描xss</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>web自动扫描漏洞</td>
+<td>√</td>
+<td>扫描poc、未授权访问、目录泄露</td>
+</tr>
+<tr>
+<td>16</td>
+<td>快速扫描格式</td>
+<td>√</td>
+<td>支持格式：<a href="https://192.168.1.xn--1:9090http-hh3i//192.168.1.1:9090、192.168.1.1:9090/login/index.php">https://192.168.1.1:9090、http://192.168.1.1:9090、192.168.1.1:9090/login/index.php</a></td>
+</tr>
+<tr>
+<td>17 号</td>
+<td>sql注入扫描</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>佛法数据</td>
+<td>√</td>
+<td>需设置fofa_email、fofa_key、fofa_size环境变量</td>
+</tr>
+<tr>
+<td>19</td>
+<td>网站截图</td>
+<td>√</td>
+<td>需要本地配备chrom浏览器</td>
+</tr>
+</tbody></table>
+<h2 id="web目录扫描现阶段支持功能"><a href="#web目录扫描现阶段支持功能" class="headerlink" title="web目录扫描现阶段支持功能"></a>web目录扫描现阶段支持功能</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>功能</th>
+<th>是否支持</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>多线程</td>
+<td>√</td>
+<td>默认为30欧元</td>
+</tr>
+<tr>
+<td>2</td>
+<td>自定义状态码</td>
+<td>√</td>
+<td>默认为200</td>
+</tr>
+<tr>
+<td>3</td>
+<td>代理模式</td>
+<td>√</td>
+<td>http&#x2F;s、袜子</td>
+</tr>
+<tr>
+<td>4</td>
+<td>返回标题</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>超时等待时常</td>
+<td>√</td>
+<td>默认为3秒</td>
+</tr>
+<tr>
+<td>6</td>
+<td>循环等待</td>
+<td>√</td>
+<td>默认为无限制</td>
+</tr>
+<tr>
+<td>7</td>
+<td>网址</td>
+<td>√</td>
+<td>3W+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>自定义用户代理</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>重传</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>爬虫</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>结果保存</td>
+<td>√</td>
+<td>保存到dirScan.json</td>
+</tr>
+<tr>
+<td>12</td>
+<td>内置字典</td>
+<td>√</td>
+<td>3W条目录路径</td>
+</tr>
+<tr>
+<td>13</td>
+<td>识别目录浏览</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>识别敏感信息泄露</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>识别文件下载</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>xss扫描</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>17 号</td>
+<td>组件识别</td>
+<td>√</td>
+<td>目前使用300+</td>
+</tr>
+</tbody></table>
+<h2 id="自动化测评现阶段支持类型"><a href="#自动化测评现阶段支持类型" class="headerlink" title="自动化测评现阶段支持类型"></a>自动化测评现阶段支持类型</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型</th>
+<th>是否支持</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>森托斯</td>
+<td>√</td>
+<td>SSH远程或本地运行</td>
+</tr>
+<tr>
+<td>2</td>
+<td>视窗</td>
+<td>√</td>
+<td>本地运行</td>
+</tr>
+<tr>
+<td>3</td>
+<td>雷迪斯</td>
+<td>√</td>
+<td>远程或本地运行</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PostgreSQL</td>
+<td>√</td>
+<td>远程或本地运行</td>
+</tr>
+<tr>
+<td>5</td>
+<td>甲骨文</td>
+<td>√</td>
+<td>远程或本地运行</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SQL数据库</td>
+<td>√</td>
+<td>远程或本地运行</td>
+</tr>
+<tr>
+<td>7</td>
+<td>新华三</td>
+<td>√</td>
+<td>SSH远程</td>
+</tr>
+<tr>
+<td>8</td>
+<td>华为</td>
+<td>√</td>
+<td>SSH远程</td>
+</tr>
+<tr>
+<td>9</td>
+<td>AIX</td>
+<td>√</td>
+<td>可自定义命令未内置</td>
+</tr>
+<tr>
+<td>10</td>
+<td>乌班图</td>
+<td>√</td>
+<td>可自定义命令未内置</td>
+</tr>
+<tr>
+<td>11</td>
+<td>MongoDB</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>弹性搜索</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="常用启动参数"><a href="#常用启动参数" class="headerlink" title="常用启动参数"></a>常用启动参数</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">golin web (通过web方式启动,仅支持等保功能)</span><br><span class="line">golin port (自动读取本地网卡IP地址段进行扫描,过滤虚拟网卡地址段)</span><br><span class="line">golin port -i 192.168.1.1/24 (扫描c段端口并扫描弱口令、xss、poc漏洞)+组建</span><br><span class="line">golin port -i 192.168.1.1/24 --ipfile ip.txt (扫描指定IP段的同时扫描ip.txt文件中的主机,默认读取ip.txt,目录下如果存在不使用--ipfile也会读取)</span><br><span class="line">golin port --fofa &#x27;app=&quot;nps&quot; &amp;&amp; port=&quot;8080&quot;&#x27; (调用fofa数据进行扫描)</span><br><span class="line">golin port -i 192.168.1.1:8080 (快速扫描某一主机的特定端口)</span><br><span class="line">golin port -i http://www.test.com:18080 (扫描网站首页)</span><br><span class="line">golin port -i http://www.test.com:18080/info (扫描网站特定页)</span><br><span class="line">golin port -i 192.168.1.1/24 -c 1000 -t 10(仅扫描c段端口并设置并发数为1000,端口连接超时为10秒)</span><br><span class="line">golin port -i 192.168.1.1/24 --noping --nocrack --random(扫描c段端口但不探测存活不扫描弱口令,并且打乱主机顺序扫描)</span><br><span class="line">golin port -i 192.168.1.1/24 --noimg(不进行网站截图)</span><br><span class="line">golin port -i 192.168.1.1/24 --nopoc(扫描c段端口但禁用扫描漏洞)</span><br><span class="line">golin dirsearch -u https://tegitst.com -f 字典.txt --code 200,404 (扫描状态码为200以及404的web目录)</span><br><span class="line">golin [linux、mysql、oracle、sqlserver、redis、windows...] (按照3级等保要求核查各项安全配置生成html形式报告)</span><br><span class="line">golin update (检查是否可更新)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="星图"><a href="#星图" class="headerlink" title="星图"></a>星图</h1><p><a target="_blank" rel="noopener" href="https://starchart.cc/selinuxG/Golin"><img src="https://camo.githubusercontent.com/36080053f16386d174402f3a0a7f57a86e24abd9fa9881ce700e772a733d9c91/68747470733a2f2f7374617263686172742e63632f73656c696e7578472f476f6c696e2e737667" alt="随着时间的推移观星者"></a></p>
+<h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><p>本工具仅面向合法授权的企业安全建设行为，如您需要测试本工具的可用性，请自行搭建靶机环境。</p>
+<p>在使用本工具进行检测时，您应确保该行为符合当地的法律法规，并且已获得足够的授权。请勿对未授权的目标进行扫描。</p>
+<p>如果您在使用本工具的过程中存在任何非法行为，您需自行承担相应的一切后果。</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/信息收集-综合类/">#信息收集-综合类</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                     渗 透 测 试 ， 让 漏 洞 无 所 遁 形 ！ 电 子 取 证 ， 让 证 据 诉 说 答 案 ！ 占 卜 术 ， 一 起 揭 示 宇 宙 奥 秘 ！ 
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/APKDeeplens-%E8%87%AA%E5%8A%A8%E5%AF%B9APK%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0-%E9%A1%BA%E4%BE%BF%E5%87%BA%E4%B8%AA%E6%8A%A5%E5%91%8A/">APKDeeplens-自动对APK进行安全评估-</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/apk2url-%E8%87%AA%E5%8A%A8%E6%8F%90%E5%8F%96apk%E4%B8%AD%E7%9A%84ip%E5%92%8C%E5%9F%9F%E5%90%8D%E5%B7%A5%E5%85%B7/">apk2url-自动提取apk中的ip和域名工具</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/X-Recon-XSS%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/">X-Recon-XSS漏洞扫描器</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/dirmap-%E8%B7%AF%E5%BE%84%E6%89%AB%E6%8F%8F%E7%A5%9E%E5%99%A8/">dirmap-路径扫描神器</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Hack-tools">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://t.me/time_766">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:sgyling@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    这里要填写备案信息,但...但...但是我忘啦~
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

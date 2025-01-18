@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="arpinggithub:https://github.com/ThomasHabets/arping
+arping-简介这是一款把ping玩出花的命令~
+各选项功能及使用方法
+-0 选项
+功能：使用此选项可以将源 IP 地址设置为 0.0.0.0 进行 ping 操作。当你还未对网络接口进行配置时">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="杨CC">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="arping-主机存活探测工具"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="杨CC的小世界"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>arping-主机存活探测工具 - 杨CC的小世界</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杨CC的小世界" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    关于我?
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档文章
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2025/01/17/arping-%E4%B8%BB%E6%9C%BA%E5%AD%98%E6%B4%BB%E6%8E%A2%E6%B5%8B%E5%B7%A5%E5%85%B7/">
+                arping-主机存活探测工具
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-17</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="arping"><a href="#arping" class="headerlink" title="arping"></a>arping</h1><p>github:<a target="_blank" rel="noopener" href="https://github.com/ThomasHabets/arping">https://github.com/ThomasHabets/arping</a></p>
+<h2 id="arping-简介"><a href="#arping-简介" class="headerlink" title="arping-简介"></a>arping-简介</h2><p>这是一款把ping玩出花的命令~</p>
+<h3 id="各选项功能及使用方法"><a href="#各选项功能及使用方法" class="headerlink" title="各选项功能及使用方法"></a>各选项功能及使用方法</h3><ol>
+<li><strong><code>-0</code> 选项</strong><ul>
+<li><strong>功能</strong>：使用此选项可以将源 IP 地址设置为 <code>0.0.0.0</code> 进行 <code>ping</code> 操作。当你还未对网络接口进行配置时可使用该选项。不过要注意，这样可能会导致 MAC 地址 <code>ping</code> 操作得不到回应，它是 <code>-S 0.0.0.0</code> 的别名。</li>
+<li><strong>示例</strong>：<code>arping -0 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-a</code> 选项</strong><ul>
+<li><strong>功能</strong>：可实现可听的 <code>ping</code>，也就是在操作时有声音提示。</li>
+<li><strong>示例</strong>：<code>arping -a &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-A</code> 选项</strong><ul>
+<li><strong>功能</strong>：仅对匹配所请求地址的回复进行计数。需要注意的是，这个选项会破坏大部分常规操作，通常仅在同时对多个主机进行 <code>arping</code> 操作时才有用，可参考 <code>arping-scan-net.sh</code> 示例脚本。</li>
+<li><strong>示例</strong>：<code>arping -A &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-b</code> 选项</strong><ul>
+<li><strong>功能</strong>：类似于 <code>-0</code> 选项，但它将源广播地址设置为 <code>255.255.255.255</code>。不过要注意，由于这并非主机的常规行为，可能会导致 <code>arping</code> 操作得不到回应。</li>
+<li><strong>示例</strong>：<code>arping -b &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-B</code> 选项</strong><ul>
+<li><strong>功能</strong>：如果你想要将目标地址设置为 <code>255.255.255.255</code> 进行操作时，使用该选项来替代在命令中指定具体主机地址。</li>
+<li><strong>示例</strong>：<code>arping -B</code></li>
+</ul>
+</li>
+<li><strong><code>-c count</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于指定仅发送指定数量（<code>count</code>）的请求。例如设置发送 5 次请求，就将 <code>count</code> 替换为 5。</li>
+<li><strong>示例</strong>：<code>arping -c 5 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-C count</code> 选项</strong><ul>
+<li><strong>功能</strong>：不管 <code>-c</code> 选项以及超时设置（<code>-w</code> 选项相关）如何，只等待指定数量（<code>count</code>）的回复。</li>
+<li><strong>示例</strong>：<code>arping -C 3 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-d</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于查找重复的回复。如果存在来自两个不同 MAC 地址的回复，将以退出码 1 退出程序。</li>
+<li><strong>示例</strong>：<code>arping -d &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-D</code> 选项</strong><ul>
+<li><strong>功能</strong>：将回复显示为感叹号，而丢失的数据包显示为点号，以这种方式来展示操作结果。</li>
+<li><strong>示例</strong>：<code>arping -D &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-e</code> 选项</strong><ul>
+<li><strong>功能</strong>：与 <code>-a</code> 选项类似，但在没有回复时会发出蜂鸣声提示。</li>
+<li><strong>示例</strong>：<code>arping -e &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-F</code> 选项</strong><ul>
+<li><strong>功能</strong>：不尝试对接口名称进行智能处理（即使不给出此开关，<code>-i</code> 选项也会覆盖智能处理相关逻辑）。</li>
+<li><strong>示例</strong>：<code>arping -F -i &lt;接口名称&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-g group</code> 选项</strong><ul>
+<li><strong>功能</strong>：使用 <code>setgid()</code> 将组设置为指定的组（<code>group</code>），而不是默认的 <code>nobody</code> 组。</li>
+<li><strong>示例</strong>：<code>arping -g &lt;指定组名&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-h</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于显示帮助信息并退出程序，方便查看各选项说明等内容。</li>
+<li><strong>示例</strong>：<code>arping -h</code></li>
+</ul>
+</li>
+<li><strong><code>-i interface</code> 选项</strong><ul>
+<li><strong>功能</strong>：指定要使用的网络接口，比如指定使用名为 <code>eth0</code> 的网络接口来进行 <code>arping</code> 操作。</li>
+<li><strong>示例</strong>：<code>arping -i eth0 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-m type</code> 选项</strong><ul>
+<li><strong>功能</strong>：指定用于传入数据包的时间戳类型。在进行 <code>ping</code> 操作时可以使用 <code>-vv</code> 选项来列出可用的时间戳类型。</li>
+<li><strong>示例</strong>：<code>arping -m &lt;时间戳类型&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-q</code> 选项</strong><ul>
+<li><strong>功能</strong>：除了错误消息外，不显示其他常规消息，使输出更简洁，只呈现关键的错误提示内容。</li>
+<li><strong>示例</strong>：<code>arping -q &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-Q pri</code> 选项</strong><ul>
+<li><strong>功能</strong>：设置 <code>802.1p</code> 优先级（<code>pri</code>），通常需要和 <code>802.1Q</code>（<code>-V</code> 选项）一起使用，默认优先级为 0。</li>
+<li><strong>示例</strong>：<code>arping -Q 3 -V 10 &lt;目标IP地址&gt;</code>（假设设置优先级为 3 且添加 VLAN 标签为 10）</li>
+</ul>
+</li>
+<li><strong><code>-r</code> 选项</strong><ul>
+<li><strong>功能</strong>：以原始输出形式展示，对于每个回复仅显示 MAC 地址 &#x2F; IP 地址，去除其他多余的信息展示。</li>
+<li><strong>示例</strong>：<code>arping -r &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-R</code> 选项</strong><ul>
+<li><strong>功能</strong>：同样是原始输出形式，但与 <code>-r</code> 有所不同，它可以显示 “另一个” 相关内容，并且可以和 <code>-r</code> 选项结合使用。</li>
+<li><strong>示例</strong>：<code>arping -R &lt;目标IP地址&gt;</code> 或 <code>arping -rR &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-s MAC</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于设置源 MAC 地址。可能需要结合 <code>-p</code> 选项一起使用，特别是当你使用的不是自己 “拥有” 的 MAC 地址时。</li>
+<li><strong>示例</strong>：<code>arping -s &lt;源MAC地址&gt; -p &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-S IP</code> 选项</strong><ul>
+<li><strong>功能</strong>：类似于 <code>-b</code> 和 <code>-0</code> 选项，但可以设置指定的源地址（<code>IP</code>）。需要注意的是，如果目标没有到该 IP 的路由，可能会导致 <code>arping</code> 操作得不到回应。若使用的不是自己拥有的 IP，可能还需要开启接口的混杂模式（使用 <code>-p</code> 选项）。通过此选项可以在不占用自己 IP 地址的情况下查出主机对应的 IP 地址。</li>
+<li><strong>示例</strong>：<code>arping -S &lt;源IP地址&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-t MAC</code> 选项</strong><ul>
+<li><strong>功能</strong>：在对 IP 地址进行 <code>ping</code> 操作时，设置要使用的目标 MAC 地址。</li>
+<li><strong>示例</strong>：<code>arping -t &lt;目标MAC地址&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-T IP</code> 选项</strong><ul>
+<li><strong>功能</strong>：当对那些不会响应广播 <code>ping</code> 但可能响应定向广播的 MAC 地址进行 <code>ping</code> 操作时，使用 <code>-T</code> 指定目标地址。例如已知 <code>MAC-B</code> 和 <code>IP-B</code> 的情况下，检查 <code>MAC-A</code> 的地址，可按示例操作。</li>
+<li><strong>示例</strong>：<code>arping -S &lt;IP-B&gt; -s &lt;MAC-B&gt; -p &lt;MAC-A&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-p</code> 选项</strong><ul>
+<li><strong>功能</strong>：开启接口的混杂模式，在你使用的不是自己 “拥有” 的 MAC 地址时需要使用该选项。</li>
+<li><strong>示例</strong>：<code>arping -p &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-P</code> 选项</strong><ul>
+<li><strong>功能</strong>：发送 ARP 回复而不是请求，通常与 <code>-U</code> 选项配合使用会比较有用。</li>
+<li><strong>示例</strong>：<code>arping -P -U &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-u</code> 选项</strong><ul>
+<li><strong>功能</strong>：在对 MAC 地址进行 <code>ping</code> 操作时，显示 <code>index=received/sent</code> 的形式，而不只是显示 <code>index=received</code>。</li>
+<li><strong>示例</strong>：<code>arping -u &lt;目标MAC地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-U</code> 选项</strong><ul>
+<li><strong>功能</strong>：发送未经请求的 ARP 消息。</li>
+<li><strong>示例</strong>：<code>arping -U &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-v</code> 选项</strong><ul>
+<li><strong>功能</strong>：启用详细输出模式，显示更多的操作相关信息。使用两次（<code>-vv</code>）可以获取更详细的消息内容。</li>
+<li><strong>示例</strong>：<code>arping -v &lt;目标IP地址&gt;</code> 或 <code>arping -vv &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-V num</code> 选项</strong><ul>
+<li><strong>功能</strong>：添加 <code>802.1Q</code> VLAN 标签（<code>num</code>），默认不添加 VLAN 标签。</li>
+<li><strong>示例</strong>：<code>arping -V 5 &lt;目标IP地址&gt;</code>（假设添加 VLAN 标签值为 5）</li>
+</ul>
+</li>
+<li><strong><code>-w sec</code> 选项</strong><ul>
+<li><strong>功能</strong>：指定一个超时时间（<code>sec</code>，单位为秒），无论已经发送或接收了多少数据包，到达该超时时间后 <code>ping</code> 操作就会退出。</li>
+<li><strong>示例</strong>：<code>arping -w 5 &lt;目标IP地址&gt;</code>（表示超时时间设置为 5 秒）</li>
+</ul>
+</li>
+<li><strong><code>-W sec</code> 选项</strong><ul>
+<li><strong>功能</strong>：设置每次 <code>ping</code> 操作之间等待的时间（<code>sec</code>，单位为秒）。</li>
+<li><strong>示例</strong>：<code>arping -W 2 &lt;目标IP地址&gt;</code>（表示每次 <code>ping</code> 操作间隔等待 2 秒）</li>
+</ul>
+</li>
+<li><strong><code>-z</code> 选项</strong><ul>
+<li><strong>功能</strong>：启用 seccomp（一种系统调用过滤机制）。</li>
+<li><strong>示例</strong>：<code>arping -z &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-Z</code> 选项</strong><ul>
+<li><strong>功能</strong>：禁用 seccomp，这是默认的状态设置。</li>
+<li><strong>示例</strong>：<code>arping -Z &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/信息收集/">#信息收集</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                     渗 透 测 试 ， 让 漏 洞 无 所 遁 形 ！ 电 子 取 证 ， 让 证 据 诉 说 答 案 ！ 占 卜 术 ， 一 起 揭 示 宇 宙 奥 秘 ！ 
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/APKDeeplens-%E8%87%AA%E5%8A%A8%E5%AF%B9APK%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0-%E9%A1%BA%E4%BE%BF%E5%87%BA%E4%B8%AA%E6%8A%A5%E5%91%8A/">APKDeeplens-自动对APK进行安全评估-</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/apk2url-%E8%87%AA%E5%8A%A8%E6%8F%90%E5%8F%96apk%E4%B8%AD%E7%9A%84ip%E5%92%8C%E5%9F%9F%E5%90%8D%E5%B7%A5%E5%85%B7/">apk2url-自动提取apk中的ip和域名工具</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/X-Recon-XSS%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/">X-Recon-XSS漏洞扫描器</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/01/18/dirmap-%E8%B7%AF%E5%BE%84%E6%89%AB%E6%8F%8F%E7%A5%9E%E5%99%A8/">dirmap-路径扫描神器</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Hack-tools">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://t.me/time_766">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:sgyling@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    这里要填写备案信息,但...但...但是我忘啦~
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
