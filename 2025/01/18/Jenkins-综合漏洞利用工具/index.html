@@ -1,181 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Jenkins-综合漏洞利用工具 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
 
-<!-- Head tag -->
-<head>
+  
+  
+  
+  <meta property="og:title" content="Jenkins-综合漏洞利用工具 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/18/Jenkins-%E7%BB%BC%E5%90%88%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-18T02:40:38.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<link rel="stylesheet" href="/css/var.css">
 
-    <!--Description-->
-    
-        <meta name="description" content="jenkins综合漏洞利用工具使用jdk版本在windows或linux使用jdk8的哪一个版本都应该可以，在macOS里需要jdk8u以上的版本，比如jdk8u321
-安装jdk8
-1sudo apt install openjdk-8-jdk
+  
+<link rel="stylesheet" href="/css/main.css">
 
+  
+<link rel="stylesheet" href="/css/typography.css">
 
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
 
-kali切换jdk版本.
-1update-al">
-    
+  
+<link rel="stylesheet" href="/css/components.css">
 
-    <!--Author-->
-    
-        <meta name="author" content="杨CC">
-    
+  
+<link rel="stylesheet" href="/css/nav.css">
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Jenkins-综合漏洞利用工具"/>
-    
+  
+<link rel="stylesheet" href="/css/paginator.css">
 
-    <!--Open Graph Description-->
-    
+  
+<link rel="stylesheet" href="/css/footer.css">
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="杨CC的小世界"/>
+  
+<link rel="stylesheet" href="/css/post-list.css">
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
 
-    <!--Page Cover-->
-    
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
 
-    
-        <meta name="twitter:card" content="summary" />
-    
-    
-    
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
 
-    <!-- Title -->
-    
-    <title>Jenkins-综合漏洞利用工具 - 杨CC的小世界</title>
+  
+  
+  
+  
+  
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Google Analytics -->
-    
-
-
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杨CC的小世界" type="application/atom+xml">
-</head>
-
-
-<body>
-
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    首页
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    标签
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    分类
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/about">
-                    关于我?
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    归档文章
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
         
-    </div>
-</header>
-
-        <section class="main">
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
             
-<div class="post">
-
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2025/01/18/Jenkins-%E7%BB%BC%E5%90%88%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/">
-                Jenkins-综合漏洞利用工具
-            </a>
-        </h1>
-        <div class="post-info">
             
-                <span class="date">2025-01-18</span>
+            <a class="nav-item" href="/">首页</a>
             
             
             
-                <span class="category">
-                    <a href="/categories/渗透/">渗透</a>
-                </span>
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
             
         </div>
     </div>
-
-    <div class="content">
-
-        <!-- Gallery -->
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
         
 
-        <!-- Post Content -->
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>18,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">Jenkins-综合漏洞利用工具</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
         <h1 id="jenkins综合漏洞利用工具"><a href="#jenkins综合漏洞利用工具" class="headerlink" title="jenkins综合漏洞利用工具"></a>jenkins综合漏洞利用工具</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="jdk版本"><a href="#jdk版本" class="headerlink" title="jdk版本"></a>jdk版本</h3><p>在windows或linux使用jdk8的哪一个版本都应该可以，在macOS里需要jdk8u以上的版本，比如jdk8u321</p>
 <p>安装jdk8</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
@@ -227,163 +207,135 @@ kali切换jdk版本.
     </div>
 
     
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/信息收集-漏扫类/">#信息收集-漏扫类</a>
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
         </div>
-    
-
-    <!-- Comments -->
-    
-
-</div>
-        </section>
-
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-漏扫类/" class="tag">#信息收集-漏扫类</a>
+        </p>
+        
     </div>
-</div>
+    
 
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                     渗 透 测 试 ， 让 漏 洞 无 所 遁 形 ！ 电 子 取 证 ， 让 证 据 诉 说 答 案 ！ 占 卜 术 ， 一 起 揭 示 宇 宙 奥 秘 ！ 
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/20/wx-hook-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7-%E6%8A%93%E5%8C%85/">wx-hook-微信小程序渗透工具-抓包</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/19/JoJoLoader-%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7-%E5%BC%80%E6%BA%90-24%E5%B9%B48%E6%9C%887%E6%97%A5%E6%9B%B4%E6%96%B0/">JoJoLoader-免杀工具(开源)-24年8月</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/18/%E9%83%A8%E7%BD%B2%E4%B8%80%E6%AC%BE%E7%9B%97Uweb%E7%AB%AF/">部署一款盗Uweb端</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/18/APKDeeplens-%E8%87%AA%E5%8A%A8%E5%AF%B9APK%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0-%E9%A1%BA%E4%BE%BF%E5%87%BA%E4%B8%AA%E6%8A%A5%E5%91%8A/">APKDeeplens-自动对APK进行安全评估-</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
+    <div class="container post-prev-next">
         
-        <li>
-            <a class="footer-post" href="/categories/%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/">网站部署</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F/">渗透</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Hack-tools">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://t.me/time_766">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:sgyling@gmail.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    这里要填写备案信息,但...但...但是我忘啦~
+        <a href="/2025/01/18/JWS-CLI-%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">JWS-CLI-全自动化信息收集工具</h3>
                 </div>
             </div>
+        </a>
+        
+        
+        <a href="/2025/01/18/Golin-%E4%B8%80%E4%BD%93%E5%8C%96%E7%9A%84%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Golin-一体化的漏洞扫描工具</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与段小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/friends" class="item">友情链接</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.patreon.com/MrWillCom" class="item">Wechat</a>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
         </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
     </div>
 </footer>
 
-<!-- After footer scripts -->
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
+        
 <script src="/js/main.js"></script>
 
+        
+        
+        
 
-<!-- Disqus Comments -->
-
-
-
-</body>
-
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
 </html>
