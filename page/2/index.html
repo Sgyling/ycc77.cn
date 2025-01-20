@@ -147,6 +147,76 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2025/01/18/burp%E6%8F%92%E4%BB%B6-%E6%8C%87%E7%BA%B9%E6%89%AB%E6%8F%8F/">
+                burp插件-指纹扫描
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-18</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="Burp-指纹识别"><a href="#Burp-指纹识别" class="headerlink" title="Burp 指纹识别"></a>Burp 指纹识别</h1><p>下载链接:<a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpFingerPrint/releases/download/v1.5/BurpFingerPrint.jar">https://github.com/shuanx/BurpFingerPrint/releases/download/v1.5/BurpFingerPrint.jar</a></p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/aec62dc0b68de45205213e0a66854fd631127f8745f8a42d6340d3028a2cd8f7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f417574686f722d536861756e2d626c7565"><img src="https://camo.githubusercontent.com/aec62dc0b68de45205213e0a66854fd631127f8745f8a42d6340d3028a2cd8f7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f417574686f722d536861756e2d626c7565" alt="img"></a> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/a0f773456863099bcf616a51290c7ea9df5f80dad5116aa42793f3f8cffd5ef7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a444b2d392b2d79656c6c6f77"><img src="https://camo.githubusercontent.com/a0f773456863099bcf616a51290c7ea9df5f80dad5116aa42793f3f8cffd5ef7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a444b2d392b2d79656c6c6f77" alt="img"></a> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/58e5f7dfab13434e66cf8dc2eb3c2c17e8ef39e24748293fad85aba83a4be899/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545362538442541312545362542432538462545362539382541462545392539372541382545382538392542412545362539432541462d2545352542452538302545352542452538302545362539432538392545362538342538462545362538332542332545342542382538442545352538382542302545372539412538342545362538382539302545362539452539432d726564"><img src="https://camo.githubusercontent.com/58e5f7dfab13434e66cf8dc2eb3c2c17e8ef39e24748293fad85aba83a4be899/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545362538442541312545362542432538462545362539382541462545392539372541382545382538392542412545362539432541462d2545352542452538302545352542452538302545362539432538392545362538342538462545362538332542332545342542382538442545352538382542302545372539412538342545362538382539302545362539452539432d726564" alt="img"></a></p>
+<blockquote>
+<p>攻击过程中，我们通常会用浏览器访问一些资产，该BurpSuite插件实现被动指纹识别+网站提取链接+OA爆破，可帮助我们发现更多资产。</p>
+</blockquote>
+<h2 id="功能如下"><a href="#功能如下" class="headerlink" title="功能如下"></a>功能如下</h2><blockquote>
+<p>下述功能会在2024年5月底完成，如果有更好的建议都可以提，然后再麻烦点个Star，创作不易，打造最强指纹识别库和弱口令探测库</p>
+</blockquote>
+<ul>
+<li>浏览器被动指纹识别，已集成Ehole指纹识别库</li>
+<li>提取网站的URL链接和解析JS文件中的URL链接后进行指纹识别</li>
+<li>开界面进行指纹库修改，可导入、导出、重置</li>
+<li>优化已有指纹库，区分重点指纹和常见指纹，补充部分实战热门漏洞的指纹，方便直接一键getshell <a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpFingerPrint/blob/main/images/importantFinger.png"><img src="https://github.com/shuanx/BurpFingerPrint/raw/main/images/importantFinger.png" alt="img.png"></a></li>
+<li>优化算法，提升性能、减少内存开销</li>
+<li>使用sqlite存储扫描结果，放置因BurpSuite意外退出而导致数据丢失</li>
+<li>收集github上常见的EXP工具，提起其含有EXP漏洞的指纹，当成重要指纹，一旦页面出现该指纹，就表示有戏有戏</li>
+<li>1、<a target="_blank" rel="noopener" href="https://github.com/R4gd0ll/I-Wanna-Get-All">https://github.com/R4gd0ll/I-Wanna-Get-All</a></li>
+<li>2、<a target="_blank" rel="noopener" href="https://github.com/YinWC/2021hvv_vul">https://github.com/YinWC/2021hvv_vul</a></li>
+<li>3、<a target="_blank" rel="noopener" href="https://github.com/zhzyker/vulmap">https://github.com/zhzyker/vulmap</a></li>
+<li>4、<a target="_blank" rel="noopener" href="https://github.com/SecWiki/CMS-Hunter">https://github.com/SecWiki/CMS-Hunter</a></li>
+<li>5、<a target="_blank" rel="noopener" href="https://github.com/coffeehb/Some-PoC-oR-ExP">https://github.com/coffeehb/Some-PoC-oR-ExP</a></li>
+<li>6、<a target="_blank" rel="noopener" href="https://github.com/White-hua/Apt_t00ls">https://github.com/White-hua/Apt_t00ls</a></li>
+<li>7、<a target="_blank" rel="noopener" href="https://github.com/biggerwing/nsfocus-rsas-knowledge-base">https://github.com/biggerwing/nsfocus-rsas-knowledge-base</a></li>
+<li>优化GUI，指纹识别出来后，可以快速查看对应的利用EXP的github地址</li>
+<li>OA类弱口令爆破</li>
+<li>与本地Packer Fuzzer JS扫描器配合发现隐秘漏洞</li>
+</ul>
+<h2 id="支持检测指纹"><a href="#支持检测指纹" class="headerlink" title="支持检测指纹"></a>支持检测指纹</h2><ul>
+<li>通达OA</li>
+<li>致远OA</li>
+<li>蓝凌OA</li>
+<li>泛微OA</li>
+<li>万户OA</li>
+<li>东华OA</li>
+<li>信呼OA</li>
+<li>等等</li>
+</ul>
+<h2 id="支持弱口令爆破组件"><a href="#支持弱口令爆破组件" class="headerlink" title="支持弱口令爆破组件"></a>支持弱口令爆破组件</h2><ul>
+<li>Apache Tomcat</li>
+</ul>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2025/01/18/burp%E6%8F%92%E4%BB%B6-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E6%89%BE%E5%99%A8/">
                 burp插件-敏感信息查找器
             </a>
@@ -1211,7 +1281,7 @@
 
 <p>第二个基准测试大致显示了如果使用 PF_RING 程序的运行速度，其开销几乎为零。</p>
 <p>顺便说一句，随机化算法大量使用“整数算术”，这是 CPU 上长期缓慢的运算。现代 CPU 已将执行此计算的速度提高了一倍，速度<code>masscan</code>更快。</p>
-<h1 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h1><p>该工具由 Robert Graham 创建：电子邮件：<a href="mailto:&#x72;&#x6f;&#x62;&#101;&#114;&#116;&#95;&#100;&#x61;&#x76;&#105;&#x64;&#95;&#103;&#x72;&#x61;&#x68;&#97;&#109;&#64;&#x79;&#x61;&#104;&#x6f;&#x6f;&#46;&#99;&#111;&#109;">robert_david_graham@yahoo.com</a> 推特：@ErrataRob</p>
+<h1 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h1><p>该工具由 Robert Graham 创建：电子邮件：<a href="mailto:&#114;&#x6f;&#98;&#101;&#x72;&#116;&#x5f;&#100;&#x61;&#118;&#x69;&#100;&#x5f;&#x67;&#114;&#x61;&#x68;&#x61;&#109;&#64;&#x79;&#97;&#x68;&#111;&#111;&#x2e;&#99;&#111;&#109;">robert_david_graham@yahoo.com</a> 推特：@ErrataRob</p>
 <h1 id="执照"><a href="#执照" class="headerlink" title="执照"></a>执照</h1><p>版权所有 (c) 2013 罗伯特·大卫·格雷厄姆</p>
 <p>该程序是免费软件：您可以根据自由软件基金会发布的 GNU Affero 通用公共许可证（许可证版本 3）的条款重新分发和&#x2F;或修改它。</p>
 <p>分发此程序的目的是希望它有用，但不提供任何保证；甚至没有适销性或特定用途适用性的默示保证。有关更多详细信息，请参阅 GNU Affero 通用公共许可证。</p>
@@ -1472,81 +1542,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2025/01/18/APK%E8%87%AA%E5%8A%A8%E6%89%AB%E6%8F%8F%E6%BC%8F%E6%B4%9E/">
-                APK自动扫描漏洞
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2025-01-18</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/渗透/">渗透</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h1 id="AppMessenger-appmsg"><a href="#AppMessenger-appmsg" class="headerlink" title="AppMessenger(appmsg)"></a>AppMessenger(appmsg)</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/releases/download/v4.6.3/appmsg4.6.3.zip">https://github.com/sulab999/AppMessenger/releases/download/v4.6.3/appmsg4.6.3.zip</a></p>
-<p>jdk17下载地址:<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html</a></p>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="解析APP"><a href="#解析APP" class="headerlink" title="解析APP"></a>解析APP</h2><p>一款适用于以APP病毒分析、APP漏洞挖掘、APP开发、HW行动&#x2F;红队&#x2F;渗透测试团队为场景的移动端(Android、iOS)辅助分析工具，可以帮助APP开发工程师、病毒分析师、漏洞&#x2F;安全研究员提高工作效率，帮助渗透测试工程师、攻击队成员&#x2F;红队成员快速收集到移动端中关键的资产信息并提供基本的信息输出,如：包名（packageName）、版本(versionName\versionCode)、应用签名(Signature)、文件MD5、SDK、URL、APP漏洞等信息。</p>
-<h2 id="APK文件解析"><a href="#APK文件解析" class="headerlink" title="APK文件解析"></a>APK文件解析</h2><p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/pic1.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/pic1.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/pic2.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/pic2.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/pic3.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/pic3.png" alt="img"></a></p>
-<h2 id="IPA文件解析"><a href="#IPA文件解析" class="headerlink" title="IPA文件解析"></a>IPA文件解析</h2><p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/ipa1.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/ipa1.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/ipa2.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/ipa2.png" alt="img"></a></p>
-<h2 id="高级检测-目前只支持APK"><a href="#高级检测-目前只支持APK" class="headerlink" title="高级检测(目前只支持APK)"></a>高级检测(目前只支持APK)</h2><p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/gj1.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/gj1.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/gj2.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/gj2.png" alt="img"></a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/gj3.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/gj3.png" alt="img"></a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
-<li>本项目始于SULAB安全团队，并联合知识星球：移动安全</li>
-<li>如果您觉得这个项目对您有用，请点击本项目右上角的”star”按钮。</li>
-<li>如果您想持续跟进新的版本情况，请点击本项目右上角的”Watch”按钮。</li>
-<li>会在知识星球发布内测或特别版</li>
-<li>新的功能或者需求会持续进行开发，欢迎提BUG。</li>
-<li>后期更新版本见releases</li>
-</ul>
-<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ul>
-<li>APP病毒分析</li>
-<li>APP漏洞挖掘</li>
-<li>APP信息收集</li>
-<li>日常渗透测试&#x2F;攻防演练中对APP中涉及的关键资产信息收集，比如URL地址、IP地址、关键字等信息的采集等。</li>
-</ul>
-<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍:"></a>功能介绍:</h1><ul>
-<li>[√] 支持任意文件MD5识别</li>
-<li>[√] 支持DEX、APK、IPA文件的信息收集</li>
-<li>[√] 支持Android壳识别（识别准确率99%，业界一流）</li>
-<li>[√] 支持基础检测：文件路径、包名、版本名、文件MD5、文件SHA1、DEX MD5、文件大小、allowbackup、debuggable、打包时间</li>
-<li>[√] 支持解析APP权限信息、签名信息、支持系统版本等其他信息</li>
-<li>[√] 支持敏感信息检测，如：url、ip等</li>
-<li>[√] 支持Windows系统、MacOS系统、*nux系列的系统</li>
-<li>[√] APP漏洞检测</li>
-<li>[×] 一键对APK文件重打包</li>
-</ul>
-<h1 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h1><ul>
-<li>App文件解析需要使用JAVA环境,JAVA版本11及以上</li>
-<li>检测java版本命令:java –version</li>
-<li>启动:java -jar appmsg.jar</li>
-<li>Pro版已集成java环境可开箱即用</li>
-</ul>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>pro版 可直接安装使用</p>
-<p>v4.5之前 建议使用jdk9或jdk1.8</p>
-<p>v4.5-v4.6.3版本 1、如有java环境，可双击apkmsg.jar，即可启动，直接将APP拖入即可自动识别 2、如果无法打开或显示有乱码，可下载配套的jdk11，运行里面写好的脚本，即可一键启动 3、MAC和Linux系统需要对运行脚本和JAVA_HOME里的文件授予可执行权限，命令如下 chmod 777 运行mac&#x2F;运行linux.sh chmod -R 777 JAVA_HOME jdk11：<a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/releases/download/v4.6.2/jdk11.zip">https://github.com/sulab999/AppMessenger/releases/download/v4.6.2/jdk11.zip</a> <a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/start.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/start.png" alt="start"></a></p>
-
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -1589,6 +1584,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/01/20/wx-hook-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7-%E6%8A%93%E5%8C%85/">wx-hook-微信小程序渗透工具-抓包</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/01/19/JoJoLoader-%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7-%E5%BC%80%E6%BA%90-24%E5%B9%B48%E6%9C%887%E6%97%A5%E6%9B%B4%E6%96%B0/">JoJoLoader-免杀工具(开源)-24年8月</a>
             </li>
             
@@ -1598,10 +1597,6 @@
             
             <li>
                 <a class="footer-post" href="/2025/01/18/APKDeeplens-%E8%87%AA%E5%8A%A8%E5%AF%B9APK%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0-%E9%A1%BA%E4%BE%BF%E5%87%BA%E4%B8%AA%E6%8A%A5%E5%91%8A/">APKDeeplens-自动对APK进行安全评估-</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/18/apk2url-%E8%87%AA%E5%8A%A8%E6%8F%90%E5%8F%96apk%E4%B8%AD%E7%9A%84ip%E5%92%8C%E5%9F%9F%E5%90%8D%E5%B7%A5%E5%85%B7/">apk2url-自动提取apk中的ip和域名工具</a>
             </li>
             
         </ul>

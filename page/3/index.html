@@ -147,6 +147,81 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2025/01/18/APK%E8%87%AA%E5%8A%A8%E6%89%AB%E6%8F%8F%E6%BC%8F%E6%B4%9E/">
+                APK自动扫描漏洞
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-18</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="AppMessenger-appmsg"><a href="#AppMessenger-appmsg" class="headerlink" title="AppMessenger(appmsg)"></a>AppMessenger(appmsg)</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/releases/download/v4.6.3/appmsg4.6.3.zip">https://github.com/sulab999/AppMessenger/releases/download/v4.6.3/appmsg4.6.3.zip</a></p>
+<p>jdk17下载地址:<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html</a></p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="解析APP"><a href="#解析APP" class="headerlink" title="解析APP"></a>解析APP</h2><p>一款适用于以APP病毒分析、APP漏洞挖掘、APP开发、HW行动&#x2F;红队&#x2F;渗透测试团队为场景的移动端(Android、iOS)辅助分析工具，可以帮助APP开发工程师、病毒分析师、漏洞&#x2F;安全研究员提高工作效率，帮助渗透测试工程师、攻击队成员&#x2F;红队成员快速收集到移动端中关键的资产信息并提供基本的信息输出,如：包名（packageName）、版本(versionName\versionCode)、应用签名(Signature)、文件MD5、SDK、URL、APP漏洞等信息。</p>
+<h2 id="APK文件解析"><a href="#APK文件解析" class="headerlink" title="APK文件解析"></a>APK文件解析</h2><p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/pic1.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/pic1.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/pic2.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/pic2.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/pic3.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/pic3.png" alt="img"></a></p>
+<h2 id="IPA文件解析"><a href="#IPA文件解析" class="headerlink" title="IPA文件解析"></a>IPA文件解析</h2><p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/ipa1.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/ipa1.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/ipa2.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/ipa2.png" alt="img"></a></p>
+<h2 id="高级检测-目前只支持APK"><a href="#高级检测-目前只支持APK" class="headerlink" title="高级检测(目前只支持APK)"></a>高级检测(目前只支持APK)</h2><p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/gj1.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/gj1.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/gj2.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/gj2.png" alt="img"></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/gj3.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/gj3.png" alt="img"></a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>本项目始于SULAB安全团队，并联合知识星球：移动安全</li>
+<li>如果您觉得这个项目对您有用，请点击本项目右上角的”star”按钮。</li>
+<li>如果您想持续跟进新的版本情况，请点击本项目右上角的”Watch”按钮。</li>
+<li>会在知识星球发布内测或特别版</li>
+<li>新的功能或者需求会持续进行开发，欢迎提BUG。</li>
+<li>后期更新版本见releases</li>
+</ul>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><ul>
+<li>APP病毒分析</li>
+<li>APP漏洞挖掘</li>
+<li>APP信息收集</li>
+<li>日常渗透测试&#x2F;攻防演练中对APP中涉及的关键资产信息收集，比如URL地址、IP地址、关键字等信息的采集等。</li>
+</ul>
+<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍:"></a>功能介绍:</h1><ul>
+<li>[√] 支持任意文件MD5识别</li>
+<li>[√] 支持DEX、APK、IPA文件的信息收集</li>
+<li>[√] 支持Android壳识别（识别准确率99%，业界一流）</li>
+<li>[√] 支持基础检测：文件路径、包名、版本名、文件MD5、文件SHA1、DEX MD5、文件大小、allowbackup、debuggable、打包时间</li>
+<li>[√] 支持解析APP权限信息、签名信息、支持系统版本等其他信息</li>
+<li>[√] 支持敏感信息检测，如：url、ip等</li>
+<li>[√] 支持Windows系统、MacOS系统、*nux系列的系统</li>
+<li>[√] APP漏洞检测</li>
+<li>[×] 一键对APK文件重打包</li>
+</ul>
+<h1 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h1><ul>
+<li>App文件解析需要使用JAVA环境,JAVA版本11及以上</li>
+<li>检测java版本命令:java –version</li>
+<li>启动:java -jar appmsg.jar</li>
+<li>Pro版已集成java环境可开箱即用</li>
+</ul>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>pro版 可直接安装使用</p>
+<p>v4.5之前 建议使用jdk9或jdk1.8</p>
+<p>v4.5-v4.6.3版本 1、如有java环境，可双击apkmsg.jar，即可启动，直接将APP拖入即可自动识别 2、如果无法打开或显示有乱码，可下载配套的jdk11，运行里面写好的脚本，即可一键启动 3、MAC和Linux系统需要对运行脚本和JAVA_HOME里的文件授予可执行权限，命令如下 chmod 777 运行mac&#x2F;运行linux.sh chmod -R 777 JAVA_HOME jdk11：<a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/releases/download/v4.6.2/jdk11.zip">https://github.com/sulab999/AppMessenger/releases/download/v4.6.2/jdk11.zip</a> <a target="_blank" rel="noopener" href="https://github.com/sulab999/AppMessenger/blob/master/pic/start.png"><img src="https://github.com/sulab999/AppMessenger/raw/master/pic/start.png" alt="start"></a></p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2025/01/18/SSRF%E6%BC%8F%E6%B4%9E%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%AB%E6%8F%8F%E4%B8%8E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/">
                 SSRF漏洞自动化扫描与利用工具
             </a>
@@ -1478,47 +1553,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2025/01/17/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-MagNet/">
-                内存取证-MagNet
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2025-01-17</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/电子取证/">电子取证</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h3 id="磁铁-RAM-捕获-内存取证工具"><a href="#磁铁-RAM-捕获-内存取证工具" class="headerlink" title="磁铁 RAM 捕获-内存取证工具"></a>磁铁 RAM 捕获-内存取证工具</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://github.com/apachecn/guru99-zh/raw/master/docs/must/img/521cf7a0d077aa5966e8da6b32510d2d.png" alt="img"></h3><p>下载链接:<a target="_blank" rel="noopener" href="https://www.magnetforensics.com/resources/magnet-ram-capture/">https://www.magnetforensics.com/resources/magnet-ram-capture/</a></p>
-<h2 id="Magnet-RAM-Capture：它有什么用"><a href="#Magnet-RAM-Capture：它有什么用" class="headerlink" title="Magnet RAM Capture：它有什么用?"></a>Magnet RAM Capture：它有什么用?</h2><p>Magnet RAM Capture 是一款免费的成像工具，旨在捕获嫌疑人计算机的物理内存，使调查人员能够恢复和分析通常仅在内存中找到的有价值的信息。</p>
-<p>Magnet RAM Capture 占用的内存很小，这意味着调查人员可以在运行该工具的同时尽量减少内存中被覆盖的数据。您可以以 Raw (.DMP&#x2F;.RAW&#x2F;.BIN) 格式导出捕获的内存数据，并轻松上传到领先的分析工具中，包括 Magnet AXIOM 和 Magnet IEF。</p>
-<p>可以在 RAM 中找到的证据包括系统上运行的进程和程序、网络连接、恶意软件入侵的证据、注册表配置单元、用户名和密码、解密的文件和密钥以及通常不存储在本地硬盘上的活动证据。</p>
-<p><strong>支持的操作系统</strong>：Windows XP、Vista、7、8、10、2003、2008、2012（支持 32 位和 64 位）</p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features:"></a><strong>Features</strong>:</h2><ul>
-<li>您可以在最小化内存中覆盖数据的同时运行此应用程序。</li>
-<li>它使您能够导出捕获的内存数据，并将其上传到磁体 AXIOM 和磁体 IEF 等分析工具中。</li>
-<li>这个应用程式支援各种 Windows 作业系统。</li>
-<li>磁铁 RAM 捕获支持 RAM 捕获。</li>
-</ul>
-<h1 id="详细使用-请B站搜索-疯狂的杨CC-观看教学"><a href="#详细使用-请B站搜索-疯狂的杨CC-观看教学" class="headerlink" title="详细使用,请B站搜索:疯狂的杨CC,观看教学"></a>详细使用,请B站搜索:疯狂的杨CC,观看教学</h1>
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -1561,6 +1595,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/01/20/wx-hook-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7-%E6%8A%93%E5%8C%85/">wx-hook-微信小程序渗透工具-抓包</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/01/19/JoJoLoader-%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7-%E5%BC%80%E6%BA%90-24%E5%B9%B48%E6%9C%887%E6%97%A5%E6%9B%B4%E6%96%B0/">JoJoLoader-免杀工具(开源)-24年8月</a>
             </li>
             
@@ -1570,10 +1608,6 @@
             
             <li>
                 <a class="footer-post" href="/2025/01/18/APKDeeplens-%E8%87%AA%E5%8A%A8%E5%AF%B9APK%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0-%E9%A1%BA%E4%BE%BF%E5%87%BA%E4%B8%AA%E6%8A%A5%E5%91%8A/">APKDeeplens-自动对APK进行安全评估-</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/18/apk2url-%E8%87%AA%E5%8A%A8%E6%8F%90%E5%8F%96apk%E4%B8%AD%E7%9A%84ip%E5%92%8C%E5%9F%9F%E5%90%8D%E5%B7%A5%E5%85%B7/">apk2url-自动提取apk中的ip和域名工具</a>
             </li>
             
         </ul>

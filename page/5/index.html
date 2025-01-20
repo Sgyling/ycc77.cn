@@ -147,6 +147,205 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2025/01/17/arping-%E4%B8%BB%E6%9C%BA%E5%AD%98%E6%B4%BB%E6%8E%A2%E6%B5%8B%E5%B7%A5%E5%85%B7/">
+                arping-主机存活探测工具
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025-01-17</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透/">渗透</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="arping"><a href="#arping" class="headerlink" title="arping"></a>arping</h1><p>github:<a target="_blank" rel="noopener" href="https://github.com/ThomasHabets/arping">https://github.com/ThomasHabets/arping</a></p>
+<h2 id="arping-简介"><a href="#arping-简介" class="headerlink" title="arping-简介"></a>arping-简介</h2><p>这是一款把ping玩出花的命令~</p>
+<h3 id="各选项功能及使用方法"><a href="#各选项功能及使用方法" class="headerlink" title="各选项功能及使用方法"></a>各选项功能及使用方法</h3><ol>
+<li><strong><code>-0</code> 选项</strong><ul>
+<li><strong>功能</strong>：使用此选项可以将源 IP 地址设置为 <code>0.0.0.0</code> 进行 <code>ping</code> 操作。当你还未对网络接口进行配置时可使用该选项。不过要注意，这样可能会导致 MAC 地址 <code>ping</code> 操作得不到回应，它是 <code>-S 0.0.0.0</code> 的别名。</li>
+<li><strong>示例</strong>：<code>arping -0 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-a</code> 选项</strong><ul>
+<li><strong>功能</strong>：可实现可听的 <code>ping</code>，也就是在操作时有声音提示。</li>
+<li><strong>示例</strong>：<code>arping -a &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-A</code> 选项</strong><ul>
+<li><strong>功能</strong>：仅对匹配所请求地址的回复进行计数。需要注意的是，这个选项会破坏大部分常规操作，通常仅在同时对多个主机进行 <code>arping</code> 操作时才有用，可参考 <code>arping-scan-net.sh</code> 示例脚本。</li>
+<li><strong>示例</strong>：<code>arping -A &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-b</code> 选项</strong><ul>
+<li><strong>功能</strong>：类似于 <code>-0</code> 选项，但它将源广播地址设置为 <code>255.255.255.255</code>。不过要注意，由于这并非主机的常规行为，可能会导致 <code>arping</code> 操作得不到回应。</li>
+<li><strong>示例</strong>：<code>arping -b &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-B</code> 选项</strong><ul>
+<li><strong>功能</strong>：如果你想要将目标地址设置为 <code>255.255.255.255</code> 进行操作时，使用该选项来替代在命令中指定具体主机地址。</li>
+<li><strong>示例</strong>：<code>arping -B</code></li>
+</ul>
+</li>
+<li><strong><code>-c count</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于指定仅发送指定数量（<code>count</code>）的请求。例如设置发送 5 次请求，就将 <code>count</code> 替换为 5。</li>
+<li><strong>示例</strong>：<code>arping -c 5 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-C count</code> 选项</strong><ul>
+<li><strong>功能</strong>：不管 <code>-c</code> 选项以及超时设置（<code>-w</code> 选项相关）如何，只等待指定数量（<code>count</code>）的回复。</li>
+<li><strong>示例</strong>：<code>arping -C 3 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-d</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于查找重复的回复。如果存在来自两个不同 MAC 地址的回复，将以退出码 1 退出程序。</li>
+<li><strong>示例</strong>：<code>arping -d &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-D</code> 选项</strong><ul>
+<li><strong>功能</strong>：将回复显示为感叹号，而丢失的数据包显示为点号，以这种方式来展示操作结果。</li>
+<li><strong>示例</strong>：<code>arping -D &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-e</code> 选项</strong><ul>
+<li><strong>功能</strong>：与 <code>-a</code> 选项类似，但在没有回复时会发出蜂鸣声提示。</li>
+<li><strong>示例</strong>：<code>arping -e &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-F</code> 选项</strong><ul>
+<li><strong>功能</strong>：不尝试对接口名称进行智能处理（即使不给出此开关，<code>-i</code> 选项也会覆盖智能处理相关逻辑）。</li>
+<li><strong>示例</strong>：<code>arping -F -i &lt;接口名称&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-g group</code> 选项</strong><ul>
+<li><strong>功能</strong>：使用 <code>setgid()</code> 将组设置为指定的组（<code>group</code>），而不是默认的 <code>nobody</code> 组。</li>
+<li><strong>示例</strong>：<code>arping -g &lt;指定组名&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-h</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于显示帮助信息并退出程序，方便查看各选项说明等内容。</li>
+<li><strong>示例</strong>：<code>arping -h</code></li>
+</ul>
+</li>
+<li><strong><code>-i interface</code> 选项</strong><ul>
+<li><strong>功能</strong>：指定要使用的网络接口，比如指定使用名为 <code>eth0</code> 的网络接口来进行 <code>arping</code> 操作。</li>
+<li><strong>示例</strong>：<code>arping -i eth0 &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-m type</code> 选项</strong><ul>
+<li><strong>功能</strong>：指定用于传入数据包的时间戳类型。在进行 <code>ping</code> 操作时可以使用 <code>-vv</code> 选项来列出可用的时间戳类型。</li>
+<li><strong>示例</strong>：<code>arping -m &lt;时间戳类型&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-q</code> 选项</strong><ul>
+<li><strong>功能</strong>：除了错误消息外，不显示其他常规消息，使输出更简洁，只呈现关键的错误提示内容。</li>
+<li><strong>示例</strong>：<code>arping -q &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-Q pri</code> 选项</strong><ul>
+<li><strong>功能</strong>：设置 <code>802.1p</code> 优先级（<code>pri</code>），通常需要和 <code>802.1Q</code>（<code>-V</code> 选项）一起使用，默认优先级为 0。</li>
+<li><strong>示例</strong>：<code>arping -Q 3 -V 10 &lt;目标IP地址&gt;</code>（假设设置优先级为 3 且添加 VLAN 标签为 10）</li>
+</ul>
+</li>
+<li><strong><code>-r</code> 选项</strong><ul>
+<li><strong>功能</strong>：以原始输出形式展示，对于每个回复仅显示 MAC 地址 &#x2F; IP 地址，去除其他多余的信息展示。</li>
+<li><strong>示例</strong>：<code>arping -r &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-R</code> 选项</strong><ul>
+<li><strong>功能</strong>：同样是原始输出形式，但与 <code>-r</code> 有所不同，它可以显示 “另一个” 相关内容，并且可以和 <code>-r</code> 选项结合使用。</li>
+<li><strong>示例</strong>：<code>arping -R &lt;目标IP地址&gt;</code> 或 <code>arping -rR &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-s MAC</code> 选项</strong><ul>
+<li><strong>功能</strong>：用于设置源 MAC 地址。可能需要结合 <code>-p</code> 选项一起使用，特别是当你使用的不是自己 “拥有” 的 MAC 地址时。</li>
+<li><strong>示例</strong>：<code>arping -s &lt;源MAC地址&gt; -p &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-S IP</code> 选项</strong><ul>
+<li><strong>功能</strong>：类似于 <code>-b</code> 和 <code>-0</code> 选项，但可以设置指定的源地址（<code>IP</code>）。需要注意的是，如果目标没有到该 IP 的路由，可能会导致 <code>arping</code> 操作得不到回应。若使用的不是自己拥有的 IP，可能还需要开启接口的混杂模式（使用 <code>-p</code> 选项）。通过此选项可以在不占用自己 IP 地址的情况下查出主机对应的 IP 地址。</li>
+<li><strong>示例</strong>：<code>arping -S &lt;源IP地址&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-t MAC</code> 选项</strong><ul>
+<li><strong>功能</strong>：在对 IP 地址进行 <code>ping</code> 操作时，设置要使用的目标 MAC 地址。</li>
+<li><strong>示例</strong>：<code>arping -t &lt;目标MAC地址&gt; &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-T IP</code> 选项</strong><ul>
+<li><strong>功能</strong>：当对那些不会响应广播 <code>ping</code> 但可能响应定向广播的 MAC 地址进行 <code>ping</code> 操作时，使用 <code>-T</code> 指定目标地址。例如已知 <code>MAC-B</code> 和 <code>IP-B</code> 的情况下，检查 <code>MAC-A</code> 的地址，可按示例操作。</li>
+<li><strong>示例</strong>：<code>arping -S &lt;IP-B&gt; -s &lt;MAC-B&gt; -p &lt;MAC-A&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-p</code> 选项</strong><ul>
+<li><strong>功能</strong>：开启接口的混杂模式，在你使用的不是自己 “拥有” 的 MAC 地址时需要使用该选项。</li>
+<li><strong>示例</strong>：<code>arping -p &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-P</code> 选项</strong><ul>
+<li><strong>功能</strong>：发送 ARP 回复而不是请求，通常与 <code>-U</code> 选项配合使用会比较有用。</li>
+<li><strong>示例</strong>：<code>arping -P -U &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-u</code> 选项</strong><ul>
+<li><strong>功能</strong>：在对 MAC 地址进行 <code>ping</code> 操作时，显示 <code>index=received/sent</code> 的形式，而不只是显示 <code>index=received</code>。</li>
+<li><strong>示例</strong>：<code>arping -u &lt;目标MAC地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-U</code> 选项</strong><ul>
+<li><strong>功能</strong>：发送未经请求的 ARP 消息。</li>
+<li><strong>示例</strong>：<code>arping -U &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-v</code> 选项</strong><ul>
+<li><strong>功能</strong>：启用详细输出模式，显示更多的操作相关信息。使用两次（<code>-vv</code>）可以获取更详细的消息内容。</li>
+<li><strong>示例</strong>：<code>arping -v &lt;目标IP地址&gt;</code> 或 <code>arping -vv &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-V num</code> 选项</strong><ul>
+<li><strong>功能</strong>：添加 <code>802.1Q</code> VLAN 标签（<code>num</code>），默认不添加 VLAN 标签。</li>
+<li><strong>示例</strong>：<code>arping -V 5 &lt;目标IP地址&gt;</code>（假设添加 VLAN 标签值为 5）</li>
+</ul>
+</li>
+<li><strong><code>-w sec</code> 选项</strong><ul>
+<li><strong>功能</strong>：指定一个超时时间（<code>sec</code>，单位为秒），无论已经发送或接收了多少数据包，到达该超时时间后 <code>ping</code> 操作就会退出。</li>
+<li><strong>示例</strong>：<code>arping -w 5 &lt;目标IP地址&gt;</code>（表示超时时间设置为 5 秒）</li>
+</ul>
+</li>
+<li><strong><code>-W sec</code> 选项</strong><ul>
+<li><strong>功能</strong>：设置每次 <code>ping</code> 操作之间等待的时间（<code>sec</code>，单位为秒）。</li>
+<li><strong>示例</strong>：<code>arping -W 2 &lt;目标IP地址&gt;</code>（表示每次 <code>ping</code> 操作间隔等待 2 秒）</li>
+</ul>
+</li>
+<li><strong><code>-z</code> 选项</strong><ul>
+<li><strong>功能</strong>：启用 seccomp（一种系统调用过滤机制）。</li>
+<li><strong>示例</strong>：<code>arping -z &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+<li><strong><code>-Z</code> 选项</strong><ul>
+<li><strong>功能</strong>：禁用 seccomp，这是默认的状态设置。</li>
+<li><strong>示例</strong>：<code>arping -Z &lt;目标IP地址&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2025/01/17/%E5%85%A8%E9%9D%A2%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7-gobuster/">
                 全面信息收集工具-gobuster
             </a>
@@ -383,7 +582,7 @@
 </ul>
 <h3 id="重要提示"><a href="#重要提示" class="headerlink" title="重要提示"></a>重要提示</h3><p>AGPL-3.0 扩展了 GNU GPL 的要求，特别针对网络应用的场景。无论是通过本地安装还是通过网络提供服务，您都需要遵守许可证的开源义务。这确保了用户在使用软件时依然享有自由获取源代码的权利。更多详细信息请参阅 <a target="_blank" rel="noopener" href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0 官方文档</a>。</p>
 <p><strong>简要声明</strong>：CyberEdge 是自由软件，您可以在 AGPL-3.0 许可证下重新发布和修改，但需要保留此声明。</p>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p>邮箱：<a href="mailto:&#x50;&#97;&#121;&#97;&#x73;&#x6f;&#x4e;&#111;&#114;&#97;&#104;&#x43;&#x40;&#112;&#114;&#x6f;&#116;&#111;&#x6e;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">PayasoNorahC@protonmail.com</a></p>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p>邮箱：<a href="mailto:&#x50;&#x61;&#121;&#x61;&#115;&#x6f;&#x4e;&#111;&#114;&#x61;&#x68;&#x43;&#x40;&#x70;&#114;&#x6f;&#x74;&#111;&#x6e;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">PayasoNorahC@protonmail.com</a></p>
 <p>QQ群：</p>
 <p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/ZacharyZcR/CyberEdge/main/image/QQ.jpg"><img src="https://raw.githubusercontent.com/ZacharyZcR/CyberEdge/main/image/QQ.jpg" alt="QQ"></a></p>
 <p>CyberEdge：简洁、高效、精准的资产测绘工具，为您的网络安全保驾护航。</p>
@@ -886,7 +1085,7 @@
 <p>插件目录下</p>
 <p>插件前缀为”Plugins_ “，请规范编写</p>
 <h2 id="插件获取"><a href="#插件获取" class="headerlink" title="插件获取"></a>插件获取</h2><p>插件为内部使用。需要请编写插件联系作者交换。</p>
-<p>邮箱地址：<a href="mailto:&#113;&#105;&#97;&#110;&#120;&#x69;&#x61;&#x6f;&#57;&#57;&#54;&#x40;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#x6d;">qianxiao996@126.com</a></p>
+<p>邮箱地址：<a href="mailto:&#x71;&#105;&#97;&#110;&#x78;&#x69;&#97;&#111;&#57;&#x39;&#x36;&#x40;&#49;&#x32;&#54;&#46;&#99;&#x6f;&#x6d;">qianxiao996@126.com</a></p>
 <h2 id="打包pyd-so"><a href="#打包pyd-so" class="headerlink" title="打包pyd so"></a>打包pyd so</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># python3 setup.py build_ext --inplace</span><br></pre></td></tr></table></figure>
 
 
@@ -914,88 +1113,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2024/03/15/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7-androidkiller/">
-                自动化安卓逆向工具-androidkiller
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2024-03-15</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/渗透/">渗透</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">带插件的androidkiller的github链接:</span></span><br><span class="line">https://github.com/liaojack8/AndroidKiller #androidkiller</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Apktool|ShakaApktool 简体中文汉化版|APK反编译工具</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ShakaApktool源码：#https://github.com/rover12421/ShakaApktool 作者：rover12421</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">apktool源码：https://github.com/iBotPeaches/Apktool  作者：iBotPeaches</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">smali/baksmali源码：https://github.com/JesusFreke/smali 作者：JesusFreke</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1-简介"></a>1-简介</h1><p>一款自动化反编译APK的工具,支持查壳,拖壳,二次编译,等.无需复杂操作,APK拖入自动反编译.</p>
-<h2 id="功能简介-工具"><a href="#功能简介-工具" class="headerlink" title="功能简介-工具"></a>功能简介-工具</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#文本-编码相互转换</span><br><span class="line">#支持UTF-8,Unicode,ANSI</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="MD5查看器-支持文件和字符串"><a href="#MD5查看器-支持文件和字符串" class="headerlink" title="MD5查看器-支持文件和字符串"></a>MD5查看器-支持文件和字符串</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#MD5查看器</span><br><span class="line">MD5-16: </span><br><span class="line">743267D4B546565A</span><br><span class="line"></span><br><span class="line">MD5-32: </span><br><span class="line">B268D6A7743267D4B546565ABA342DC1</span><br><span class="line"></span><br><span class="line">CRC-16: </span><br><span class="line">3A3C</span><br><span class="line"></span><br><span class="line">CRC-32: </span><br><span class="line">63F5515A</span><br><span class="line"></span><br><span class="line">SHA-1: </span><br><span class="line">D80FC5C3B3E486AD3B0845CE72D35723C44172FD</span><br><span class="line"></span><br><span class="line">SHA-224: </span><br><span class="line">F2FAFE6313E18882CCA2A430A2AC693EB96A0D809B5090B069084194</span><br><span class="line"></span><br><span class="line">SHA-256: </span><br><span class="line">632288A3470DCDE8424B2D029A8B899804346E5912C2BE482085F7F9BDCDFBFC</span><br><span class="line"></span><br><span class="line">SHA-384: </span><br><span class="line">C8540FD141D450EAABDA0F3AABA1EE8BB7DB43ED29943B19C387F69B6368A5F9CCCB8DB2DDEC8445DB9E2C11177D9519</span><br><span class="line"></span><br><span class="line">SHA-512: </span><br><span class="line">23DD1C8EDD75AE38D9390F1495BDEDE95CEEBFB4CF9F03C8FFCA5F66034E7B22B8CA8A23E585B6B160C8FA0E12A1262BB0751F67C678458BD5B67A57520D5A74</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a>文件搜索</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#搜索指定文件</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="自定义功能"><a href="#自定义功能" class="headerlink" title="自定义功能"></a>自定义功能</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#支持一些其他工具显示出来</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="APK签名"><a href="#APK签名" class="headerlink" title="APK签名"></a>APK签名</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#将APK拖入进去,选择签名,然后执行</span><br><span class="line">#傻瓜式的一键签名</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="APK查壳"><a href="#APK查壳" class="headerlink" title="APK查壳"></a>APK查壳</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#直接将APK拖入,然后会自动查询使用的是什么壳</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="伪加密解密"><a href="#伪加密解密" class="headerlink" title="伪加密解密"></a>伪加密解密</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#只支持android4.2以前的版本</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="功能简介-android"><a href="#功能简介-android" class="headerlink" title="功能简介-android"></a>功能简介-android</h2><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#打开工程后,编译成APK文件</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="批量编译"><a href="#批量编译" class="headerlink" title="批量编译"></a>批量编译</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#好几个一起编译</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="插入代码管理器"><a href="#插入代码管理器" class="headerlink" title="插入代码管理器"></a>插入代码管理器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#可以让你直接的修改部分代码</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="apktool管理器"><a href="#apktool管理器" class="headerlink" title="apktool管理器"></a>apktool管理器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#就是该工具的支持,可以直接下载最新版</span><br><span class="line">https://github.com/iBotPeaches/Apktool  #apktool.jar包 github链接</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2-使用"></a>2-使用</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#直接将apk文件拖进来,会自动反编译</span><br><span class="line">#等待反编译完成</span><br><span class="line">#工程信息-简单信息</span><br><span class="line">#工程管理是源代码</span><br><span class="line">#携带smali的文件夹里面是反编译后的源码</span><br><span class="line">#其他文件夹当中是其他的一些文件.</span><br><span class="line">#apktool.yml当中是一些配置文件,以及导入的一些so文件</span><br><span class="line">#AndroidManifest.xml是一些用到的权限</span><br><span class="line">#lib文件夹中是一些so文件.</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="工程搜索"><a href="#工程搜索" class="headerlink" title="工程搜索"></a>工程搜索</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#可以扫描所有的一些字符串,或者说ip地址等等</span><br><span class="line">#可以搜索字符,替换字符</span><br><span class="line">#搜索范围,可以搜索整个项目,或者指定的文件或者文件夹</span><br><span class="line">#支持搜索文件类型,可以选择后缀,或者自己输入后缀</span><br><span class="line">#支持三种字符搜索.</span><br></pre></td></tr></table></figure>
-
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -1008,7 +1125,7 @@
                 <a class="" href="/page/4/">
                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </a>
-                <a class="disabled" href="/">
+                <a class="" href="/page/6/">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
             </div>
@@ -1038,6 +1155,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/01/20/wx-hook-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7-%E6%8A%93%E5%8C%85/">wx-hook-微信小程序渗透工具-抓包</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/01/19/JoJoLoader-%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7-%E5%BC%80%E6%BA%90-24%E5%B9%B48%E6%9C%887%E6%97%A5%E6%9B%B4%E6%96%B0/">JoJoLoader-免杀工具(开源)-24年8月</a>
             </li>
             
@@ -1047,10 +1168,6 @@
             
             <li>
                 <a class="footer-post" href="/2025/01/18/APKDeeplens-%E8%87%AA%E5%8A%A8%E5%AF%B9APK%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0-%E9%A1%BA%E4%BE%BF%E5%87%BA%E4%B8%AA%E6%8A%A5%E5%91%8A/">APKDeeplens-自动对APK进行安全评估-</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2025/01/18/apk2url-%E8%87%AA%E5%8A%A8%E6%8F%90%E5%8F%96apk%E4%B8%AD%E7%9A%84ip%E5%92%8C%E5%9F%9F%E5%90%8D%E5%B7%A5%E5%85%B7/">apk2url-自动提取apk中的ip和域名工具</a>
             </li>
             
         </ul>
