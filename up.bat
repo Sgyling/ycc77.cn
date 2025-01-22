@@ -1,0 +1,14 @@
+rm -fr about/*
+rm -fr archives/*
+rm -fr css/*
+rm -fr friends/*
+rm -fr js/*
+rm -fr page/*
+rm -fr tags/*
+rm -fr theme-img/*
+rm -fr atom.xml
+rm -fr index.html
+rm -fr sitemap.txt
+rm -fr sitemap.xml
+rm -fr 2024/*
+rm -fr 2025/*
