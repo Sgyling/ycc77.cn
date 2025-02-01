@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>JoJoLoader-免杀工具(开源)-24年8月7日更新 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="JoJoLoader-免杀工具(开源)-24年8月7日更新 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/19/JoJoLoader-%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7-%E5%BC%80%E6%BA%90-24%E5%B9%B48%E6%9C%887%E6%97%A5%E6%9B%B4%E6%96%B0/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-19T02:30:51.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>19,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">JoJoLoader-免杀工具(开源)-24年8月7日更新</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344822241-dd259365-7334-43df-aee5-2d53d39c0fa9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MjIyNDEtZGQyNTkzNjUtNzMzNC00M2RmLWFlZTUtMmQ1M2QzOWMwZmE5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFkOTVlMjViOWJiYjgzZjg5NWYyMzhlNmVlZWJiNzU4NmU0NjExMGQ4OWMyOGEyOGRkOWM5NzJmZGI4OTY4NTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.7eAQBVL6KycILo1R9dTMlB_fg9RjG5vZoG-Td1kIjxg"><img src="https://private-user-images.githubusercontent.com/88339946/344822241-dd259365-7334-43df-aee5-2d53d39c0fa9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MjIyNDEtZGQyNTkzNjUtNzMzNC00M2RmLWFlZTUtMmQ1M2QzOWMwZmE5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFkOTVlMjViOWJiYjgzZjg5NWYyMzhlNmVlZWJiNzU4NmU0NjExMGQ4OWMyOGEyOGRkOWM5NzJmZGI4OTY4NTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.7eAQBVL6KycILo1R9dTMlB_fg9RjG5vZoG-Td1kIjxg" alt="乔乔装载机"></a></p>
+<p>github:<a target="_blank" rel="noopener" href="https://github.com/Pizz33/JoJoLoader">https://github.com/Pizz33/JoJoLoader</a></p>
+<h1 id="JoJoLoader"><a href="#JoJoLoader" class="headerlink" title="JoJoLoader"></a>JoJoLoader</h1><p>前进红队成员一键生成免杀木马，使用rust实现 (by_hyyrent)</p>
+<p>帮助红队成员生成逃避杀毒软件木马</p>
+<h2 id="更新说明"><a href="#更新说明" class="headerlink" title="更新说明"></a>更新说明</h2><p>2024&#x2F;08&#x2F;07 优化免杀效果：360全家桶✔ 火绒✔ def✔ （病毒库最新）</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/355651318-1708a617-5d70-47d5-8fae-da0b92399f10.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNTU2NTEzMTgtMTcwOGE2MTctNWQ3MC00N2Q1LThmYWUtZGEwYjkyMzk5ZjEwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJlN2RlYzJlODgyN2E1Y2I5ZGMyM2E5OWRhNmZlZjY3N2E3ZGUxZDI0MzQ4YmNiNDkzYjhiYTZjMDNjMmNmZmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HLYbdayqgOrCfA5onS5wUFJuNoRChvnHplwYxEk8jIU"><img src="https://private-user-images.githubusercontent.com/88339946/355651318-1708a617-5d70-47d5-8fae-da0b92399f10.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNTU2NTEzMTgtMTcwOGE2MTctNWQ3MC00N2Q1LThmYWUtZGEwYjkyMzk5ZjEwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJlN2RlYzJlODgyN2E1Y2I5ZGMyM2E5OWRhNmZlZjY3N2E3ZGUxZDI0MzQ4YmNiNDkzYjhiYTZjMDNjMmNmZmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HLYbdayqgOrCfA5onS5wUFJuNoRChvnHplwYxEk8jIU" alt="图像"></a></p>
+<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><p>由于近年使用go来开发loader越来越普遍，导致杀软对go编译程序静态查杀力度加大，尤其是某数字杀软</p>
+<p>对之前的去免杀项目千机多次优化后，发现效果仍不太理想，决定重构转股铁锈的怀抱，于是就有了这个项目的诞生！</p>
+<h2 id="使-用-方-式"><a href="#使-用-方-式" class="headerlink" title="使 用 方 式"></a>使 用 方 式</h2><p>与之前开发的千机一样，同样是支持一键化生成，生成自动替换图标签名</p>
+<p>生成<code>stageless payload</code></p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344807691-49ddd939-32c3-495f-8ab7-a6f649a3a138.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDc2OTEtNDlkZGQ5MzktMzJjMy00OTVmLThhYjctYTZmNjQ5YTNhMTM4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI5MDExMmJlODFjNmNhMzcyZGFlYTE3YjBhMTI0YTJjMGYxZDJkOGMwMjgzYWI2MjBhYTAzNGU2ZmNiZGVhY2EmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.C4AM4xyzkZX-I7YGTkJqHCkmW70kg0hnJSMzuLY9Cpc"><img src="https://private-user-images.githubusercontent.com/88339946/344807691-49ddd939-32c3-495f-8ab7-a6f649a3a138.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDc2OTEtNDlkZGQ5MzktMzJjMy00OTVmLThhYjctYTZmNjQ5YTNhMTM4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI5MDExMmJlODFjNmNhMzcyZGFlYTE3YjBhMTI0YTJjMGYxZDJkOGMwMjgzYWI2MjBhYTAzNGU2ZmNiZGVhY2EmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.C4AM4xyzkZX-I7YGTkJqHCkmW70kg0hnJSMzuLY9Cpc" alt="图像"></a></p>
+<p>把<code>beacon_x64.bin</code>（使用习惯4.7以上版本的CS，默认即是，其他版本手机改名）放置在当前目录下</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344817778-294efecb-b0bf-45cc-afac-7a107cac3b14.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MTc3NzgtMjk0ZWZlY2ItYjBiZi00NWNjLWFmYWMtN2ExMDdjYWMzYjE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWZhYjI3MTcxMjBjZDkxNDFlMmY0ZjMxOGM0OGRkMWM0NmY3ZTA3Zjc1YjNlMjYzMWUxYjEzZThiYTk2YzExMmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.qunyh-lPjXm3hES7pw6mSckDVt0iygadoTKzc2LUhkM"><img src="https://private-user-images.githubusercontent.com/88339946/344817778-294efecb-b0bf-45cc-afac-7a107cac3b14.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MTc3NzgtMjk0ZWZlY2ItYjBiZi00NWNjLWFmYWMtN2ExMDdjYWMzYjE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWZhYjI3MTcxMjBjZDkxNDFlMmY0ZjMxOGM0OGRkMWM0NmY3ZTA3Zjc1YjNlMjYzMWUxYjEzZThiYTk2YzExMmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.qunyh-lPjXm3hES7pw6mSckDVt0iygadoTKzc2LUhkM" alt="图像"></a></p>
+<p>点击<code>一键生成.bat</code>，等待免杀木马生成</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344806726-6ad29be8-7a42-4348-8606-113caee887f0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDY3MjYtNmFkMjliZTgtN2E0Mi00MzQ4LTg2MDYtMTEzY2FlZTg4N2YwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg0NDVjOGQyZDhkNDM1NTI5NDZhNThhMDE4MjRjODMyZWEzNjY2MGY3ZDE5ZmJmMjg5NDE2YzViMmVkOWRkOTImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.q6WnEfM7n1JwSO_ls-w_HcbMVzhVegKJqMx-jockCZE"><img src="https://private-user-images.githubusercontent.com/88339946/344806726-6ad29be8-7a42-4348-8606-113caee887f0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDY3MjYtNmFkMjliZTgtN2E0Mi00MzQ4LTg2MDYtMTEzY2FlZTg4N2YwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg0NDVjOGQyZDhkNDM1NTI5NDZhNThhMDE4MjRjODMyZWEzNjY2MGY3ZDE5ZmJmMjg5NDE2YzViMmVkOWRkOTImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.q6WnEfM7n1JwSO_ls-w_HcbMVzhVegKJqMx-jockCZE" alt="图像"></a></p>
+<p>输出免杀木马在<code>output</code>文件夹下，随机六重配置</p>
+<p>其中sign标签文件为自动替换签名后的免杀木马，添加图标和签名最大化bypassQVM</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344799444-7b30c675-acb4-40ae-9045-1d92afbc97b7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ3OTk0NDQtN2IzMGM2NzUtYWNiNC00MGFlLTkwNDUtMWQ5MmFmYmM5N2I3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWM0YTVmM2EyOTk1NWRkOThhNzg3OTk1YWY1ZmE1Y2FmYzk5YjIxOTEzNDNhNTlmYWU1ZWVlYjJhMTZiYjY4OGMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.c7J8SWlA0O9xCfPZOTsiWnTn27iS503B5aCjXhzOhj8"><img src="https://private-user-images.githubusercontent.com/88339946/344799444-7b30c675-acb4-40ae-9045-1d92afbc97b7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ3OTk0NDQtN2IzMGM2NzUtYWNiNC00MGFlLTkwNDUtMWQ5MmFmYmM5N2I3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWM0YTVmM2EyOTk1NWRkOThhNzg3OTk1YWY1ZmE1Y2FmYzk5YjIxOTEzNDNhNTlmYWU1ZWVlYjJhMTZiYjY4OGMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.c7J8SWlA0O9xCfPZOTsiWnTn27iS503B5aCjXhzOhj8" alt="图像"></a></p>
+<h2 id="钓鱼场景-释放正常文档"><a href="#钓鱼场景-释放正常文档" class="headerlink" title="钓鱼场景-释放正常文档"></a>钓鱼场景-释放正常文档</h2><p>合实战钓鱼场景，贴支持正常文件释放，捆文档存放在<code>bundle</code>文件夹下</p>
+<p>默认打开损坏文档，根据需求自行修改代码实战</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344800703-4ca87739-3dfc-4a07-bda0-0cf5b0c90505.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDA3MDMtNGNhODc3MzktM2RmYy00YTA3LWJkYTAtMGNmNWIwYzkwNTA1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU4NjRjYTBhNWRiYTUyNDFkN2ZhZjMxNzQxMzQ2NjBkMTJlZDM3OGRkNzRjYzE3Y2U2MTJlNDMwNmU0YWE0MjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.CzqefKCGuHlCIjKNo9McALcCXntc-68urnpbDh8LHhQ"><img src="https://private-user-images.githubusercontent.com/88339946/344800703-4ca87739-3dfc-4a07-bda0-0cf5b0c90505.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDA3MDMtNGNhODc3MzktM2RmYy00YTA3LWJkYTAtMGNmNWIwYzkwNTA1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU4NjRjYTBhNWRiYTUyNDFkN2ZhZjMxNzQxMzQ2NjBkMTJlZDM3OGRkNzRjYzE3Y2U2MTJlNDMwNmU0YWE0MjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.CzqefKCGuHlCIjKNo9McALcCXntc-68urnpbDh8LHhQ" alt="图像"></a></p>
+<p>如果不需要捆绑文件，把对应行注释即可</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344800134-7b5b4ed6-5f7f-431c-9502-be82a31dd74b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDAxMzQtN2I1YjRlZDYtNWY3Zi00MzFjLTk1MDItYmU4MmEzMWRkNzRiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWJkOTZlODRkYzQ5YTlkZmUyMzlhMmIxOGQxNzI4MjVlZjE5NjQyYWU2NDVkNGExYTEzOTI0ZDY5ZTNjY2QwOTEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.t2NEaf2tGGqJqTUDea1Kbha6deZGZbBat2q2cUA87rQ"><img src="https://private-user-images.githubusercontent.com/88339946/344800134-7b5b4ed6-5f7f-431c-9502-be82a31dd74b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDAxMzQtN2I1YjRlZDYtNWY3Zi00MzFjLTk1MDItYmU4MmEzMWRkNzRiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWJkOTZlODRkYzQ5YTlkZmUyMzlhMmIxOGQxNzI4MjVlZjE5NjQyYWU2NDVkNGExYTEzOTI0ZDY5ZTNjY2QwOTEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.t2NEaf2tGGqJqTUDea1Kbha6deZGZbBat2q2cUA87rQ" alt="图像"></a></p>
+<h2 id="计划主题"><a href="#计划主题" class="headerlink" title="计划主题"></a>计划主题</h2><p>在静态目录下放置了四个常见图标，可修改<code>icon.rc</code>对应名称进行调用</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344801020-9480ea64-e78f-4ce3-bda7-a2a6bc451688.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDEwMjAtOTQ4MGVhNjQtZTc4Zi00Y2UzLWJkYTctYTJhNmJjNDUxNjg4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQwM2JmMWY4MTYxNTY5YjEzZjZjNWI2Zjk0YTBjYjAyMzI5MTE5NmFhOTVhZjYyZWM4ZDg3YmU1MmU5ZjRmZmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HeUqD8y3U2jspADbTUrqCPHmBj_nDeTOLQkgDyQrcag"><img src="https://private-user-images.githubusercontent.com/88339946/344801020-9480ea64-e78f-4ce3-bda7-a2a6bc451688.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDEwMjAtOTQ4MGVhNjQtZTc4Zi00Y2UzLWJkYTctYTJhNmJjNDUxNjg4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQwM2JmMWY4MTYxNTY5YjEzZjZjNWI2Zjk0YTBjYjAyMzI5MTE5NmFhOTVhZjYyZWM4ZDg3YmU1MmU5ZjRmZmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.HeUqD8y3U2jspADbTUrqCPHmBj_nDeTOLQkgDyQrcag" alt="图像"></a></p>
+<h2 id="免殺效果展示"><a href="#免殺效果展示" class="headerlink" title="免殺效果展示"></a>免殺效果展示</h2><p><strong>360和火绒</strong></p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344802396-b6fb7409-4560-493c-bf2e-a3198837ca70.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDIzOTYtYjZmYjc0MDktNDU2MC00OTNjLWJmMmUtYTMxOTg4MzdjYTcwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFiNjM1NGY1ZWI4MGQ5YTU0MTRlM2VmYjZhYjg3NDkwNTdmMDdhN2IyNjdmOWFkODg1ZTVhYTI2ZjQwNzY3ODYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.4HesoOv5k7TVTRjKE1Pb7WsGxRJFEub4OhQ0m1vxQxk"><img src="https://private-user-images.githubusercontent.com/88339946/344802396-b6fb7409-4560-493c-bf2e-a3198837ca70.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDIzOTYtYjZmYjc0MDktNDU2MC00OTNjLWJmMmUtYTMxOTg4MzdjYTcwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFiNjM1NGY1ZWI4MGQ5YTU0MTRlM2VmYjZhYjg3NDkwNTdmMDdhN2IyNjdmOWFkODg1ZTVhYTI2ZjQwNzY3ODYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.4HesoOv5k7TVTRjKE1Pb7WsGxRJFEub4OhQ0m1vxQxk" alt="图像"></a></p>
+<p><strong>360杀毒</strong></p>
+<p>装了杀毒之后的360性能变强，qvm有时很玄学，如若进行QVM情况尝试更换图标</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344802841-bfc2da65-49e7-4a97-bb83-9c0420edb034.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDI4NDEtYmZjMmRhNjUtNDllNy00YTk3LWJiODMtOWMwNDIwZWRiMDM0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQzNmMyNGI2YWRkYmU0MWQyNWI4YmNiMjIzY2IyNTkxOGE4NDVmM2ExYmQwNzlmZGQxZjVkYzA0M2MyNmRhZTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.n7qk1qAeoD0gJcwqcfHa-WDhsZtaDivqZRDum_r6MhQ"><img src="https://private-user-images.githubusercontent.com/88339946/344802841-bfc2da65-49e7-4a97-bb83-9c0420edb034.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDI4NDEtYmZjMmRhNjUtNDllNy00YTk3LWJiODMtOWMwNDIwZWRiMDM0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQzNmMyNGI2YWRkYmU0MWQyNWI4YmNiMjIzY2IyNTkxOGE4NDVmM2ExYmQwNzlmZGQxZjVkYzA0M2MyNmRhZTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.n7qk1qAeoD0gJcwqcfHa-WDhsZtaDivqZRDum_r6MhQ" alt="图像"></a></p>
+<p><strong>后卫</strong></p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344805923-f6c49329-8cd9-48d7-af33-130fa165c3ee.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDU5MjMtZjZjNDkzMjktOGNkOS00OGQ3LWFmMzMtMTMwZmExNjVjM2VlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE4Njg3MjlkYTljMDc1MzFlMGFkNzBlYTg0MWY5MTQ1YTMyODQ4MTgzYzdkYzNiODQxNTk4Yzc2MmM3MDM4YWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.hEYMa34KRPRIRgFluuDrTy3v6b5U-Qm5qwm6wDOItSM"><img src="https://private-user-images.githubusercontent.com/88339946/344805923-f6c49329-8cd9-48d7-af33-130fa165c3ee.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDU5MjMtZjZjNDkzMjktOGNkOS00OGQ3LWFmMzMtMTMwZmExNjVjM2VlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWE4Njg3MjlkYTljMDc1MzFlMGFkNzBlYTg0MWY5MTQ1YTMyODQ4MTgzYzdkYzNiODQxNTk4Yzc2MmM3MDM4YWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.hEYMa34KRPRIRgFluuDrTy3v6b5U-Qm5qwm6wDOItSM" alt="图像"></a></p>
+<p><strong>细微</strong></p>
+<p>项目发布时现测试，测试结果为安全</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344801604-1ebe6cba-b85e-4964-843a-1f54a279f591.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDE2MDQtMWViZTZjYmEtYjg1ZS00OTY0LTg0M2EtMWY1NGEyNzlmNTkxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQzNGU1NWZlZDcxNjlhNzRmYTcxN2QyMzlkNWQzMTU5MTI4YTQzNjFkZjQ5MDlkODcxYjIxOGNkMmIyNGExYWImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.uF7eOZz0d2eOC-PgQ501ctOzKgluVnpux79U4oFI9pg"><img src="https://private-user-images.githubusercontent.com/88339946/344801604-1ebe6cba-b85e-4964-843a-1f54a279f591.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDE2MDQtMWViZTZjYmEtYjg1ZS00OTY0LTg0M2EtMWY1NGEyNzlmNTkxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQzNGU1NWZlZDcxNjlhNzRmYTcxN2QyMzlkNWQzMTU5MTI4YTQzNjFkZjQ5MDlkODcxYjIxOGNkMmIyNGExYWImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.uF7eOZz0d2eOC-PgQ501ctOzKgluVnpux79U4oFI9pg" alt="图像"></a></p>
+<p>卡巴斯基 ESET</p>
+<p>国外edr会扫描内存，需要对bin进行二开，单靠loader限制很大，以下测试是基于二开的bin</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344806144-f5c66ab3-9034-49af-b01d-a7bc4bf12fc7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDYxNDQtZjVjNjZhYjMtOTAzNC00OWFmLWIwMWQtYTdiYzRiZjEyZmM3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQ1YTQ5N2VjNDMwNGFiYjA1NTBlMDcyYjU2NmE5YjA1Y2VkMDk1NjhhOWQ2ZWY1NDM5NmRmYTJiNWI3ZWUwMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.Bm0YoS5GX7SAnmSrAlyHXFNgXb4xuGKwTBTEBlCbQ_g"><img src="https://private-user-images.githubusercontent.com/88339946/344806144-f5c66ab3-9034-49af-b01d-a7bc4bf12fc7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDYxNDQtZjVjNjZhYjMtOTAzNC00OWFmLWIwMWQtYTdiYzRiZjEyZmM3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQ1YTQ5N2VjNDMwNGFiYjA1NTBlMDcyYjU2NmE5YjA1Y2VkMDk1NjhhOWQ2ZWY1NDM5NmRmYTJiNWI3ZWUwMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.Bm0YoS5GX7SAnmSrAlyHXFNgXb4xuGKwTBTEBlCbQ_g" alt="图像"></a></p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344806490-5ce2e534-d1cb-4865-898b-6187dbf84d3d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDY0OTAtNWNlMmU1MzQtZDFjYi00ODY1LTg5OGItNjE4N2RiZjg0ZDNkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU5Mjk2YzMwNThiZmVlMWFmNzYyNTM1ZDNhZjk3ZWExN2Y2NmIxNjljMzhjNjk1NWY2NGZjNTRhOTUyMWNmMDgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.qPax2TRmiagO99BcYO3s9YVQ4tLk-xvQturSrrIP8gQ"><img src="https://private-user-images.githubusercontent.com/88339946/344806490-5ce2e534-d1cb-4865-898b-6187dbf84d3d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDY0OTAtNWNlMmU1MzQtZDFjYi00ODY1LTg5OGItNjE4N2RiZjg0ZDNkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU5Mjk2YzMwNThiZmVlMWFmNzYyNTM1ZDNhZjk3ZWExN2Y2NmIxNjljMzhjNjk1NWY2NGZjNTRhOTUyMWNmMDgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.qPax2TRmiagO99BcYO3s9YVQ4tLk-xvQturSrrIP8gQ" alt="图像"></a></p>
+<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><p><a target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/tools/install">https://www.rust-lang.org/zh-CN/tools/install</a></p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344801752-a1b8b73a-5545-4797-b2d3-b2605640b7a7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDE3NTItYTFiOGI3M2EtNTU0NS00Nzk3LWIyZDMtYjI2MDU2NDBiN2E3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZlMzU2YzA1Yjg5NDc0MWI3NTMzMmIwNWRkYWZlZmJiYWVkZmVjMTNlN2RlZWE1M2NhNjFlYWNkZDE5MjBlYjAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.k_geHoH_2AFy5BmTbwWLDbFI-4pEn5z5KW1pM7x14cU"><img src="https://private-user-images.githubusercontent.com/88339946/344801752-a1b8b73a-5545-4797-b2d3-b2605640b7a7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDE3NTItYTFiOGI3M2EtNTU0NS00Nzk3LWIyZDMtYjI2MDU2NDBiN2E3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZlMzU2YzA1Yjg5NDc0MWI3NTMzMmIwNWRkYWZlZmJiYWVkZmVjMTNlN2RlZWE1M2NhNjFlYWNkZDE5MjBlYjAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.k_geHoH_2AFy5BmTbwWLDbFI-4pEn5z5KW1pM7x14cU" alt="图像"></a></p>
+<p>下载安装相应的版本，重启运行，默认选择模式1进行安装，然后配置环境变量即可</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/88339946/344802035-bb0a690c-1703-4b49-8b43-20b70de024a8.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDIwMzUtYmIwYTY5MGMtMTcwMy00YjQ5LThiNDMtMjBiNzBkZTAyNGE4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFhMWY2Y2M5ZTQ0ZGQ3ODI1NGFmOTFjNDUzMGYyMjI2M2U5MDM4N2Y1OTkxYjY2NGQwYzUxOGYyZjFjZWZjZDQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.AJltfCSXUuBVZEvoy-Is4HwidJp1MkhDxjDMF_U4ZAY"><img src="https://private-user-images.githubusercontent.com/88339946/344802035-bb0a690c-1703-4b49-8b43-20b70de024a8.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzcyNTM5MTMsIm5iZiI6MTczNzI1MzYxMywicGF0aCI6Ii84ODMzOTk0Ni8zNDQ4MDIwMzUtYmIwYTY5MGMtMTcwMy00YjQ5LThiNDMtMjBiNzBkZTAyNGE4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTE5VDAyMjY1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFhMWY2Y2M5ZTQ0ZGQ3ODI1NGFmOTFjNDUzMGYyMjI2M2U5MDM4N2Y1OTkxYjY2NGQwYzUxOGYyZjFjZWZjZDQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.AJltfCSXUuBVZEvoy-Is4HwidJp1MkhDxjDMF_U4ZAY" alt="图像"></a></p>
+<p>如若安装后编译失败运行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup default stable-x86_64-pc-windows-msvc</span><br></pre></td></tr></table></figure>
+
+<h2 id="反沙箱"><a href="#反沙箱" class="headerlink" title="反沙箱"></a>反沙箱</h2><p>反沙箱不是越多越好，只保留比较好用的三个，兼容以上环境，并且避免避免上传沙箱后虚拟主机上线</p>
+<h3 id="流量检测"><a href="#流量检测" class="headerlink" title="流量检测"></a>流量检测</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pub fn flow_time() &#123;</span><br><span class="line">    use std::time::&#123;Duration, Instant&#125;;</span><br><span class="line">    use std::thread::sleep;</span><br><span class="line"></span><br><span class="line">    let start_time = Instant::now();</span><br><span class="line"></span><br><span class="line">    sleep(Duration::from_millis(5000));</span><br><span class="line"></span><br><span class="line">    let elapsed_time = start_time.elapsed();</span><br><span class="line"></span><br><span class="line">    if elapsed_time.as_millis() &lt; 5000 &#123;</span><br><span class="line">        std::process::exit(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该函数判断时间是否在沙箱内进行加速</p>
+<h3 id="检查出口-IP"><a href="#检查出口-IP" class="headerlink" title="检查出口 IP"></a>检查出口 IP</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fn ip() &#123;</span><br><span class="line">    let output = Command::new(&quot;cmd&quot;)</span><br><span class="line">        .args(&amp;[&quot;/c&quot;, &quot;curl -s https://myip.ipip.net/&quot;])</span><br><span class="line">        .creation_flags(CREATE_NO_WINDOW)</span><br><span class="line">        .output()</span><br><span class="line">        .expect(&quot;Failed to execute command&quot;);</span><br><span class="line"></span><br><span class="line">    if !output.status.success() &#123;</span><br><span class="line">        std::process::exit(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let body = str::from_utf8(&amp;output.stdout).expect(&quot;Failed to parse response&quot;);</span><br><span class="line"></span><br><span class="line">    if body.contains(&quot;中国&quot;) &#123;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        std::process::exit(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>该函数通过<code>curl</code>命令获取出口IP，如果不在中国则退出程序</p>
+<h3 id="检查桌面文件数量"><a href="#检查桌面文件数量" class="headerlink" title="检查桌面文件数量"></a>检查桌面文件数量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">fn check_desktop() &#123;</span><br><span class="line">    let desktop_path = get_desktop_path().expect(&quot;无法获取桌面路径&quot;);</span><br><span class="line"></span><br><span class="line">    let entries = match fs::read_dir(&amp;desktop_path) &#123;</span><br><span class="line">        Ok(entries) =&gt; entries,</span><br><span class="line">        Err(_) =&gt; &#123;</span><br><span class="line">            std::process::exit(1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    let file_count = entries.filter_map(|entry| entry.ok()).count();</span><br><span class="line"></span><br><span class="line">    if file_count &lt; 10 &#123;</span><br><span class="line">        std::process::exit(1);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn get_desktop_path() -&gt; Option&lt;PathBuf&gt; &#123;</span><br><span class="line">    let home_dir = dirs::home_dir()?;</span><br><span class="line">    #[cfg(target_os = &quot;windows&quot;)]</span><br><span class="line">    return Some(home_dir.join(&quot;Desktop&quot;));</span><br><span class="line">    None</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该函数获取桌面路径并检查文件数量是否小于10，如果小于10则退出程序</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li>仅限用于技术研究和获得正式授权的攻防项目，请用户遵守《中华人民共和国网络安全法》，曼哈顿用于任何非法活动，若将工具做其他用途，由用户承担全部法律及连带责任，作者及发布者不承担任何法律及连带责任！</li>
+<li>使用前先按照文档步骤一步一步来，报错问题自行百度解决，类似问题不予回复，感谢理解！</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>代码总结学习以下项目，提交当晚通宵没来及写，现补上，另外免杀性失效自行修改代码，楼主仅提供一个思路，祝玩得开心♥</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/joaoviictorti/RustRedOps">https://github.com/joaoviictorti/RustRedOps</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiao-zhu-zhu/RustBypassMap">https://github.com/xiao-zhu-zhu/RustBypassMap</a></p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/免杀/" class="tag">#免杀</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/20/wx-hook-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7-%E6%8A%93%E5%8C%85/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">wx-hook-微信小程序渗透工具-抓包</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/18/%E9%83%A8%E7%BD%B2%E4%B8%80%E6%AC%BE%E7%9B%97Uweb%E7%AB%AF/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">部署一款盗Uweb端</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
