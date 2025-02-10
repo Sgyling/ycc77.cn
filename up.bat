@@ -13,3 +13,4 @@ rm -fr sitemap.xml
 rm -fr 2024
 rm -fr 2025
 rm -fr categories
+rm -fr 2999
