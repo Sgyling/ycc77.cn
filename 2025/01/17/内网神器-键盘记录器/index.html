@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>内网神器-键盘记录器 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="内网神器-键盘记录器 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/17/%E5%86%85%E7%BD%91%E7%A5%9E%E5%99%A8-%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%99%A8/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-17T12:21:09.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>17,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">内网神器-键盘记录器</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="新时代-键盘记录器"><a href="#新时代-键盘记录器" class="headerlink" title="新时代-键盘记录器"></a>新时代-键盘记录器</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a><strong>1. 前言</strong></h2><p>在网络安全领域，攻击者不断寻找新的方法来获取敏感信息，绕过防御系统并渗透目标网络。在红队操作中，键盘记录（Keylogging）和剪切板记录（Clipboard Logging）是两种常用且高效的技术手段。通过捕获用户的键盘输入和剪切板内容，红队能够获取大量宝贵的信息，从而推进其渗透测试和攻击活动。</p>
+<h3 id="1-1-为什么说他是新时代的？"><a href="#1-1-为什么说他是新时代的？" class="headerlink" title="1.1 为什么说他是新时代的？"></a><strong>1.1 为什么说他是新时代的？</strong></h3><p>之前的所有键盘记录都是一次运行监控全部程序，导致数据监控的不是很直观，因为也有一些其他的键盘输入。这也导致系统占用较大。</p>
+<p>这个工具，是可以指定某个进程单独的去监控用户的输入，这样就筛选掉了大量的垃圾内容，只留下我们想要的。 那么问题来了，只监控一个是否会有一点单一？比如我们要监控 keeppass 和 浏览器，两个，是否要进行两次？不是的，他不仅能够在单一进程中监控GUI事件，还能在不同进程之间进行监控。这意味着它可以同时对多个应用程序的界面进行操作捕捉，扩大了监控的范围。 这就比较厉害了！具体我们往下看</p>
+<h2 id="2-什么是键盘记录？"><a href="#2-什么是键盘记录？" class="headerlink" title="2. 什么是键盘记录？"></a><strong>2. 什么是键盘记录？</strong></h2><p>键盘记录器是一种监控并记录计算机上键盘输入的软件。虽然它们可用于合法的用户监视，但常被恶意行为者滥用，用于窃取敏感信息，如身份验证凭据、信用卡详细信息及其他机密数据。本文重点介绍软件键盘记录器，尽管也存在通过USB直接连接到PC的硬件键盘记录器。通过键盘记录器窃取的敏感信息可能用于盗窃资金或作为进一步网络攻击的跳板。因此，尽管键盘记录器本身不会直接损坏计算机，但早期检测对于防止后续更具侵入性的网络攻击至关重要。</p>
+<h2 id="3-键盘记录的作用？"><a href="#3-键盘记录的作用？" class="headerlink" title="3. 键盘记录的作用？"></a><strong>3. 键盘记录的作用？</strong></h2><ul>
+<li><strong>获取凭证和敏感信息</strong>：记录目标用户的键盘输入，获取用户名、密码和其他敏感数据。</li>
+<li><strong>定制攻击策略</strong>：分析用户操作模式，帮助设计针对性更强的钓鱼和社会工程攻击。</li>
+<li><strong>支持横向移动和权限提升</strong>：利用记录到的凭证进行系统内部横向移动和提升权限。</li>
+<li><strong>持久性访问</strong>：确保长期对目标系统的访问，收集信息和跟踪活动而不被发现。</li>
+</ul>
+<h2 id="4-工具原理"><a href="#4-工具原理" class="headerlink" title="4. 工具原理"></a><strong>4. 工具原理</strong></h2><h3 id="4-1-利用UIA框架监控GUI变化"><a href="#4-1-利用UIA框架监控GUI变化" class="headerlink" title="4.1 利用UIA框架监控GUI变化"></a><strong>4.1 利用UIA框架监控GUI变化</strong></h3><p><strong>UIA基础</strong>：Windows UIA是一个允许程序与Windows图形元素交互的框架。此工具通过研究和利用UIA，能够对各种Windows应用程序的图形用户界面（GUI）进行监控。</p>
+<p><strong>事件处理</strong>：程序中定义了两个主要的事件处理函数。</p>
+<ul>
+<li><code>MyAutomationEventHandler</code>：用于处理UIA的基本事件，例如新窗口的打开等；</li>
+<li><code>MyPropertyChangedEventHandler</code>：则用于处理属性改变事件，比如文本框中内容的输入、修改等。这两个处理函数能够捕捉到用户在GUI上进行的各种操作和数据输入，从而实现对用户行为的监控。</li>
+</ul>
+<h2 id="5-工具特点"><a href="#5-工具特点" class="headerlink" title="5. 工具特点"></a><strong>5. 工具特点</strong></h2><p><strong>跨进程和域的监控能力</strong>：此工具不仅能够在单一进程中监控GUI事件，还能在不同进程之间进行监控。这意味着它可以同时对多个应用程序的界面进行操作捕捉，扩大了监控的范围。</p>
+<p><strong>浏览器域监控</strong>：程序甚至能够在浏览器的不同域中添加处理函数，进一步拓展了其监控能力。例如在使用浏览器时，无论用户访问的是哪个网站或网页应用,此工具都有可能对其进行界面事件的监控。</p>
+<h2 id="6-使用示例"><a href="#6-使用示例" class="headerlink" title="6. 使用示例"></a><strong>6. 使用示例</strong></h2><p>说了那么多，我们现在来体验一下这个工具所能达到的效果：</p>
+<h3 id="6-1-监控整个系统-【建议不要使用】"><a href="#6-1-监控整个系统-【建议不要使用】" class="headerlink" title="6.1 监控整个系统 【建议不要使用】"></a><strong>6.1 监控整个系统 【建议不要使用】</strong></h3><p>为什么不建议使用呢？</p>
+<p>这样资源占用较大，文件内容也过大，如果想使用这一种，使用老版的就行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spyndicapped.exe spy</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqgEYAbfpuDAastl4NnVJ2IDuic2UkvYEuSicc3PIlITicZtmGqJJPbiarZw/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqdyWKB93TIticZtib3IFLC4NwOer4iahWepH1YYpWicQdfeoibUTicc8K2ibLw/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<p>他会将剪切板和用户的输入都记录下来</p>
+<h3 id="6-2-监控某个特定进程-【推荐】"><a href="#6-2-监控某个特定进程-【推荐】" class="headerlink" title="6.2 监控某个特定进程 【推荐】"></a><strong>6.2 监控某个特定进程 【推荐】</strong></h3><ol>
+<li>查看现在已经开启的进程</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spyndicapped.exe find</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqP2Y7ChGeHcMuwC0HSIZlGiaYEicxkh8ib0E3zpG8ickn4GsmKanWAQRsiag/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<ol>
+<li>指定进程进行监控，并生成文件 我这边监控微信的输入，并且生成123.log</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spyndicapped.exe spy  --pid 16896 --logfile 123.log</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/lSQtsngIibibQCCYiaibPw0bh4brHxjuaInqfeWiaIxaOwjgLlZbTBZ2OMicgk5BaibZhjQhpYmf1098EzVtQPIcqrOtA/640?wx_fmt=png&from=appmsg" alt="img"></p>
+<p>我们看到已经成功记录</p>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a><strong>7. 总结</strong></h2><p>此工具的出现，其实对于HW的红队来说，意义不大，因为HW是对于时间的要求极高，其他的都可以排后，所以什么简单使用什么就可以了。但是对于APT组织来说……可以有很多的思考空间！</p>
+<h2 id="8-工具下载地址"><a href="#8-工具下载地址" class="headerlink" title="8. 工具下载地址"></a><strong>8. 工具下载地址</strong></h2><p>Github:<a target="_blank" rel="noopener" href="https://github.com/CICADA8-Research/Spyndicapped">https://github.com/CICADA8-Research/Spyndicapped</a></p>
+<p>或者夸克网盘:<br>链接：<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/0a414077c29f">https://pan.quark.cn/s/0a414077c29f</a></p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/内网工具/" class="tag">#内网工具</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/17/Shellcode%E5%85%8D%E6%9D%80%E6%A1%86%E6%9E%B6-dataBrawl/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">Shellcode免杀框架-dataBrawl</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/17/exe%E9%80%86%E5%90%91%E7%A5%9E%E5%99%A8-ImHex/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">exe逆向神器-ImHex</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
