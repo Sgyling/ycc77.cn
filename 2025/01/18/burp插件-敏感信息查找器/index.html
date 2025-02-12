@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>burp插件-敏感信息查找器 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="burp插件-敏感信息查找器 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/18/burp%E6%8F%92%E4%BB%B6-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E6%89%BE%E5%99%A8/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-18T03:11:56.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>18,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">burp插件-敏感信息查找器</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="Burp-API查找器"><a href="#Burp-API查找器" class="headerlink" title="Burp API查找器"></a>Burp API查找器</h1><p>下载链接:<a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpAPIFinder/releases/download/v1.7/BurpAPIFinder.jar">https://github.com/shuanx/BurpAPIFinder/releases/download/v1.7/BurpAPIFinder.jar</a></p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/aec62dc0b68de45205213e0a66854fd631127f8745f8a42d6340d3028a2cd8f7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f417574686f722d536861756e2d626c7565"><img src="https://camo.githubusercontent.com/aec62dc0b68de45205213e0a66854fd631127f8745f8a42d6340d3028a2cd8f7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f417574686f722d536861756e2d626c7565" alt="img"></a> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/a0f773456863099bcf616a51290c7ea9df5f80dad5116aa42793f3f8cffd5ef7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a444b2d392b2d79656c6c6f77"><img src="https://camo.githubusercontent.com/a0f773456863099bcf616a51290c7ea9df5f80dad5116aa42793f3f8cffd5ef7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a444b2d392b2d79656c6c6f77" alt="img"></a> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/58e5f7dfab13434e66cf8dc2eb3c2c17e8ef39e24748293fad85aba83a4be899/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545362538442541312545362542432538462545362539382541462545392539372541382545382538392542412545362539432541462d2545352542452538302545352542452538302545362539432538392545362538342538462545362538332542332545342542382538442545352538382542302545372539412538342545362538382539302545362539452539432d726564"><img src="https://camo.githubusercontent.com/58e5f7dfab13434e66cf8dc2eb3c2c17e8ef39e24748293fad85aba83a4be899/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545362538442541312545362542432538462545362539382541462545392539372541382545382538392542412545362539432541462d2545352542452538302545352542452538302545362539432538392545362538342538462545362538332542332545342542382538442545352538382542302545372539412538342545362538382539302545362539452539432d726564" alt="img"></a></p>
+<blockquote>
+<p>在攻防演练过程中，我们通常会使用浏览器访问一些资产，但很多未授权&#x2F;敏感信息&#x2F;越权隐匿在访问接口过html、JS文件等，通过该Burp插件我们可以： 1、通过某些接口可以发现进行未授权&#x2F;越权获取到所有的账号密码、私钥、凭证 2、发现通过某接口可以枚举用户信息、修改密码、用户创建接口 3、发现登陆后台网址 4、发现在html、JS中漏洞账号密码或者云主机的Access Key和SecretKey …</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpAPIFinder/blob/main/images/main.png"><img src="https://github.com/shuanx/BurpAPIFinder/raw/main/images/main.png" alt="图片.png"></a></p>
+<h2 id="功能如下"><a href="#功能如下" class="headerlink" title="功能如下"></a>功能如下</h2><blockquote>
+<p>如果有更好的建议或者期待使用的，点个免费的星星</p>
+</blockquote>
+<ul>
+<li>网站提取的URL链接并解析JS文件中的URL链接</li>
+<li>前段界面可自行定义铭感关键词、敏感url匹配</li>
+<li>界面可配置的开启主动探测探测、铭感信息获取</li>
+<li>集成主题攻防场景敏感信息的指纹库 <a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpAPIFinder/blob/main/images/config.png"><img src="https://github.com/shuanx/BurpAPIFinder/raw/main/images/config.png" alt="图片.png"></a></li>
+<li>集成HaE的敏感信息识别指纹 <a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpAPIFinder/blob/main/images/HaE.png"><img src="https://github.com/shuanx/BurpAPIFinder/raw/main/images/HaE.png" alt="图片.png"></a></li>
+<li>集成APIKit的敏感信息识别指纹 <a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpAPIFinder/blob/main/images/APIKit.png"><img src="https://github.com/shuanx/BurpAPIFinder/raw/main/images/APIKit.png" alt="图片.png"></a></li>
+<li>集成红薯的敏感信息识别指纹 <a target="_blank" rel="noopener" href="https://github.com/shuanx/BurpAPIFinder/blob/main/images/sweetPotato.png"><img src="https://github.com/shuanx/BurpAPIFinder/raw/main/images/sweetPotato.png" alt="图片.png"></a></li>
+</ul>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-burp插件/" class="tag">#信息收集-burp插件</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/18/burp%E6%8F%92%E4%BB%B6-%E6%8C%87%E7%BA%B9%E6%89%AB%E6%8F%8F/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">burp插件-指纹扫描</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/18/zmap-%E4%B8%80%E6%AC%BE%E5%8F%AF%E4%BB%A5%E8%AE%A9%E4%BD%A045%E5%88%86%E9%92%9F%E6%89%AB%E6%8F%8F%E5%85%A8%E7%BD%91ipv4%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%B7%A5%E5%85%B7/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">zmap-一款可以让你45分钟扫描全网ipv4端口的工具</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
