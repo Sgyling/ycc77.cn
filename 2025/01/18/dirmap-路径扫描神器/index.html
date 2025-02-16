@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>dirmap-路径扫描神器 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="dirmap-路径扫描神器 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/18/dirmap-%E8%B7%AF%E5%BE%84%E6%89%AB%E6%8F%8F%E7%A5%9E%E5%99%A8/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-18T03:22:54.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>18,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">dirmap-路径扫描神器</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="Dirmap"><a href="#Dirmap" class="headerlink" title="Dirmap"></a>Dirmap</h1><p>链接：<a target="_blank" rel="noopener" href="https://github.com/H4ckForJob/dirmap">https://github.com/H4ckForJob/dirmap</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/H4ckForJob/dirmap/blob/master/README_EN.md">English</a></p>
+<p>一个高级web目录扫描工具，功能将会强于DirBuster、Dirsearch、cansina、御剑</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/H4ckForJob/dirmap/blob/master/doc/dirmap.png"><img src="https://github.com/H4ckForJob/dirmap/raw/master/doc/dirmap.png" alt="dirmap"></a></p>
+<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>经过大量调研，总结一个优秀的web目录扫描工具至少具备以下功能：</p>
+<ul>
+<li>并发引擎</li>
+<li>能使用字典</li>
+<li>能纯爆破</li>
+<li>能爬取页面动态生成字典</li>
+<li>能fuzz扫描</li>
+<li>自定义请求</li>
+<li>自定义响应结果处理…</li>
+</ul>
+<p>那么接下来看看Dirmap的<strong>特点</strong>吧</p>
+<h1 id="功能特点"><a href="#功能特点" class="headerlink" title="功能特点"></a>功能特点</h1><ol>
+<li>支持n个target*n个payload并发</li>
+<li>支持递归扫描</li>
+<li>支持自定义需要递归扫描的状态码</li>
+<li>支持(单|多)字典扫描</li>
+<li>支持自定义字符集爆破</li>
+<li>支持爬虫动态字典扫描</li>
+<li>支持自定义标签fuzz目标url</li>
+<li>自定义请求User-Agent</li>
+<li>自定义请求随机延时</li>
+<li>自定义请求超时时间</li>
+<li>自定义请求代理</li>
+<li>自定义正则表达式匹配假性404页面</li>
+<li>自定义要处理的响应状态码</li>
+<li>自定义跳过大小为x的页面</li>
+<li>自定义显示content-type</li>
+<li>自定义显示页面大小</li>
+<li>按域名去重复保存结果</li>
+</ol>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="环境准备-python-3-7"><a href="#环境准备-python-3-7" class="headerlink" title="环境准备:python 3.7 +"></a>环境准备:python 3.7 +</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/H4ckForJob/dirmap.git #克隆</span><br><span class="line">cd dirmap #进入目录 </span><br><span class="line">python3 -m pip install -r requirement.txt #安装必须库</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h2><h3 id="输入目标"><a href="#输入目标" class="headerlink" title="输入目标"></a>输入目标</h3><p>单目标，默认为http</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dirmap.py -i https://target.com -lcf</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dirmap.py -i 192.168.1.1 -lcf</span><br></pre></td></tr></table></figure>
+
+
+
+<p>子网（CIDR格式）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dirmap.py -i 192.168.1.0/24 -lcf</span><br></pre></td></tr></table></figure>
+
+
+
+<p>网络范围</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dirmap.py -i 192.168.1.1-192.168.1.100 -lcf</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 dirmap.py -iF targets.txt -lcf</span><br></pre></td></tr></table></figure>
+
+<p><code>targets.txt</code>中支持上述格式</p>
+<h3 id="结果保存"><a href="#结果保存" class="headerlink" title="结果保存"></a>结果保存</h3><ol>
+<li>结果将自动保存在项目根目录下的<code>output</code>文件夹中</li>
+<li>每一个目标生成一个txt，命名格式为<code>目标域名.txt</code></li>
+<li>结果自动去重复，不用担心产生大量冗余</li>
+</ol>
+<h2 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h2><p>自定义dirmap配置，开始探索dirmap高级功能</p>
+<p>暂时采用加载配置文件的方式进行详细配置，<strong>不支持使用命令行参数进行详细配置</strong>！</p>
+<p>编辑项目根目录下的<code>dirmap.conf</code>，进行配置</p>
+<p><code>dirmap.conf</code>配置详解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">#递归扫描处理配置</span><br><span class="line">[RecursiveScan]</span><br><span class="line">#是否开启递归扫描:关闭:0;开启:1</span><br><span class="line">conf.recursive_scan = 0</span><br><span class="line">#遇到这些状态码，开启递归扫描。默认配置[301,403]</span><br><span class="line">conf.recursive_status_code = [301,403]</span><br><span class="line">#URL超过这个长度就退出扫描</span><br><span class="line">conf.recursive_scan_max_url_length = 60</span><br><span class="line">#这些后缀名不递归扫</span><br><span class="line">conf.recursive_blacklist_exts = [&quot;html&quot;,&#x27;htm&#x27;,&#x27;shtml&#x27;,&#x27;png&#x27;,&#x27;jpg&#x27;,&#x27;webp&#x27;,&#x27;bmp&#x27;,&#x27;js&#x27;,&#x27;css&#x27;,&#x27;pdf&#x27;,&#x27;ini&#x27;,&#x27;mp3&#x27;,&#x27;mp4&#x27;]</span><br><span class="line">#设置排除扫描的目录。默认配置空。其他配置：e.g:[&#x27;/test1&#x27;,&#x27;/test2&#x27;]</span><br><span class="line">#conf.exclude_subdirs = [&#x27;/test1&#x27;,&#x27;/test2&#x27;]</span><br><span class="line">conf.exclude_subdirs = &quot;&quot;</span><br><span class="line"></span><br><span class="line">#扫描模式处理配置(4个模式，1次只能选择1个)</span><br><span class="line">[ScanModeHandler]</span><br><span class="line">#字典模式:关闭:0;单字典:1;多字典:2</span><br><span class="line">conf.dict_mode = 1</span><br><span class="line">#单字典模式的路径</span><br><span class="line">conf.dict_mode_load_single_dict = &quot;dict_mode_dict.txt&quot;</span><br><span class="line">#多字典模式的路径，默认配置dictmult</span><br><span class="line">conf.dict_mode_load_mult_dict = &quot;dictmult&quot;</span><br><span class="line">#爆破模式:关闭:0;开启:1</span><br><span class="line">conf.blast_mode = 0</span><br><span class="line">#生成字典最小长度。默认配置3</span><br><span class="line">conf.blast_mode_min = 3</span><br><span class="line">#生成字典最大长度。默认配置3</span><br><span class="line">conf.blast_mode_max = 3</span><br><span class="line">#默认字符集:a-z。暂未使用。</span><br><span class="line">conf.blast_mode_az = &quot;abcdefghijklmnopqrstuvwxyz&quot;</span><br><span class="line">#默认字符集:0-9。暂未使用。</span><br><span class="line">conf.blast_mode_num = &quot;0123456789&quot;</span><br><span class="line">#自定义字符集。默认配置&quot;abc&quot;。使用abc构造字典</span><br><span class="line">conf.blast_mode_custom_charset = &quot;abc&quot;</span><br><span class="line">#自定义继续字符集。默认配置空。</span><br><span class="line">conf.blast_mode_resume_charset = &quot;&quot;</span><br><span class="line">#爬虫模式:关闭:0;开启:1</span><br><span class="line">conf.crawl_mode = 0</span><br><span class="line">#用于生成动态敏感文件payload的后缀字典</span><br><span class="line">conf.crawl_mode_dynamic_fuzz_suffix = &quot;crawl_mode_suffix.txt&quot;</span><br><span class="line">#解析robots.txt文件。暂未实现。</span><br><span class="line">conf.crawl_mode_parse_robots = 0</span><br><span class="line">#解析html页面的xpath表达式</span><br><span class="line">conf.crawl_mode_parse_html = &quot;//*/@href | //*/@src | //form/@action&quot;</span><br><span class="line">#是否进行动态爬虫字典生成。默认配置1，开启爬虫动态字典生成。其他配置：e.g:关闭:0;开启:1</span><br><span class="line">conf.crawl_mode_dynamic_fuzz = 1</span><br><span class="line">#Fuzz模式:关闭:0;单字典:1;多字典:2</span><br><span class="line">conf.fuzz_mode = 0</span><br><span class="line">#单字典模式的路径。</span><br><span class="line">conf.fuzz_mode_load_single_dict = &quot;fuzz_mode_dir.txt&quot;</span><br><span class="line">#多字典模式的路径。默认配置:fuzzmult</span><br><span class="line">conf.fuzz_mode_load_mult_dict = &quot;fuzzmult&quot;</span><br><span class="line">#设置fuzz标签。默认配置&#123;dir&#125;。使用&#123;dir&#125;标签当成字典插入点，将http://target.com/&#123;dir&#125;.php替换成http://target.com/字典中的每一行.php。其他配置：e.g:&#123;dir&#125;;&#123;ext&#125;</span><br><span class="line">#conf.fuzz_mode_label = &quot;&#123;ext&#125;&quot;</span><br><span class="line">conf.fuzz_mode_label = &quot;&#123;dir&#125;&quot;</span><br><span class="line"></span><br><span class="line">#处理payload配置。暂未实现。</span><br><span class="line">[PayloadHandler]</span><br><span class="line"></span><br><span class="line">#处理请求配置</span><br><span class="line">[RequestHandler]</span><br><span class="line">#自定义请求头。默认配置空。其他配置：e.g:test1=test1,test2=test2</span><br><span class="line">#conf.request_headers = &quot;test1=test1,test2=test2&quot;</span><br><span class="line">conf.request_headers = &quot;&quot;</span><br><span class="line">#自定义请求User-Agent。默认配置chrome的ua。</span><br><span class="line">conf.request_header_ua = &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36&quot;</span><br><span class="line">#自定义请求cookie。默认配置空，不设置cookie。其他配置e.g:cookie1=cookie1; cookie2=cookie2;</span><br><span class="line">#conf.request_header_cookie = &quot;cookie1=cookie1; cookie2=cookie2&quot;</span><br><span class="line">conf.request_header_cookie = &quot;&quot;</span><br><span class="line">#自定义401认证。暂未实现。因为自定义请求头功能可满足该需求(懒XD)</span><br><span class="line">conf.request_header_401_auth = &quot;&quot;</span><br><span class="line">#自定义请求方法。默认配置get方法。其他配置：e.g:get;head</span><br><span class="line">#conf.request_method = &quot;head&quot;</span><br><span class="line">conf.request_method = &quot;get&quot;</span><br><span class="line">#自定义每个请求超时时间。默认配置3秒。</span><br><span class="line">conf.request_timeout = 3</span><br><span class="line">#随机延迟(0-x)秒发送请求。参数必须是整数。默认配置0秒，无延迟。</span><br><span class="line">conf.request_delay = 0</span><br><span class="line">#自定义单个目标，请求协程线程数。默认配置30线程</span><br><span class="line">conf.request_limit = 30</span><br><span class="line">#自定义最大重试次数。暂未实现。</span><br><span class="line">conf.request_max_retries = 1</span><br><span class="line">#设置持久连接。是否使用session()。暂未实现。</span><br><span class="line">conf.request_persistent_connect = 0</span><br><span class="line">#302重定向。默认False，不重定向。其他配置：e.g:True;False</span><br><span class="line">conf.redirection_302 = False</span><br><span class="line">#payload后添加后缀。默认空，扫描时，不添加后缀。其他配置：e.g:txt;php;asp;jsp</span><br><span class="line">#conf.file_extension = &quot;txt&quot;</span><br><span class="line">conf.file_extension = &quot;&quot;</span><br><span class="line"></span><br><span class="line">#处理响应配置</span><br><span class="line">[ResponseHandler]</span><br><span class="line">#设置要记录的响应状态。默认配置[200]，记录200状态码。其他配置：e.g:[200,403,301]</span><br><span class="line">#conf.response_status_code = [200,403,301]</span><br><span class="line">conf.response_status_code = [200]</span><br><span class="line">#是否记录content-type响应头。默认配置1记录</span><br><span class="line">#conf.response_header_content_type = 0</span><br><span class="line">conf.response_header_content_type = 1</span><br><span class="line">#是否记录页面大小。默认配置1记录</span><br><span class="line">#conf.response_size = 0</span><br><span class="line">conf.response_size = 1</span><br><span class="line">#是否自动检测404页面。默认配置True，开启自动检测404.其他配置参考e.g:True;False</span><br><span class="line">#conf.auto_check_404_page = False</span><br><span class="line">conf.auto_check_404_page = True</span><br><span class="line">#自定义匹配503页面正则。暂未实现。感觉用不着，可能要废弃。</span><br><span class="line">#conf.custom_503_page = &quot;page 503&quot;</span><br><span class="line">conf.custom_503_page = &quot;&quot;</span><br><span class="line">#自定义正则表达式，匹配页面内容</span><br><span class="line">#conf.custom_response_page = &quot;([0-9])&#123;3&#125;([a-z])&#123;3&#125;test&quot;</span><br><span class="line">conf.custom_response_page = &quot;&quot;</span><br><span class="line">#跳过显示页面大小为x的页面，若不设置，请配置成&quot;None&quot;，默认配置“None”。其他大小配置参考e.g:None;0b;1k;1m</span><br><span class="line">#conf.skip_size = &quot;0b&quot;</span><br><span class="line">conf.skip_size = &quot;None&quot;</span><br><span class="line"></span><br><span class="line">#代理选项</span><br><span class="line">[ProxyHandler]</span><br><span class="line">#代理配置。默认设置“None”，不开启代理。其他配置e.g:&#123;&quot;http&quot;:&quot;http://127.0.0.1:8080&quot;,&quot;https&quot;:&quot;https://127.0.0.1:8080&quot;&#125;</span><br><span class="line">#conf.proxy_server = &#123;&quot;http&quot;:&quot;http://127.0.0.1:8080&quot;,&quot;https&quot;:&quot;https://127.0.0.1:8080&quot;&#125;</span><br><span class="line">conf.proxy_server = None</span><br><span class="line"></span><br><span class="line">#Debug选项</span><br><span class="line">[DebugMode]</span><br><span class="line">#打印payloads并退出</span><br><span class="line">conf.debug = 0</span><br><span class="line"></span><br><span class="line">#update选项</span><br><span class="line">[CheckUpdate]</span><br><span class="line">#github获取更新。暂未实现。</span><br><span class="line">conf.update = 0</span><br></pre></td></tr></table></figure>
+
+<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>命令行参数解析全局初始化</p>
+<p>engine始化</p>
+<p>设置线程数</p>
+<p>target初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">自动解析处理输入格式( -i,inputTarget)</span><br><span class="line"></span><br><span class="line">-  IP</span><br><span class="line">-  Domain</span><br><span class="line">-  URL</span><br><span class="line">-  IP/MASK</span><br><span class="line">-  IP Start-End</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>文件读入(-iF,inputLocalFile)</li>
+</ul>
+<p>bruter初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">加载配置方式()</span><br><span class="line"></span><br><span class="line">-  读取命令行参数值</span><br><span class="line">-  读取配置文件(-lcf,loadConfigFile)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">递归模式选项(RecursiveScan)</span><br><span class="line"></span><br><span class="line">-  递归扫描(-rs,recursive_scan)</span><br><span class="line">-  需要递归的状态码(-rd,recursive_status_code)</span><br><span class="line">-  排除某些目录(-es,exclude_subdirs)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">扫描模式选项(ScanModeHandler)</span><br><span class="line"></span><br><span class="line">-  </span><br><span class="line"></span><br><span class="line">  字典模式(-dm,dict_mode)</span><br><span class="line"></span><br><span class="line">  -  加载单个字典(-dmlsd,dict_mode_load_single_dict)</span><br><span class="line">  -  加载多个字典(-dmlmd,dict_mode_load_mult_dict)</span><br><span class="line"></span><br><span class="line">-  </span><br><span class="line"></span><br><span class="line">  爆破模式(-bm,blast_mode)</span><br><span class="line"></span><br><span class="line">  -  </span><br><span class="line"></span><br><span class="line">    爆破目录长度范围(必选)</span><br><span class="line"></span><br><span class="line">    -  最小长度(-bmmin,blast_mode_min)</span><br><span class="line">    -  最大长度(-bmmax,blast_mode_max)</span><br><span class="line"></span><br><span class="line">  -  </span><br><span class="line"></span><br><span class="line">    基于默认字符集</span><br><span class="line"></span><br><span class="line">    -  基于a-z</span><br><span class="line">    -  基于0-9</span><br><span class="line"></span><br><span class="line">  -  基于自定义字符集(-bmcc,blast_mode_custom_charset)</span><br><span class="line"></span><br><span class="line">  -  断点续生成payload(-bmrc,blast_mode_resume_charset)</span><br><span class="line"></span><br><span class="line">-  </span><br><span class="line"></span><br><span class="line">  爬虫模式(-cm,crawl_mode)</span><br><span class="line"></span><br><span class="line">  -  自定义解析标签(-cmph,crawl_mode_parse_html)(a:href,img:src,form:action,script:src,iframe:src,div:src,frame:src,embed:src)</span><br><span class="line">  -  解析robots.txt(-cmpr,crawl_mode_parse_robots)</span><br><span class="line">  -  爬虫类动态fuzz扫描(-cmdf,crawl_mode_dynamic_fuzz)</span><br><span class="line"></span><br><span class="line">-  </span><br><span class="line"></span><br><span class="line">  fuzz模式(-fm,fuzz_mode)</span><br><span class="line"></span><br><span class="line">  -  fuzz单个字典(-fmlsd,fuzz_mode_load_single_dict)</span><br><span class="line">  -  fuzz多个字典(-fmlmd,fuzz_mode_load_mult_dict)</span><br><span class="line">  -  fuzz标签(-fml,fuzz_mode_label)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">请求优化选项(RequestHandler)</span><br><span class="line"></span><br><span class="line">-  自定义请求超时(-rt,request_timeout)</span><br><span class="line"></span><br><span class="line">-  自定义请求延时(-rd,request_delay)</span><br><span class="line"></span><br><span class="line">-  限制单个目标主机协程数扫描(-rl,request_limit)</span><br><span class="line"></span><br><span class="line">-  限制重试次数(-rmr,request_max_retries)</span><br><span class="line"></span><br><span class="line">-  http持久连接(-rpc,request_persistent_connect)</span><br><span class="line"></span><br><span class="line">-  自定义请求方法(-rm,request_method)(get、head)</span><br><span class="line"></span><br><span class="line">-  302状态处理(-r3,redirection_302)(是否重定向)</span><br><span class="line"></span><br><span class="line">-  </span><br><span class="line"></span><br><span class="line">  自定义header</span><br><span class="line"></span><br><span class="line">  -  自定义其他header(-rh,request_headers)(解决需要401认证)</span><br><span class="line">  -  自定义ua(-rhua,request_header_ua)</span><br><span class="line">  -  自定义cookie(-rhc,request_header_cookie)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">字典处理选项(PayloadHandler)</span><br><span class="line"></span><br><span class="line">-  字典处理(payload修改-去斜杠)</span><br><span class="line">-  字典处理(payload修改-首字符加斜杠)</span><br><span class="line">-  字典处理(payload修改-单词首字母大写)</span><br><span class="line">-  字典处理(payload修改-去扩展)</span><br><span class="line">-  字典处理(payload修改-去除非字母数字)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">响应结果处理模块(ResponseHandler)</span><br><span class="line"></span><br><span class="line">-  跳过大小为x字节的文件(-ss,skip_size)</span><br><span class="line"></span><br><span class="line">-  自动检测404页面(-ac4p,auto_check_404_page)</span><br><span class="line"></span><br><span class="line">-  自定义503页面(-c5p,custom_503_page)</span><br><span class="line"></span><br><span class="line">-  </span><br><span class="line"></span><br><span class="line">  自定义正则匹配响应内容并进行某种操作</span><br><span class="line"></span><br><span class="line">  -  自定义正则匹配响应(-crp,custom_response_page)</span><br><span class="line">  -  某种操作(暂时未定义)</span><br><span class="line"></span><br><span class="line">-  输出结果为自定义状态码(-rsc,response_status_code)</span><br><span class="line"></span><br><span class="line">-  输出payload为完整路径(默认输出完成url)</span><br><span class="line"></span><br><span class="line">-  输出结果展示content-type</span><br><span class="line"></span><br><span class="line">-  自动去重复保存结果</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">状态处理模块(StatusHandler)</span><br><span class="line"></span><br><span class="line">-  状态显示(等待开始、进行中、暂停中、异常、完成)</span><br><span class="line">-  进度显示</span><br><span class="line">-  状态控制(开始、暂停、继续、停止)</span><br><span class="line">-  续扫模块(暂未配置)</span><br><span class="line">-  断点续扫</span><br><span class="line">-  选行续扫</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">日志记录模块(ScanLogHandler)</span><br><span class="line"></span><br><span class="line">-  扫描日志</span><br><span class="line">-  错误日志</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">代理模块(ProxyHandler)</span><br><span class="line"></span><br><span class="line">-  单个代理(-ps,proxy_server)</span><br><span class="line">-  代理池</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调试模式选项(DebugMode)</span><br><span class="line"></span><br><span class="line">-  debug(--debug)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">检查更新选项(CheckUpdate)</span><br><span class="line"></span><br><span class="line">-  update(--update)</span><br></pre></td></tr></table></figure>
+
+<h1 id="默认字典文件"><a href="#默认字典文件" class="headerlink" title="默认字典文件"></a>默认字典文件</h1><p>字典文件存放在项目根目录中的<code>data</code>文件夹中</p>
+<ol>
+<li>dict_mode_dict.txt “字典模式”字典，使用dirsearch默认字典</li>
+<li>crawl_mode_suffix.txt “爬虫模式”字典，使用FileSensor默认字典</li>
+<li>fuzz_mode_dir.txt “fuzz模式”字典，使用DirBuster默认字典</li>
+<li>fuzz_mode_ext.txt “fuzz模式”字典，使用常见后缀制作的字典</li>
+<li>dictmult 该目录为“字典模式”默认多字典文件夹，包含：BAK.min.txt(备份文件小字典)，BAK.txt(备份文件大字典)，LEAKS.txt(信息泄露文件字典)</li>
+<li>fuzzmult 该目录为“fuzz模式”默认多字典文件夹，包含：fuzz_mode_dir.txt(默认目录字典)，fuzz_mode_ext.txt(默认后缀字典)</li>
+</ol>
+<h1 id="已知缺陷"><a href="#已知缺陷" class="headerlink" title="已知缺陷"></a>已知缺陷</h1><ol>
+<li>“爬虫模式”只爬取了目标的当前页面，用于生成动态字典。项目将来会将“爬虫模块”与“生成动态字典功能”分离。</li>
+<li>关于bruter.py第517行<code>bar.log.start()</code>出错。解决方案：请安装progressbar2。卸载progressbar。防止导入同名模块。感谢某位表哥提醒。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">执行命令：</span><br><span class="line">python3 -m pip uninstall progressbar</span><br><span class="line">python3 -m pip install progressbar2</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-路径类/" class="tag">#信息收集-路径类</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/18/X-Recon-XSS%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">X-Recon-XSS漏洞扫描器</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/18/amass-%E4%B8%80%E6%AC%BE%E5%A5%BD%E7%94%A8%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">amass-一款好用的信息收集工具</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
