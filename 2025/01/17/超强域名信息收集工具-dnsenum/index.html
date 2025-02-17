@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>超强域名信息收集工具-dnsenum - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="超强域名信息收集工具-dnsenum - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/17/%E8%B6%85%E5%BC%BA%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7-dnsenum/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-17T12:05:43.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>17,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">超强域名信息收集工具-dnsenum</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="dnsenum-一款强大的域名信息收集工具"><a href="#dnsenum-一款强大的域名信息收集工具" class="headerlink" title="dnsenum-一款强大的域名信息收集工具"></a>dnsenum-一款强大的域名信息收集工具</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>DNSenum是一款用于枚举目标域名系统（DNS）信息的强大工具，它能够帮助渗透测试人员、安全研究人员和系统管理员收集与目标域名相关的各种信息。以下是DNSenum的基本使用方法：</p>
+<h3 id="一、安装DNSenum"><a href="#一、安装DNSenum" class="headerlink" title="一、安装DNSenum"></a>一、安装DNSenum</h3><ul>
+<li><p><strong>对于Kali Linux用户</strong>：Kali Linux默认安装了dnsenum，因此无需额外安装。</p>
+</li>
+<li><p>对于Parrot Linux 用户:Parrot Linux默认安装了dnsenum，因此无需额外安装</p>
+</li>
+<li><p>对于:Arch Linux 用户: sudo pacman -Sy dnsenum </p>
+</li>
+<li><p>对于:Blackarch 用户 :自带</p>
+</li>
+<li><p><strong>对于其他Linux发行版或Windows用户</strong>：可能需要从源代码编译或查找适用于自己系统的预编译版本进行安装。安装方法可能因系统而异，建议参考官方文档或社区提供的教程。</p>
+<h2 id="二、基本使用"><a href="#二、基本使用" class="headerlink" title="二、基本使用"></a>二、基本使用</h2><ol>
+<li><p><strong>打开命令行或终端</strong>：在Kali Linux或其他支持DNSenum的操作系统上，打开命令行或终端界面。</p>
+</li>
+<li><p><strong>执行DNSenum命令</strong>：在命令行或终端中输入<code>dnsenum</code>命令，后跟目标域名，即可开始枚举过程。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnsenum example.com</span><br></pre></td></tr></table></figure>
+
+<p>这条命令会启动DNSenum，并尝试收集关于<code>example.com</code>域名的各种信息。</p>
+<h2 id="三、常用参数"><a href="#三、常用参数" class="headerlink" title="三、常用参数"></a>三、常用参数</h2><h3 id="版本及基本用法"><a href="#版本及基本用法" class="headerlink" title="版本及基本用法"></a>版本及基本用法</h3><ul>
+<li><strong>版本</strong>：<code>VERSION:1.2.6</code></li>
+<li><strong>基本用法</strong>：<code>dnsenum [Options] &lt;domain&gt;</code>，即通过指定不同选项来对给定的域名进行相关操作。</li>
+</ul>
+<h3 id="通用选项（GENERAL-OPTIONS）"><a href="#通用选项（GENERAL-OPTIONS）" class="headerlink" title="通用选项（GENERAL OPTIONS）"></a>通用选项（GENERAL OPTIONS）</h3><ul>
+<li><strong><code>--dnsserver &lt;server&gt;</code></strong>：指定使用该 DNS 服务器来进行 A、NS 和 MX 查询。</li>
+<li><strong><code>--enum</code></strong>：快捷选项，等同于<code>--threads 5 -s 15 -w</code>。</li>
+<li><strong><code>-h, --help</code></strong>：打印帮助信息，显示该工具的使用说明。</li>
+<li><strong><code>--noreverse</code></strong>：跳过反向查找操作。</li>
+<li><strong><code>--nocolor</code></strong>：禁用 ANSI 色彩输出，使输出内容不带有彩色显示效果。</li>
+<li><strong><code>--private</code></strong>：在文件<code>domain_ips.txt</code>末尾展示并保存私有 IP 地址。</li>
+<li><strong><code>--subfile &lt;file&gt;</code></strong>：将所有有效的子域名写入到指定的文件中。</li>
+<li><strong><code>-t, --timeout &lt;value&gt;</code></strong>：设置 TCP 和 UDP 超时时间（单位为秒），默认值是 10 秒。</li>
+<li><strong><code>--threads &lt;value&gt;</code></strong>：指定执行不同查询的线程数量。</li>
+<li><strong><code>-v, --verbose</code></strong>：启用详细模式，会展示所有操作的进展情况以及错误消息。</li>
+</ul>
+<h3 id="谷歌抓取选项（GOOGLE-SCRAPING-OPTIONS）"><a href="#谷歌抓取选项（GOOGLE-SCRAPING-OPTIONS）" class="headerlink" title="谷歌抓取选项（GOOGLE SCRAPING OPTIONS）"></a>谷歌抓取选项（GOOGLE SCRAPING OPTIONS）</h3><ul>
+<li><strong><code>-p, --pages &lt;value&gt;</code></strong>：指定处理谷歌搜索页面的数量，用于抓取域名时，默认是 5 页，不过必须同时指定<code>-s</code>开关。</li>
+<li><strong><code>-s, --scrap &lt;value&gt;</code></strong>：设定从谷歌抓取的最大子域名数量，默认值是 15 个。</li>
+</ul>
+<h3 id="暴力破解选项（BRUTE-FORCE-OPTIONS）"><a href="#暴力破解选项（BRUTE-FORCE-OPTIONS）" class="headerlink" title="暴力破解选项（BRUTE FORCE OPTIONS）"></a>暴力破解选项（BRUTE FORCE OPTIONS）</h3><ul>
+<li><p><strong><code>-f, --file &lt;file&gt;</code></strong>：从指定文件中读取子域名来进行暴力破解，该选项优先级高于默认的<code>dns.txt</code>文件。</p>
+</li>
+<li><p><code>-u, --update &lt;a|g|r|z&gt;</code></p>
+<p>：使用有效的子域名来更新通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-f</span><br></pre></td></tr></table></figure>
+
+<p>开关指定的文件，具体更新方式有以下几种：</p>
+<ul>
+<li><strong><code>a (all)</code></strong>：使用所有结果进行更新。</li>
+<li><strong><code>g</code></strong>：仅使用谷歌抓取的结果进行更新。</li>
+<li><strong><code>r</code></strong>：仅使用反向查找结果进行更新。</li>
+<li><strong><code>z</code></strong>：仅使用区域传输结果进行更新。</li>
+</ul>
+</li>
+<li><p><strong><code>-r, --recursion</code></strong>：对子域名进行递归操作，对所有发现的有 NS 记录的子域名进行暴力破解。</p>
+</li>
+</ul>
+<h3 id="WHOIS-网络范围选项（WHOIS-NETRANGE-OPTIONS）"><a href="#WHOIS-网络范围选项（WHOIS-NETRANGE-OPTIONS）" class="headerlink" title="WHOIS 网络范围选项（WHOIS NETRANGE OPTIONS）"></a>WHOIS 网络范围选项（WHOIS NETRANGE OPTIONS）</h3><ul>
+<li><strong><code>-d, --delay &lt;value&gt;</code></strong>：设定在进行 WHOIS 查询时等待的最大秒数，该值随机定义，默认是 3 秒。</li>
+<li><strong><code>-w, --whois</code></strong>：对 C 类网络范围执行 WHOIS 查询，不过需注意这可能会产生非常大的网络范围，且进行反向查找会花费大量时间。</li>
+</ul>
+<h3 id="反向查找选项（REVERSE-LOOKUP-OPTIONS）"><a href="#反向查找选项（REVERSE-LOOKUP-OPTIONS）" class="headerlink" title="反向查找选项（REVERSE LOOKUP OPTIONS）"></a>反向查找选项（REVERSE LOOKUP OPTIONS）</h3><ul>
+<li><strong><code>-e, --exclude &lt;regexp&gt;</code></strong>：从反向查找结果中排除匹配正则表达式的 PTR 记录，在处理无效主机名时很有用。</li>
+</ul>
+<h3 id="输出选项（OUTPUT-OPTIONS）"><a href="#输出选项（OUTPUT-OPTIONS）" class="headerlink" title="输出选项（OUTPUT OPTIONS）"></a>输出选项（OUTPUT OPTIONS）</h3><ul>
+<li><strong><code>-o --output &lt;file&gt;</code></strong>：以 XML 格式输出内容，输出结果可导入到 MagicTree（网址：<a target="_blank" rel="noopener" href="https://www.gremwell.com/">www.gremwell.com</a>）中。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>DNSenum提供了丰富的命令行参数，以满足不同用户的需求。以下是一些常用的参数及其说明：</p>
+<ul>
+<li><code>--dnsserver &lt;server&gt;</code>：指定用于A、NS和MX查询的DNS服务器。这有助于绕过本地DNS服务器的限制或查询特定DNS服务器上的记录。</li>
+<li><code>--enum</code>：这是一个快捷选项，相当于设置了一组默认的查询参数（如线程数、抓取页面数等），以快速启动枚举过程。</li>
+<li><code>--noreverse</code>：跳过反向查询操作，以提高枚举效率。</li>
+<li><code>--file &lt;file&gt;</code>：从指定文件中读取子域名列表，用于执行暴力破解或进一步查询。</li>
+<li><code>--output &lt;file&gt;</code>：将枚举结果输出到指定文件，方便后续分析和处理。</li>
+<li><code>--verbose</code>：详细输出模式，显示所有进度和错误消息。这有助于了解枚举过程中的详细情况，但可能会产生大量输出。</li>
+</ul>
+<h2 id="4-常用命令"><a href="#4-常用命令" class="headerlink" title="4.常用命令"></a>4.常用命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#默认扫描 </span><br><span class="line">dnsenum baidu.com</span><br><span class="line">#子域名+dns扫描</span><br><span class="line">dnsemu -w baidu.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-域名类/" class="tag">#信息收集-域名类</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/17/%E5%AD%90%E5%9F%9F%E5%90%8D%E7%88%86%E7%A0%B4%E5%B7%A5%E5%85%B7-dnsmap/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">子域名爆破工具-dnsmap</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/17/%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E5%AD%90%E5%9F%9F%E5%90%8D%E7%88%86%E7%A0%B4%E5%B7%A5%E5%85%B7-FuzzDomain/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">可视化的子域名爆破工具-FuzzDomain</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
