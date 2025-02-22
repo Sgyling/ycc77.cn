@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>wx-hook-微信小程序渗透工具-抓包 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="wx-hook-微信小程序渗透工具-抓包 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/20/wx-hook-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7-%E6%8A%93%E5%8C%85/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-20T06:17:58.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>20,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">wx-hook-微信小程序渗透工具-抓包</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="wx-hook"><a href="#wx-hook" class="headerlink" title="wx-hook"></a>wx-hook</h1><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>用于记录老版本的小程序的基址和文件，用于绕过使用</p>
+<h3 id="bug处理"><a href="#bug处理" class="headerlink" title="bug处理"></a>bug处理</h3><blockquote>
+<p>注意当前方法可能导致一些神奇的bug，提前声明这类bug，我不怎么会解决，可以反馈大家一起解决</p>
+<p>90%的bug，可以采用将RadiumWMPF里面的所有小程序删除完，然后重启wx，重新替换，替换文件修改只读解决</p>
+</blockquote>
+<h2 id="优化使用"><a href="#优化使用" class="headerlink" title="优化使用"></a>优化使用</h2><p><strong>介绍</strong></p>
+<p>这里是 <a target="_blank" rel="noopener" href="https://github.com/eeeeeeeeee-code/e0e1-wx">https://github.com/eeeeeeeeee-code/e0e1-wx</a> 的hook优化扩展使用</p>
+<blockquote>
+<p>新版的devtools十分难受，界面垃圾，功能稀少，感觉就是微信防止hook的一种限制手段</p>
+<p>这里找到一种绕过的方法</p>
+</blockquote>
+<p><strong>使用方法</strong></p>
+<p>1.在 Releases，下载老版本的小程序文件，这里我下载的是8447.zip文件</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330259654-6f8f8faf-b8d2-462d-9b76-f0ebc25d50ed.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU5NjU0LTZmOGY4ZmFmLWI4ZDItNDYyZC05Yjc2LWYwZWJjMjVkNTBlZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kZTBkYWQ4OWU0OWE4ZTk0NmQyNjljMTI1ZTljNzQ5MTc1MmM5ZWUxYTM1ZjE5NGU3OGJjZWI5NzNhNTA5MDUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.dbMrA2EaftlfKFOQsFAZPKG8qiLzR9Vgb-VhpSFpMZQ"><img src="https://private-user-images.githubusercontent.com/115862499/330259654-6f8f8faf-b8d2-462d-9b76-f0ebc25d50ed.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU5NjU0LTZmOGY4ZmFmLWI4ZDItNDYyZC05Yjc2LWYwZWJjMjVkNTBlZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kZTBkYWQ4OWU0OWE4ZTk0NmQyNjljMTI1ZTljNzQ5MTc1MmM5ZWUxYTM1ZjE5NGU3OGJjZWI5NzNhNTA5MDUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.dbMrA2EaftlfKFOQsFAZPKG8qiLzR9Vgb-VhpSFpMZQ" alt="image"></a></p>
+<p>2.退出微信，来到 %appdata%\Tencent\WeChat\XPlugin\Plugins\RadiumWMPF\ 文件夹，将新版小程序里面的文件清空，列如我这里是9129，将里面的文件清空</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330258109-cab74171-4348-4506-bc8c-e315f10e89e1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTA5LWNhYjc0MTcxLTQzNDgtNDUwNi1iYzhjLWUzMTVmMTBlODllMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kYjU4Y2JkYzU1OWI0NmU2ODhiNzAzZTcyNDc0NWMzZmM0Y2Y4MDJlMDUwZmM0ZGNkYTgzNTQxM2UwNDZhMjY5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.fEsIfht_yuyRNIkYYgHorX4Q_623Ss4kYQPE6o4-FHQ"><img src="https://private-user-images.githubusercontent.com/115862499/330258109-cab74171-4348-4506-bc8c-e315f10e89e1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTA5LWNhYjc0MTcxLTQzNDgtNDUwNi1iYzhjLWUzMTVmMTBlODllMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kYjU4Y2JkYzU1OWI0NmU2ODhiNzAzZTcyNDc0NWMzZmM0Y2Y4MDJlMDUwZmM0ZGNkYTgzNTQxM2UwNDZhMjY5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.fEsIfht_yuyRNIkYYgHorX4Q_623Ss4kYQPE6o4-FHQ" alt="image"></a></p>
+<p>3.解压老版本的小程序文件，将里面的<strong>extracted文件夹</strong>所有内容复制到<strong>9129下面</strong> (我是9129，你们是什么自己看)</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330258144-d18757fd-32bf-44bf-9d07-35a8d37c7a5a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTQ0LWQxODc1N2ZkLTMyYmYtNDRiZi05ZDA3LTM1YThkMzdjN2E1YS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMDRiZDk0MDg2M2RiNDVmODY2OGUwOTViODQ0Yjg5Nzc5ZmYzYmMyNzNiYzI0MGQ1MjU2MDU5ZTkxMjhmMGZlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.kEotQxK0aevBpjjjXNb8V-_O_nb_J_36BbqBbAV9jzM"><img src="https://private-user-images.githubusercontent.com/115862499/330258144-d18757fd-32bf-44bf-9d07-35a8d37c7a5a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTQ0LWQxODc1N2ZkLTMyYmYtNDRiZi05ZDA3LTM1YThkMzdjN2E1YS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMDRiZDk0MDg2M2RiNDVmODY2OGUwOTViODQ0Yjg5Nzc5ZmYzYmMyNzNiYzI0MGQ1MjU2MDU5ZTkxMjhmMGZlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.kEotQxK0aevBpjjjXNb8V-_O_nb_J_36BbqBbAV9jzM" alt="image"></a></p>
+<p>4.将文件夹设置成只读，然后打开微信</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330258156-f19055e3-2bfb-4c3e-afcd-b847f5c28181.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTU2LWYxOTA1NWUzLTJiZmItNGMzZS1hZmNkLWI4NDdmNWMyODE4MS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNGI1YTg4ZTJmMmFjZmY1YTNjZWFlNGQzOGU5NTNjOTdhNWU4NjkxMGNhZWM1OWJhMDgwZWZhMTc2ZDc1MzI3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.cQn0Wxc0XMC66uj62LqvnZD9YfKZQETq3dIwAhnwdIU"><img src="https://private-user-images.githubusercontent.com/115862499/330258156-f19055e3-2bfb-4c3e-afcd-b847f5c28181.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTU2LWYxOTA1NWUzLTJiZmItNGMzZS1hZmNkLWI4NDdmNWMyODE4MS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNGI1YTg4ZTJmMmFjZmY1YTNjZWFlNGQzOGU5NTNjOTdhNWU4NjkxMGNhZWM1OWJhMDgwZWZhMTc2ZDc1MzI3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.cQn0Wxc0XMC66uj62LqvnZD9YfKZQETq3dIwAhnwdIU" alt="image"></a></p>
+<p>5.然后来到addres，找到对应的基址替换上去，列如我替换的文件是8447的，就使用8447的基址</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330258184-c6b0e492-36fc-4233-ab7c-f19836e121d7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTg0LWM2YjBlNDkyLTM2ZmMtNDIzMy1hYjdjLWYxOTgzNmUxMjFkNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNjY2ZjI1NjQ5MDg0ZjI4MGYyZTI1ZmQxODc2YWIxNTVkY2ZhZjExM2MzNTg3MTNkNDJhOGNlYzU3NjQ4NDkyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.5cKwcO-bQgKphAhP_3QqTptLreq-RHr2rZhhSh_8M2Y"><img src="https://private-user-images.githubusercontent.com/115862499/330258184-c6b0e492-36fc-4233-ab7c-f19836e121d7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTg0LWM2YjBlNDkyLTM2ZmMtNDIzMy1hYjdjLWYxOTgzNmUxMjFkNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNjY2ZjI1NjQ5MDg0ZjI4MGYyZTI1ZmQxODc2YWIxNTVkY2ZhZjExM2MzNTg3MTNkNDJhOGNlYzU3NjQ4NDkyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.5cKwcO-bQgKphAhP_3QqTptLreq-RHr2rZhhSh_8M2Y" alt="image"></a></p>
+<p>6.启动e0e1-wx脚本，发现成功hook以前的devtools了</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330258190-4ee986a4-9eca-4d5b-b91c-e0460fae09de.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTkwLTRlZTk4NmE0LTllY2EtNGQ1Yi1iOTFjLWUwNDYwZmFlMDlkZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNzYxMTM3OTYyZDM5ZGJmMTZlZGRjODkzYmI2ZTNhYjIxMzFjZTk1NzFjNDdjYzczNmNmMWZhNjM2MTg3OGZhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.i6f4oN4qva1InocOOe7jPAGbDglr6uAJRhRNU_W7gwA"><img src="https://private-user-images.githubusercontent.com/115862499/330258190-4ee986a4-9eca-4d5b-b91c-e0460fae09de.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwMjU4MTkwLTRlZTk4NmE0LTllY2EtNGQ1Yi1iOTFjLWUwNDYwZmFlMDlkZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNzYxMTM3OTYyZDM5ZGJmMTZlZGRjODkzYmI2ZTNhYjIxMzFjZTk1NzFjNDdjYzczNmNmMWZhNjM2MTg3OGZhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.i6f4oN4qva1InocOOe7jPAGbDglr6uAJRhRNU_W7gwA" alt="image"></a></p>
+<h1 id="windows-小程序抓包流程"><a href="#windows-小程序抓包流程" class="headerlink" title="windows 小程序抓包流程"></a>windows 小程序抓包流程</h1><h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h4><blockquote>
+<p>发现些人还在用 安卓模拟器去搞小程序抓包，这样费时不省力，而且准备的工具e0e1-wx，就是为了配合windows小程序渗透的</p>
+<p>所以接下来的优化，准备通过python脚本来抓小程序的http\https流量，直接转发到burp。</p>
+</blockquote>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><blockquote>
+<p>1.Proxifier 老版中文版 （网上很多）</p>
+<p>2.burp</p>
+</blockquote>
+<p>首先打开Proxifier ，寻找代理服务器</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639597-1682a602-725f-4f4a-8afa-8fc2d763dfff.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NTk3LTE2ODJhNjAyLTcyNWYtNGY0YS04YWZhLThmYzJkNzYzZGZmZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zMTI2ZTU0YTE4ZDZkZmY5NTA1NjkwOTYwNjVhNjJjMWQ5MGU1ZWI3OGI0OTA0MzdmYzMwNGRjNThjMmQxNzAwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Ck8YR4grX3PFtHVTL1RSFco5io61J1bATcYbAX6tZo8"><img src="https://private-user-images.githubusercontent.com/115862499/330639597-1682a602-725f-4f4a-8afa-8fc2d763dfff.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NTk3LTE2ODJhNjAyLTcyNWYtNGY0YS04YWZhLThmYzJkNzYzZGZmZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zMTI2ZTU0YTE4ZDZkZmY5NTA1NjkwOTYwNjVhNjJjMWQ5MGU1ZWI3OGI0OTA0MzdmYzMwNGRjNThjMmQxNzAwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Ck8YR4grX3PFtHVTL1RSFco5io61J1bATcYbAX6tZo8" alt="image"></a></p>
+<p>选择添加一个代理，这里就添加自己burp设置的代理就可以了，端口也是burp对应的端口，自己设置</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639617-3cae484a-c94e-4a4e-8192-b13538dabc4b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjE3LTNjYWU0ODRhLWM5NGUtNGE0ZS04MTkyLWIxMzUzOGRhYmM0Yi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MWI1N2IzZWEyY2UwMjY4ZGY0MTAxMWFkYjdhN2QxODEyN2YyMWZmYTYxNTM0NTU1ZDM2OWI4YjAzNDhkNmNkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.TlVRRoQexihJUh1-MDZL3A9Hn0BDlWts6ZvJFTfdU0Q"><img src="https://private-user-images.githubusercontent.com/115862499/330639617-3cae484a-c94e-4a4e-8192-b13538dabc4b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjE3LTNjYWU0ODRhLWM5NGUtNGE0ZS04MTkyLWIxMzUzOGRhYmM0Yi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MWI1N2IzZWEyY2UwMjY4ZGY0MTAxMWFkYjdhN2QxODEyN2YyMWZmYTYxNTM0NTU1ZDM2OWI4YjAzNDhkNmNkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.TlVRRoQexihJUh1-MDZL3A9Hn0BDlWts6ZvJFTfdU0Q" alt="image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639633-c31183a5-e45d-4d76-8fc6-3824e0a404f3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjMzLWMzMTE4M2E1LWU0NWQtNGQ3Ni04ZmM2LTM4MjRlMGE0MDRmMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjJmYjA4MmY3MjUzMjQwOTRhNTA3MTQwOTIxNmNkMWZhM2ZmOTZmMjlkYTBkYjBjYmM3MmMyZDQ1ZGY1YWQ4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ueQtas3e4fVyjbm666r92uh4bUbKt-WoOyu_BV5G5_U"><img src="https://private-user-images.githubusercontent.com/115862499/330639633-c31183a5-e45d-4d76-8fc6-3824e0a404f3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjMzLWMzMTE4M2E1LWU0NWQtNGQ3Ni04ZmM2LTM4MjRlMGE0MDRmMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMjJmYjA4MmY3MjUzMjQwOTRhNTA3MTQwOTIxNmNkMWZhM2ZmOTZmMjlkYTBkYjBjYmM3MmMyZDQ1ZGY1YWQ4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ueQtas3e4fVyjbm666r92uh4bUbKt-WoOyu_BV5G5_U" alt="image"></a></p>
+<p>选择代理规则</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639656-cca5dd5c-c442-435f-8da2-8728952ce86c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjU2LWNjYTVkZDVjLWM0NDItNDM1Zi04ZGEyLTg3Mjg5NTJjZTg2Yy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYWYxNzQwMTFlYWU3YTU1MDE5MmFiNjlkYTExN2JmNTc1Y2Y4MDY2MzY5MmE5MTIyOTIwZjg2YjY4ZTg5ZDJkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2P_Ppzh8J7XBtFWffBNTTQ2PuowKxW-94AOWsZcJniA"><img src="https://private-user-images.githubusercontent.com/115862499/330639656-cca5dd5c-c442-435f-8da2-8728952ce86c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjU2LWNjYTVkZDVjLWM0NDItNDM1Zi04ZGEyLTg3Mjg5NTJjZTg2Yy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYWYxNzQwMTFlYWU3YTU1MDE5MmFiNjlkYTExN2JmNTc1Y2Y4MDY2MzY5MmE5MTIyOTIwZjg2YjY4ZTg5ZDJkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2P_Ppzh8J7XBtFWffBNTTQ2PuowKxW-94AOWsZcJniA" alt="image"></a></p>
+<p>这里选择添加个代理规则</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639671-29076ef7-2796-41db-b058-1795ccec2aa0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjcxLTI5MDc2ZWY3LTI3OTYtNDFkYi1iMDU4LTE3OTVjY2VjMmFhMC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMTE0ZTYxY2ZiOWM0OGU2MjlkNWJkYWZmZmNiYzgyMTA3OGQ3ZjZlYmVlMTA3NDFjMWMwMDM1YWE5NTU0MjUyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Jr-3ABPFXc4jmkTxPmRZ5IvWvYeT_6HqcD5h5aZf-2w"><img src="https://private-user-images.githubusercontent.com/115862499/330639671-29076ef7-2796-41db-b058-1795ccec2aa0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NjcxLTI5MDc2ZWY3LTI3OTYtNDFkYi1iMDU4LTE3OTVjY2VjMmFhMC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMTE0ZTYxY2ZiOWM0OGU2MjlkNWJkYWZmZmNiYzgyMTA3OGQ3ZjZlYmVlMTA3NDFjMWMwMDM1YWE5NTU0MjUyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Jr-3ABPFXc4jmkTxPmRZ5IvWvYeT_6HqcD5h5aZf-2w" alt="image"></a></p>
+<p>应用程序填写为这些</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WeChatApp.exe;WechatBrowser.exe;WeChatAppEx.exe</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639685-5239aec0-b461-4392-a637-9baeaae883f7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5Njg1LTUyMzlhZWMwLWI0NjEtNDM5Mi1hNjM3LTliYWVhYWU4ODNmNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00M2FlMmJiZWRiYzcxYjM1ZThkOTEwOTNlYjQ4ZDg4OWI4YTJjY2QxYzhhMWY3MzViNWNhZWU5NzMyMzAyNmI4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.aylOiNYoa6XGfnLBGJK2pZygbQX6xnmCd5Jnbyidl4U"><img src="https://private-user-images.githubusercontent.com/115862499/330639685-5239aec0-b461-4392-a637-9baeaae883f7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5Njg1LTUyMzlhZWMwLWI0NjEtNDM5Mi1hNjM3LTliYWVhYWU4ODNmNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00M2FlMmJiZWRiYzcxYjM1ZThkOTEwOTNlYjQ4ZDg4OWI4YTJjY2QxYzhhMWY3MzViNWNhZWU5NzMyMzAyNmI4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.aylOiNYoa6XGfnLBGJK2pZygbQX6xnmCd5Jnbyidl4U" alt="image"></a></p>
+<p>然后打开你的burp，打开你想要搞的小程序，是可以轻松拦包的，包括https的包</p>
+<p><a target="_blank" rel="noopener" href="https://private-user-images.githubusercontent.com/115862499/330639708-35fe9610-d2e1-4946-aee4-995a06b87c8d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NzA4LTM1ZmU5NjEwLWQyZTEtNDk0Ni1hZWU0LTk5NWEwNmI4N2M4ZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NTlkNGNkMTg4NWZmMmEwMWZhNWI0NDdjMWRkZTg0ZGU2NTlmMzA2MDkyZTMwMGIwZmU2MTFhYjQ5ODAzYTJiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.0tMRzF91NMvoFA2QNYmvIxHk-eQatu0s9vDKc77VRQs"><img src="https://private-user-images.githubusercontent.com/115862499/330639708-35fe9610-d2e1-4946-aee4-995a06b87c8d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzczNTQyNzksIm5iZiI6MTczNzM1Mzk3OSwicGF0aCI6Ii8xMTU4NjI0OTkvMzMwNjM5NzA4LTM1ZmU5NjEwLWQyZTEtNDk0Ni1hZWU0LTk5NWEwNmI4N2M4ZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyMFQwNjE5MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NTlkNGNkMTg4NWZmMmEwMWZhNWI0NDdjMWRkZTg0ZGU2NTlmMzA2MDkyZTMwMGIwZmU2MTFhYjQ5ODAzYTJiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.0tMRzF91NMvoFA2QNYmvIxHk-eQatu0s9vDKc77VRQs" alt="image"></a></p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-小程序类/" class="tag">#信息收集-小程序类</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/21/010-Editor-%E5%8F%AF%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E9%80%86%E5%90%91%E7%A5%9E%E5%99%A8-%E5%B8%A6%E7%A0%B4%E8%A7%A3%E5%92%8C%E4%B8%AD%E6%96%87%E5%8C%85/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">010 Editor-可查看进程的逆向神器(带破解和中文包)</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/19/JoJoLoader-%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7-%E5%BC%80%E6%BA%90-24%E5%B9%B48%E6%9C%887%E6%97%A5%E6%9B%B4%E6%96%B0/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">JoJoLoader-免杀工具(开源)-24年8月7日更新</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+                <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn" class="item">冀ICP备2024064089号-1</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>

