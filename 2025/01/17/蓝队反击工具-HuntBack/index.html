@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>蓝队反击工具-HuntBack - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="蓝队反击工具-HuntBack - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/01/17/%E8%93%9D%E9%98%9F%E5%8F%8D%E5%87%BB%E5%B7%A5%E5%85%B7-HuntBack/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-01-17T12:27:16.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>January</span>
+            <span>17,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">蓝队反击工具-HuntBack</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="HuntBack"><a href="#HuntBack" class="headerlink" title="HuntBack"></a>HuntBack</h1><p>github:<a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack">https://github.com/ChinaRan0/HuntBack</a></p>
+<p>HuntBack(反击狩猎)，用于攻防演练中，防守方对恶意ip进行web指纹扫描与识别</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>在蓝队职守中，安全设备爆出恶意攻击ip地址，如果对方使用的是自己的服务器，并且搭建了一些安全业务，可使用本工具对目前已知工具进行探测</p>
+<p>如果觉得有用，帮我们点一下右上角的star，😁</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>1.红队指纹识别</p>
+<p>2.ipwhois</p>
+<p>3.域名whois</p>
+<p>（后续开发）</p>
+<h2 id="指纹"><a href="#指纹" class="headerlink" title="指纹"></a>指纹</h2><h3 id="指纹识别原理"><a href="#指纹识别原理" class="headerlink" title="指纹识别原理"></a>指纹识别原理</h3><p>通过发送HTTP数据包进行主动识别</p>
+<h3 id="目前已收集指纹"><a href="#目前已收集指纹" class="headerlink" title="目前已收集指纹"></a>目前已收集指纹</h3><p>AWVS-Web漏洞扫描器</p>
+<p>ARL-灯塔资产收集服务</p>
+<p>大保健-边界资产梳理工具</p>
+<p>H-资产收集工具</p>
+<p>LangSrc-资产监控平台</p>
+<p>Manjusaka-牛屎花C2管理平台</p>
+<p>medusa-美杜莎红队武器库平台</p>
+<p>Neme-自动化信息收集</p>
+<p>Nessus-主机服务漏扫</p>
+<p>NextScan-黑盒扫描</p>
+<p>NPS-内网穿透工具</p>
+<p>ChatGPT-ChatGPT（GPTweb）</p>
+<p>Viper-C2管理平台</p>
+<p>HFS-简易HTTP服务平台</p>
+<p>Prism-X-棱镜红队作战平台</p>
+<p>Everything-文件搜索服务</p>
+<p>ScopeSentry-综合信息收集工具</p>
+<p>CyberEdge-信息收集工具【不知名开发者】</p>
+<p>cyberedge-信息收集工具【GitHub开源】</p>
+<p>SerializedPayloadGenerator-反序列化生成器</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>开发版本：python3.8</p>
+<p>在运行前，你需要安装相关依赖库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install whois</span><br><span class="line">pip install ipwhois</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后运行python-HuntBack.py即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">➜  HuntBack python HuntBack.py -h</span><br><span class="line">usage: HuntBack.py [-h] [--file FILE] [--cmds] [--ip IP] [--ipwhois IPWHOIS]</span><br><span class="line">                   [--domainwhois DOMAINWHOIS] [--fullscan]</span><br><span class="line"></span><br><span class="line">本程序为蓝队在进行防守过程中，对威胁情报或者安全设备上恶意IP进行溯源的工具 程序功能：文件导入、循环模式、单IP模式</span><br><span class="line">By:ChinaRan404&amp;知攻善防实验室</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  --file FILE           输入文件路径</span><br><span class="line">  --cmds                启用循环模式，用于常驻终端</span><br><span class="line">  --ip IP               输入单个IP地址进行处理</span><br><span class="line">  --ipwhois IPWHOIS     IPwhois查询</span><br><span class="line">  --domainwhois DOMAINWHOIS</span><br><span class="line">                        域名Whois查询</span><br><span class="line">  --fullscan            【可选参数】启用全端口扫描</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222183957365.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222183957365.png" alt="image-20241222183957365"></a></p>
+<p>单IP模式</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222184503448.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222184503448.png" alt="image-20241222184503448"></a></p>
+<p>文件批量模式</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222184843155.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222184843155.png" alt="image-20241222184843155"></a></p>
+<p>cmds职守模式</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222184808206.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222184808206.png" alt="image-20241222184808206"></a></p>
+<p>ipwhois</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222185647856.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222185647856.png" alt="image-20241222185647856"></a></p>
+<p>ipwhois</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222185757560.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222185757560.png" alt="image-20241222185757560"></a></p>
+<p>域名whois</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChinaRan0/HuntBack/blob/main/assets/image-20241222185718878.png"><img src="https://github.com/ChinaRan0/HuntBack/raw/main/assets/image-20241222185718878.png" alt="image-20241222185718878"></a></p>
+<h2 id="联系我们-提交意见"><a href="#联系我们-提交意见" class="headerlink" title="联系我们&amp;提交意见"></a>联系我们&amp;提交意见</h2><p>联系我：公众号“知攻善防实验室”</p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/蓝队工具/" class="tag">#蓝队工具</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/01/17/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81-%E7%9B%AE%E5%BD%95/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">电子取证-目录</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/01/17/%E7%BB%BC%E5%90%88%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7-NacosExploit/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">综合漏洞利用工具-NacosExploit</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+                <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn" class="item">冀ICP备2024064089号-1</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
