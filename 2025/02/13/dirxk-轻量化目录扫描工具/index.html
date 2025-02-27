@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>dirxk-轻量化目录扫描工具 - 杨CC的小世界</title>
+  
+    <link rel="shortcut icon" href="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="dirxk-轻量化目录扫描工具 - 杨CC的小世界" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="https://yancy77.cn/2025/02/13/dirxk-%E8%BD%BB%E9%87%8F%E5%8C%96%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7/index.html" />
+  
+  <meta property="og:image" content="https://pic1.imgdb.cn/item/678a0c34d0e0a243d4f52d7b.png" />
+  
+  <meta property="og:article:published_time" content="2025-02-13T03:25:49.000Z" />
+  
+  <meta property="og:article:author" content="杨CC" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">杨CC与杨小亿的世界</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/">首页</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">标签</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">分类</a>
+            
+            
+            
+            <a class="nav-item" href="/archives">归档</a>
+            
+            
+            
+            <a class="nav-item" href="/about">关于作者</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Sgyling" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/渗透/">渗透</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>February</span>
+            <span>13,</span>
+            <span>2025</span>
+        </div>
+        
+
+        <h1 class="title">dirxk-轻量化目录扫描工具</h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h1 id="dirxk"><a href="#dirxk" class="headerlink" title="dirxk"></a>dirxk</h1><p>一款集成了多种老牌工具字典的轻量级目录扫描器，包括御剑后台扫描字典，test404网站备份，web破壳扫描器，御剑1.5扫描字典，御剑专业版字典，wwwscan字典，dirscan字典，dirsafe字典，swebscan等字典已合并去重</p>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>支持多线程扫描，可指定线程数。 随机user-agent头。</p>
+<p>-x指定X-forward-for头，默认随机。</p>
+<p>-f支持导入字典检测。</p>
+<p>-o导出html报告</p>
+<p>-m指定扫描方法（head，get，post）</p>
+<p>-c指定状态码</p>
+<p>-m指定内置字典</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/xk11z/dirxk.git</span><br><span class="line"></span><br><span class="line">cd dirxk</span><br><span class="line"></span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法:"></a>用法:</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 基本扫描</span><br><span class="line">python dirxk.py -u [URL\域名]</span><br><span class="line"># 查看帮助</span><br><span class="line">python dirxk.py -h</span><br><span class="line"># 使用内置字典 </span><br><span class="line">python dirxk.py -u [URL\域名] -w [字典名称(-h参数会显示)]</span><br><span class="line"># 导入字典</span><br><span class="line">python dirxk.py -f [字典路径]</span><br><span class="line"># 导出扫描结果</span><br><span class="line">python dirxk.py -o [导出路径和名称]</span><br><span class="line"># 自定义状态码\制定头部\制定请求方法\指定线程数等</span><br><span class="line">  -c [状态码] 自定义状态码</span><br><span class="line">  -x [X-Forwarded-For值] 指定 X-Forwarded-For 头部的值，默认为随机</span><br><span class="line">  -m [head,get,post] 指定请求方法</span><br><span class="line">  -t [线程数]  指定线程数</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h1><h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><p><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/126586204/236677457-800bb799-7620-47f0-b110-9abb7fd7a521.PNG"><img src="https://user-images.githubusercontent.com/126586204/236677457-800bb799-7620-47f0-b110-9abb7fd7a521.PNG" alt="l界面"></a></p>
+<h2 id="内置字典列表"><a href="#内置字典列表" class="headerlink" title="内置字典列表"></a>内置字典列表</h2><h3 id="小字典"><a href="#小字典" class="headerlink" title="小字典"></a>小字典</h3><p><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/126586204/236677778-32b1cd30-24e4-46ac-8699-3df55f165714.PNG"><img src="https://user-images.githubusercontent.com/126586204/236677778-32b1cd30-24e4-46ac-8699-3df55f165714.PNG" alt="x"></a></p>
+<h3 id="大字典"><a href="#大字典" class="headerlink" title="大字典"></a>大字典</h3><p><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/126586204/236677784-9e3991b8-8890-403c-809d-b889e4202320.PNG"><img src="https://user-images.githubusercontent.com/126586204/236677784-9e3991b8-8890-403c-809d-b889e4202320.PNG" alt="d"></a></p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/126586204/236677470-00d89840-a41d-4fec-a9a8-02bcd520f9aa.PNG"><img src="https://user-images.githubusercontent.com/126586204/236677470-00d89840-a41d-4fec-a9a8-02bcd520f9aa.PNG" alt="l结果"></a></p>
+<h2 id="导出html报告"><a href="#导出html报告" class="headerlink" title="导出html报告"></a>导出html报告</h2><p><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/126586204/236677479-03907e28-fa98-4534-8e2e-10b1e7ecf885.PNG"><img src="https://user-images.githubusercontent.com/126586204/236677479-03907e28-fa98-4534-8e2e-10b1e7ecf885.PNG" alt="l导出"></a> <a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/126586204/236677493-21bd9401-d9b6-4383-8f4e-b1c75f98eacc.PNG"><img src="https://user-images.githubusercontent.com/126586204/236677493-21bd9401-d9b6-4383-8f4e-b1c75f98eacc.PNG" alt="l页面"></a></p>
+<h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><p>本工具仅面向合法授权的企业安全建设行为，如您需要测试本工具的可用性，请自行搭建靶机环境。 在使用本工具进行检测时，您应确保该行为符合当地的法律法规，并且已经取得了足够的授权。请勿对非授权目标进行扫描。 如您在使用本工具的过程中存在任何非法行为，您需自行承担相应后果，我们将不承担任何法律及连带责任。</p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by 杨CC, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/信息收集-路径类/" class="tag">#信息收集-路径类</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        
+        <a href="/2025/02/15/StarCodeSecutiry-%E4%B8%80%E6%AC%BE%E5%BC%BA%E5%8A%BF%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%B7%A5%E5%85%B7-%E6%94%AF%E6%8C%81%E8%AF%AD%E8%A8%80-java-php-net/" class="next">
+            <div>
+                <div class="text">
+                    <p class="label">Next</p>
+                    <h3 class="title">StarCodeSecutiry-一款强势的代码审计工具(支持语言:java&amp;php&amp;net)</h3>
+                </div>
+            </div>
+        </a>
+        
+        
+        <a href="/2025/02/12/ESPortscan-%E8%BD%BB%E9%87%8F%E7%BA%A7%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">ESPortscan-轻量级端口扫描器</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">杨CC与杨小亿的世界</h2>
+                
+                <a href="/" class="item">首页</a>
+                
+                <a href="/archives" class="item">归档</a>
+                
+                <a href="/tags" class="item">标签</a>
+                
+                <a href="/categories" class="item">分类</a>
+                
+                <a href="/about" class="item">关于</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+                <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn" class="item">冀ICP备2024064089号-1</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">友情链接</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling/Free-proxy-pool" class="item">代理池</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ZapcoMan" class="item">ReverseVibe</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">我的</h2>
+                
+                <a target="_blank" rel="noopener" href="https://t.me/time_766" class="item">TG</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/Sgyling" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://qm.qq.com/q/z51eGUnIbu" class="item">QQ交流群</a>
+                
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com/500076166?spm_id_from=333.1007.0.0" class="item">BiliBili</a>
+                
+                <a href="mailto:sgyling@gmail.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2025 杨CC<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
