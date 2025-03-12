@@ -7,7 +7,6 @@ rm -fr page
 rm -fr tags
 rm -fr theme-img
 rm -fr atom.xml
-rm -fr index.html
 rm -fr sitemap.txt
 rm -fr sitemap.xml
 rm -fr 2024
