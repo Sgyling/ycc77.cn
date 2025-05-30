@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨CC资源分享站-学习资源</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨CC资源分享站-渗透测试工具</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        .download-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            color: #e2e8f0;
+            font-weight: 400;
+        }
+        .download-item:hover {
+            background: rgba(247,250,252,0.9);
+            transform: translateX(10px);
+            color: #1a202c;
+        }
+        .download-item::before {
+            content: '➤';
+            margin-right: 12px;
+            font-weight: 700;
+            color: inherit;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        @media (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 1200px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1.5rem), 1fr)) !important;
+            }
+        }
+        @media (max-width: 992px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(calc(33.33% - 1.33rem), 1fr)) !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(calc(50% - 1rem), 1fr)) !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
+            }
+        }
+        .subcategory-content {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #3d3d3d;
+            border-radius: 10px;
+        }
+        .subcategory-content h3 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 固定顶部导航栏（与首页一致） -->
+    <nav class="navbar">
+        <div class="logo">软件下载站</div>
+        <div class="nav-links">
+            <a href="./index.html" class="nav-link">首页</a>
+            <a href="./penetration.html" class="nav-link">渗透测试工具</a>
+            <a href="./games.html" class="nav-link">游戏资源</a>
+            <a href="./learning.html" class="nav-link">学习资源</a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- 渗透测试工具分类区（可手动扩展） -->
+    <main class="main-content">
+        <h1 class="page-title">渗透测试工具</h1>
+        <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(calc(20% - 1.6rem), 1fr)); gap: 2rem;">
+            <!-- 信息收集工具卡片 -->
+            <div class="category-card">
+                <i class="fas fa-search category-icon"></i>
+                <h2 class="category-title">信息收集工具</h2>
+                <p class="category-desc">包含子域名扫描、端口扫描、指纹识别等工具集合</p>
+                <a href="#info-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <!-- 爆破工具卡片 -->
+            <div class="category-card">
+                <i class="fas fa-bomb category-icon"></i>
+                <h2 class="category-title">爆破工具</h2>
+                <p class="category-desc">支持密码爆破、目录爆破、数据库爆破等功能</p>
+                <a href="#brute-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <!-- CMS探测工具卡片 -->
+            <div class="category-card">
+                <i class="fas fa-code category-icon"></i>
+                <h2 class="category-title">在线工具</h2>
+                <p class="category-desc">可从互联网上,直接进行渗透测试或信息收集.</p>
+                <a href="#cms-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <!-- 综合工具包卡片 -->
+            <div class="category-card">
+                <i class="fas fa-database category-icon"></i>
+                <h2 class="category-title">SQL注入工具</h2>
+                <p class="category-desc">包含SQL注入检测与利用工具集合</p>
+                <a href="#sql-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-desktop category-icon"></i>
+                <h2 class="category-title">远程控制工具</h2>
+                <p class="category-desc">支持远控木马与远程管理工具</p>
+                <a href="#remote-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-code-branch category-icon"></i>
+                <h2 class="category-title">逆向工具</h2>
+                <p class="category-desc">包含反编译、调试与逆向分析工具</p>
+                <a href="#reverse-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-bug category-icon"></i>
+                <h2 class="category-title">漏扫工具</h2>
+                <p class="category-desc">漏洞扫描与利用验证工具集合</p>
+                <a href="#vuln-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-network-wired category-icon"></i>
+                <h2 class="category-title">内网工具</h2>
+                <p class="category-desc">内网穿透、横向移动相关工具</p>
+                <a href="#intranet-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-list category-icon"></i>
+                <h2 class="category-title">字典工具</h2>
+                <p class="category-desc">包含密码、路径等各类渗透测试字典</p>
+                <a href="#dict-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-stream category-icon"></i>
+                <h2 class="category-title">流量/测压工具</h2>
+                <p class="category-desc">流量监控与压力测试工具集合</p>
+                <a href="#traffic-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <!-- 综合工具包卡片 -->
+            <div class="category-card">
+                <i class="fas fa-toolbox category-icon"></i>
+                <h2 class="category-title">综合工具包</h2>
+                <p class="category-desc">集成化渗透测试环境，包含多款常用工具组合</p>
+                <a href="#kit-tools" class="category-btn show-subcategory">查看详情</a>
+            </div>
+        </div>
+            <!-- 二级分类内容区 -->
+        <div class="subcategory-container" style="margin-top: 2rem;">
+            <div id="sql-tools" class="subcategory-content">
+                <h3>SQL注入工具详情</h3>
+                <!-- <p>包含SQLMap、SQLninja等注入检测与利用工具（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/2ec869b9d849"><div class="download-item">阿D注入包(可视化)</div></a>
+                <a href="https://pan.quark.cn/s/d3bfc5edf216"><div class="download-item">sqlmap 1.7.1汉化版</div></a>
+                <a href="https://github.com/co01cat/SqlmapXPlus"><div class="download-item">sqlmap X Plus</div></a>
+
+            </div>
+            <div id="remote-tools" class="subcategory-content">
+                <h3>远程控制工具详情</h3>
+                <!-- <p>包含Cobalt Strike、Metasploit等远控与后渗透工具（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/7fad02472d15"><div class="download-item">quasar-V1.4(内部版本)</div></a>
+                <a href="https://github.com/yuanyuanxiang/BGW_RAT"><div class="download-item">大灰狼(二开版)</div></a>
+                <a href="https://pan.quark.cn/s/ffa083815b9e"><div class="download-item">冰山3.1</div></a>
+                <a href="https://pan.quark.cn/s/7222f5f04b96"><div class="download-item">cs4.9.1</div></a>
+
+            </div>
+            <div id="reverse-tools" class="subcategory-content">
+                <h3>逆向工具详情</h3>
+                <!-- <p>包含IDA Pro、Ghidra等反编译与逆向分析工具（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/9372b80bf87d"><div class="download-item">010 Editor-破解版-汉化版</div></a>
+                <a href="https://github.com/WerWolv/ImHex"><div class="download-item">ImHex-逆向神器</div></a>
+                <a href="https://github.com/liaojack8/AndroidKiller"><div class="download-item">Android killer 安卓逆向</div></a>
+
+            </div>
+            <div id="vuln-tools" class="subcategory-content">
+                <h3>漏扫工具详情</h3>
+                <!-- <p>包含Nessus、OpenVAS等漏洞扫描与利用工具（可手动编辑内容）</p> -->
+                <a href="https://github.com/swisskyrepo/SSRFmap"><div class="download-item">SSRF-扫描与利用工具</div></a>
+                <a href="https://github.com/dahezhiquan/FindUpload/"><div class="download-item">FindUpload-上传\登陆点扫描工具</div></a>
+ 
+            </div>
+            <div id="intranet-tools" class="subcategory-content">
+                <h3>内网工具详情</h3>
+                <!-- <p>包含Frp、EarthWorm等内网穿透与横向移动工具（可手动编辑内容）</p> -->
+                <a href="https://github.com/shadow1ng/fscan"><div class="download-item">fscan-横向神器2.0</div></a>
+                <!-- <a href="https://github.com/M0nster3/OneLong"><div class="download-item">fscan-横向神器2.0(汉化版)</div></a> -->
+                <a href="https://github.com/carlospolop/PEASS-ng"><div class="download-item">PEASS-ng-全系统提权工具</div></a>
+                <a href="https://github.com/DeEpinGh0st/MDUT-Extend-Release"><div class="download-item">MDUT-Extend-数据库提权工具</div></a>
+
+            </div>
+            <div id="dict-tools" class="subcategory-content">
+                <h3>字典工具详情</h3>
+                <!-- <p>包含SecLists、常见弱口令字典等渗透测试字典（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/1ca1bffed51f"><div class="download-item">字典生成器1</div></a>
+                <a href="https://pan.quark.cn/s/83159bab083e"><div class="download-item">超强字典1</div></a>
+
+            </div>
+            <div id="traffic-tools" class="subcategory-content">
+                <h3>流量/测压工具详情</h3>
+                <!-- <p>包含Wireshark、JMeter等流量监控与压力测试工具（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/e33ce890fa76"><div class="download-item">IxChariot</div></a>
+                
+            </div>
+            <div id="info-tools" class="subcategory-content">
+                <h3>信息收集工具详情</h3>
+                <p>包含子域名扫描、端口扫描、指纹识别等工具集合（可手动编辑内容）</p>
+                <a href="https://pan.quark.cn/s/9cb00e4b0ba5"><div class="download-item">ESP-端口类工具</div></a>
+                <a href="https://pan.quark.cn/s/8aabfc26dd93"><div class="download-item">Virgol-综合类工具</div></a>
+                <a href="https://github.com/GhostTroops/scan4all"><div class="download-item">scan4all-1.5W poc扫描工具</div></a>
+                <a href="https://github.com/owasp-amass/amass"><div class="download-item">amass-信息收集类工具</div></a>
+                <a href="https://github.com/perlh/hscan"><div class="download-item">hscan-资产测绘/漏扫</div></a>
+                <a href="https://github.com/niudaii/zpscan"><div class="download-item">zpscan-信息收集类工具</div></a>
+                <a href="https://github.com/M0nster3/OneLong"><div class="download-item">OneLong-企业信息收集</div></a>
+                <a href="https://github.com/jammny/jws-cli"><div class="download-item">JWS-CLI-自动化信息收集工具</div></a>
+                <a href="https://github.com/selinuxG/Golin"><div class="download-item">Golin-一体化漏扫工具</div></a>
+                <a href="https://github.com/jekyc/wig"><div class="download-item">wig-指纹识别工具</div></a>
+                <a href="https://github.com/P001water/P1finger"><div class="download-item">P1finger-资产指纹识别</div></a>
+                <a href="https://github.com/qianxiao996/FrameScan-GUI"><div class="download-item">FrameScan-GUi-可视化指纹识别</div></a>
+                <a href="http://finger.tidesec.com/"><div class="download-item">潮汐-指纹识别(在线)</div></a>
+                <a href="https://github.com/M0nster3/OneLong"><div class="download-item">OneLong-企业信息收集</div></a>
+                
+            </div>
+            <div id="brute-tools" class="subcategory-content">
+                <h3>爆破工具详情</h3>
+                <p>支持密码爆破、目录爆破、数据库爆破等功能（可手动编辑内容）</p>
+                <a href="https://github.com/pagvac/dnsmap"><div class="download-item">dnsmap-子域名爆破</div></a>
+                <a href="https://github.com/Chora10/FuzzDomain"><div class="download-item">FuzzDomain-可视化子域名爆破</div></a>
+
+            </div>
+            <div id="cms-tools" class="subcategory-content">
+                <h3>在线渗透工具详情</h3>
+                <!-- <p>针对WordPress、Drupal等主流CMS的漏洞检测工具（可手动编辑内容）</p> -->
+                <a href="https://whois.aizhan.com/"><div class="download-item">Whois-查询-站长-web</div></a>
+                <a href="https://whois.aliyun.com/"><div class="download-item">Whois-查询-万网-web</div></a>
+                <a href="https://github.com/Chora10/FuzzDomain"><div class="download-item">FuzzDomain-可视化子域名爆破</div></a>
+                <a href="https://github.com/carlospolop/PEASS-ng"><div class="download-item">PEASS-ng-全系统提权工具</div></a>
+                <a href="https://github.com/DeEpinGh0st/MDUT-Extend-Release"><div class="download-item">MDUT-Extend-数据库提权工具</div></a>
+                <h3 class="block-title">在线ip查询</h3>
+                <a href="https://chapangzhan.com/"><div class="download-item">ip旁站查询</div></a>
+                <a href="https://www.dnsgrep.cn/ip"><div class="download-item">ip反查域名</div></a>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index"><div class="download-item">ip/域名备案查询</div></a>
+                <a href="https://whois.aliyun.com/"><div class="download-item">Whois-查询-万网-web</div></a>
+                <a href="http://finger.tidesec.com/"><div class="download-item">潮汐-指纹识别</div></a>
+                <a href="https://www.zoomeye.org/"><div class="download-item">钟馗之眼</div></a>
+                <a href="https://www.shodan.io/"><div class="download-item">撒旦资产测绘</div></a>
+                <a href="https://www.daydaymap.com/home"><div class="download-item">DayDayMap</div></a>
+            </div>
+            <div id="kit-tools" class="subcategory-content">
+                <h3>综合工具包详情</h3>
+                <!-- <p>集成化渗透测试环境，包含多款常用工具组合（可手动编辑内容）</p> -->
+                <a href="https://github.com/BlackINT3/OpenArk"><div class="download-item">OpenArk-蓝队应急工具箱</div></a>
+                <a href="https://github.com/kkbo8005/mitan"><div class="download-item">超强综合工具-密探</div></a>
+            
+            </div>
+        </div>
+    </main>
+
+    <!-- 固定底部状态栏（与首页一致） -->
+    <!-- <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 软件下载站 版权所有</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </div>
+    </footer> -->
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        document.querySelectorAll('.show-subcategory').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href');
+                document.querySelectorAll('.subcategory-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                const targetElement = document.querySelector(targetId);
+                targetElement.style.display = 'block';
+                // 新增平滑滚动逻辑
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            });
+        });
+    </script>
+</body>
+</html>

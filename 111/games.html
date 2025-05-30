@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨CC资源分享站-游戏资源</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        .download-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            color: #e2e8f0;
+            font-weight: 400;
+        }
+        .download-item:hover {
+            background: rgba(247,250,252,0.9);
+            transform: translateX(10px);
+            color: #1a202c;
+        }
+        .download-item::before {
+            content: '➤';
+            margin-right: 12px;
+            font-weight: 700;
+            color: inherit;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .subcategory-content {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #3d3d3d;
+            border-radius: 10px;
+        }
+        .subcategory-content h3 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 固定顶部导航栏（与首页一致） -->
+    <nav class="navbar">
+        <div class="logo">软件下载站</div>
+        <div class="nav-links">
+            <a href="./index.html" class="nav-link">首页</a>
+            <a href="./penetration.html" class="nav-link">渗透测试工具</a>
+            <a href="./games.html" class="nav-link">游戏资源</a>
+            <a href="./learning.html" class="nav-link">学习资源</a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- 游戏资源分类区（可手动扩展） -->
+    <main class="main-content">
+        <h1 class="page-title">游戏资源</h1>
+        <div class="category-grid">
+            <!-- 破解3A大作卡片 -->
+            <div class="category-card">
+                <i class="fas fa-gamepad category-icon"></i>
+                <h2 class="category-title">说明</h2>
+                <p class="category-desc">此游戏板块,因大多数为破解资源,不能保证时效</p>
+                <!-- <a href="#3a" class="category-btn show-subcategory">查看详情</a> -->
+            </div>
+            <!-- PC端游戏卡片 -->
+            <div class="category-card">
+                <i class="fas fa-desktop category-icon"></i>
+                <h2 class="category-title">PC端游戏</h2>
+                <p class="category-desc">各类PC平台热门游戏资源，涵盖角色扮演、策略等类型</p>
+                <a href="#pc-games" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <!-- 手机游戏卡片 -->
+            <div class="category-card">
+                <i class="fas fa-mobile-alt category-icon"></i>
+                <h2 class="category-title">手机游戏</h2>
+                <p class="category-desc">安卓/iOS平台热门手游，包含免费与付费破解版</p>
+                <a href="#mobile-games" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <!-- 破解版手游卡片 -->
+            <div class="category-card">
+                <i class="fas fa-mobile category-icon"></i>
+                <h2 class="category-title">破解版手游</h2>
+                <p class="category-desc">内购破解、无限资源等特殊版本手机游戏集合</p>
+                <a href="#hacked-mobile" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-desktop category-icon"></i>
+                <h2 class="category-title">修改器</h2>
+                <p class="category-desc">常见游戏修改器,多数热门游戏修改器全在~</p>
+                <a href="#a-3" class="category-btn show-subcategory">查看详情</a>
+            </div>
+        </div>
+            <!-- 二级分类内容区 -->
+        <div class="subcategory-container">
+            <div id="a-3" class="subcategory-content">
+                <h3>修改器详情</h3>
+                <p>包含高画质3A级单机游戏破解版本，支持多平台（可手动编辑内容）</p>
+            </div>
+            <div id="pc-games" class="subcategory-content">
+                <h3>PC端游戏详情</h3>
+                <!-- <p>各类PC平台热门游戏资源，涵盖角色扮演、策略等类型（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/8377d5d1fb49"><div class="download-item">虐杀原形1完美Win10\11完美运行版</div></a>
+                <a href="https://pan.quark.cn/s/a4a7d455683e"><div class="download-item">虐杀原形2完美带存档\修改器(被拦截)</div></a>
+                <a href="https://pan.quark.cn/s/0ef6f740391b"><div class="download-item">90+版本的植物大战僵尸</div></a>
+ 
+            </div>
+            <div id="mobile-games" class="subcategory-content">
+                <h3>手机游戏详情</h3>
+                <!-- <p>安卓/iOS平台热门手游，包含免费与付费破解版（可手动编辑内容）</p> -->
+                <!-- <a href="https://apps.zkyouxi.com/202505/dwx_snmj_cszq_3132917_e5fe3817.apk"><div class="download-item">斗五行(能赚钱)</div> </a> -->
+                <a href="https://p.hwy88.cn/games/94v/94V7HCV1.apk"><div class="download-item">万象契印-二次元专属游戏(安卓)</div> </a>
+                <a href="https://p.hwy88.cn/media/html/1706.html"><div class="download-item">万象契印-二次元专属游戏(苹果)</div> </a>
+                <a href="#"><div class="download-item">招收中...</div></a>
+            </div>
+            <div id="hacked-mobile" class="subcategory-content">
+                <h3>破解版手游详情</h3>
+                <p>内购破解、无限资源等特殊版本手机游戏集合（可手动编辑内容）</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 固定底部状态栏（与首页一致） -->
+    <!-- <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 软件下载站 版权所有</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </div>
+    </footer> -->
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        document.querySelectorAll('.show-subcategory').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href');
+                document.querySelectorAll('.subcategory-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                const targetElement = document.querySelector(targetId);
+                targetElement.style.display = 'block';
+                // 新增平滑滚动逻辑
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
