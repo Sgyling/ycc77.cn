@@ -160,6 +160,11 @@
 
     <script src="./assets/js/main.js"></script>
     <script>
+            // 处理导航栏汉堡图标点击
+            document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
         document.querySelectorAll('.show-subcategory').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
