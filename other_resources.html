@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨CC资源分享站-其他资源</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        .download-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            color: #e2e8f0;
+            font-weight: 400;
+        }
+        .download-item:hover {
+            background: rgba(247,250,252,0.9);
+            transform: translateX(10px);
+            color: #1a202c;
+        }
+        .download-item::before {
+            content: '➤';
+            margin-right: 12px;
+            font-weight: 700;
+            color: inherit;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .subcategory-content {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #3d3d3d;
+            border-radius: 10px;
+        }
+        .subcategory-content h3 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 固定顶部导航栏（与首页一致） -->
+    <nav class="navbar">
+        <div class="logo">杨CC资源分享站</div>
+        <div class="nav-links">
+            <a href="./index.html" class="nav-link">首页</a>
+            <a href="./penetration.html" class="nav-link">渗透测试工具</a>
+            <a href="./games.html" class="nav-link">游戏资源</a>
+            <a href="./learning.html" class="nav-link">教程资源</a>
+            <a href="./other_resources.html" class="nav-link">其他资源</a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- 其他资源内容区 -->
+    <main class="main-content">
+        <h1 class="page-title">其他资源</h1>
+        <div class="category-grid">
+            <!-- 可根据实际情况添加分类卡片 -->
+            <div class="category-card">
+                <i class="fas fa-archive category-icon"></i>
+                <h2 class="category-title">设计师资源</h2>
+                <p class="category-desc">这里是设计师的资源,包含字体\素材等相当多的资源</p>
+                <a href="#category1" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-archive category-icon"></i>
+                <h2 class="category-title">源码资源</h2>
+                <p class="category-desc">这里是一些开源的代码,包括一些有趣的静态网站,恶搞网站等....</p>
+                <a href="#category2" class="category-btn show-subcategory">查看详情</a>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-archive category-icon"></i>
+                <h2 class="category-title">PC破解资源</h2>
+                <p class="category-desc">这里是破解资源,包含一些软件的破解版,一些工具的破解版等</p>
+                <a href="#category3" class="category-btn show-subcategory">查看详情</a>
+            </div>
+        </div>
+        <!-- 二级分类内容区 -->
+        <div class="subcategory-container">
+            <div id="category1" class="subcategory-content">
+                <h3>设计师资源-字体</h3>
+                <a href="https://pan.quark.cn/s/1c6ff6ad1071"><div class="download-item">5000 款设计师必备字体</div></a>
+                <a href="https://pan.quark.cn/s/80b70bd84054"><div class="download-item">20000 + 种 7GPS 字体设计艺术字大全</div></a>
+
+            </div>
+            <div id="category2" class="subcategory-content">
+                <h3>源码资源-静态-恶搞</h3>
+                <a href="https://pan.quark.cn/s/6eba302cbfc7"><div class="download-item">时钟源码</div></a>
+                <a href="https://pan.quark.cn/s/f92f759ef6a8"><div class="download-item">你可以做我恋人吗?源码</div></a>
+                <a href="https://pan.quark.cn/s/d95cfe5befee"><div class="download-item">3D相册源码</div></a>
+                <h3>源码资源-Java 源码</h3>
+                <a href="https://pan.quark.cn/s/54c538182761"><div class="download-item">java-SpringBoot, 网上点餐系统。源码</div></a> 
+            </div>
+            <div id="category3" class="subcategory-content">
+                <h3>PC破解资源-软件板块详情</h3>
+                <!-- <p>包含软件逆向分析、破解教程及工具资源分享（可手动编辑内容）</p> -->
+                <a href="https://pan.quark.cn/s/beb998bafa70"><div class="download-item">JetBrains全家桶激活补丁-支持三系统</div></a>
+                <a href="https://pan.quark.cn/s/26155758a06f"><div class="download-item">全版本Windows/Office激活工具</div></a>
+                <h3>PC破解资源-数据库管理工具</h3>
+                <a href="https://pan.quark.cn/s/3371163a2f42"><div class="download-item">navicat Premium,16.3. 破解版+补丁包</div></a>
+                <a href="https://pan.quark.cn/s/fe880d194749"><div class="download-item">navicat Premium,17.1. 破解版+补丁包</div></a>
+                <h3>PC破解资源-adobe全家桶</h3>
+                <a href="https://pan.quark.cn/s/e4d97dc4f42d"><div class="download-item">adobe2025全家桶-下载后安装就能用</div></a>
+                <h3>PC破解资源-Windows常用工具</h3>
+                <a href="https://pan.quark.cn/s/7fc11c1112ad"><div class="download-item">IDM激活工具,更新后依然可用(管理员运行)</div></a>
+                <a href="https://pan.quark.cn/s/764c4a1b0b41"><div class="download-item">rufus-4.6(制作系统U盘工具,开源)</div></a>
+                <a href="https://pan.quark.cn/s/67bf01f5f579"><div class="download-item">ventoy-1.0.99-Windows(制作装系统U盘,开源)</div></a>
+                <a href="https://pan.quark.cn/s/e90f2ee2953a"><div class="download-item">typora-1.0-破解版</div></a>
+                <h3>PC破解资源-Windows 美化工具</h3>
+                <a href="https://pan.quark.cn/s/c5cb599d905d"><div class="download-item">Fences-破解版-桌面整理工具-</div></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 固定底部状态栏（与首页一致） -->
+    <!-- <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 软件下载站 版权所有</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </div>
+    </footer> -->
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 处理二级分类显示
+        document.querySelectorAll('.show-subcategory').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href');
+                document.querySelectorAll('.subcategory-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                const targetElement = document.querySelector(targetId);
+                targetElement.style.display = 'block';
+                // 平滑滚动到目标位置
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
