@@ -1,21 +1,25 @@
 /* 全局样式 */
 :root {
-    --primary-color: #1a1a1a;
-    --accent-green: #00ff66;
-    --accent-blue: #4a90e2;
+    --primary-color: #121212;
+    --secondary-color: #1e1e1e;
+    --accent-green: #00ff9d;
+    --accent-blue: #64b5f6;
     --text-light: #ffffff;
+    --text-gray: #b0b0b0;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
 }
 
 body {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+    background-attachment: fixed;
     color: var(--text-light);
+    min-height: 100vh;
 }
 
 /* 导航栏 */
@@ -23,18 +27,33 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(8px);
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled {
+    background: rgba(18, 18, 18, 0.95);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    padding: 0.8rem 5%;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--accent-green);
+    text-shadow: 0 0 10px rgba(0,255,157,0.3);
+    transition: all 0.3s;
+}
+
+.logo:hover {
+    text-shadow: 0 0 15px rgba(0,255,157,0.5);
 }
 
 .nav-links {
@@ -47,21 +66,24 @@ body {
     text-decoration: none;
     transition: all 0.3s;
     position: relative;
+    padding: 5px 0;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
     background: var(--accent-green);
     transition: width 0.3s;
+    box-shadow: 0 0 5px rgba(0,255,157,0.5);
 }
 
 .nav-link:hover {
     color: var(--accent-green);
+    text-shadow: 0 0 8px rgba(0,255,157,0.4);
 }
 
 .nav-link:hover::after {
@@ -73,6 +95,12 @@ body {
     color: var(--text-light);
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hamburger:hover {
+    color: var(--accent-green);
+    transform: scale(1.1);
 }
 
 /* 主内容区 */
@@ -111,23 +139,51 @@ body {
 }
 
 .category-card {
-    background: #2d2d2d;
+    background: rgba(45, 45, 45, 0.7);
+    backdrop-filter: blur(5px);
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    border: 1px solid rgba(74, 144, 226, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 181, 246, 0.1), transparent);
+    transition: all 0.6s;
 }
 
 .category-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.category-card:hover::before {
+    left: 100%;
 }
 
 .category-icon {
-    font-size: 36px;
-    color: var(--accent-green);
+    font-size: 42px;
+    color: var(--accent-blue);
     margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+    transition: all 0.3s;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--accent-green);
+    text-shadow: 0 0 15px rgba(0,255,157,0.5);
 }
 
 .category-title {
@@ -161,11 +217,13 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(8px);
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
 }
 
 .back-to-top {
@@ -186,10 +244,121 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--primary-color);
+        background: var(--secondary-color);
         flex-direction: column;
-        padding: 1rem 5%;
-        gap: 1rem;
+        padding: 1.5rem 5%;
+        gap: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(74, 144, 226, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* 动画效果 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 按钮样式增强 */
+.category-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-green), #00cc80);
+    border-radius: 25px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,255,157,0.2);
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.category-btn:hover {
+    box-shadow: 0 6px 20px rgba(0,255,157,0.4);
+    transform: translateY(-2px);
+}
+
+.category-btn:active {
+    transform: translateY(1px);
+}
+
+/* 下载项样式 */
+.download-item {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, var(--accent-blue), #4a90e2, var(--accent-green));
+    background-size: 200% 200%;
+    border-radius: 25px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 20px rgba(100, 181, 246, 0.25);
+    margin: 0.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-item::before {
+    content: '📥 ';
+    margin-right: 8px;
+}
+
+.download-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(100, 181, 246, 0.45);
+    background-position: 100% 100%;
+    animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.download-item:active {
+    transform: translateY(1px);
+}
+
+/* 悬停卡片提示样式 */
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--secondary-color);
+        flex-direction: column;
+        padding: 1.5rem 5%;
+        gap: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(74, 144, 226, 0.2);
     }
 
     .nav-links.active {

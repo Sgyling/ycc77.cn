@@ -7,40 +7,20 @@
     <title>杨CC资源分享站-其他资源</title>
     <link rel="stylesheet" href="./assets/css/main.css">
         <style>
-        .download-item {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 1rem;
-            margin: 0.5rem 0;
-            background: rgba(255,255,255,0.08);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-            color: #e2e8f0;
-            font-weight: 400;
-        }
-        .download-item:hover {
-            background: rgba(247,250,252,0.9);
-            transform: translateX(10px);
-            color: #1a202c;
-        }
-        .download-item::before {
-            content: '➤';
-            margin-right: 12px;
-            font-weight: 700;
-            color: inherit;
-            background: rgba(255,255,255,0.15);
-            padding: 4px 8px;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
         .subcategory-content {
             display: none;
             margin-top: 2rem;
             padding: 2rem;
-            background: #3d3d3d;
-            border-radius: 10px;
+            background: rgba(61, 61, 61, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .subcategory-content h3 {
             color: var(--accent-green);
@@ -169,6 +149,31 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 淡入动画效果
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
         // 处理二级分类显示
         document.querySelectorAll('.show-subcategory').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -188,4 +193,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

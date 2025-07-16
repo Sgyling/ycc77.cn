@@ -7,70 +7,20 @@
     <title>杨CC资源分享站-教程资源</title>
     <link rel="stylesheet" href="./assets/css/main.css">
     <style>
-        .download-item {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 1rem;
-            margin: 0.5rem 0;
-            background: rgba(255,255,255,0.08);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-            color: #e2e8f0;
-            font-weight: 400;
-        }
-        .download-item:hover {
-            background: rgba(247,250,252,0.9);
-            transform: translateX(10px);
-            color: #1a202c;
-        }
-        .download-item::before {
-            content: '➤';
-            margin-right: 12px;
-            font-weight: 700;
-            color: inherit;
-            background: rgba(255,255,255,0.15);
-            padding: 4px 8px;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
-        @media (max-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media (max-width: 1200px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1.5rem), 1fr)) !important;
-            }
-        }
-        @media (max-width: 992px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(33.33% - 1.33rem), 1fr)) !important;
-            }
-        }
-        @media (max-width: 768px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(50% - 1rem), 1fr)) !important;
-            }
-        }
-        @media (max-width: 576px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
-            }
-        }
         .subcategory-content {
             display: none;
             margin-top: 2rem;
             padding: 2rem;
-            background: #3d3d3d;
-            border-radius: 10px;
+            background: rgba(61, 61, 61, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .subcategory-content h3 {
             color: var(--accent-green);
