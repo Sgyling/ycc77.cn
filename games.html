@@ -5,70 +5,563 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨CC资源分享站-游戏资源</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --base-black: #0A0A0A;
+            --base-darkgray: #1A1A1A;
+            --neon-blue: #00F0FF;
+            --neon-pink: #FF00F0;
+            --neon-purple: #9D00FF;
+            --acrylic-bg: rgba(34, 34, 34, 0.6);
+            --text-white: rgba(255, 255, 255, 0.8);
+            --grid-line: #333333;
+        }
         
-        @media (max-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
+        
+        body {
+            background-color: var(--base-black);
+            background-image: 
+                linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-white);
+            font-family: 'Courier New', monospace;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        @media (max-width: 1200px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1.5rem), 1fr)) !important;
-            }
+        
+        /* 网格点动画 */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
-        @media (max-width: 992px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(33.33% - 1.33rem), 1fr)) !important;
-            }
+        
+        /* 悬浮金属装饰 */
+        .floating-shape {
+            position: absolute;
+            background: var(--base-darkgray);
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            animation: float 15s infinite ease-in-out, glitch 10s infinite;
         }
-        @media (max-width: 768px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(50% - 1rem), 1fr)) !important;
-            }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
         }
-        @media (max-width: 576px) {
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
-            }
+        
+        @keyframes glitch {
+            95% { opacity: 0.7; }
+            96% { opacity: 0; }
+            97% { opacity: 0.7; }
         }
+        
+        /* 导航栏 - 磨砂金属效果 */
+        .navbar {
+            background: linear-gradient(90deg, var(--base-darkgray), #222);
+            border-bottom: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            position: relative;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            overflow: hidden;
+        }
+        
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.03),
+                rgba(255, 255, 255, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+        }
+        
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(0, 240, 255, 0.1),
+                transparent
+            );
+            transform: skewX(-25deg);
+            animation: navGlow 5s infinite;
+        }
+        
+        @keyframes navGlow {
+            0% { left: -100%; }
+            100% { left: 150%; }
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--neon-pink);
+            position: relative;
+        }
+        
+        .logo::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: var(--neon-pink);
+            clip: rect(0, 900px, 0, 0);
+            animation: glitch-logo 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-logo {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 0.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--neon-blue);
+        }
+        
+        .hamburger {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--neon-pink);
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 0, 240, 0.5);
+        }
+        
+        .page-title::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        /* 分类网格 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 5px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.02),
+                rgba(255, 255, 255, 0.02) 1px,
+                transparent 1px,
+                transparent 5px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .category-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            background: linear-gradient(
+                to right,
+                var(--neon-blue),
+                var(--neon-pink)
+            ) border-box;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(157, 0, 255, 0.3);
+        }
+        
+        .category-card:hover::after {
+            opacity: 1;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        
+        .category-title {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+        
+        .category-desc {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* 玻璃态金属按钮 */
+        .category-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--base-darkgray), #2a2a2a);
+            color: var(--text-white);
+            text-decoration: none;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.05),
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+        }
+        
+        .category-btn::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            text-shadow: 0 0 5px var(--neon-purple);
+            -webkit-text-stroke: 1px var(--neon-purple);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .category-btn:hover {
+            color: white;
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 240, 0.5);
+        }
+        
+        .category-btn:hover::after {
+            opacity: 1;
+        }
+        
+        .category-btn:active {
+            transform: scale(0.95);
+            animation: buttonPulse 0.5s;
+        }
+        
+        @keyframes buttonPulse {
+            0% { box-shadow: 0 0 0 0 rgba(157, 0, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(157, 0, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(157, 0, 255, 0); }
+        }
+        
+        /* 二级分类内容区 */
+        .subcategory-container {
+            position: relative;
+        }
+        
         .subcategory-content {
             display: none;
             margin-top: 2rem;
             padding: 2rem;
-            background: rgba(61, 61, 61, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            border: 1px solid rgba(74, 144, 226, 0.1);
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            position: relative;
+            overflow: hidden;
             animation: fadeIn 0.8s ease-out;
         }
+        
+        .subcategory-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.02),
+                rgba(255, 255, 255, 0.02) 1px,
+                transparent 1px,
+                transparent 5px
+            );
+            pointer-events: none;
+        }
+        
+        .subcategory-content h3 {
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            position: relative;
+        }
+        
+        .subcategory-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--neon-blue);
+        }
+        
+        .download-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(30, 30, 30, 0.5);
+            border-left: 2px solid var(--neon-purple);
+            transition: all 0.3s;
+            color: var(--text-white);
+        }
+        
+        .download-item:hover {
+            background: rgba(40, 40, 40, 0.7);
+            transform: translateX(5px);
+            border-left-color: var(--neon-pink);
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        /* 动画效果 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .subcategory-content h3 {
-            color: var(--accent-green);
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(0,255,157,0.3);
+        
+        /* 霓虹边缘闪烁动画 */
+        @keyframes neonPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.8); }
+        }
+        
+        .navbar, .category-card {
+            animation: neonPulse 3s infinite;
+        }
+        
+        /* 故障艺术效果 */
+        @keyframes glitchEffect {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(2px); }
+            25% { transform: translateX(-2px); }
+            30% { transform: translateX(2px); }
+            35% { transform: translateX(-2px); }
+        }
+        
+        .navbar:hover .nav-links {
+            animation: glitchEffect 0.5s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--base-darkgray);
+                padding: 1rem;
+                border-bottom: 1px solid var(--neon-blue);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        /* 滚动动画效果 */
+        @keyframes scrollGlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+        
+        .navbar.scrolled::after {
+            animation: scrollGlow 2s linear;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- 固定顶部导航栏（与首页一致） -->
+    <!-- 悬浮装饰图形 -->
+    <div class="floating-shape" style="width: 150px; height: 150px; top: 20%; left: 5%; transform: rotate(45deg);"></div>
+    <div class="floating-shape" style="width: 100px; height: 100px; top: 60%; right: 10%; border-radius: 50%;"></div>
+    <div class="floating-shape" style="width: 200px; height: 80px; top: 40%; right: 5%;"></div>
+    
+    <!-- 导航栏 -->
     <nav class="navbar">
-        <div class="logo">杨CC资源分享站</div>
+        <div class="logo" data-text="杨CC资源分享站">杨CC资源分享站</div>
         <div class="nav-links">
             <a href="./index.html" class="nav-link">首页</a>
             <a href="./penetration.html" class="nav-link">渗透测试工具</a>
-            <a href="./games.html" class="nav-link">游戏资源</a>
+            <a href="./games.html" class="nav-link active">游戏资源</a>
             <a href="./learning.html" class="nav-link">教程资源</a>
             <a href="./other_resources.html" class="nav-link">其他资源</a>
         </div>
@@ -77,58 +570,59 @@
         </div>
     </nav>
 
-    <!-- 游戏资源分类区（可手动扩展） -->
+    <!-- 游戏资源分类区 -->
     <main class="main-content">
         <h1 class="page-title">游戏资源</h1>
         <div class="category-grid">
-            <!-- 破解3A大作卡片 -->
+            <!-- 说明卡片 -->
             <div class="category-card">
                 <i class="fas fa-gamepad category-icon"></i>
                 <h2 class="category-title">说明</h2>
                 <p class="category-desc">此游戏板块,因大多数为破解资源,不能保证时效</p>
                 <p class="category-desc">如若发生链接不可用,请回到首页联系网站开发作者</p>
-                <!-- <a href="#3a" class="category-btn show-subcategory">查看详情</a> -->
             </div>
             <!-- PC端游戏卡片 -->
             <div class="category-card">
                 <i class="fas fa-desktop category-icon"></i>
                 <h2 class="category-title">PC端游戏</h2>
                 <p class="category-desc">各类PC平台热门游戏资源，涵盖角色扮演、策略等类型</p>
-                <a href="#pc-games" class="category-btn show-subcategory">查看详情</a>
+                <a href="#pc-games" class="category-btn show-subcategory" data-text="查看详情">查看详情</a>
             </div>
             <!-- 手机游戏卡片 -->
             <div class="category-card">
                 <i class="fas fa-mobile-alt category-icon"></i>
                 <h2 class="category-title">手机游戏</h2>
                 <p class="category-desc">内购破解、无限资源等特殊版本手机游戏集合</p>
-                <a href="#mobile-games" class="category-btn show-subcategory">查看详情</a>
+                <a href="#mobile-games" class="category-btn show-subcategory" data-text="查看详情">查看详情</a>
             </div>
-            <!-- 破解版手游卡片 -->
+            <!-- 手机常用工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-mobile category-icon"></i>
                 <h2 class="category-title">手机常用工具</h2>
                 <p class="category-desc">包含:ios\android等多平台常用手机工具</p>
-                <a href="#hacked-mobile" class="category-btn show-subcategory">查看详情</a>
+                <a href="#hacked-mobile" class="category-btn show-subcategory" data-text="查看详情">查看详情</a>
             </div>
+            <!-- 修改器卡片 -->
             <div class="category-card">
-                <i class="fas fa-desktop category-icon"></i>
+                <i class="fas fa-sliders-h category-icon"></i>
                 <h2 class="category-title">修改器</h2>
                 <p class="category-desc">常见游戏修改器,多数热门游戏修改器全在~</p>
-                <a href="#a-3" class="category-btn show-subcategory">查看详情</a>
+                <a href="#a-3" class="category-btn show-subcategory" data-text="查看详情">查看详情</a>
             </div>
         </div>
-            <!-- 二级分类内容区 -->
+        
+        <!-- 二级分类内容区 -->
         <div class="subcategory-container">
             <div id="a-3" class="subcategory-content">
                 <h3>修改器详情</h3>
-                <!-- <p>包含高画质3A级单机游戏破解版本，支持多平台（可手动编辑内容）</p> -->
+                <!-- 修改器内容 -->
             </div>
             <div id="pc-games" class="subcategory-content">
                 <h3>PC端-虐杀原形系列</h3>
-                <!-- <p>各类PC平台热门游戏资源，涵盖角色扮演、策略等类型（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/8377d5d1fb49"><div class="download-item">虐杀原形1完美Win10\11完美运行版</div></a>
                 <a href="https://pan.quark.cn/s/a4a7d455683e"><div class="download-item">虐杀原形2完美带存档\修改器(被拦截)</div></a>
                 <a href="https://pan.quark.cn/s/96391013550a"><div class="download-item">我的世界 1.8.9 幸运空岛 v9.0</div></a>
+                
                 <h3>PC端 - 红警系列</h3>
                 <a href="https://pan.quark.cn/s/09819d4e4a01"> <div class="download-item">红警2 - 重启未来(2023重聚)</div></a>
                 
@@ -139,7 +633,6 @@
                 <a href="https://pan.quark.cn/s/cb3ce87c79c0"><div class="download-item">植物大战僵尸 - 融合版2.6.1最新版</div></a>
                 <a href="https://pan.quark.cn/s/19f941bb31df"><div class="download-item">植物大战僵尸内鬼版 - V2.0版本</div></a>
                 <a href="https://pan.quark.cn/s/0ef6f740391b"><div class="download-item">90+版本的植物大战僵尸</div></a>
-
                 <h3>Steam 18+</h3>
                 <a href="https://pan.quark.cn/s/4d3b06acaf7f"><div class="download-item">《暴食的怪兽公主：惑星美食之旅》- 动漫风格</div></a>
                 <a href="https://pan.quark.cn/s/4556e4d4c6ea"><div class="download-item">半妖忍少女 - 这个画面还是不错的</div></a>
@@ -158,42 +651,55 @@
                 <a href="https://pan.quark.cn/s/7e4f6bcb9293"><div class="download-item">希尔达与欲望之塔</div></a>
                 <a href="https://pan.quark.cn/s/0435a3f4e517"><div class="download-item">停电</div></a>
                 <a href="https://pan.quark.cn/s/02b27cad9e66"><div class="download-item">新婚妻子的堕落之路</div></a>
-                
             </div>
             <div id="mobile-games" class="subcategory-content">
                 <h3>让人开心的手机游戏</h3>
-                <!-- <p>安卓/iOS平台热门手游，包含免费与付费破解版（可手动编辑内容）</p> -->
-                <!-- <a href="https://apps.zkyouxi.com/202505/dwx_snmj_cszq_3132917_e5fe3817.apk"><div class="download-item">斗五行(能赚钱)</div> </a> -->
-                <a href="https://pan.quark.cn/s/ffc03337c1d8"><div class="download-item">奴隶の生活(奴隶少女希尔薇)-1.3.0版本(汉化版)</div> </a>
-                <a href="games/骰子游戏-像素旗袍.apk"><div class="download-item">骰子游戏-像素旗袍-汉化版</div> </a>
                 <a href="https://pan.quark.cn/s/63bac16ff2ac"><div class="download-item">植物大战僵尸-真无双手机版</div></a>
                 <a href="https://pan.quark.cn/s/d2913ff2b4fa"><div class="download-item">植物大战僵尸 - 融合版 最新V2.6.1 - 手机版</div></a>
                 <a href="https://pan.quark.cn/s/19f941bb31df"><div class="download-item">植物大战僵尸内鬼版 - V2.0版本 - 手机版</div></a>
-
-                <h3>其他手机游戏</h3>
-                <a href="https://pan.quark.cn/s/956688c9f0f0"><div class="download-item">瘟疫公司-汉化-破解版(控制病毒传播)</div> </a>
-                <a href="https://p.hwy88.cn/games/94v/94V7HCV1.apk"><div class="download-item">万象契印-二次元专属游戏(安卓)</div> </a>
-                <a href="https://p.hwy88.cn/media/html/1706.html"><div class="download-item">万象契印-二次元专属游戏(苹果)</div> </a>
                 <a href="#"><div class="download-item">招收中...</div></a>
             </div>
             <div id="hacked-mobile" class="subcategory-content">
-                <h3>破解版手游详情</h3>
-                <!-- <p>内购破解、无限资源等特殊版本手机游戏集合（可手动编辑内容）</p> -->
-                 
+                <h3>手机常用工具详情</h3>
+                <!-- 手机工具内容 -->
             </div>
         </div>
     </main>
 
-    <!-- 固定底部状态栏（与首页一致） -->
-    <!-- <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 软件下载站 版权所有</p>
-            <a href="#top" class="back-to-top">返回顶部</a>
-        </div>
-    </footer> -->
-
-    <script src="./assets/js/main.js"></script>
     <script>
+        // 创建更多随机悬浮形状
+        function createFloatingShapes() {
+            const shapesCount = 5;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('floating-shape');
+                
+                // 随机尺寸
+                const size = Math.random() * 100 + 50;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // 随机位置
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                
+                // 随机旋转
+                shape.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // 随机形状
+                if (Math.random() > 0.7) {
+                    shape.style.borderRadius = '50%';
+                }
+                
+                // 随机动画延迟
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(shape);
+            }
+        }
+        
         // 处理导航栏汉堡图标点击
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -204,18 +710,201 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = btn.getAttribute('href');
+                
+                // 添加故障过渡效果
                 document.querySelectorAll('.subcategory-content').forEach(content => {
-                    content.style.display = 'none';
+                    if (content.style.display === 'block') {
+                        content.style.animation = 'none';
+                        content.offsetHeight; // 触发重绘
+                        content.style.animation = 'glitchOut 0.5s forwards';
+                        setTimeout(() => {
+                            content.style.display = 'none';
+                        }, 500);
+                    }
                 });
-                const targetElement = document.querySelector(targetId);
-                targetElement.style.display = 'block';
-                // 平滑滚动到目标位置
-                targetElement.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
+                
+                // 显示目标内容
+                setTimeout(() => {
+                    const targetElement = document.querySelector(targetId);
+                    targetElement.style.display = 'block';
+                    targetElement.style.animation = 'none';
+                    targetElement.offsetHeight; // 触发重绘
+                    targetElement.style.animation = 'glitchIn 0.5s forwards, fadeIn 0.8s ease-out';
+                    
+                    // 平滑滚动到目标位置
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }, 500);
             });
         });
+        
+        // 监听滚动事件，添加导航栏效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('scrolled');
+            setTimeout(() => {
+                navbar.classList.remove('scrolled');
+            }, 2000);
+        });
+        
+        // 添加故障进入和退出动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glitchIn {
+                0% { transform: translateX(-5px) skewX(5deg); opacity: 0; }
+                20% { transform: translateX(5px) skewX(-5deg); }
+                40% { transform: translateX(-3px) skewX(3deg); }
+                60% { transform: translateX(3px) skewX(-3deg); }
+                80% { transform: translateX(-2px) skewX(2deg); }
+                100% { transform: translateX(0) skewX(0); opacity: 1; }
+            }
+            
+            @keyframes glitchOut {
+                0% { transform: translateX(0) skewX(0); opacity: 1; }
+                20% { transform: translateX(-2px) skewX(2deg); }
+                40% { transform: translateX(3px) skewX(-3deg); }
+                60% { transform: translateX(-3px) skewX(3deg); }
+                80% { transform: translateX(5px) skewX(-5deg); }
+                100% { transform: translateX(-5px) skewX(5deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 页面加载完成后创建悬浮形状
+        window.addEventListener('load', createFloatingShapes);
+    </script>
+    <script>
+        // 创建更多随机悬浮图形
+        function createFloatingShapes() {
+            const shapesCount = 6;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                const isTriangle = Math.random() > 0.5;
+                
+                if (isTriangle) {
+                    shape.classList.add('floating-shape', 'triangle');
+                    if (Math.random() > 0.5) {
+                        shape.style.transform = 'rotate(180deg)';
+                    }
+                } else {
+                    shape.classList.add('floating-shape', 'hexagon');
+                }
+                
+                // 随机位置和大小
+                const size = Math.random() * 30 + 20;
+                shape.style.width = isTriangle ? '0' : `${size}px`;
+                shape.style.height = isTriangle ? '0' : `${size * 0.58}px`;
+                if (isTriangle) {
+                    shape.style.borderLeftWidth = `${size/2}px`;
+                    shape.style.borderRightWidth = `${size/2}px`;
+                    shape.style.borderBottomWidth = `${size}px`;
+                }
+                
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // 随机霓虹色
+                const colors = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.borderColor = isTriangle ? `transparent transparent ${color} transparent` : color;
+                shape.style.boxShadow = `0 0 15px ${color}80`;
+                
+                container.appendChild(shape);
+            }
+        }
+
+        // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 0 15px rgba(0, 240, 255, 0.3)';
+            } else {
+                navbar.style.boxShadow = '0 0 10px rgba(0, 240, 255, 0.2)';
+            }
+
+            // 滚动时移动金属反光
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            const glowElements = document.querySelectorAll('.navbar::before');
+            // 这里使用CSS动画处理反光移动
+        });
+
+        // 淡入动画效果
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // 页面加载完成后创建悬浮图形
+        window.addEventListener('load', createFloatingShapes);
+
+        // 为链接添加点击动画效果
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // 添加点击波纹效果
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(157, 0, 255, 0.3)';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.animation = 'ripple 1s';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                // 延迟跳转，等待动画完成
+                setTimeout(() => {
+                    if (href === '#top') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        window.location.href = href;
+                    }
+                }, 300);
+                
+                // 动画结束后移除波纹元素
+                setTimeout(() => ripple.remove(), 1000);
+            });
+        });
+
+        // 添加波纹动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: translate(-50%, -50%) scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

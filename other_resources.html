@@ -5,41 +5,542 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨CC资源分享站-其他资源</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
-        <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --base-black: #0A0A0A;
+            --base-dark-gray: #1A1A1A;
+            --neon-blue: #00F0FF;
+            --neon-pink: #FF00F0;
+            --neon-purple: #9D00FF;
+            --acrylic-bg: #222222;
+            --grid-color: #333333;
+            --text-color: #FFFFFF80;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--base-black);
+            background-image: 
+                linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-color);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 网格点动画 */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 悬浮金属片装饰 */
+        .floating-shape {
+            position: fixed;
+            background: var(--base-dark-gray);
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            animation: float 15s infinite ease-in-out, glitch 10s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -10px) rotate(5deg); }
+            50% { transform: translate(10px, 20px) rotate(-3deg); }
+            75% { transform: translate(-15px, 5px) rotate(2deg); }
+        }
+
+        @keyframes glitch {
+            95%, 100% { opacity: 0.7; }
+            97% { opacity: 0; }
+        }
+
+        /* 导航栏样式 - 磨砂金属效果 */
+        .navbar {
+            background: linear-gradient(90deg, var(--base-dark-gray), #222);
+            border-bottom: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* 拉丝金属纹理 */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 2px;
+            /* 锈蚀霓虹边缘 */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--neon-blue);
+            animation: rustPulse 3s infinite alternate;
+        }
+
+        @keyframes rustPulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* 导航栏故障效果 */
+        .navbar .hamburger {
+            position: relative;
+        }
+
+        .navbar .hamburger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            animation: glitchEffect 0.5s infinite;
+        }
+
+        @keyframes glitchEffect {
+            0%, 100% { transform: translate(0); }
+            50% { transform: translate(-2px, 1px); }
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
+            /* 金属立体字效果 */
+            background: linear-gradient(45deg, #444, #999, #444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '杨CC资源分享站';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            color: var(--neon-pink);
+            z-index: -1;
+            opacity: 0.7;
+            animation: textGlitch 5s infinite;
+        }
+
+        @keyframes textGlitch {
+            0%, 95%, 100% { opacity: 0.7; transform: translate(0); }
+            97% { opacity: 0.5; transform: translate(-2px, 1px); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: white;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--neon-blue);
+        }
+
+        .hamburger {
+            display: none;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            /* 金属立体字 + 霓虹描边 */
+            text-shadow: 
+                0 0 5px var(--neon-pink),
+                0 0 10px var(--neon-pink),
+                1px 1px 0 var(--base-black),
+                -1px -1px 0 var(--base-black);
+            position: relative;
+            animation: titleGlitch 8s infinite;
+        }
+
+        .page-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            color: transparent;
+            text-shadow: 0 0 3px var(--neon-pink);
+            filter: blur(2px);
+        }
+
+        @keyframes titleGlitch {
+            0%, 95%, 100% { transform: translate(0); }
+            97% { transform: translate(2px, -1px); }
+        }
+
+        /* 分类网格 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* 分类卡片 - 亚克力效果 */
+        .category-card {
+            background: rgba(34, 34, 34, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            /* 霓虹发光包边 */
+            box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
+        }
+
+        .category-card:hover::before {
+            border-width: 3px;
+        }
+
+        /* 卡片内部划痕效果 */
+        .category-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px, 50px 50px;
+            pointer-events: none;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .category-title {
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .category-desc {
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* 按钮样式 - 玻璃态金属 */
+        .category-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--base-dark-gray), #333);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(157, 0, 255, 0.3);
+            transition: all 0.3s;
+            /* 拉丝金属纹理 */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 2px;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s;
+        }
+
+        .category-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .category-btn::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            text-shadow: 0 0 3px var(--neon-purple);
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .category-btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-btn:active {
+            transform: scale(0.95);
+            animation: buttonClick 0.5s;
+        }
+
+        @keyframes buttonClick {
+            0% { box-shadow: 0 0 5px var(--neon-purple); }
+            50% { box-shadow: 0 0 20px var(--neon-purple); }
+            100% { box-shadow: 0 0 5px var(--neon-purple); }
+        }
+
+        /* 二级分类内容区 */
+        .subcategory-container {
+            margin-top: 2rem;
+        }
+
         .subcategory-content {
             display: none;
             margin-top: 2rem;
             padding: 2rem;
-            background: rgba(61, 61, 61, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            border: 1px solid rgba(74, 144, 226, 0.1);
+            background: rgba(34, 34, 34, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            position: relative;
             animation: fadeIn 0.8s ease-out;
         }
+
+        .subcategory-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .subcategory-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         .subcategory-content h3 {
-            color: var(--accent-green);
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+            position: relative;
+        }
+
+        .subcategory-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .subcategory-content h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-blue), transparent);
+        }
+
+        .download-item {
+            background: rgba(20, 20, 20, 0.5);
+            padding: 1rem;
             margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 2px solid var(--neon-purple);
+            transition: all 0.3s;
+            color: var(--text-color);
+        }
+
+        .download-item:hover {
+            background: rgba(40, 40, 40, 0.5);
+            transform: translateX(5px);
+            border-left-color: var(--neon-pink);
+            color: white;
+        }
+
+        /* 滚动效果 */
+        @keyframes scrollGlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(90deg, var(--base-dark-gray), #222 50%, var(--base-dark-gray));
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            background-size: 100% 2px, 100% 100%;
+            animation: scrollGlow 2s linear infinite;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--base-dark-gray);
+                width: 50%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                transition: right 0.3s;
+                z-index: 1000;
+                border-left: 1px solid var(--neon-blue);
+                box-shadow: -5px 0 15px rgba(0, 240, 255, 0.2);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- 固定顶部导航栏（与首页一致） -->
+    <!-- 悬浮装饰图形 -->
+    <div class="floating-shape" style="width: 150px; height: 150px; top: 10%; left: 5%; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+    <div class="floating-shape" style="width: 100px; height: 100px; top: 60%; right: 10%; border-radius: 50%;"></div>
+    <div class="floating-shape" style="width: 120px; height: 80px; bottom: 20%; left: 20%;"></div>
+
+    <!-- 固定顶部导航栏 -->
     <nav class="navbar">
-        <div class="logo">杨CC资源分享站</div>
+        <div class="logo" data-text="杨CC资源分享站">杨CC资源分享站</div>
         <div class="nav-links">
             <a href="./index.html" class="nav-link">首页</a>
             <a href="./penetration.html" class="nav-link">渗透测试工具</a>
             <a href="./games.html" class="nav-link">游戏资源</a>
             <a href="./learning.html" class="nav-link">教程资源</a>
-            <a href="./other_resources.html" class="nav-link">其他资源</a>
+            <a href="./other_resources.html" class="nav-link active">其他资源</a>
         </div>
         <div class="hamburger">
             <i class="fas fa-bars"></i>
@@ -48,38 +549,37 @@
 
     <!-- 其他资源内容区 -->
     <main class="main-content">
-        <h1 class="page-title">其他资源</h1>
+        <h1 class="page-title" data-text="其他资源">其他资源</h1>
         <div class="category-grid">
-            <!-- 可根据实际情况添加分类卡片 -->
             <div class="category-card">
                 <i class="fas fa-archive category-icon"></i>
                 <h2 class="category-title">设计师资源</h2>
                 <p class="category-desc">这里是设计师的资源,包含字体\素材等相当多的资源</p>
-                <a href="#category1" class="category-btn show-subcategory">查看详情</a>
+                <a href="#category1" class="category-btn show-subcategory" data-text="查看详情"><span>查看详情</span></a>
             </div>
             <div class="category-card">
                 <i class="fas fa-archive category-icon"></i>
                 <h2 class="category-title">源码资源</h2>
                 <p class="category-desc">这里是一些开源的代码,包括一些有趣的静态网站,恶搞网站等....</p>
-                <a href="#category2" class="category-btn show-subcategory">查看详情</a>
+                <a href="#category2" class="category-btn show-subcategory" data-text="查看详情"><span>查看详情</span></a>
             </div>
             <div class="category-card">
                 <i class="fas fa-archive category-icon"></i>
                 <h2 class="category-title">电脑工具</h2>
                 <p class="category-desc">这里是破解资源,包含一些电脑好用的软件,或者一些工具的破解版等</p>
-                <a href="#category3" class="category-btn show-subcategory">查看详情</a>
+                <a href="#category3" class="category-btn show-subcategory" data-text="查看详情"><span>查看详情</span></a>
             </div>
-                        <div class="category-card">
+            <div class="category-card">
                 <i class="fas fa-archive category-icon"></i>
                 <h2 class="category-title">手机工具</h2>
                 <p class="category-desc">这里是手机工具,包含一些好用软件..破解软件,一些工具类软件等均免费并且无内部需收费</p>
-                <a href="#category4" class="category-btn show-subcategory">查看详情</a>
+                <a href="#category4" class="category-btn show-subcategory" data-text="查看详情"><span>查看详情</span></a>
             </div>
-                <div class="category-card">
+            <div class="category-card">
                 <i class="fas fa-archive category-icon"></i>
                 <h2 class="category-title">Java全版本安装包</h2>
                 <p class="category-desc">这里从Java 1.8 到 Java 17 全版本的安装包</p>
-                <a href="#Java" class="category-btn show-subcategory">查看详情</a>
+                <a href="#Java" class="category-btn show-subcategory" data-text="查看详情"><span>查看详情</span></a>
             </div>
         </div>
         <!-- 二级分类内容区 -->
@@ -92,10 +592,6 @@
             </div>
             <div id="Java" class="subcategory-content">
                 <h3>更新中...</h3>
-                <!-- <a href="https://pan.quark.cn/s/1c6ff6ad1071"><div class="download-item">5000 款设计师必备字体</div></a>
-                <a href="https://pan.quark.cn/s/80b70bd84054"><div class="download-item">20000 + 种 7GPS 字体设计艺术字大全</div></a> -->
-                
-
             </div>
             <div id="category2" class="subcategory-content">
                 <h3>源码资源-静态-恶搞</h3>
@@ -107,7 +603,6 @@
             </div>
             <div id="category3" class="subcategory-content">
                 <h3>PC破解资源-软件板块详情</h3>
-                <!-- <p>包含软件逆向分析、破解教程及工具资源分享（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/beb998bafa70"><div class="download-item">JetBrains全家桶激活补丁-支持三系统</div></a>
                 <a href="https://pan.quark.cn/s/26155758a06f"><div class="download-item">全版本Windows/Office激活工具</div></a>
                 <h3>PC破解资源-数据库管理工具</h3>
@@ -125,25 +620,53 @@
                 <h3>PC破解资源-浏览器</h3>
                 <a href="https://pan.quark.cn/s/0a254089bd2a"><div class="download-item">Zen-浏览器-火狐内核-初次启动略慢,但大占用资源极小</div></a>
             </div>
-                <div id="category4" class="subcategory-content">
+            <div id="category4" class="subcategory-content">
                 <h3>手机实用工具</h3>
                 <a href="https://pan.quark.cn/s/02cc0be7355a"><div class="download-item">安卓手机连点器</div></a>
-                <!-- <h3>源码资源-Java 源码</h3>
-                <a href="https://pan.quark.cn/s/54c538182761"><div class="download-item">java-SpringBoot, 网上点餐系统。源码</div></a>  -->
             </div>
         </div>
     </main>
 
-    <!-- 固定底部状态栏（与首页一致） -->
-    <!-- <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 软件下载站 版权所有</p>
-            <a href="#top" class="back-to-top">返回顶部</a>
-        </div>
-    </footer> -->
-
-    <script src="./assets/js/main.js"></script>
     <script>
+        // 创建更多随机悬浮形状
+        function createFloatingShapes() {
+            const shapesCount = 5;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('floating-shape');
+                
+                // 随机属性
+                const size = Math.random() * 100 + 50;
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.top = `${top}%`;
+                shape.style.left = `${left}%`;
+                shape.style.animationDelay = `${delay}s`;
+                
+                // 随机形状
+                const shapeType = Math.floor(Math.random() * 3);
+                switch(shapeType) {
+                    case 0: // 三角形
+                        shape.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+                        break;
+                    case 1: // 圆形
+                        shape.style.borderRadius = '50%';
+                        break;
+                    case 2: // 矩形
+                        shape.style.width = `${size * 1.5}px`;
+                        break;
+                }
+                
+                container.appendChild(shape);
+            }
+        }
+        
         // 处理导航栏汉堡图标点击
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -157,6 +680,158 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+            
+            // 滚动时让卡片轻微浮动
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach((card, index) => {
+                const floatAmount = Math.sin(window.scrollY * 0.001 + index) * 3;
+                card.style.transform = `translateY(${floatAmount}px)`;
+            });
+        });
+
+        // 处理二级分类显示 - 添加故障溶解过渡
+        document.querySelectorAll('.show-subcategory').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href');
+                const allContents = document.querySelectorAll('.subcategory-content');
+                const targetElement = document.querySelector(targetId);
+                
+                // 先隐藏所有内容并添加故障效果
+                allContents.forEach(content => {
+                    if (content.style.display === 'block') {
+                        content.style.animation = 'glitchOut 0.5s forwards';
+                        setTimeout(() => {
+                            content.style.display = 'none';
+                            content.style.animation = '';
+                        }, 500);
+                    }
+                });
+                
+                // 显示目标内容并添加故障进入效果
+                setTimeout(() => {
+                    targetElement.style.display = 'block';
+                    targetElement.style.animation = 'glitchIn 0.8s forwards';
+                    setTimeout(() => {
+                        targetElement.style.animation = '';
+                    }, 800);
+                    
+                    // 平滑滚动到目标位置
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }, 500);
+            });
+        });
+
+        // 添加故障动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glitchOut {
+                0% { opacity: 1; transform: translate(0); }
+                50% { opacity: 0.5; transform: translate(-5px, 3px) scale(0.98); filter: blur(2px); }
+                100% { opacity: 0; transform: translate(10px, -5px) scale(0.9); filter: blur(5px); }
+            }
+            
+            @keyframes glitchIn {
+                0% { opacity: 0; transform: translate(10px, -5px) scale(0.9); filter: blur(5px); }
+                50% { opacity: 0.5; transform: translate(-5px, 3px) scale(0.98); filter: blur(2px); }
+                100% { opacity: 1; transform: translate(0); }
+            }
+            
+            /* 网格点闪烁动画 */
+            @keyframes gridPulse {
+                0%, 100% { opacity: 0.2; }
+                50% { opacity: 0.8; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 初始化
+        window.addEventListener('load', () => {
+            createFloatingShapes();
+            
+            // 创建随机网格点
+            const body = document.body;
+            const gridPoints = 30;
+            for (let i = 0; i < gridPoints; i++) {
+                const point = document.createElement('div');
+                point.style.position = 'absolute';
+                point.style.width = '2px';
+                point.style.height = '2px';
+                point.style.backgroundColor = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)'][Math.floor(Math.random() * 3)];
+                point.style.left = `${Math.random() * 100}%`;
+                point.style.top = `${Math.random() * 100}%`;
+                point.style.animation = `gridPulse ${Math.random() * 5 + 3}s infinite`;
+                point.style.animationDelay = `${Math.random() * 3}s`;
+                point.style.pointerEvents = 'none';
+                point.style.zIndex = '0';
+                body.appendChild(point);
+            }
+        });
+    </script>
+    <script>
+        // 创建更多随机悬浮图形
+        function createFloatingShapes() {
+            const shapesCount = 6;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                const isTriangle = Math.random() > 0.5;
+                
+                if (isTriangle) {
+                    shape.classList.add('floating-shape', 'triangle');
+                    if (Math.random() > 0.5) {
+                        shape.style.transform = 'rotate(180deg)';
+                    }
+                } else {
+                    shape.classList.add('floating-shape', 'hexagon');
+                }
+                
+                // 随机位置和大小
+                const size = Math.random() * 30 + 20;
+                shape.style.width = isTriangle ? '0' : `${size}px`;
+                shape.style.height = isTriangle ? '0' : `${size * 0.58}px`;
+                if (isTriangle) {
+                    shape.style.borderLeftWidth = `${size/2}px`;
+                    shape.style.borderRightWidth = `${size/2}px`;
+                    shape.style.borderBottomWidth = `${size}px`;
+                }
+                
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // 随机霓虹色
+                const colors = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.borderColor = isTriangle ? `transparent transparent ${color} transparent` : color;
+                shape.style.boxShadow = `0 0 15px ${color}80`;
+                
+                container.appendChild(shape);
+            }
+        }
+
+        // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 0 15px rgba(0, 240, 255, 0.3)';
+            } else {
+                navbar.style.boxShadow = '0 0 10px rgba(0, 240, 255, 0.2)';
+            }
+
+            // 滚动时移动金属反光
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            const glowElements = document.querySelectorAll('.navbar::before');
+            // 这里使用CSS动画处理反光移动
         });
 
         // 淡入动画效果
@@ -174,23 +849,58 @@
             fadeInObserver.observe(element);
         });
 
-        // 处理二级分类显示
-        document.querySelectorAll('.show-subcategory').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        // 页面加载完成后创建悬浮图形
+        window.addEventListener('load', createFloatingShapes);
+
+        // 为链接添加点击动画效果
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = btn.getAttribute('href');
-                document.querySelectorAll('.subcategory-content').forEach(content => {
-                    content.style.display = 'none';
-                });
-                const targetElement = document.querySelector(targetId);
-                targetElement.style.display = 'block';
-                // 平滑滚动到目标位置
-                targetElement.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
+                const href = this.getAttribute('href');
+                
+                // 添加点击波纹效果
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(157, 0, 255, 0.3)';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.animation = 'ripple 1s';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                // 延迟跳转，等待动画完成
+                setTimeout(() => {
+                    if (href === '#top') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        window.location.href = href;
+                    }
+                }, 300);
+                
+                // 动画结束后移除波纹元素
+                setTimeout(() => ripple.remove(), 1000);
             });
         });
+
+        // 添加波纹动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: translate(-50%, -50%) scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

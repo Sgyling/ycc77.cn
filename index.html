@@ -5,15 +5,441 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨CC资源分享站-首页</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* 基础重置与变量定义 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         :root {
-            --accent-green: #4CAF50;
+            --base-black: #0A0A0A;
+            --base-darkgray: #1A1A1A;
+            --neon-blue: #00F0FF;
+            --neon-pink: #FF00F0;
+            --neon-purple: #9D00FF;
+            --acrylic-bg: rgba(34, 34, 34, 0.6);
+            --text-color: rgba(255, 255, 255, 0.8);
+            --grid-color: #333333;
+        }
+
+        body {
+            background-color: var(--base-black);
+            background-image: 
+                linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-color);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 网格点动画 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 悬浮金属片装饰 */
+        .floating-shape {
+            position: fixed;
+            background: var(--base-darkgray);
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            animation: float 15s infinite ease-in-out, glitch 10s infinite;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid var(--base-darkgray);
+        }
+
+        .hexagon {
+            width: 40px;
+            height: 23px;
+            position: relative;
+        }
+
+        .hexagon::before {
+            content: "";
+            position: absolute;
+            top: -11px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 11px solid var(--base-darkgray);
+        }
+
+        .hexagon::after {
+            content: "";
+            position: absolute;
+            bottom: -11px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 11px solid var(--base-darkgray);
+        }
+
+        /* 导航栏 - 磨砂金属风格 */
+        .navbar {
+            background: var(--base-darkgray);
+            background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 10px 10px;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            transition: 0.5s;
+            animation: navbar-glow 8s infinite;
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            animation: glitch-effect 0.5s infinite;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
+            position: relative;
+            animation: text-glitch 5s infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem;
+            position: relative;
+            transition: all 0.3s;
+            background: var(--base-darkgray);
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .nav-link:hover {
+            color: white;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        /* 主内容区 - 亚克力风格 */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .announcement {
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--neon-blue);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .announcement:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.5);
+        }
+
+        .announcement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+        }
+
+        .announcement::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+        }
+
+        .announcement-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-shadow: 0 0 5px var(--neon-blue);
+            position: relative;
+        }
+
+        .announcement-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 60px;
+            background: var(--neon-pink);
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        .announcement-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .announcement-content p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .announcement-content a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .announcement-content a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        .announcement-content a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--neon-blue);
+            transition: all 0.3s;
+        }
+
+        .announcement-content a:hover::after {
+            background: var(--neon-pink);
+            height: 2px;
+        }
+
+        /* 底部状态栏 */
+        .footer {
+            background: var(--base-darkgray);
+            background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 10px 10px;
+            padding: 1rem 2rem;
+            border-top: 1px solid var(--neon-blue);
+            margin-top: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-to-top {
+            color: var(--neon-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--neon-blue);
+            border-radius: 4px;
+            transition: all 0.3s;
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .back-to-top:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--base-darkgray);
+                width: 50%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                transition: right 0.3s;
+                border-left: 1px solid var(--neon-blue);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes navbar-glow {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes glitch-effect {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-2px); }
+        }
+
+        @keyframes text-glitch {
+            0%, 100% { transform: translateX(0); }
+            90% { transform: translateX(0); }
+            92% { transform: translateX(-2px); }
+            94% { transform: translateX(2px); }
+            96% { transform: translateX(-1px); }
+            98% { transform: translateX(1px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { opacity: 0.7; }
+            5% { opacity: 0; }
+            6% { opacity: 0.7; }
+            10% { opacity: 0.4; }
+            11% { opacity: 0.7; }
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% { box-shadow: 0 0 5px var(--neon-blue); }
+            50% { box-shadow: 0 0 15px var(--neon-blue); }
+        }
+
+        /* 为霓虹边框添加闪烁效果 */
+        .navbar, .announcement, .footer {
+            animation: neon-pulse 3s infinite;
+        }
+
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 </head>
 <body>
+    <!-- 悬浮装饰图形 -->
+    <div class="floating-shape triangle" style="top: 20%; left: 5%; animation-delay: 0s;"></div>
+    <div class="floating-shape hexagon" style="top: 60%; left: 90%; animation-delay: 2s;"></div>
+    <div class="floating-shape triangle" style="top: 40%; left: 85%; animation-delay: 4s; transform: rotate(180deg);"></div>
+    <div class="floating-shape hexagon" style="top: 70%; left: 10%; animation-delay: 6s;"></div>
+
     <!-- 固定顶部导航栏 -->
     <nav class="navbar">
         <div class="logo">杨CC资源分享站</div>
@@ -29,41 +455,39 @@
         </div>
     </nav>
 
-    <!-- 公告说明区（可手动编辑） -->
+    <!-- 公告说明区 -->
     <main class="main-content">
-        <section class="announcement fade-in" style="background: #2d2d2d; border-radius: 15px; padding: 2.5rem; margin: 2rem auto; max-width: 1200px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-            <h1 class="announcement-title" style="color: var(--accent-green); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid #4a4a4a; padding-bottom: 0.8rem;">
-                <i class="fas fa-bullhorn" style="margin-right: 0.5rem;"></i>网站公告
+        <section class="announcement fade-in">
+            <h1 class="announcement-title">
+                <i class="fas fa-bullhorn" style="margin-right: 0.5rem; color: var(--neon-blue);"></i>网站公告
             </h1>
-            <div class="announcement-content" style="line-height: 1.8; font-size: 1.1rem;">
-                <h2 class="section-title" style="color: #fff; font-size: 1.4rem; margin-bottom: 1rem;">
-                    <i class="fas fa-info-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>温馨提示
+            <div class="announcement-content">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle" style="margin-right: 0.5rem; color: var(--neon-pink);"></i>温馨提示
                 </h2>
-                <p style="color: #e0e0e0; margin-bottom: 0.8rem;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>此网站上的资源多数来自于互联网
+                <p>
+                    此网站上的资源多数来自于互联网
                 </p>
-                <p style="color: #e0e0e0; margin-bottom: 0.8rem;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>所有链接均为网盘或github,网盘链接随时可能和谐,请及时保存
+                <p>
+                    所有链接均为网盘或github,网盘链接随时可能和谐,请及时保存
                 </p>
-                <p style="color: #e0e0e0; margin-bottom: 0.8rem;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>软件教程可查看:B站疯狂的杨CC,或公众号:SGY安全
+                <p>
+                    软件教程可查看:B站疯狂的杨CC,或公众号:SGY安全
                 </p>
-                <p style="color: #e0e0e0;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>投稿请联系微信:Yancy_76或QQ:1041041042
+                <p>
+                    投稿请联系微信:Yancy_76或QQ:1041041042
                 </p>
-                <p style="color: #e0e0e0;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>如果发现链接失效,请及时联系我,我会及时更新
+                <p>
+                    如果发现链接失效,请及时联系我,我会及时更新
                 </p>
-                <p></p>
-                <p style="color: #e0e0e0;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>Ycc_SecFrame 框架下载<a href="https://github.com/Sgyling/Ycc_SecFrame/" style="color: beige;">github</a>或者<a href="https://pan.quark.cn/s/d4fc8d0c8706" style="color: beige;">夸克云</a>
+                <p>
+                    Ycc_SecFrame 框架下载<a href="https://github.com/Sgyling/Ycc_SecFrame/">github</a>或者<a href="https://pan.quark.cn/s/d4fc8d0c8706">夸克云</a>
                 </p>
-                <p style="color: #e0e0e0;">
-                    <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem;"></i>如果想搭建此网站,请点击<a href="https://github.com/Sgyling/Sgyling.github.io">这里</a>或者不想费劲,请联系我,给我转账,我帮你弄
+                <p>
+                    如果想搭建此网站,请点击<a href="https://github.com/Sgyling/Sgyling.github.io">这里</a>或者不想费劲,请联系我,给我转账,我帮你弄
                 </p>
             </div>
         </section>
-
     </main>
 
     <!-- 固定底部状态栏 -->
@@ -74,8 +498,49 @@
         </div>
     </footer>
 
-    <script src="./assets/js/main.js"></script>
     <script>
+        // 创建更多随机悬浮图形
+        function createFloatingShapes() {
+            const shapesCount = 6;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                const isTriangle = Math.random() > 0.5;
+                
+                if (isTriangle) {
+                    shape.classList.add('floating-shape', 'triangle');
+                    if (Math.random() > 0.5) {
+                        shape.style.transform = 'rotate(180deg)';
+                    }
+                } else {
+                    shape.classList.add('floating-shape', 'hexagon');
+                }
+                
+                // 随机位置和大小
+                const size = Math.random() * 30 + 20;
+                shape.style.width = isTriangle ? '0' : `${size}px`;
+                shape.style.height = isTriangle ? '0' : `${size * 0.58}px`;
+                if (isTriangle) {
+                    shape.style.borderLeftWidth = `${size/2}px`;
+                    shape.style.borderRightWidth = `${size/2}px`;
+                    shape.style.borderBottomWidth = `${size}px`;
+                }
+                
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // 随机霓虹色
+                const colors = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.borderColor = isTriangle ? `transparent transparent ${color} transparent` : color;
+                shape.style.boxShadow = `0 0 15px ${color}80`;
+                
+                container.appendChild(shape);
+            }
+        }
+
         // 处理导航栏汉堡图标点击
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -85,10 +550,15 @@
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                navbar.style.boxShadow = '0 0 15px rgba(0, 240, 255, 0.3)';
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.style.boxShadow = '0 0 10px rgba(0, 240, 255, 0.2)';
             }
+
+            // 滚动时移动金属反光
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            const glowElements = document.querySelectorAll('.navbar::before');
+            // 这里使用CSS动画处理反光移动
         });
 
         // 淡入动画效果
@@ -105,6 +575,59 @@
         fadeElements.forEach(element => {
             fadeInObserver.observe(element);
         });
+
+        // 页面加载完成后创建悬浮图形
+        window.addEventListener('load', createFloatingShapes);
+
+        // 为链接添加点击动画效果
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // 添加点击波纹效果
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(157, 0, 255, 0.3)';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.animation = 'ripple 1s';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                // 延迟跳转，等待动画完成
+                setTimeout(() => {
+                    if (href === '#top') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        window.location.href = href;
+                    }
+                }, 300);
+                
+                // 动画结束后移除波纹元素
+                setTimeout(() => ripple.remove(), 1000);
+            });
+        });
+
+        // 添加波纹动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: translate(-50%, -50%) scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

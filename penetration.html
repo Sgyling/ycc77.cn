@@ -5,37 +5,554 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨CC资源分享站-教程资源</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --base-black: #0A0A0A;
+            --base-gray: #1A1A1A;
+            --accent-blue: #00F0FF;
+            --accent-pink: #FF00F0;
+            --accent-purple: #9D00FF;
+            --acrylic-bg: rgba(34, 34, 34, 0.6);
+            --text-color: rgba(255, 255, 255, 0.8);
+            --grid-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--base-black);
+            background-image: 
+                linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-color);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 网格点动画 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 装饰图形 */
+        .floating-shape {
+            position: fixed;
+            background-color: var(--base-gray);
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+            border: 1px solid var(--accent-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            animation: float 15s infinite ease-in-out, glitch 10s infinite;
+        }
+
+        .shape-1 {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            left: 10%;
+            transform: rotate(45deg);
+        }
+
+        .shape-2 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            left: 85%;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 60px;
+            top: 40%;
+            left: 80%;
+            border-radius: 5px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes glitch {
+            0%, 95%, 100% { opacity: 0.7; }
+            96% { opacity: 0; }
+            97% { opacity: 0.3; }
+            98% { opacity: 0; }
+            99% { opacity: 0.5; }
+        }
+
+        /* 导航栏 - 磨砂金属效果 */
+        .navbar {
+            background-color: var(--base-gray);
+            background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 20px 100%;
+            border-bottom: 1px solid var(--accent-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            transition: 0.5s;
+            animation: navbarGlow 8s infinite;
+        }
+
+        @keyframes navbarGlow {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--accent-pink);
+            position: relative;
+            animation: textGlitch 15s infinite;
+        }
+
+        .logo::after {
+            content: '杨CC资源分享站';
+            position: absolute;
+            top: 0;
+            left: 1px;
+            color: var(--accent-pink);
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: white;
+            text-shadow: 0 0 5px var(--accent-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-blue);
+        }
+
+        .hamburger {
+            display: none;
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-shadow: 0 0 5px var(--accent-blue);
+        }
+
+        /* 主内容区 */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            text-shadow: 0 0 10px var(--accent-pink);
+            animation: textGlitch 15s infinite;
+        }
+
+        .page-title::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: var(--accent-pink);
+            opacity: 0.5;
+            z-index: -1;
+            transform: translate(2px, 2px);
+        }
+
+        @keyframes textGlitch {
+            0%, 95%, 100% { transform: none; }
+            96% { transform: translate(-2px, 2px); }
+            97% { transform: translate(2px, -2px); }
+            98% { transform: translate(-2px, -2px); }
+            99% { transform: translate(2px, 2px); }
+        }
+
+        /* 分类网格 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(calc(20% - 1.6rem), 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* 分类卡片 - 亚克力风格 */
+        .category-card {
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 15px 15px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(157, 0, 255, 0.4);
+            border-color: var(--accent-pink);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            color: var(--accent-pink);
+            transform: scale(1.1);
+        }
+
+        .category-title {
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink));
+            transition: width 0.3s ease;
+        }
+
+        .category-card:hover .category-title::after {
+            width: 80%;
+        }
+
+        .category-desc {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* 按钮 - 玻璃态金属风格 */
+        .category-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--base-gray), #2a2a2a);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .category-btn:hover {
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 240, 0.5);
+        }
+
+        .category-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .category-btn:active {
+            transform: scale(0.95);
+        }
+
+        .category-btn:active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(157, 0, 255, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 0.6s;
+        }
+
+        @keyframes pulse {
+            0% { width: 0; height: 0; opacity: 0.8; }
+            100% { width: 200px; height: 200px; opacity: 0; }
+        }
+
+        /* 二级分类内容区 */
+        .subcategory-container {
+            margin-top: 2rem;
+        }
+
         .subcategory-content {
             display: none;
             margin-top: 2rem;
             padding: 2rem;
-            background: rgba(61, 61, 61, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            border: 1px solid rgba(74, 144, 226, 0.1);
-            animation: fadeIn 0.8s ease-out;
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
+
+        .subcategory-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .subcategory-content h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+            position: relative;
+        }
+
+        .block-title {
+            color: var(--accent-pink);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 0, 240, 0.3);
+            text-shadow: 0 0 5px rgba(255, 0, 240, 0.5);
+        }
+
+        /* 下载项 */
+        .download-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 2px solid var(--accent-blue);
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+
+        .subcategory-content a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .subcategory-content a:hover .download-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: var(--accent-pink);
+            transform: translateX(5px);
+        }
+
+        .subcategory-content a:hover .download-item::before {
+            width: 100%;
+        }
+
+        /* 动画效果 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .subcategory-content h3 {
-            color: var(--accent-green);
-            margin-bottom: 1rem;
+
+        .subcategory-content {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* 霓虹边缘动画 */
+        @keyframes neonPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.8); }
+        }
+
+        .navbar, .category-card, .subcategory-content {
+            animation: neonPulse 3s infinite;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1.5rem), 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--base-gray);
+                width: 50%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 99;
+                border-left: 1px solid var(--accent-blue);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(calc(50% - 1rem), 1fr));
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                width: 100%;
+                right: -100%;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- 固定顶部导航栏（与首页一致） -->
+    <!-- 装饰图形 -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <!-- 固定顶部导航栏 -->
     <nav class="navbar">
         <div class="logo">杨CC资源分享站</div>
         <div class="nav-links">
             <a href="./index.html" class="nav-link">首页</a>
-            <a href="./penetration.html" class="nav-link">渗透测试工具</a>
+            <a href="./penetration.html" class="nav-link active">渗透测试工具</a>
             <a href="./games.html" class="nav-link">游戏资源</a>
             <a href="./learning.html" class="nav-link">教程资源</a>
             <a href="./other_resources.html" class="nav-link">其他资源</a>
@@ -45,10 +562,10 @@
         </div>
     </nav>
 
-    <!-- 渗透测试工具分类区（可手动扩展） -->
+    <!-- 渗透测试工具分类区 -->
     <main class="main-content">
-        <h1 class="page-title">渗透测试工具</h1>
-        <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(calc(20% - 1.6rem), 1fr)); gap: 2rem;">
+        <h1 class="page-title" data-text="渗透测试工具">渗透测试工具</h1>
+        <div class="category-grid">
             <!-- 信息收集工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-search category-icon"></i>
@@ -63,50 +580,56 @@
                 <p class="category-desc">支持密码爆破、目录爆破、数据库爆破等功能</p>
                 <a href="#brute-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
-            <!-- CMS探测工具卡片 -->
+            <!-- 在线工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-code category-icon"></i>
                 <h2 class="category-title">在线工具</h2>
                 <p class="category-desc">可从互联网上,直接进行渗透测试或信息收集.</p>
                 <a href="#cms-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
-            <!-- 综合工具包卡片 -->
+            <!-- SQL注入工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-database category-icon"></i>
                 <h2 class="category-title">SQL注入工具</h2>
                 <p class="category-desc">包含SQL注入检测与利用工具集合</p>
                 <a href="#sql-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 远程控制工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-desktop category-icon"></i>
                 <h2 class="category-title">远程控制工具</h2>
                 <p class="category-desc">支持远控木马与远程管理工具</p>
                 <a href="#remote-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 逆向工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-code-branch category-icon"></i>
                 <h2 class="category-title">逆向工具</h2>
                 <p class="category-desc">包含反编译、调试与逆向分析工具</p>
                 <a href="#reverse-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 漏扫工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-bug category-icon"></i>
                 <h2 class="category-title">漏扫工具</h2>
                 <p class="category-desc">漏洞扫描与利用验证工具集合</p>
                 <a href="#vuln-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 内网工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-network-wired category-icon"></i>
                 <h2 class="category-title">内网工具</h2>
                 <p class="category-desc">内网穿透、横向移动相关工具</p>
                 <a href="#intranet-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 字典工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-list category-icon"></i>
                 <h2 class="category-title">字典工具</h2>
                 <p class="category-desc">包含密码、路径等各类渗透测试字典</p>
                 <a href="#dict-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 流量/测压工具卡片 -->
             <div class="category-card">
                 <i class="fas fa-stream category-icon"></i>
                 <h2 class="category-title">流量/测压工具</h2>
@@ -120,96 +643,74 @@
                 <p class="category-desc">集成化渗透测试环境，包含多款常用工具组合</p>
                 <a href="#kit-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- 防御/蓝队工具卡片 -->
             <div class="category-card">
-                <i class="fas fa-toolbox category-icon"></i>
+                <i class="fas fa-shield-alt category-icon"></i>
                 <h2 class="category-title">防御/蓝队工具</h2>
                 <p class="category-desc">流量监控,防护\进程\防御等蓝队工具</p>
                 <a href="#landui-tools" class="category-btn show-subcategory">查看详情</a>
             </div>
+            <!-- POC\EXP板块卡片 -->
             <div class="category-card">
-                <i class="fas fa-toolbox category-icon"></i>
+                <i class="fas fa-explosion category-icon"></i>
                 <h2 class="category-title">POC\EXP板块</h2>
                 <p class="category-desc">在互联网上收集的POC或者EXP,均在这个目录下</p>
                 <a href="#POC-EXP" class="category-btn show-subcategory">查看详情</a>
             </div>
         </div>
             <!-- 二级分类内容区 -->
-        <div class="subcategory-container" style="margin-top: 2rem;">
+        <div class="subcategory-container">
             <div id="POC-EXP" class="subcategory-content">
                 <h3>POC与EXP</h3>
-                <!-- <p>包含SQLMap、SQLninja等注入检测与利用工具（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/8bb94488394a"><div class="download-item">2023护网POC\EXP-来源:狐狸安全-1.5W+</div></a>
                 <a href="https://pan.quark.cn/s/22261242b41c"><div class="download-item">2025年-Nuclei POC 20W+ </div></a>
-                <!-- <a href="https://pan.quark.cn/s/d3bfc5edf216"><div class="download-item">sqlmap 1.7.1汉化版</div></a>
-                <a href="https://github.com/co01cat/SqlmapXPlus"><div class="download-item">sqlmap X Plus</div></a> -->
-
             </div>
             <div id="sql-tools" class="subcategory-content">
                 <h3>SQL注入工具详情</h3> 
-                <!-- <p>包含SQLMap、SQLninja等注入检测与利用工具（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/2ec869b9d849"><div class="download-item">阿D注入包(可视化)</div></a>
                 <a href="https://pan.quark.cn/s/d3bfc5edf216"><div class="download-item">sqlmap 1.7.1汉化版</div></a>
                 <a href="https://github.com/co01cat/SqlmapXPlus"><div class="download-item">sqlmap X Plus</div></a>
-
             </div>
             <div id="remote-tools" class="subcategory-content">
                 <h3>远程控制工具详情</h3>
-                <!-- <p>包含Cobalt Strike、Metasploit等远控与后渗透工具（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/7fad02472d15"><div class="download-item">quasar-V1.4(内部版本)</div></a>
                 <a href="https://github.com/yuanyuanxiang/BGW_RAT"><div class="download-item">大灰狼(二开版)</div></a>
                 <a href="https://pan.quark.cn/s/53e9062ae520"><div class="download-item">哥斯拉v4.15-特战版</div></a>
                 <a href="https://pan.quark.cn/s/7222f5f04b96"><div class="download-item">cs4.9.1</div></a>
-
             </div>
             <div id="reverse-tools" class="subcategory-content">
                 <h3>逆向工具详情</h3>
-                <!-- <p>包含IDA Pro、Ghidra等反编译与逆向分析工具（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/9372b80bf87d"><div class="download-item">010 Editor-破解版-汉化版</div></a>
                 <a href="https://github.com/WerWolv/ImHex"><div class="download-item">ImHex-逆向神器</div></a>
                 <a href="https://github.com/liaojack8/AndroidKiller"><div class="download-item">Android killer 安卓逆向</div></a>
-
             </div>
             <div id="vuln-tools" class="subcategory-content">
                 <h3>漏扫工具详情</h3>
-                <!-- <p>包含Nessus、OpenVAS等漏洞扫描与利用工具（可手动编辑内容）</p> -->
                 <a href="https://github.com/swisskyrepo/SSRFmap"><div class="download-item">SSRF-扫描与利用工具</div></a>
                 <a href="https://github.com/dahezhiquan/FindUpload/"><div class="download-item">FindUpload-上传\登陆点扫描工具</div></a>
- 
             </div>
             <div id="intranet-tools" class="subcategory-content">
                 <h3>内网工具详情</h3>
-                <!-- <p>包含Frp、EarthWorm等内网穿透与横向移动工具（可手动编辑内容）</p> -->
-                <!-- <a href="https://github.com/eeeeeeeeee-code/e0e1-config/tree/main"><div class="download-item">e0e1-内网-后渗透神器(Windows)</div></a> -->
                 <a href="https://github.com/shadow1ng/fscan"><div class="download-item">fscan-横向神器2.0</div></a>
                 <a href="https://github.com/FalconOpsLLC/goexec"><div class="download-item">Windwos横向工具</div></a>
-                <!-- <a href="https://github.com/M0nster3/OneLong"><div class="download-item">fscan-横向神器2.0(汉化版)</div></a> -->
                 <a href="https://github.com/carlospolop/PEASS-ng"><div class="download-item">PEASS-ng-全系统提权工具</div></a>
                 <a href="https://github.com/DeEpinGh0st/MDUT-Extend-Release"><div class="download-item">MDUT-Extend-数据库提权工具</div></a>
                 <a href="https://github.com/eeeeeeeeee-code/e0e1-config/tree/main"><div class="download-item">e0e1-内网-后渗透神器(Windows)</div></a>
                 <a href="https://pan.quark.cn/s/14161faa7366"><div class="download-item">后渗透工具-Windump-Windows信息收集神器</div></a>
-                
-
-
             </div>
             <div id="dict-tools" class="subcategory-content">
                 <h3>字典工具详情</h3>
-                <!-- <p>包含SecLists、常见弱口令字典等渗透测试字典（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/1ca1bffed51f"><div class="download-item">字典生成器1</div></a>
                 <a href="https://pan.quark.cn/s/83159bab083e"><div class="download-item">超强字典1</div></a>
-
             </div>
             <div id="traffic-tools" class="subcategory-content">
                 <h3>流量/测压工具详情</h3>
-                <!-- <p>包含Wireshark、JMeter等流量监控与压力测试工具（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/e33ce890fa76"><div class="download-item">IxChariot(需要有一定的动手能力)</div></a>
                 <a href="https://github.com/foreni-packages/t50"><div class="download-item">t50,简单方便,支持DDOS\CC等多种方式</div></a>
                 <a href="https://pan.quark.cn/s/6f8050d5dd68"><div class="download-item">EasyTshark_一个比Wireshark更方便更快捷抓包工具</div></a>
-
-                
             </div>
             <div id="info-tools" class="subcategory-content">
                 <h3>信息收集工具详情</h3>
-                <!-- <p>包含子域名扫描、端口扫描、指纹识别等工具集合（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/9cb00e4b0ba5"><div class="download-item">ESP-端口类工具</div></a>
                 <a href="https://pan.quark.cn/s/8aabfc26dd93"><div class="download-item">Virgol-综合类工具</div></a>
                 <a href="https://github.com/GhostTroops/scan4all"><div class="download-item">scan4all-1.5W poc扫描工具</div></a>
@@ -223,24 +724,17 @@
                 <a href="https://github.com/P001water/P1finger"><div class="download-item">P1finger-资产指纹识别</div></a>
                 <a href="https://github.com/qianxiao996/FrameScan-GUI"><div class="download-item">FrameScan-GUi-可视化指纹识别</div></a>
                 <a href="http://finger.tidesec.com/"><div class="download-item">潮汐-指纹识别(在线)</div></a>
-                <a href="https://github.com/M0nster3/OneLong"><div class="download-item">OneLong-企业信息收集</div></a>
-                
             </div>
             <div id="brute-tools" class="subcategory-content">
                 <h3>爆破工具详情</h3>
-                <!-- <p>支持密码爆破、目录爆破、数据库爆破等功能（可手动编辑内容）</p> -->
                 <a href="https://github.com/pagvac/dnsmap"><div class="download-item">dnsmap-子域名爆破</div></a>
                 <a href="https://github.com/Chora10/FuzzDomain"><div class="download-item">FuzzDomain-可视化子域名爆破</div></a>
-
             </div>
             <div id="cms-tools" class="subcategory-content">
                 <h3>在线渗透工具详情</h3>
-                <!-- <p>针对WordPress、Drupal等主流CMS的漏洞检测工具（可手动编辑内容）</p> -->
                 <a href="https://whois.aizhan.com/"><div class="download-item">Whois-查询-站长-web</div></a>
                 <a href="https://whois.aliyun.com/"><div class="download-item">Whois-查询-万网-web</div></a>
-                <!-- <a href="https://github.com/Chora10/FuzzDomain"><div class="download-item">FuzzDomain-可视化子域名爆破</div></a>
-                <a href="https://github.com/carlospolop/PEASS-ng"><div class="download-item">PEASS-ng-全系统提权工具</div></a>
-                <a href="https://github.com/DeEpinGh0st/MDUT-Extend-Release"><div class="download-item">MDUT-Extend-数据库提权工具</div></a> -->
+                
                 <h3 class="block-title">在线ip查询</h3>
                 <a href="https://chapangzhan.com/"><div class="download-item">ip旁站查询</div></a>
                 <a href="https://www.dnsgrep.cn/ip"><div class="download-item">ip反查域名</div></a>
@@ -253,39 +747,62 @@
             </div>
             <div id="kit-tools" class="subcategory-content">
                 <h3>综合工具包详情</h3>
-                <!-- <p>集成化渗透测试环境，包含多款常用工具组合（可手动编辑内容）</p> -->
                 <a href="https://github.com/BlackINT3/OpenArk"><div class="download-item">OpenArk-蓝队应急工具箱</div></a>
                 <a href="https://github.com/kkbo8005/mitan" ><div class="download-item">超强综合工具-密探(强烈推荐)</div></a>
                 <a href="https://pan.quark.cn/s/d0ebf45643a3"><div class="download-item">狐狸工具箱_V8最新版</div></a>
                 <a href="https://pan.quark.cn/s/fabbf3604cd5"><div class="download-item">天狐渗透工具箱-社区版V2.0纪念版-带框架</div></a>
-            
             </div>
             <div id="landui-tools" class="subcategory-content">
                 <h3>蓝队工具</h3>
-                <!-- <p>集成化渗透测试环境，包含多款常用工具组合（可手动编辑内容）</p> -->
                 <a href="https://pan.quark.cn/s/bd3facfeb012"><div class="download-item">火绒剑独立文件-Win10版</div></a>
                 <a href="https://pan.quark.cn/s/02abed1b0c6a"><div class="download-item">轻量 哈希\MD5 计算工具 - hashmyfiles</div></a>
-                <!-- <a href="https://github.com/kkbo8005/mitan" ><div class="download-item">超强综合工具-密探(强烈推荐)</div></a> -->
-            
             </div>
         </div>
     </main>
 
-    <!-- 固定底部状态栏（与首页一致） -->
-    <!-- <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 软件下载站 版权所有</p>
-            <a href="#top" class="back-to-top">返回顶部</a>
-        </div>
-    </footer> -->
-
-    <script src="./assets/js/main.js"></script>
     <script>
-            // 处理导航栏汉堡图标点击
-            document.querySelector('.hamburger').addEventListener('click', () => {
+        // 添加装饰图形
+        function createAdditionalShapes() {
+            const shapes = 3;
+            const container = document.body;
+            
+            for (let i = 0; i < shapes; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('floating-shape');
+                
+                // 随机大小
+                const size = Math.random() * 80 + 40;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // 随机位置
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                
+                // 随机形状
+                const shapeType = Math.floor(Math.random() * 3);
+                if (shapeType === 1) {
+                    shape.style.borderRadius = '50%';
+                } else if (shapeType === 2) {
+                    shape.style.clipPath = 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)';
+                }
+                
+                // 随机动画延迟
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(shape);
+            }
+        }
+        
+        // 页面加载完成后创建额外的装饰图形
+        window.addEventListener('load', createAdditionalShapes);
+
+        // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
+        // 处理子分类显示
         document.querySelectorAll('.show-subcategory').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -295,13 +812,160 @@
                 });
                 const targetElement = document.querySelector(targetId);
                 targetElement.style.display = 'block';
-                // 新增平滑滚动逻辑
+                
+                // 平滑滚动
                 targetElement.scrollIntoView({ 
                     behavior: 'smooth', 
                     block: 'start' 
                 });
             });
         });
+
+        // 滚动效果 - 金属反光移动
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const navbar = document.querySelector('.navbar');
+            
+            // 调整导航栏反光位置
+            navbar.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            
+            // 卡片浮动效果
+            document.querySelectorAll('.category-card').forEach((card, index) => {
+                const floatAmount = Math.sin(scrollPosition * 0.001 + index) * 3;
+                card.style.transform = `translateY(${floatAmount}px)`;
+            });
+        });
+    </script>
+    <script>
+        // 创建更多随机悬浮图形
+        function createFloatingShapes() {
+            const shapesCount = 6;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                const isTriangle = Math.random() > 0.5;
+                
+                if (isTriangle) {
+                    shape.classList.add('floating-shape', 'triangle');
+                    if (Math.random() > 0.5) {
+                        shape.style.transform = 'rotate(180deg)';
+                    }
+                } else {
+                    shape.classList.add('floating-shape', 'hexagon');
+                }
+                
+                // 随机位置和大小
+                const size = Math.random() * 30 + 20;
+                shape.style.width = isTriangle ? '0' : `${size}px`;
+                shape.style.height = isTriangle ? '0' : `${size * 0.58}px`;
+                if (isTriangle) {
+                    shape.style.borderLeftWidth = `${size/2}px`;
+                    shape.style.borderRightWidth = `${size/2}px`;
+                    shape.style.borderBottomWidth = `${size}px`;
+                }
+                
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // 随机霓虹色
+                const colors = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.borderColor = isTriangle ? `transparent transparent ${color} transparent` : color;
+                shape.style.boxShadow = `0 0 15px ${color}80`;
+                
+                container.appendChild(shape);
+            }
+        }
+
+        // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 0 15px rgba(0, 240, 255, 0.3)';
+            } else {
+                navbar.style.boxShadow = '0 0 10px rgba(0, 240, 255, 0.2)';
+            }
+
+            // 滚动时移动金属反光
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            const glowElements = document.querySelectorAll('.navbar::before');
+            // 这里使用CSS动画处理反光移动
+        });
+
+        // 淡入动画效果
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // 页面加载完成后创建悬浮图形
+        window.addEventListener('load', createFloatingShapes);
+
+        // 为链接添加点击动画效果
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // 添加点击波纹效果
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(157, 0, 255, 0.3)';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.animation = 'ripple 1s';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                // 延迟跳转，等待动画完成
+                setTimeout(() => {
+                    if (href === '#top') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        window.location.href = href;
+                    }
+                }, 300);
+                
+                // 动画结束后移除波纹元素
+                setTimeout(() => ripple.remove(), 1000);
+            });
+        });
+
+        // 添加波纹动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: translate(-50%, -50%) scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
