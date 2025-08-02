@@ -537,7 +537,159 @@
                 display: block;
             }
         }
-        
+        /* 底部状态栏 - 赛博朋克风格强化 */
+.footer {
+  /* 赛博朋克核心深色背景 + 噪点纹理 */
+  background: #0a0a0f;
+  background-image: 
+    /* 网格纹理 - 增强科技感 */
+    linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(255, 0, 240, 0.05) 1px, transparent 1px),
+    /* 噪点纹理 - 增加复古电子感 */
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px, 40px 40px, 10px 10px;
+  padding: 1.5rem 2rem;
+  /* 霓虹渐变边框 - 蓝粉撞色 */
+  border-top: 1px solid;
+  border-image: linear-gradient(90deg, #00f0ff, #ff00f0, #00f0ff) 1;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 10;
+  /* 底部发光条带 */
+  box-shadow: 0 -2px 15px rgba(0, 240, 255, 0.2);
+  /* 背景缓慢滚动动画 */
+  animation: bgScroll 30s linear infinite;
+}
+
+/* 背景滚动动画 */
+@keyframes bgScroll {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 200px 0, 400px 0, 100px 0; }
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* 角落霓虹装饰线条 */
+.footer::before,
+.footer::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff);
+  bottom: 10px;
+}
+
+.footer::before {
+  left: 2rem;
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.footer::after {
+  right: 2rem;
+  background: linear-gradient(90deg, #ff00f0, transparent);
+  box-shadow: 0 0 10px #ff00f0, 0 0 20px rgba(255, 0, 240, 0.5);
+}
+
+/* 赛博朋克风格返回顶部按钮 */
+.back-to-top {
+  /* 霓虹渐变文字 */
+  color: #00f0ff;
+  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  font-family: 'Orbitron', sans-serif; /* 赛博朋克常用科技字体 */
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border: 1px solid;
+  border-image: linear-gradient(45deg, #00f0ff, #ff00f0) 1;
+  border-radius: 2px; /* 棱角更锐利 */
+  background: rgba(10, 10, 15, 0.8);
+  /* 基础发光 */
+  box-shadow: 0 0 5px #00f0ff, inset 0 0 5px rgba(0, 240, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 按钮内部发光条纹 */
+.back-to-top::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 240, 255, 0.1),
+    transparent
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: rotate(30deg) translateX(-100%); }
+  100% { transform: rotate(30deg) translateX(100%); }
+}
+
+/* 按钮悬停强化效果 */
+.back-to-top:hover {
+  color: #ff00f0;
+  text-shadow: 0 0 5px #ff00f0, 0 0 15px #ff00f0, 0 0 20px #ff00f0;
+  background: rgba(30, 5, 30, 0.8);
+  /* 强烈发光扩散 */
+  box-shadow: 0 0 10px #ff00f0, 0 0 20px rgba(255, 0, 240, 0.5), 
+              inset 0 0 8px rgba(255, 0, 240, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  border-image: linear-gradient(45deg, #ff00f0, #00f0ff) 1;
+}
+
+/* 底部额外霓虹装饰条 */
+.footer::after {
+  /* 底部边缘发光条 */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #00f0ff 20%, 
+    #ff00f0 50%, 
+    #00f0ff 80%, 
+    transparent
+  );
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.3);
+  animation: glowShift 8s ease-in-out infinite;
+}
+
+@keyframes glowShift {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+}
+
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
         /* 滚动动画效果 */
         @keyframes scrollGlow {
             0% { background-position: 0% 0%; }
@@ -667,7 +819,13 @@
             </div>
         </div>
     </main>
-
+    <!-- 固定底部状态栏 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 杨CC资源分享站 版权所有</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </div>
+    </footer>
     <script>
         // 创建更多随机悬浮形状
         function createFloatingShapes() {
