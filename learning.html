@@ -707,6 +707,7 @@
         }
     </style>
     <script defer src="https://01987425-44bc-77e0-a189-165a6b6e93b4.ustat1.com/ustat.js"></script>
+    <link rel="stylesheet" href="assets/css/zong.css">
 </head>
 <body>
     <!-- 装饰图形 -->
@@ -725,7 +726,7 @@
             <a href="./other_resources.html" class="nav-link">其他资源</a>
         </div>
         <div class="hamburger">
-            <i class="fas fa-bars"></i>
+            <!-- <i class="fas fa-bars"></i> -->
         </div>
     </nav>
 
@@ -886,6 +887,11 @@
             </div>
             
             <div id="source-code" class="subcategory-content">
+                <div class="sai_bo_h2">
+                    <span data-text="当前已经包含:历史黑客事件 - 从0开始学习渗透 - Web安全 - 渗透编程 - 逆向 - 加解密 - CTF - 等">
+                        当前已经包含:历史黑客事件 - 从0开始学习渗透 - Web安全 - 渗透编程 - 逆向 - 加解密 - CTF - 等
+                    </span>
+                </div>
                 <h3>渗透-历史黑客事件</h3>
                 <a href="https://pan.quark.cn/s/f1e52198bd9b"><div class="download-item">网络战争：颠覆商业世界的黑客事件</div></a>
                 <a href="https://pan.quark.cn/s/0b2ebd3d5944"><div class="download-item">汽车黑客大曝光</div></a>
@@ -1049,6 +1055,11 @@
             
             <!-- 其他分类内容区可以在这里继续添加 -->
             <div id="bian-cheng" class="subcategory-content">
+                <div class="sai_bo_h2">
+                    <span data-text="当前已经包含:Python教程 - Java教程 - Java面试题 - VUE教程">
+                        当前已经包含:Python教程 - Java教程 - Java面试题 - VUE教程
+                    </span>
+                </div>
                 <h3>Python板块</h3>
                 <a href="https://pan.quark.cn/s/c03cede34894"><div class="download-item">Python 数据化分析与数据化运营</div></a>
                 <a href="https://pan.quark.cn/s/db21b0e016af"><div class="download-item">Python 基础教程</div></a>
@@ -1147,6 +1158,11 @@
             </div>
             
             <div id="cracking" class="subcategory-content">
+                <div class="sai_bo_h2">
+                    <span data-text="当前已经包含:八卦 - 风水 - 八字 - 手面相 - 大六壬 - 择日 - 奇门 - 等">
+                        当前已经包含:八卦 - 风水 - 八字 - 手面相 - 大六壬 - 择日 - 奇门 - 等
+                    </span>
+                </div>
                 <h3>八卦</h3>
                 <a href="https://pan.quark.cn/s/4494086ca0eb"><div class="download-item">八卦 - 易经六十四卦详解</div></a>
 
@@ -1201,6 +1217,10 @@
         </div>
     </footer>
     <script>
+                // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
         // 显示/隐藏二级分类内容
         document.querySelectorAll('.show-subcategory').forEach(button => {
             button.addEventListener('click', function(e) {

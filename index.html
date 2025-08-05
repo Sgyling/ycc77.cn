@@ -433,6 +433,7 @@
         }
     </style>
     <script defer src="https://01987425-44bc-77e0-a189-165a6b6e93b4.ustat1.com/ustat.js"></script>
+    <link rel="stylesheet" href="assets/css/zong.css">
 </head>
 <body>
     <!-- 悬浮装饰图形 -->
@@ -467,26 +468,39 @@
                 <h2 class="section-title">
                     <i class="fas fa-info-circle" style="margin-right: 0.5rem; color: var(--neon-pink);"></i>温馨提示
                 </h2>
-                <p>
-                    此网站上的资源多数来自于互联网
+                <p class="sai_bo_p">
+                    <!-- 此网站上的资源多数来自于互联网 -->
+
+                    <span data-text="此网站上的资源多数来自于互联网">
+                        此网站上的资源多数来自于互联网
+                    </span>
                 </p>
-                <p>
-                    所有链接均为网盘或github,网盘链接随时可能和谐,请及时保存
+                <br>
+                <p class="sai_bo_p">
+                    <span data-text="所有链接均为网盘或github,网盘链接随时可能和谐,请及时保存">
+                        所有链接均为网盘或github,网盘链接随时可能和谐,请及时保存
+                    </span>
+                </p><br>
+                <p class="sai_bo_p">
+                    <!-- 软件教程可查看:B站疯狂的杨CC,或公众号:SGY安全 -->
+                    <span data-text="软件教程可查看:B站疯狂的杨CC,或公众号:SGY安全">
+                        软件教程可查看:B站疯狂的杨CC,或公众号:SGY安全
+                    </span>
+                </p><br>
+                <p class="sai_bo_p">
+                    <span data-text="投稿请联系微信:Yancy_76或QQ:1041041042">投稿请联系微信:Yancy_76或QQ:1041041042</span>
+                    
+                </p><br>
+                <p class="sai_bo_p">
+                    <span data-text="如果发现链接失效,请及时联系我,我会及时更新">如果发现链接失效,请及时联系我,我会及时更新</span>
+                    
                 </p>
-                <p>
-                    软件教程可查看:B站疯狂的杨CC,或公众号:SGY安全
-                </p>
-                <p>
-                    投稿请联系微信:Yancy_76或QQ:1041041042
-                </p>
-                <p>
-                    如果发现链接失效,请及时联系我,我会及时更新
-                </p>
-                <p>
+                <br>
+                <!-- <p>
                     Ycc_SecFrame 框架下载<a href="https://github.com/Sgyling/Ycc_SecFrame/">github</a>或者<a href="https://pan.quark.cn/s/d4fc8d0c8706">夸克云</a>
-                </p>
-                <p>
-                    如果想搭建此网站,请点击<a href="https://github.com/Sgyling/Sgyling.github.io">这里</a>或者不想费劲,请联系我,给我转账,我帮你弄
+                </p> -->
+                <p class="sai_bo_p">
+                    <span data-text="如果想搭建此网站,请点击或者不想费劲,请联系我,给我转账,我帮你弄">如果想搭建此网站,请点击</span><a href="https://github.com/Sgyling/Sgyling.github.io">这里</a><span data-text="或者不想费劲,请联系我,给我转账,我帮你弄">或者不想费劲,请联系我,给我转账,我帮你弄</span>
                 </p>
             </div>
         </section>
@@ -521,7 +535,7 @@
                 }
                 
                 // 随机位置和大小
-                const size = Math.random() * 30 + 20;
+                const size = Math.random() * 100 + 20;
                 shape.style.width = isTriangle ? '0' : `${size}px`;
                 shape.style.height = isTriangle ? '0' : `${size * 0.58}px`;
                 if (isTriangle) {

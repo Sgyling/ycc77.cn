@@ -1,0 +1,374 @@
+.sai_bo_h2 {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.8rem 1.5rem;
+  color: #0ff;
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #0a0a1a;
+  border: 1px solid rgba(0, 255, 255, 0.8);
+  border-radius: 4px;
+  text-shadow: 
+    0 0 3px #fff,
+    0 0 8px #0ff,
+    0 0 15px rgba(0, 255, 255, 0.9);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  /* 多动画叠加：浮动+缩放+颜色变化 */
+  animation: 
+    float 4s ease-in-out infinite,
+    scalePulse 3s ease-in-out infinite,
+    colorShift 6s linear infinite;
+}
+
+/* 快速移动的网格背景 */
+.sai_bo_h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 15px 15px;
+  z-index: -1;
+  animation: gridShift 2s linear infinite;
+}
+
+/* 双层交错扫描线（加速版） */
+.sai_bo_h2::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    rgba(0, 255, 255, 0.3), 
+    transparent);
+  animation: scan 3s linear infinite;
+  z-index: 1;
+}
+
+.sai_bo_h2::marker {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, 
+    transparent, 
+    rgba(255, 0, 255, 0.25), 
+    transparent);
+  animation: scanReverse 4s linear infinite;
+  z-index: 1;
+}
+
+/* 文字主体带脉冲辉光 */
+.sai_bo_h2 span {
+  position: relative;
+  z-index: 2;
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+/* 多重故障效果（横向+纵向偏移） */
+.sai_bo_h2 span::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 3px;
+  top: 0;
+  color: #f0f;
+  text-shadow: 0 0 8px #f0f;
+  opacity: 0;
+  animation: glitchX 5s infinite;
+}
+.sai_bo_h2 span::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #ff0;
+  text-shadow: 0 0 8px #ff0;
+  opacity: 0;
+  animation: glitchY 6s infinite;
+}
+
+/* 动态边框辉光 */
+.sai_bo_h2 {
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6),
+              0 0 15px rgba(0, 255, 255, 0.4);
+  animation: 
+    float 4s ease-in-out infinite,
+    scalePulse 3s ease-in-out infinite,
+    colorShift 6s linear infinite,
+    borderGlow 2.5s ease-in-out infinite;
+}
+
+/* 快速浮动+旋转（4秒周期） */
+@keyframes float {
+  0% { transform: translateY(0) rotateX(3deg) rotateY(2deg); }
+  25% { transform: translateY(-6px) rotateX(-1deg) rotateY(-2deg); }
+  50% { transform: translateY(-10px) rotateX(-3deg) rotateY(-1deg); }
+  75% { transform: translateY(-6px) rotateX(1deg) rotateY(2deg); }
+  100% { transform: translateY(0) rotateX(3deg) rotateY(2deg); }
+}
+
+/* 轻微缩放脉冲（3秒周期） */
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* 主色调微妙变化（6秒周期） */
+@keyframes colorShift {
+  0%, 100% { color: #0ff; border-color: rgba(0, 255, 255, 0.8); }
+  33% { color: #0cf; border-color: rgba(0, 204, 255, 0.8); }
+  66% { color: #0f9; border-color: rgba(0, 255, 153, 0.8); }
+}
+
+/* 快速扫描线（3秒周期） */
+@keyframes scan {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* 反向快速扫描（4秒周期） */
+@keyframes scanReverse {
+  0% { top: 100%; }
+  100% { top: -100%; }
+}
+
+/* 网格快速移动（2秒周期） */
+@keyframes gridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: -30px -30px; }
+}
+
+/* 文字辉光闪烁（2秒周期） */
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 3px #fff, 0 0 8px #0ff, 0 0 15px rgba(0, 255, 255, 0.9); }
+  50% { text-shadow: 0 0 5px #fff, 0 0 12px #0ff, 0 0 20px rgba(0, 255, 255, 1), 0 0 25px rgba(0, 255, 255, 0.5); }
+}
+
+/* 边框辉光呼吸（2.5秒周期） */
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.4); }
+}
+
+/* 横向故障效果（5秒周期，高频闪现） */
+@keyframes glitchX {
+  0%, 90%, 100% { opacity: 0; }
+  91% { opacity: 0.4; left: 3px; }
+  92% { opacity: 0.4; left: -3px; }
+  93% { opacity: 0.4; left: 2px; }
+  94% { opacity: 0; }
+  97% { opacity: 0.4; left: -2px; }
+  98% { opacity: 0.4; left: 1px; }
+}
+
+/* 纵向故障效果（6秒周期，交错闪现） */
+@keyframes glitchY {
+  0%, 85%, 100% { opacity: 0; }
+  86% { opacity: 0.3; top: 2px; }
+  87% { opacity: 0.3; top: -2px; }
+  88% { opacity: 0.3; top: 1px; }
+  89% { opacity: 0; }
+  95% { opacity: 0.3; top: -1px; }
+  96% { opacity: 0.3; top: 2px; }
+}
+
+/* P 标签设置 */
+.sai_bo_p {
+  position: relative;
+  display: inline-block;
+  /* margin: 1rem 0; */
+  /* padding: 0.8rem 1.5rem; */
+  color: #0ff;
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #0a0a1a;
+  border: 1px solid rgba(0, 255, 255, 0.8);
+  border-radius: 4px;
+  text-shadow: 
+    0 0 3px #fff,
+    0 0 8px #0ff,
+    0 0 15px rgba(0, 255, 255, 0.9);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  /* 多动画叠加：浮动+缩放+颜色变化 */
+  animation: 
+    float 1s ease-in-out infinite, 
+    /* scalePulse 3s ease-in-out infinite,
+    colorShift 1s linear infinite; */
+}
+
+/* 快速移动的网格背景 */
+.sai_bo_p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 15px 15px;
+  z-index: -1;
+  animation: gridShift 2s linear infinite;
+}
+
+/* 双层交错扫描线（加速版） */
+.sai_bo_p::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    rgba(0, 255, 255, 0.3), 
+    transparent);
+  animation: scan 3s linear infinite;
+  z-index: 1;
+}
+
+.sai_bo_p::marker {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, 
+    transparent, 
+    rgba(255, 0, 255, 0.25), 
+    transparent);
+  animation: scanReverse 4s linear infinite;
+  z-index: 1;
+}
+
+/* 文字主体带脉冲辉光 */
+.sai_bo_p span {
+  position: relative;
+  z-index: 2;
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+/* 多重故障效果（横向+纵向偏移） */
+.sai_bo_p span::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 3px;
+  top: 0;
+  color: #f0f;
+  text-shadow: 0 0 8px #f0f;
+  opacity: 0;
+  animation: glitchX 5s infinite;
+}
+.sai_bo_p span::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #ff0;
+  text-shadow: 0 0 8px #ff0;
+  opacity: 0;
+  animation: glitchY 6s infinite;
+}
+
+/* 动态边框辉光 */
+/* .sai_bo_p {
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6),
+              0 0 15px rgba(0, 255, 255, 0.4);
+  animation: 
+    float 4s ease-in-out infinite,
+    scalePulse 3s ease-in-out infinite,
+    colorShift 6s linear infinite,
+    borderGlow 2.5s ease-in-out infinite;
+}  */
+
+/* 快速浮动+旋转（4秒周期） */
+@keyframes float {
+  0% { transform: translateY(0) rotateX(3deg) rotateY(2deg); }
+  25% { transform: translateY(-6px) rotateX(-1deg) rotateY(-2deg); }
+  50% { transform: translateY(-10px) rotateX(-3deg) rotateY(-1deg); }
+  75% { transform: translateY(-6px) rotateX(1deg) rotateY(2deg); }
+  100% { transform: translateY(0) rotateX(3deg) rotateY(2deg); }
+}
+
+/* 轻微缩放脉冲（3秒周期） */
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* 主色调微妙变化（6秒周期） */
+@keyframes colorShift {
+  0%, 100% { color: #0ff; border-color: rgba(0, 255, 255, 0.8); }
+  33% { color: #0cf; border-color: rgba(0, 204, 255, 0.8); }
+  66% { color: #0f9; border-color: rgba(0, 255, 153, 0.8); }
+}
+
+/* 快速扫描线（3秒周期） */
+@keyframes scan {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* 反向快速扫描（4秒周期） */
+@keyframes scanReverse {
+  0% { top: 100%; }
+  100% { top: -100%; }
+}
+
+/* 网格快速移动（2秒周期） */
+@keyframes gridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: -30px -30px; }
+}
+
+/* 文字辉光闪烁（2秒周期） */
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 3px #fff, 0 0 8px #0ff, 0 0 15px rgba(0, 255, 255, 0.9); }
+  50% { text-shadow: 0 0 5px #fff, 0 0 12px #0ff, 0 0 20px rgba(0, 255, 255, 1), 0 0 25px rgba(0, 255, 255, 0.5); }
+}
+
+/* 边框辉光呼吸（2.5秒周期） */
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.4); }
+}
+
+/* 横向故障效果（5秒周期，高频闪现） */
+@keyframes glitchX {
+  0%, 90%, 100% { opacity: 0; }
+  91% { opacity: 0.4; left: 3px; }
+  92% { opacity: 0.4; left: -3px; }
+  93% { opacity: 0.4; left: 2px; }
+  94% { opacity: 0; }
+  97% { opacity: 0.4; left: -2px; }
+  98% { opacity: 0.4; left: 1px; }
+}
+
+/* 纵向故障效果（6秒周期，交错闪现） */
+@keyframes glitchY {
+  0%, 85%, 100% { opacity: 0; }
+  86% { opacity: 0.3; top: 2px; }
+  87% { opacity: 0.3; top: -2px; }
+  88% { opacity: 0.3; top: 1px; }
+  89% { opacity: 0; }
+  95% { opacity: 0.3; top: -1px; }
+  96% { opacity: 0.3; top: 2px; }
+}

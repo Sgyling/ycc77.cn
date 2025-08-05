@@ -695,6 +695,7 @@
         }
     </style>
     <script defer src="https://01987425-44bc-77e0-a189-165a6b6e93b4.ustat1.com/ustat.js"></script>
+    <link rel="stylesheet" href="assets/css/zong.css">
 </head>
 <body>
     <!-- 装饰图形 -->
@@ -713,7 +714,7 @@
             <a href="./other_resources.html" class="nav-link">其他资源</a>
         </div>
         <div class="hamburger">
-            <i class="fas fa-bars"></i>
+            <!-- <i class="fas fa-bars"></i> -->
         </div>
     </nav>
 
@@ -822,6 +823,9 @@
             <!-- 二级分类内容区 -->
         <div class="subcategory-container">
             <div id="Webshell" class="subcategory-content">
+                <h2 class="sai_bo_h2">
+                    <span data-text="当前已经包括:PHP - JSP - ASP">当前已经包括:PHP - JSP - ASP</span>
+                </h2>
                 <h3>WebShell-PHP板块</h3>
                 <a href="https://pan.quark.cn/s/5285383afca0"><div class="download-item">全功能PHP SHELL汉化版修改版</div></a>
                 <a href="https://pan.quark.cn/s/909797d4d859"><div class="download-item">外国黑阔用的webshell</div></a>
@@ -1051,6 +1055,14 @@
         </div>
     </footer>
     <script>
+        // 移动端菜单切换
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+                // 处理导航栏汉堡图标点击
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
         // 添加装饰图形
         function createAdditionalShapes() {
             const shapes = 3;
