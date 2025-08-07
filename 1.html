@@ -3,932 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>赛博深渊 - 超未来界面</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'cyber-black': '#050714',
-                        'cyber-dark': '#0a0f29',
-                        'electric-cyan': '#00faff',
-                        'laser-pink': '#ff2eff',
-                        'nuclear-yellow': '#f9ff00',
-                        'neon-purple': '#9d4edd',
-                        'quantum-blue': '#0066ff',
-                    },
-                    fontFamily: {
-                        'cyber': ['Orbitron', 'Rajdhani', 'sans-serif'],
-                        'code': ['Fira Code', 'Consolas', 'monospace'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-fast': 'pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'glow': 'glow 1.5s ease-in-out infinite alternate',
-                        'scan': 'scan 2s linear infinite',
-                        'dissolve': 'dissolve 0.8s ease-in-out forwards',
-                        'explode': 'explode 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67)',
-                        'ripple': 'ripple 2s ease-out infinite',
-                        'rotate-slow': 'rotate 20s linear infinite',
-                        'glitch': 'glitch 1s infinite',
-                        'pixelate': 'pixelate 0.5s ease-in-out',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0) rotateX(0deg) rotateY(0deg)' },
-                            '25%': { transform: 'translateY(-15px) rotateX(5deg) rotateY(10deg)' },
-                            '50%': { transform: 'translateY(0) rotateX(0deg) rotateY(0deg)' },
-                            '75%': { transform: 'translateY(15px) rotateX(-5deg) rotateY(-10deg)' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 5px rgba(0, 250, 255, 0.5), 0 0 10px rgba(0, 250, 255, 0.3)' },
-                            '100%': { boxShadow: '0 0 15px rgba(0, 250, 255, 0.8), 0 0 30px rgba(0, 250, 255, 0.5), 0 0 45px rgba(0, 250, 255, 0.3)' },
-                        },
-                        ripple: {
-                            '0%': { boxShadow: '0 0 0 0 rgba(255, 46, 255, 0.7), 0 0 0 1px rgba(255, 46, 255, 0.7)' },
-                            '100%': { boxShadow: '0 0 0 15px rgba(255, 46, 255, 0), 0 0 0 30px rgba(255, 46, 255, 0)' },
-                        },
-                        rotate: {
-                            '0%': { transform: 'rotateY(0deg)' },
-                            '100%': { transform: 'rotateY(360deg)' },
-                        },
-                        glitch: {
-                            '0%, 100%': { transform: 'translate(0)' },
-                            '33%': { transform: 'translate(-5px, 2px)' },
-                            '66%': { transform: 'translate(5px, -2px)' },
-                        },
-                    },
-                }
+    <title>赛博朋克后台登录</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #0A0E2A;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 电子噪点背景 */
+        .noise-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 流动网格背景 */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 30s linear infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 500px 500px;
             }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
+
+        /* 主容器样式 */
+        .login-container {
+            position: relative;
+            width: 420px;
+            padding: 40px;
+            background: rgba(185, 103, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        /* 呼吸式霓虹边框 */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid transparent;
+            border-radius: 14px;
+            animation: borderPulse 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% {
+                border-color: #FFFFFF;
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+                opacity: 0.85;
             }
-            .text-shadow-cyber {
-                text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+            50% {
+                border-color: #7D00FF;
+                box-shadow: 0 0 20px rgba(125, 0, 255, 0.5);
+                opacity: 1;
             }
-            .text-glow-cyan {
-                text-shadow: 0 0 5px rgba(0, 250, 255, 0.7), 0 0 10px rgba(0, 250, 255, 0.5), 0 0 15px rgba(0, 250, 255, 0.3);
+        }
+
+        /* 标题样式 */
+        .login-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.7);
+            position: relative;
+        }
+
+        .login-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #00F5FF, #FF00F5);
+        }
+
+        /* 表单样式 */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 1px;
+        }
+
+        /* 输入框样式 */
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(10, 14, 42, 0.6);
+            border: 3px solid #00F5FF;
+            border-radius: 6px;
+            color: #FFFFFF;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-input:focus {
+            outline: none;
+            animation: inputGlow 0.5s forwards;
+        }
+
+        @keyframes inputGlow {
+            0% {
+                border-color: #00F5FF;
+                box-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
             }
-            .text-glow-pink {
-                text-shadow: 0 0 5px rgba(255, 46, 255, 0.7), 0 0 10px rgba(255, 46, 255, 0.5), 0 0 15px rgba(255, 46, 255, 0.3);
+            100% {
+                border-color: #FF0080;
+                box-shadow: 0 0 10px rgba(255, 0, 128, 0.7);
             }
-            .text-glow-yellow {
-                text-shadow: 0 0 5px rgba(249, 255, 0, 0.7), 0 0 10px rgba(249, 255, 0, 0.5), 0 0 15px rgba(249, 255, 0, 0.3);
+        }
+
+        .form-input:focus::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 故障字体效果 */
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            animation: glitch 0.8s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% {
+                transform: translate(0);
             }
-            .bg-grid-3d {
-                background-image: linear-gradient(rgba(0, 250, 255, 0.1) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(0, 250, 255, 0.1) 1px, transparent 1px),
-                                linear-gradient(45deg, rgba(255, 46, 255, 0.05) 1px, transparent 1px);
-                background-size: 40px 40px, 40px 40px, 80px 80px;
+            20% {
+                transform: translate(-1px, 1px);
             }
-            .holographic {
-                background: linear-gradient(135deg, rgba(0, 250, 255, 0.1) 0%, rgba(255, 46, 255, 0.1) 100%);
-                backdrop-filter: blur(12px);
-                border: 1px solid rgba(0, 250, 255, 0.2);
-                box-shadow: 0 0 30px rgba(0, 250, 255, 0.1), inset 0 0 15px rgba(255, 46, 255, 0.1);
+            40% {
+                transform: translate(1px, -1px);
             }
-            .liquid-metal {
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                box-shadow: inset 0 0 20px rgba(0, 250, 255, 0.1), 0 0 15px rgba(255, 46, 255, 0.1);
+            60% {
+                transform: translate(-1px, -1px);
             }
-            .glitch-effect {
-                position: relative;
+            80% {
+                transform: translate(1px, 1px);
             }
-            .glitch-effect::before,
-            .glitch-effect::after {
-                content: attr(data-text);
-                position: absolute;
+        }
+
+        /* 登录按钮样式 */
+        .login-btn {
+            padding: 12px 0;
+            background: linear-gradient(45deg, #00F5FF, #7D00FF);
+            border: none;
+            border-radius: 6px;
+            color: #FFFFFF;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(125, 0, 255, 0.6);
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        /* 加载动画 */
+        .loader {
+            display: none;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .loader.active {
+            display: block;
+        }
+
+        .loader-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #00F5FF;
+            border-radius: 50%;
+            animation: infiniteSpin 2s infinite ease-in-out;
+        }
+
+        .loader-dot:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+        }
+
+        .loader-dot:nth-child(2) {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            animation-delay: 0.5s;
+        }
+
+        .loader-dot:nth-child(3) {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 1s;
+        }
+
+        .loader-dot:nth-child(4) {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes infiniteSpin {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* 错误提示 */
+        .error-message {
+            display: none;
+            color: #FFA500;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            animation: errorFlash 0.5s;
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+        @keyframes errorFlash {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* 扫描线效果 */
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 5;
+            animation: scanlineMove 4s linear infinite;
+        }
+
+        @keyframes scanlineMove {
+            0% {
                 top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
             }
-            .glitch-effect::before {
-                left: 2px;
-                text-shadow: -2px 0 rgba(255, 46, 255, 0.5);
-                clip: rect(44px, 450px, 56px, 0);
-                animation: glitch-anim 5s infinite linear alternate-reverse;
+            100% {
+                top: 100%;
             }
-            .glitch-effect::after {
-                left: -2px;
-                text-shadow: -2px 0 rgba(0, 250, 255, 0.5);
-                clip: rect(44px, 450px, 56px, 0);
-                animation: glitch-anim 5s infinite linear alternate-reverse;
-                animation-delay: 0.2s;
+        }
+
+        /* 底部信息 */
+        .footer-info {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-info span {
+            color: #00F5FF;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
             }
-            .particle-canvas {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: 1;
-            }
-            .code-rain {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                z-index: 0;
-            }
-            .perspective-1000 {
-                perspective: 1000px;
-            }
-            .preserve-3d {
-                transform-style: preserve-3d;
-            }
-            .backface-hidden {
-                backface-visibility: hidden;
-            }
-            .rotate-x {
-                transform: rotateX(var(--rotate-x, 0deg));
-            }
-            .rotate-y {
-                transform: rotateY(var(--rotate-y, 0deg));
-            }
-            .translate-z {
-                transform: translateZ(var(--translate-z, 0px));
+            50% {
+                opacity: 1;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-cyber-black text-gray-200 font-cyber min-h-screen overflow-x-hidden perspective-1000">
-    <!-- Code Rain Background -->
-    <div class="code-rain" id="codeRain"></div>
+<body>
+    <!-- 电子噪点背景 -->
+    <div class="noise-bg"></div>
+    
+    <!-- 流动网格背景 -->
+    <div class="grid-bg"></div>
+    
+    <!-- 扫描线效果 -->
+    <div class="scanline"></div>
 
-    <!-- 3D Grid Background -->
-    <div class="fixed inset-0 bg-grid-3d opacity-40 z-0"></div>
-
-    <!-- Particle Canvas -->
-    <canvas class="particle-canvas" id="particleCanvas"></canvas>
-
-    <!-- Floating Code Fragments -->
-    <div class="fixed top-1/4 left-10 w-40 h-40 holographic rounded-lg p-3 rotate-slow opacity-70 z-10 animate-float" style="animation-delay: 0s; transform-origin: center;">
-        <pre class="text-xs font-code text-electric-cyan overflow-hidden h-full"><code>function quantumEntanglement() {
-  const particles = new Array(1000);
-  particles.forEach(p => {
-    p.position = createVector(random(width), random(height));
-    p.velocity = createVector(random(-1, 1), random(-1, 1));
-  });
-}</code></pre>
+    <!-- 主登录容器 -->
+    <div class="login-container">
+        <h2 class="login-title">后台登录</h2>
+        
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="username">账号</label>
+                <input type="text" id="username" class="form-input" placeholder="输入账号..." value="123456">
+                <div class="loader">
+                    <div class="loader-dot"></div>
+                    <div class="loader-dot"></div>
+                    <div class="loader-dot"></div>
+                    <div class="loader-dot"></div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="password">密码</label>
+                <input type="password" id="password" class="form-input" placeholder="输入密码..." value="123456">
+            </div>
+            
+            <button type="submit" class="login-btn">登录系统</button>
+            
+            <div class="error-message" id="errorMessage">指令异常：请检查账号密码</div>
+        </form>
+        
+        <div class="footer-info">
+            赛博朋克安全系统 <span>●</span> 2077
+        </div>
     </div>
 
-    <div class="fixed bottom-1/3 right-16 w-32 h-32 holographic rounded-lg p-3 rotate-slow opacity-60 z-10 animate-float" style="animation-delay: 1s; transform-origin: center;">
-        <pre class="text-xs font-code text-laser-pink overflow-hidden h-full"><code>const quantumField = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);</code></pre>
-    </div>
-
-    <!-- Navigation Bar - Holographic Membrane -->
-    <nav class="holographic fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-700" id="navbar">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-electric-cyan/30 to-laser-pink/30 flex items-center justify-center border border-electric-cyan/30 animate-glow">
-                    <i class="fa fa-cube text-electric-cyan text-2xl text-shadow-cyber"></i>
-                </div>
-                <h1 class="text-2xl font-bold tracking-wider">
-                    <span class="text-white">CYBER</span><span class="text-electric-cyan text-glow-cyan">VERSE</span><span class="text-laser-pink text-glow-pink">_OS</span>
-                </h1>
-            </div>
-
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#dashboard" class="text-gray-300 hover:text-electric-cyan transition-colors duration-300 flex items-center space-x-2 group">
-                    <i class="fa fa-tachometer text-electric-cyan"></i>
-                    <span class="group-hover:animate-pixelate">仪表盘</span>
-                </a>
-                <a href="#analytics" class="text-gray-300 hover:text-laser-pink transition-colors duration-300 flex items-center space-x-2 group">
-                    <i class="fa fa-bar-chart text-laser-pink"></i>
-                    <span class="group-hover:animate-pixelate">数据分析</span>
-                </a>
-                <a href="#systems" class="text-gray-300 hover:text-nuclear-yellow transition-colors duration-300 flex items-center space-x-2 group">
-                    <i class="fa fa-cogs text-nuclear-yellow"></i>
-                    <span class="group-hover:animate-pixelate">系统控制</span>
-                </a>
-                <a href="#network" class="text-gray-300 hover:text-electric-cyan transition-colors duration-300 flex items-center space-x-2 group">
-                    <i class="fa fa-sitemap text-electric-cyan"></i>
-                    <span class="group-hover:animate-pixelate">网络拓扑</span>
-                </a>
-            </div>
-
-            <div class="flex items-center space-x-4">
-                <div class="relative">
-                    <div class="w-10 h-10 rounded-full holographic flex items-center justify-center border border-laser-pink/50 hover:border-laser-pink/80 transition-all duration-300 group">
-                        <i class="fa fa-bell text-laser-pink group-hover:animate-pulse-fast"></i>
-                    </div>
-                    <span class="absolute top-0 right-0 w-3 h-3 rounded-full bg-nuclear-yellow border-2 border-cyber-black animate-pulse-fast"></span>
-                </div>
-                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-electric-cyan/50 ring-2 ring-electric-cyan/20">
-                    <img src="https://picsum.photos/id/1005/200/200" alt="用户头像" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container mx-auto pt-28 pb-16 px-4 z-20 relative">
-        <!-- Hero Section with Glitch Effect -->
-        <section class="mb-16 relative">
-            <div class="absolute inset-0 bg-gradient-to-b from-cyber-dark/0 to-cyber-dark z-0"></div>
-            <div class="relative z-10">
-                <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-black leading-none mb-6 glitch-effect" data-text="赛博深渊">
-                    <span class="text-white">赛博</span><span class="text-electric-cyan text-glow-cyan">深渊</span><span class="text-laser-pink text-glow-pink">_</span><span class="text-nuclear-yellow text-glow-yellow">界面</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mb-8">动态立体解构主义 · 液态金属质感 · 量子级光影效果</p>
-                <div class="flex flex-wrap gap-4">
-                    <button class="px-8 py-4 rounded-lg holographic border border-electric-cyan/50 text-electric-cyan hover:border-electric-cyan/80 transition-all duration-500 flex items-center space-x-3 animate-glow button-explode">
-                        <i class="fa fa-rocket"></i>
-                        <span>启动系统</span>
-                    </button>
-                    <button class="px-8 py-4 rounded-lg bg-gradient-to-r from-laser-pink/30 to-nuclear-yellow/30 border border-laser-pink/30 text-white hover:from-laser-pink/40 hover:to-nuclear-yellow/40 transition-all duration-500 flex items-center space-x-3 button-explode">
-                        <i class="fa fa-terminal"></i>
-                        <span>开发者模式</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats Grid with 3D Rotation -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 perspective-1000">
-            <!-- Stat Card 1 -->
-            <div class="holographic rounded-xl p-6 border border-electric-cyan/20 hover:border-electric-cyan/50 transition-all duration-700 transform hover:-translate-y-2 hover:rotate-x-5 hover:rotate-y-5 group preserve-3d animate-float" style="animation-delay: 0s;">
-                <div class="absolute inset-0 bg-electric-cyan/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-gray-400 text-sm">量子处理单元</p>
-                            <h3 class="text-3xl font-bold text-white mt-1">98.7%</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-electric-cyan/20 flex items-center justify-center border border-electric-cyan/30 group-hover:animate-pulse-fast">
-                            <i class="fa fa-microchip text-electric-cyan text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 mb-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-electric-cyan to-quantum-blue h-full rounded-full" style="width: 98.7%"></div>
-                    </div>
-                    <p class="text-gray-400 text-xs">状态: 超光速运行中 · 温度: 42°C</p>
-                </div>
-            </div>
-
-            <!-- Stat Card 2 -->
-            <div class="holographic rounded-xl p-6 border border-laser-pink/20 hover:border-laser-pink/50 transition-all duration-700 transform hover:-translate-y-2 hover:rotate-x-5 hover:rotate-y-[-5deg] group preserve-3d animate-float" style="animation-delay: 0.2s;">
-                <div class="absolute inset-0 bg-laser-pink/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-gray-400 text-sm">网络带宽</p>
-                            <h3 class="text-3xl font-bold text-white mt-1">12.8 PB/s</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-laser-pink/20 flex items-center justify-center border border-laser-pink/30 group-hover:animate-pulse-fast">
-                            <i class="fa fa-exchange text-laser-pink text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 mb-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-laser-pink to-neon-purple h-full rounded-full" style="width: 87%"></div>
-                    </div>
-                    <p class="text-gray-400 text-xs">状态: 稳定 · 延迟: 0.002ms</p>
-                </div>
-            </div>
-
-            <!-- Stat Card 3 -->
-            <div class="holographic rounded-xl p-6 border border-nuclear-yellow/20 hover:border-nuclear-yellow/50 transition-all duration-700 transform hover:-translate-y-2 hover:rotate-x-[-5deg] hover:rotate-y-5 group preserve-3d animate-float" style="animation-delay: 0.4s;">
-                <div class="absolute inset-0 bg-nuclear-yellow/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-gray-400 text-sm">安全协议</p>
-                            <h3 class="text-3xl font-bold text-white mt-1">量子加密</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-nuclear-yellow/20 flex items-center justify-center border border-nuclear-yellow/30 group-hover:animate-pulse-fast">
-                            <i class="fa fa-shield text-nuclear-yellow text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 mb-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-nuclear-yellow to-laser-pink h-full rounded-full" style="width: 100%"></div>
-                    </div>
-                    <p class="text-gray-400 text-xs">状态: 已激活 · 威胁等级: 0</p>
-                </div>
-            </div>
-
-            <!-- Stat Card 4 -->
-            <div class="holographic rounded-xl p-6 border border-electric-cyan/20 hover:border-electric-cyan/50 transition-all duration-700 transform hover:-translate-y-2 hover:rotate-x-[-5deg] hover:rotate-y-[-5deg] group preserve-3d animate-float" style="animation-delay: 0.6s;">
-                <div class="absolute inset-0 bg-electric-cyan/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <p class="text-gray-400 text-sm">能量核心</p>
-                            <h3 class="text-3xl font-bold text-white mt-1">78.3%</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-electric-cyan/20 flex items-center justify-center border border-electric-cyan/30 group-hover:animate-pulse-fast">
-                            <i class="fa fa-bolt text-electric-cyan text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 mb-2 overflow-hidden">
-                        <div class="bg-gradient-to-r from-quantum-blue to-electric-cyan h-full rounded-full" style="width: 78.3%"></div>
-                    </div>
-                    <p class="text-gray-400 text-xs">状态: 稳定 · 充电效率: 99.8%</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dashboard Grid with 3D Elements -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Performance Chart with 3D Rotation -->
-            <div class="lg:col-span-2 holographic rounded-xl p-6 border border-electric-cyan/20 preserve-3d group hover:rotate-x-2 hover:rotate-y-2 transition-all duration-700">
-                <div class="absolute inset-0 bg-electric-cyan/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-xl font-bold text-white">量子性能监控</h3>
-                        <div class="flex space-x-2">
-                            <button class="px-3 py-1 rounded text-xs bg-electric-cyan/20 text-electric-cyan">实时</button>
-                            <button class="px-3 py-1 rounded text-xs bg-cyber-dark/50 text-gray-400 hover:bg-electric-cyan/20 hover:text-electric-cyan transition-colors">小时</button>
-                            <button class="px-3 py-1 rounded text-xs bg-cyber-dark/50 text-gray-400 hover:bg-electric-cyan/20 hover:text-electric-cyan transition-colors">天</button>
-                        </div>
-                    </div>
-                    <div class="h-[350px] relative">
-                        <canvas id="performanceChart"></canvas>
-                        <div class="absolute inset-0 bg-grid-3d opacity-20 pointer-events-none"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- System Status with Glitch Hover Effect -->
-            <div class="holographic rounded-xl p-6 border border-laser-pink/20 preserve-3d group hover:rotate-x-[-2deg] hover:rotate-y-2 transition-all duration-700">
-                <div class="absolute inset-0 bg-laser-pink/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <h3 class="text-xl font-bold text-white mb-6">系统状态</h3>
-                    <div class="space-y-6">
-                        <!-- Status Item 1 -->
-                        <div class="group/status-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300 flex items-center space-x-2 group-hover/status-item:text-electric-cyan transition-colors">
-                                    <i class="fa fa-microchip text-electric-cyan"></i> 中央处理器
-                                </span>
-                                <span class="text-electric-cyan">68.2%</span>
-                            </div>
-                            <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 overflow-hidden group-hover/status-item:animate-glow">
-                                <div class="bg-gradient-to-r from-electric-cyan to-quantum-blue h-full rounded-full" style="width: 68.2%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Status Item 2 -->
-                        <div class="group/status-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300 flex items-center space-x-2 group-hover/status-item:text-laser-pink transition-colors">
-                                    <i class="fa fa-database text-laser-pink"></i> 内存使用
-                                </span>
-                                <span class="text-laser-pink">42.5%</span>
-                            </div>
-                            <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 overflow-hidden group-hover/status-item:animate-glow">
-                                <div class="bg-gradient-to-r from-laser-pink to-neon-purple h-full rounded-full" style="width: 42.5%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Status Item 3 -->
-                        <div class="group/status-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300 flex items-center space-x-2 group-hover/status-item:text-nuclear-yellow transition-colors">
-                                    <i class="fa fa-hdd-o text-nuclear-yellow"></i> 存储空间
-                                </span>
-                                <span class="text-nuclear-yellow">73.8%</span>
-                            </div>
-                            <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 overflow-hidden group-hover/status-item:animate-glow">
-                                <div class="bg-gradient-to-r from-nuclear-yellow to-laser-pink h-full rounded-full" style="width: 73.8%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Status Item 4 -->
-                        <div class="group/status-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300 flex items-center space-x-2 group-hover/status-item:text-electric-cyan transition-colors">
-                                    <i class="fa fa-wifi text-electric-cyan"></i> 网络连接
-                                </span>
-                                <span class="text-electric-cyan">99.9%</span>
-                            </div>
-                            <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 overflow-hidden group-hover/status-item:animate-glow">
-                                <div class="bg-gradient-to-r from-electric-cyan to-quantum-blue h-full rounded-full" style="width: 99.9%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Status Item 5 -->
-                        <div class="group/status-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300 flex items-center space-x-2 group-hover/status-item:text-laser-pink transition-colors">
-                                    <i class="fa fa-thermometer-half text-laser-pink"></i> 系统温度
-                                </span>
-                                <span class="text-laser-pink">45°C</span>
-                            </div>
-                            <div class="w-full bg-cyber-dark/50 rounded-full h-2.5 overflow-hidden group-hover/status-item:animate-glow">
-                                <div class="bg-gradient-to-r from-laser-pink to-nuclear-yellow h-full rounded-full" style="width: 45%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Network Visualization with 3D Rotation -->
-            <div class="lg:col-span-3 holographic rounded-xl p-6 border border-nuclear-yellow/20 preserve-3d group hover:rotate-x-1 hover:rotate-y-[-1deg] transition-all duration-700">
-                <div class="absolute inset-0 bg-nuclear-yellow/5 rounded-xl translate-z-[-10px]"></div>
-                <div class="relative z-10">
-                    <h3 class="text-xl font-bold text-white mb-6">量子网络拓扑</h3>
-                    <div class="relative h-[450px] bg-cyber-dark/50 rounded-lg overflow-hidden">
-                        <div class="absolute inset-0 bg-grid-3d opacity-40"></div>
-                        <div id="networkGraph" class="absolute inset-0"></div>
-                        <!-- Network nodes will be added via JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer with Ripple Effect -->
-    <footer class="holographic py-6 z-20 relative mt-20">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-gray-400 text-sm">&copy; 2077 赛博深渊系统. 保留所有权利.</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-electric-cyan transition-colors group">
-                        <i class="fa fa-github text-xl group-hover:animate-pulse-fast"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-laser-pink transition-colors group">
-                        <i class="fa fa-twitter text-xl group-hover:animate-pulse-fast"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-nuclear-yellow transition-colors group">
-                        <i class="fa fa-linkedin text-xl group-hover:animate-pulse-fast"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-electric-cyan transition-colors group">
-                        <i class="fa fa-envelope text-xl group-hover:animate-pulse-fast"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Advanced Animations -->
     <script>
-        // Initialize code rain background
-        function createCodeRain() {
-            const canvas = document.createElement('canvas');
-            const codeRain = document.getElementById('codeRain');
-            codeRain.appendChild(canvas);
-            const ctx = canvas.getContext('2d');
-
-            // Set canvas size
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-
-            // Code rain characters - 0 and 1
-            const chars = '01';
-            const fontSize = 16;
-            const columns = canvas.width / fontSize;
-            const drops = [];
-
-            // Initialize drops array
-            for (let i = 0; i < columns; i++) {
-                drops[i] = Math.random() * -canvas.height;
-            }
-
-            // Draw code rain
-            function draw() {
-                ctx.fillStyle = 'rgba(5, 7, 20, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = '#00faff';
-                ctx.font = `${fontSize}px monospace`;
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = chars[Math.floor(Math.random() * chars.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                    // Reset drop position when it reaches bottom
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-
-                    // Increment Y position
-                    drops[i]++;
-                }
-            }
-
-            // Animation loop
-            setInterval(draw, 35);
-        }
-
-        // Initialize particle canvas for mouse interaction
-        function initParticleCanvas() {
-            const canvas = document.getElementById('particleCanvas');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
-            const particleCount = 100;
-
-            // Set canvas size
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-
-            // Particle class
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.size = Math.random() * 3 + 1;
-                    this.speedX = Math.random() * 0.5 - 0.25;
-                    this.speedY = Math.random() * 0.5 - 0.25;
-                    this.color = this.getRandomColor();
-                    this.originalColor = this.color;
-                }
-
-                getRandomColor() {
-                    const colors = [
-                        'rgba(0, 250, 255, 0.7)',
-                        'rgba(255, 46, 255, 0.7)',
-                        'rgba(249, 255, 0, 0.7)'
-                    ];
-                    return colors[Math.floor(Math.random() * colors.length)];
-                }
-
-                update(mouse) {
-                    // Mouse interaction
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    const force = 150 / distance;
-
-                    if (distance < 150) {
-                        this.x -= dx * force * 0.01;
-                        this.y -= dy * force * 0.01;
-                    }
-
-                    // Bounce off edges
-                    if (this.x < 0 || this.x > width) this.speedX *= -1;
-                    if (this.y < 0 || this.y > height) this.speedY *= -1;
-
-                    // Update position
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                }
-
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
-            }
-
-            // Initialize particles
-            function initParticles() {
-                particles = [];
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            // Mouse position
-            const mouse = { x: null, y: null };
-
-            // Mouse move event
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = e.x;
-                mouse.y = e.y;
-            });
-
-            // Animation loop
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update(mouse);
-                    particles[i].draw();
-                }
-
-                requestAnimationFrame(animate);
-            }
-
-            // Initialize
-            initParticles();
-            animate();
-        }
-
-        // Create performance chart with gradient fills
-        function createPerformanceChart() {
-            const ctx = document.getElementById('performanceChart').getContext('2d');
-
-            // Create gradient for area under line
-            const blueGradient = ctx.createLinearGradient(0, 0, 0, 350);
-            blueGradient.addColorStop(0, 'rgba(0, 250, 255, 0.3)');
-            blueGradient.addColorStop(1, 'rgba(0, 250, 255, 0.0)');
-
-            const pinkGradient = ctx.createLinearGradient(0, 0, 0, 350);
-            pinkGradient.addColorStop(0, 'rgba(255, 46, 255, 0.3)');
-            pinkGradient.addColorStop(1, 'rgba(255, 46, 255, 0.0)');
-
-            const yellowGradient = ctx.createLinearGradient(0, 0, 0, 350);
-            yellowGradient.addColorStop(0, 'rgba(249, 255, 0, 0.3)');
-            yellowGradient.addColorStop(1, 'rgba(249, 255, 0, 0.0)');
-
-            const chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '现在'],
-                    datasets: [
-                        {
-                            label: 'CPU 使用率',
-                            data: [35, 42, 68, 55, 72, 65, 68.2],
-                            borderColor: 'rgba(0, 250, 255, 1)',
-                            backgroundColor: blueGradient,
-                            tension: 0.4,
-                            fill: true,
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(0, 250, 255, 1)',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2
-                        },
-                        {
-                            label: '内存使用',
-                            data: [22, 31, 45, 38, 42, 39, 42.5],
-                            borderColor: 'rgba(255, 46, 255, 1)',
-                            backgroundColor: pinkGradient,
-                            tension: 0.4,
-                            fill: true,
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(255, 46, 255, 1)',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2
-                        },
-                        {
-                            label: '网络流量',
-                            data: [15, 28, 52, 41, 63, 58, 55.7],
-                            borderColor: 'rgba(249, 255, 0, 1)',
-                            backgroundColor: yellowGradient,
-                            tension: 0.4,
-                            fill: true,
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(249, 255, 0, 1)',
-                            pointRadius: 4,
-                            pointHoverRadius: 6,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                color: 'rgba(255, 255, 255, 0.7)',
-                                font: {
-                                    family: 'Orbitron'
-                                }
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(10, 15, 38, 0.8)',
-                            borderColor: 'rgba(0, 250, 255, 0.3)',
-                            borderWidth: 1,
-                            titleColor: 'rgba(255, 255, 255, 0.9)',
-                            bodyColor: 'rgba(255, 255, 255, 0.7)',
-                            displayColors: true,
-                            padding: 10,
-                            cornerRadius: 8
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.5)'
-                            }
-                        },
-                        y: {
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: 'rgba(255, 255, 255, 0.5)',
-                                callback: function(value) {
-                                    return value + '%';
-                                }
-                            },
-                            min: 0,
-                            max: 100
-                        }
-                    },
-                    interaction: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    animation: {
-                        duration: 2000,
-                        easing: 'easeOutQuart'
-                    }
-                }
-            });
-        }
-
-        // Create network graph visualization
-        function createNetworkGraph() {
-            // This would typically use a library like vis.js or D3.js
-            // For simplicity, we'll create a basic version with JavaScript
-            const container = document.getElementById('networkGraph');
-            const nodeCount = 20;
-            const nodes = [];
-
-            // Create nodes
-            for (let i = 0; i < nodeCount; i++) {
-                const node = document.createElement('div');
-                node.classList.add('absolute', 'rounded-full', 'flex', 'items-center', 'justify-center', 'cursor-pointer', 'transition-all', 'duration-500', 'hover:scale-110');
-
-                // Random size and position
-                const size = Math.random() * 40 + 20;
-                node.style.width = `${size}px`;
-                node.style.height = `${size}px`;
-                node.style.left = `${Math.random() * 90 + 5}%`;
-                node.style.top = `${Math.random() * 90 + 5}%`;
-                node.style.transform = 'translate(-50%, -50%)';
-
-                // Random color and effect
-                const colors = [
-                    { bg: 'bg-electric-cyan/20', border: 'border-electric-cyan/50', text: 'text-electric-cyan' },
-                    { bg: 'bg-laser-pink/20', border: 'border-laser-pink/50', text: 'text-laser-pink' },
-                    { bg: 'bg-nuclear-yellow/20', border: 'border-nuclear-yellow/50', text: 'text-nuclear-yellow' }
-                ];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                node.classList.add(color.bg, color.border, color.text);
-
-                // Add icon
-                const icons = ['fa-server', 'fa-database', 'fa-laptop', 'fa-mobile', 'fa-router', 'fa-sitemap', 'fa-microchip', 'fa-wifi'];
-                node.innerHTML = `<i class="fa ${icons[Math.floor(Math.random() * icons.length)]} text-lg"></i>`;
-
-                container.appendChild(node);
-                nodes.push(node);
-            }
-
-            // Create connections between nodes
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    if (Math.random() > 0.7) {
-                        const line = document.createElement('div');
-                        line.classList.add('absolute', 'bg-electric-cyan/20', 'h-0.5');
-                        line.style.transformOrigin = '0 0';
-                        container.appendChild(line);
-
-                        // Position line between nodes
-                        const updateLinePosition = () => {
-                            const rect1 = nodes[i].getBoundingClientRect();
-                            const rect2 = nodes[j].getBoundingClientRect();
-                            const containerRect = container.getBoundingClientRect();
-
-                            const x1 = rect1.left + rect1.width/2 - containerRect.left;
-                            const y1 = rect1.top + rect1.height/2 - containerRect.top;
-                            const x2 = rect2.left + rect2.width/2 - containerRect.left;
-                            const y2 = rect2.top + rect2.height/2 - containerRect.top;
-
-                            const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
-
-                            line.style.width = `${length}px`;
-                            line.style.left = `${x1}px`;
-                            line.style.top = `${y1}px`;
-                            line.style.transform = `rotate(${angle}deg)`;
-                            line.style.zIndex = '0';
-                        };
-
-                        updateLinePosition();
-                        window.addEventListener('resize', updateLinePosition);
-                    }
-                }
-            }
-        }
-
-        // Button explosion effect
-        function initButtonExplosions() {
-            const buttons = document.querySelectorAll('.button-explode');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const rect = button.getBoundingClientRect();
-                    const x = rect.left + rect.width/2;
-                    const y = rect.top + rect.height/2;
-                    createExplosion(x, y);
-                });
-            });
-
-            function createExplosion(x, y) {
-                const particleCount = 100;
-                const container = document.createElement('div');
-                container.style.position = 'fixed';
-                container.style.left = '0';
-                container.style.top = '0';
-                container.style.width = '100vw';
-                container.style.height = '100vh';
-                container.style.pointerEvents = 'none';
-                container.style.zIndex = '9999';
-                document.body.appendChild(container);
-
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    const size = Math.random() * 4 + 1;
-                    const color = ['bg-electric-cyan', 'bg-laser-pink', 'bg-nuclear-yellow'][Math.floor(Math.random() * 3)];
-
-                    particle.classList.add('absolute', 'rounded-full', color);
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    particle.style.left = `${x}px`;
-                    particle.style.top = `${y}px`;
-                    particle.style.transform = 'translate(-50%, -50%)';
-                    particle.style.opacity = '0.8';
-
-                    container.appendChild(particle);
-
-                    // Animate particle
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * 8 + 2;
-                    const distance = Math.random() * 80 + 40;
-                    const duration = Math.random() * 800 + 400;
-
-                    setTimeout(() => {
-                        particle.style.transition = `all ${duration}ms cubic-bezier(0.17, 0.67, 0.83, 0.67)`;
-                        particle.style.transform = `translate(calc(-50% + ${Math.cos(angle) * distance}px), calc(-50% + ${Math.sin(angle) * distance}px))`;
-                        particle.style.opacity = '0';
-                    }, 10);
-
-                    // Remove particle after animation
-                    setTimeout(() => {
-                        particle.remove();
-                    }, duration + 10);
-                }
-
-                // Remove container after all particles are gone
-                setTimeout(() => {
-                    container.remove();
-                }, 2000);
-            }
-        }
-
-        // Navbar scroll effect
-        function initNavbarScroll() {
-            const navbar = document.getElementById('navbar');
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                if (scrollY > 50) {
-                    navbar.classList.add('py-2');
-                    navbar.classList.remove('py-4');
+        // 简单的登录验证逻辑
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loader = document.querySelector('.loader');
+            
+            // 显示加载动画
+            loader.classList.add('active');
+            errorMessage.classList.remove('active');
+            
+            // 模拟登录过程
+            setTimeout(() => {
+                // 隐藏加载动画
+                loader.classList.remove('active');
+                
+                // 验证账号密码（均为123456）
+                if (username === '123456' && password === '123456') {
+                    // 登录成功，这里可以添加跳转逻辑
+                    alert('登录成功！正在进入后台系统...');
+                    
+                    // 成功时的边框动画变化
+                    document.querySelector('.login-container::before').style.animation = 'successGlow 1s';
                 } else {
-                    navbar.classList.add('py-4');
-                    navbar.classList.remove('py-2');
+                    // 登录失败，显示错误信息
+                    errorMessage.classList.add('active');
+                    
+                    // 错误时的边框闪烁效果
+                    const container = document.querySelector('.login-container');
+                    container.style.animation = 'errorBorder 0.5s';
+                    setTimeout(() => {
+                        container.style.animation = '';
+                    }, 500);
                 }
-                lastScrollY = scrollY;
-            });
-        }
-
-        // Initialize all animations and effects
-        window.addEventListener('DOMContentLoaded', () => {
-            createCodeRain();
-            initParticleCanvas();
-            createPerformanceChart();
-            createNetworkGraph();
-            initButtonExplosions();
-            initNavbarScroll();
+            }, 1500);
         });
+
+        // 添加CSS动画到样式表
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes successGlow {
+                0% {
+                    border-color: #00F5FF;
+                    box-shadow: 0 0 20px rgba(0, 245, 255, 0.7);
+                }
+                100% {
+                    border-color: #00F5FF;
+                    box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+                }
+            }
+            
+            @keyframes errorBorder {
+                0%, 100% {
+                    border-color: #FF0000;
+                    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+                }
+                50% {
+                    border-color: #FF0000;
+                    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
