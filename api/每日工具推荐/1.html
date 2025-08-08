@@ -32,6 +32,7 @@
             align-items: center;
             overflow-x: hidden;
             position: relative;
+            padding: 20px;
         }
         
         /* 网格背景 */
@@ -62,11 +63,14 @@
         
         .container {
             width: 90%;
-            max-width: 800px;
+            max-width: 1200px; /* 增加最大宽度 */
             padding: 2rem;
             text-align: center;
             z-index: 1;
             margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         h1 {
@@ -76,18 +80,21 @@
             margin-bottom: 2rem;
             font-size: 2.5rem;
             letter-spacing: 0.1em;
+            width: 100%;
         }
         
         .tool-display {
-            min-height: 150px;
+            min-height: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 2rem;
             margin: 2rem 0;
-            font-size: 1.8rem;
+            font-size: 2.5rem; /* 增大字体 */
             position: relative;
             overflow: hidden;
+            width: 80vw; /* 占屏幕宽度的80% */
+            max-width: 1000px; /* 最大宽度限制 */
         }
         
         .tool-display::after {
@@ -117,6 +124,7 @@
                          0 0 10px var(--neon-pink);
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 2rem; /* 增大提示文字 */
         }
         
         .prompt-text:hover {
@@ -128,7 +136,7 @@
             border: 2px solid var(--neon-purple);
             color: var(--neon-purple);
             padding: 0.8rem 2rem;
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* 增大按钮文字 */
             cursor: pointer;
             text-shadow: 0 0 5px var(--neon-purple);
             box-shadow: 0 0 5px var(--neon-purple),
@@ -289,6 +297,9 @@
             position: absolute;
             animation: toolFlash 0.1s forwards;
             opacity: 0;
+            font-size: 2.5rem; /* 增大工具项字体 */
+            text-align: center;
+            width: 100%;
         }
         
         /* 响应式设计 */
@@ -298,12 +309,21 @@
             }
             
             .tool-display {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
                 padding: 1.5rem;
+                width: 90vw; /* 移动端宽度稍大 */
+            }
+            
+            .tool-item {
+                font-size: 1.8rem;
+            }
+            
+            .prompt-text {
+                font-size: 1.5rem;
             }
             
             .action-btn {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 padding: 0.6rem 1.5rem;
             }
         }
@@ -314,8 +334,17 @@
             }
             
             .tool-display {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 padding: 1rem;
+                width: 95vw; /* 小屏幕宽度更大 */
+            }
+            
+            .tool-item {
+                font-size: 1.5rem;
+            }
+            
+            .prompt-text {
+                font-size: 1.2rem;
             }
             
             .modal-content {
@@ -783,7 +812,7 @@
             finalElement.textContent = finalTool;
             finalElement.style.color = 'var(--neon-green)';
             finalElement.style.textShadow = '0 0 5px var(--neon-green), 0 0 10px var(--neon-green)';
-            finalElement.style.fontSize = '1.8rem';
+            finalElement.style.fontSize = '2.5rem'; // 增大最终显示字体
             toolDisplay.appendChild(finalElement);
             
             // 重置状态
