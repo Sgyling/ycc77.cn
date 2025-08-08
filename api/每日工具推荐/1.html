@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日工具推荐</title>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff2a6d;
+            --neon-purple: #d300c5;
+            --neon-green: #05ffa1;
+            --dark-bg: #0d0221;
+            --darker-bg: #080116;
+            --grid-color: rgba(0, 243, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* 网格背景 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* 霓虹灯管效果 */
+        .neon-border {
+            position: relative;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-blue),
+                        0 0 10px var(--neon-blue),
+                        inset 0 0 5px var(--neon-blue);
+            background-color: rgba(13, 2, 33, 0.8);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+            z-index: 1;
+            margin: 2rem auto;
+        }
+        
+        h1 {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue),
+                         0 0 10px var(--neon-blue);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .tool-display {
+            min-height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-display::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 100%
+            );
+            transform: skewX(-25deg);
+            animation: scanline 3s infinite;
+        }
+        
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 150%; }
+        }
+        
+        .prompt-text {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink),
+                         0 0 10px var(--neon-pink);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .prompt-text:hover {
+            transform: scale(1.05);
+        }
+        
+        .action-btn {
+            background: none;
+            border: 2px solid var(--neon-purple);
+            color: var(--neon-purple);
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-shadow: 0 0 5px var(--neon-purple);
+            box-shadow: 0 0 5px var(--neon-purple),
+                        0 0 10px var(--neon-purple);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .action-btn:hover {
+            background-color: rgba(211, 0, 197, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: var(--darker-bg);
+            padding: 2rem;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green),
+                        0 0 20px var(--neon-green);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalPop 0.5s ease-out;
+        }
+        
+        @keyframes modalPop {
+            0% { transform: scale(0.8); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .modal h2 {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+            margin-bottom: 1rem;
+        }
+        
+        .modal p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 0 5px var(--neon-green);
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background-color: rgba(5, 255, 161, 0.2);
+        }
+        
+        /* 故障效果类 */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--neon-pink);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--neon-blue);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(26px, 9999px, 55px, 0); }
+            95% { clip: rect(42px, 9999px, 97px, 0); }
+            100% { clip: rect(38px, 9999px, 49px, 0); }
+        }
+        
+        /* 工具列表动画 */
+        @keyframes toolFlash {
+            0% { opacity: 0; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0; transform: scale(0.9); }
+        }
+        
+        .tool-item {
+            position: absolute;
+            animation: toolFlash 0.1s forwards;
+            opacity: 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tool-display {
+                font-size: 1.4rem;
+                padding: 1.5rem;
+            }
+            
+            .action-btn {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tool-display {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+            
+            .modal p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <!-- 引入赛博朋克风格字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container neon-border">
+        <h1 class="glitch" data-text="每日工具推荐">每日工具推荐</h1>
+        
+        <div class="tool-display neon-border" id="toolDisplay">
+            <div class="prompt-text" id="promptText">点击开始今日工具介绍</div>
+        </div>
+        
+        <button class="action-btn" id="actionBtn">开始筛选</button>
+    </div>
+    
+    <!-- 模态框 -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <h2>今日推荐</h2>
+            <p id="modalText">今日要介绍的是：MaliciousCheck_开源应急响应工具</p>
+            <a href="https://yancy77.cn"><button class="close-btn" id="closeBtn">开讲!</button></a>
+        </div>
+    </div>
+
+    <script>
+        // 工具列表
+        const securityTools = [
+    "MaliciousCheck_开源应急响应工具",
+    "ThreatHunt_威胁狩猎平台",
+    "LogAnalyzer_日志分析工具",
+    "FirewallGuard_防火墙管理系统",
+    "VulnScanner_漏洞扫描器",
+    "SIEMCore_安全信息事件管理",
+    "SandboxLab_恶意代码沙箱",
+    "NetworkMonitor_网络流量监控",
+    "IDSGuard_入侵检测系统",
+    "CryptoGuard_加密审计工具",
+    "AuthAnalyzer_身份认证分析器",
+    "PatchManager_补丁管理系统",
+    "PhishDetector_钓鱼检测工具",
+    "ForensicsKit_取证分析套件",
+    "HoneypotPro_蜜罐系统",
+    "SecureBackup_安全备份工具",
+    "DNSMonitor_DNS监控系统",
+    "BotnetTracker_僵尸网络追踪器",
+    "CloudGuard_云安全防护",
+    "EndpointShield_终端防护工具",
+    "Nmap_端口扫描工具",
+    "Wireshark_网络协议分析器",
+    "Metasploit_渗透测试框架",
+    "Burp Suite_Web应用安全测试工具",
+    "Sqlmap_SQL注入检测工具",
+    "Hydra_密码破解工具",
+    "John the Ripper_密码哈希破解工具",
+    "Aircrack-ng_无线网络安全工具",
+    "Nikto_Web服务器扫描工具",
+    "DirBuster_目录爆破工具",
+    "OWASP ZAP_Web应用安全扫描器",
+    "Netcat_网络瑞士军刀",
+    "Enum4linux_SMB信息枚举工具",
+    "Masscan_高速端口扫描器",
+    "OpenVAS_漏洞评估系统",
+    "Cobalt Strike_红队渗透工具",
+    "Empire_PowerShell后渗透框架",
+    "Mimikatz_凭证提取工具",
+    "Responder_LLMNR/NBT-NS欺骗工具",
+    "Hashcat_高级密码恢复工具",
+    "ExifTool_元数据查看编辑工具",
+    "Ghidra_逆向工程工具",
+    "Radare2_逆向工程框架",
+    "Volatility_内存取证工具",
+    "The Sleuth Kit_数字取证工具包",
+    "Autopsy_数字取证平台",
+    "tcpdump_命令行数据包捕获工具",
+    "ngrok_端口转发工具",
+    "Proxychains_代理链工具",
+    "TOR_匿名网络工具",
+    "Maltego_情报收集工具",
+    "Shodan_网络设备搜索引擎",
+    "Censys_网络空间搜索引擎",
+    "ZoomEye_网络空间探测引擎",
+    "社工库_社会工程学信息收集",
+    "WhatWeb_网站指纹识别工具",
+    "WafW00f_WAF检测工具",
+    "SQLMap_自动化SQL注入工具",
+    "XSSer_XSS攻击工具",
+    "Commix_命令注入测试工具",
+    "XSStrike_XSS检测与利用工具",
+    "PayloadsAllTheThings_渗透测试Payload集合",
+    "SecLists_安全测试字典集合",
+    "FuzzDB_模糊测试数据库",
+    "OneForAll_子域名收集工具",
+    "Layer子域名挖掘机_子域名枚举工具",
+    "Sublist3r_子域名枚举工具",
+    "Altdns_子域名变异工具",
+    "DNSRecon_DNS信息收集工具",
+    "Amass_网络资产映射工具",
+    "MassDNS_高性能DNS解析工具",
+    "Gobuster_目录和DNS爆破工具",
+    "Feroxbuster_递归内容发现工具",
+    "WFuzz_Web应用模糊测试工具",
+    "SQLninja_SQL注入利用工具",
+    "NoSQLMap_NoSQL数据库攻击工具",
+    "Redis客户端_Redis数据库管理工具",
+    "Memcached客户端_Memcached管理工具",
+    "MongoDB客户端_MongoDB管理工具",
+    "PostgreSQL客户端_PostgreSQL管理工具",
+    "MySQL客户端_MySQL管理工具",
+    "Oracle客户端_Oracle管理工具",
+    "MSSQL客户端_MSSQL管理工具",
+    "FTP客户端_FTP管理工具",
+    "SSH客户端_SSH管理工具",
+    "Telnet客户端_Telnet管理工具",
+    "RDP客户端_RDP管理工具",
+    "VNC客户端_VNC管理工具",
+    "TeamViewer_远程控制工具",
+    "AnyDesk_远程控制工具",
+    "Netcat_网络调试工具",
+    "Socat_网络数据转发工具",
+    "Ncat_网络工具",
+    "Cryptcat_加密网络工具",
+    "PowerShell_命令行外壳",
+    "Cmd_命令提示符",
+    "Bash_Linux命令行外壳",
+    "Zsh_Linux命令行外壳",
+    "Fish_Linux命令行外壳",
+    "Kali Linux_渗透测试操作系统",
+    "Parrot Security_安全测试操作系统",
+    "BackBox_Linux安全测试发行版",
+    "BlackArch_Linux安全工具集",
+    "DEFT Linux_数字取证操作系统",
+    "CAINE_计算机辅助调查环境",
+    "Remnux_Linux恶意软件分析发行版",
+    "Windows Subsystem for Linux_WSL",
+    "VirtualBox_虚拟化软件",
+    "VMware_虚拟化软件",
+    "Docker_容器化平台",
+    "Kubernetes_容器编排平台",
+    "Git_版本控制系统",
+    "GitHub_代码托管平台",
+    "GitLab_代码托管平台",
+    "Bitbucket_代码托管平台",
+    "Visual Studio Code_代码编辑器",
+    "Sublime Text_代码编辑器",
+    "Vim_文本编辑器",
+    "Emacs_文本编辑器",
+    "Atom_代码编辑器",
+    "Notepad++_文本编辑器",
+    "HxD_十六进制编辑器",
+    "010 Editor_十六进制编辑器",
+    "WinHex_十六进制编辑器",
+    "Hex Workshop_十六进制编辑器",
+    "Immunity Debugger_调试器",
+    "x64dbg_调试器",
+    "GDB_GNU调试器",
+    "LLDB_调试器",
+    "OllyDbg_调试器",
+    "IDA Pro_反汇编工具",
+    "Hopper Disassembler_反汇编工具",
+    "Binary Ninja_反汇编工具",
+    "Radare2_逆向工程框架",
+    "Ghidra_逆向工程工具",
+    "Cutter_逆向工程工具",
+    "angr_二进制分析框架",
+    "Binary Analysis Platform_二进制分析平台",
+    "QEMU_模拟器",
+    "Bochs_模拟器",
+    "Wine_Windows程序兼容层",
+    "CrossOver_Windows程序兼容层",
+    "IDA Free_免费反汇编工具",
+    "Fiddler_Web调试代理",
+    "Charles_Web调试代理",
+    "mitmproxy_命令行代理工具",
+    "Proxyman_现代代理工具",
+    "Burp Suite Professional_Web安全测试工具",
+    "Burp Suite Community_Web安全测试工具",
+    "OWASP ZAP_Web应用安全扫描器",
+    "Acunetix_Web应用安全扫描器",
+    "Nessus_漏洞扫描器",
+    "OpenVAS_漏洞评估系统",
+    "Qualys_云安全与合规性平台",
+    "Rapid7 InsightVM_漏洞管理平台",
+    "Tenable.io_漏洞管理平台",
+    "Nexpose_漏洞扫描器",
+    "QualysGuard_漏洞管理工具",
+    "Retina_漏洞扫描器",
+    "eEye Digital Security_漏洞管理解决方案",
+    "Greenbone Security Assistant_漏洞管理工具",
+    "Nmap_网络发现和安全审计工具",
+    "Masscan_互联网规模端口扫描器",
+    "Zmap_网络扫描工具",
+    "Unicornscan_端口扫描器",
+    "Angry IP Scanner_IP扫描器",
+    "Advanced IP Scanner_IP扫描器",
+    "NetScanTools_网络扫描工具套件",
+    "LanScan_局域网扫描工具",
+    "SoftPerfect Network Scanner_网络扫描器",
+    "Wireshark_网络协议分析器",
+    "Tcpdump_命令行数据包分析器",
+    "Windump_Windows数据包分析器",
+    "Tshark_Wireshark命令行工具",
+    "Ngrep_网络 grep 工具",
+    "Snoop_网络监控工具",
+    "Ethereal_网络协议分析器",
+    "NetFlow Analyzer_网络流量分析器",
+    "PRTG Network Monitor_网络监控工具",
+    "SolarWinds Network Performance Monitor_网络性能监控",
+    "Zabbix_网络监控工具",
+    "Nagios_网络监控系统",
+    "Icinga_网络监控系统",
+    "Cacti_网络图形化监控工具",
+    "MRTG_多路由流量图示器",
+    "Wazuh_安全监控平台",
+    "ELK Stack_日志分析平台",
+    "Splunk_日志管理与分析平台",
+    "Graylog_日志管理系统",
+    "Fluentd_数据收集器",
+    "Logstash_日志处理管道",
+    "Elasticsearch_搜索引擎",
+    "Kibana_数据可视化平台",
+    "Prometheus_系统监控工具",
+    "Grafana_数据可视化工具",
+    "InfluxDB_时序数据库",
+    "Telegraf_数据收集代理",
+    "Datadog_监控和安全平台",
+    "New Relic_应用性能监控",
+    "Dynatrace_应用性能监控",
+    "AppDynamics_应用性能监控",
+    "Sentry_错误跟踪工具",
+    "Rollbar_错误跟踪工具",
+    "Raygun_错误跟踪工具",
+    "Datadog Security Monitoring_安全监控工具",
+    "Sumo Logic_云原生机器数据分析平台",
+    "Exabeam_安全信息与事件管理",
+    "IBM QRadar_SIEM平台",
+    "Splunk Enterprise Security_SIEM平台",
+    "McAfee SIEM_SIEM平台",
+    "LogRhythm_SIEM平台",
+    "RSA NetWitness_SIEM平台",
+    "AlienVault USM_SIEM平台",
+    "Darktrace_人工智能安全平台",
+    "CrowdStrike Falcon_端点保护平台",
+    "SentinelOne_端点保护平台",
+    "Carbon Black_端点保护平台",
+    "FireEye Endpoint Security_端点安全",
+    "McAfee Endpoint Security_端点安全",
+    "Symantec Endpoint Protection_端点保护",
+    "Kaspersky Endpoint Security_端点安全",
+    "Trend Micro Apex One_端点安全",
+    "ESET Endpoint Security_端点安全",
+    "Bitdefender GravityZone_端点安全",
+    "Sophos Intercept X_端点保护",
+    "Malwarebytes Endpoint Protection_恶意软件防护",
+    "CylancePROTECT_人工智能防病毒",
+    "Palo Alto Networks Traps_端点保护",
+    "Microsoft Defender for Endpoint_端点保护",
+    "Windows Defender_Windows自带防病毒",
+    "macOS Security_ macOS安全功能",
+    "Linux Security Modules_Linux安全模块",
+    "SELinux_安全增强型Linux",
+    "AppArmor_Linux应用程序沙箱",
+    "Firejail_Linux沙箱工具",
+    "Snap_应用沙箱",
+    "Flatpak_应用沙箱",
+    "Docker_容器化平台",
+    "LXC/LXD_容器化技术",
+    "Kubernetes_容器编排平台",
+    "Podman_容器引擎",
+    "containerd_容器运行时",
+    "runc_容器运行时",
+    "CRI-O_容器运行时接口",
+    "Docker Compose_多容器管理工具",
+    "Docker Swarm_容器编排工具",
+    "Nomad_工作负载编排工具",
+    "Helm_Kubernetes包管理器",
+    "Kustomize_Kubernetes配置管理",
+    "Istio_服务网格",
+    "Linkerd_服务网格",
+    "Consul_服务发现与配置",
+    "etcd_分布式键值存储",
+    "Vault_密钥管理工具",
+    "Keycloak_身份认证与授权",
+    "OAuth 2.0_授权框架",
+    "OpenID Connect_身份层协议",
+    "SAML_安全断言标记语言",
+    "Kerberos_网络认证协议",
+    "LDAP_轻量级目录访问协议",
+    "Active Directory_微软目录服务",
+    "FreeIPA_身份管理系统",
+    "OpenLDAP_LDAP开源实现",
+    "389 Directory Server_LDAP服务器",
+    "RADIUS_远程认证拨号用户服务",
+    "TACACS+_终端访问控制器访问控制系统",
+    "OAuth2 Proxy_OAuth2代理工具",
+    "Dex_身份服务",
+    "Pomerium_身份感知代理",
+    "Auth0_身份认证服务",
+    "Okta_身份管理服务",
+    "Azure Active Directory_微软云身份服务",
+    "Google Identity Platform_谷歌身份服务",
+    "AWS IAM_亚马逊身份与访问管理",
+    "GCP IAM_谷歌云身份与访问管理",
+    "Azure IAM_微软云身份与访问管理",
+    "HashiCorp Boundary_身份感知访问管理",
+    "Teleport_特权访问管理",
+    "CyberArk_特权访问管理",
+    "BeyondTrust_特权访问管理",
+    "Thycotic_特权访问管理",
+    "OneIdentity_身份管理解决方案",
+    "SailPoint_身份治理平台",
+    "Saviynt_云身份治理",
+    "ForgeRock_数字身份平台",
+    "Ping Identity_身份管理平台",
+    "RSA SecurID_多因素认证",
+    "Duo Security_多因素认证",
+    "Google Authenticator_谷歌认证器",
+    "Microsoft Authenticator_微软认证器",
+    "Authy_双因素认证工具",
+    "YubiKey_硬件安全密钥",
+    "Google Titan Security Key_谷歌安全密钥",
+    "Feitian_飞天诚信安全密钥",
+    "Ledger_硬件钱包",
+    "Trezor_硬件钱包",
+    "KeepKey_硬件钱包",
+    "BitBox_硬件钱包",
+    "Coldcard_比特币硬件钱包",
+    "SafeNet_加密解决方案",
+    "Gemalto_数字安全解决方案",
+    "Thales_安全与加密解决方案",
+    "RSA BSAFE_加密软件开发工具包",
+    "OpenSSL_开源加密工具包",
+    "LibreSSL_开源加密库",
+    "GnuPG_开源加密软件",
+    "VeraCrypt_磁盘加密工具",
+    "TrueCrypt_磁盘加密工具",
+    "BitLocker_Windows磁盘加密",
+    "FileVault_macOS磁盘加密",
+    "LUKS_Linux磁盘加密",
+    "dm-crypt_Linux磁盘加密模块",
+    "eCryptfs_Linux文件系统加密",
+    "gocryptfs_加密文件系统",
+    "CryFS_加密文件系统",
+    "EncFS_加密文件系统",
+    "AxCrypt_文件加密工具",
+    "7-Zip_压缩与加密工具",
+    "WinZip_压缩与加密工具",
+    "WinRAR_压缩与加密工具",
+    "7-Zip_开源压缩工具",
+    "PeaZip_开源压缩工具",
+    "Bandizip_压缩工具",
+    "Keka_macOS压缩工具",
+    "The Unarchiver_macOS解压工具",
+    "File Roller_Linux压缩工具",
+    "Ark_KDE压缩工具",
+    "Xarchiver_XFCE压缩工具",
+    "p7zip_7-Zip命令行版本",
+    "rar_命令行压缩工具",
+    "zip_命令行压缩工具",
+    "unzip_命令行解压工具",
+    "tar_归档工具",
+    "gzip_压缩工具",
+    "bzip2_压缩工具",
+    "xz_压缩工具",
+    "lzma_压缩工具",
+    "zstd_压缩工具",
+    "lz4_压缩工具",
+    "snappy_压缩工具",
+    "lrzip_压缩工具",
+    "pigz_并行gzip工具",
+    "pbzip2_并行bzip2工具"
+];
+        
+        // DOM元素
+        const toolDisplay = document.getElementById('toolDisplay');
+        const promptText = document.getElementById('promptText');
+        const actionBtn = document.getElementById('actionBtn');
+        const resultModal = document.getElementById('resultModal');
+        const modalText = document.getElementById('modalText');
+        const closeBtn = document.getElementById('closeBtn');
+        
+        // 最终显示的工具
+        const finalTool = "蓝队工具：MaliciousCheck_开源应急响应工具";
+        
+        // 动画状态
+        let isAnimating = false;
+        
+        // 点击事件处理
+        function startAnimation() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            actionBtn.disabled = true;
+            actionBtn.textContent = "筛选中...";
+            
+            // 清除提示文本
+            promptText.style.display = 'none';
+            
+            // 动画持续3秒
+            const animationDuration = 3000;
+            const startTime = Date.now();
+            
+            // 快速切换工具名称
+            function updateTool() {
+                const currentTime = Date.now();
+                const elapsedTime = currentTime - startTime;
+                
+                // 清除之前的工具元素
+                while (toolDisplay.children.length > 0) {
+                    toolDisplay.removeChild(toolDisplay.firstChild);
+                }
+                
+                // 随机选择一个工具
+                const randomTool = securityTools[Math.floor(Math.random() * securityTools.length)];
+                
+                // 创建新的工具元素
+                const toolElement = document.createElement('div');
+                toolElement.className = 'tool-item';
+                toolElement.textContent = `${randomTool}`;
+                
+                // 随机颜色
+                const colors = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)', 'var(--neon-green)'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                toolElement.style.color = randomColor;
+                toolElement.style.textShadow = `0 0 5px ${randomColor}`;
+                
+                toolDisplay.appendChild(toolElement);
+                
+                // 控制动画速度：逐渐减慢
+                let interval = 50 - (elapsedTime / animationDuration) * 40;
+                interval = Math.max(10, interval); // 最小间隔
+                
+                if (elapsedTime < animationDuration) {
+                    setTimeout(updateTool, interval);
+                } else {
+                    // 动画结束，显示最终工具
+                    endAnimation();
+                }
+            }
+            
+            // 开始动画
+            updateTool();
+        }
+        
+        // 结束动画，显示结果
+        function endAnimation() {
+            // 清除所有子元素
+            while (toolDisplay.children.length > 0) {
+                toolDisplay.removeChild(toolDisplay.firstChild);
+            }
+            
+            // 显示最终工具
+            const finalElement = document.createElement('div');
+            finalElement.className = 'glitch';
+            finalElement.setAttribute('data-text', finalTool);
+            finalElement.textContent = finalTool;
+            finalElement.style.color = 'var(--neon-green)';
+            finalElement.style.textShadow = '0 0 5px var(--neon-green), 0 0 10px var(--neon-green)';
+            finalElement.style.fontSize = '1.8rem';
+            toolDisplay.appendChild(finalElement);
+            
+            // 重置状态
+            isAnimating = false;
+            actionBtn.disabled = false;
+            actionBtn.textContent = "重新筛选";
+            
+            // 显示模态框
+            setTimeout(() => {
+                resultModal.style.display = 'flex';
+            }, 500);
+        }
+        
+        // 关闭模态框
+        function closeModal() {
+            resultModal.style.display = 'none';
+        }
+        
+        // 事件监听
+        actionBtn.addEventListener('click', startAnimation);
+        closeBtn.addEventListener('click', closeModal);
+        promptText.addEventListener('click', startAnimation);
+        
+        // 点击模态框外部关闭
+        resultModal.addEventListener('click', (e) => {
+            if (e.target === resultModal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
