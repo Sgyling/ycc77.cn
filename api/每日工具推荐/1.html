@@ -534,13 +534,15 @@
     <div class="modal" id="resultModal">
         <div class="modal-content">
             <h2>今日推荐</h2>
-            <p id="modalText">今日要介绍的是：EnowEyes_浏览器扩展。这款工具可以帮助您快速快速获取网页中敏感信息,并且分类</p>
+            <p id="modalText">今日要介绍的是：SnowEyes_浏览器扩展。这款工具可以帮助您快速快速获取网页中敏感信息,并且分类</p>
             <a href="https://yancy77.cn"><button class="close-btn" id="closeBtn">开讲!</button></a>
             <!-- <a href="2.html"><button class="close-btn" id="closeBtn">开讲!</button></a> -->
         </div>
     </div>
 
     <script>
+        // 最终显示的工具
+        const finalTool = "SnowEyes_浏览器扩展";
         // 初始化粒子背景
         particlesJS("particles-js", {
             particles: {
@@ -614,8 +616,7 @@
         const modalText = document.getElementById('modalText');
         const closeBtn = document.getElementById('closeBtn');
         
-        // 最终显示的工具
-        const finalTool = "EnowEyes_浏览器扩展";
+        
         
         // 动画状态
         let isAnimating = false;
