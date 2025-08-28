@@ -460,6 +460,47 @@
         .subcategory-content a:hover .download-item::before {
             width: 100%;
         }
+        /* 文件下载项_未讲解 */
+            .download-item_1 {
+            background: rgba(255, 255, 255, 0.05);
+            /* border-left: 2px solid var(--accent-blue); */
+            border-left: 2px solid #ebfa1c;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-item_1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(138, 83, 211, 0.425), transparent);
+            transition: width 0.3s ease;
+        }
+
+        .subcategory-content a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .subcategory-content a:hover .download-item_1 {
+            background: rgba(255, 255, 255, 0.08);
+            /* border-left-color: var(--accent-pink); */
+            border-left-color: rgb(248, 0, 0);
+            transform: translateX(5px);
+        }
+
+        .subcategory-content a:hover .download-item_1::before {
+            width: 100%;
+        }
+
 
         /* 动画效果 */
         @keyframes fadeIn {
