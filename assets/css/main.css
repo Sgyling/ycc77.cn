@@ -191,7 +191,8 @@
 
         /* 主内容区 */
         .main-content {
-            max-width: 1200px;
+            /* max-width: 1200px; */
+            max-width: 99%;
             margin: 2rem auto;
             padding: 0 2rem;
             position: relative;
@@ -233,7 +234,7 @@
         .category-grid {
             display: grid;
             /* grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1.6rem), 1fr)); */
-            grid-template-columns: repeat(auto-fit, minmax(calc(25% - 3rem), 2fr));
+            grid-template-columns: repeat(auto-fit, minmax(calc(20% - 3rem), 2fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -525,7 +526,7 @@
         /* 响应式设计 */
         @media (max-width: 1024px) {
             .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(calc(25% - 1.5rem), 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(calc(20% - 1.5rem), 1fr));
             }
         }
 
@@ -916,7 +917,7 @@
 
         /* 主内容区 - 亚克力风格 */
         .main-content {
-            max-width: 1200px;
+            max-width: 99%;
             margin: 2rem auto;
             padding: 0 1rem;
             position: relative;
