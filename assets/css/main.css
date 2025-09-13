@@ -192,7 +192,7 @@
         /* 主内容区 */
         .main-content {
             /* max-width: 1200px; */
-            max-width: 99%;
+            max-width: 100%;
             margin: 2rem auto;
             padding: 0 2rem;
             position: relative;
@@ -917,7 +917,7 @@
 
         /* 主内容区 - 亚克力风格 */
         .main-content {
-            max-width: 99%;
+            max-width: 100%;
             margin: 2rem auto;
             padding: 0 1rem;
             position: relative;
