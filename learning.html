@@ -7,15 +7,17 @@
     <meta name="keywords" content="教程资源,AI学习,人工智能教程,Python编程,Java编程,Vue教程,渗透测试教程,网络安全学习,取证技术,刑侦技术,国学学习,风水八字,奇门遁甲,编程教程,面试题,学习资料,技术文档,行业报告,杨CC教程,技术培训,在线学习">
     <title>杨CC资源分享站-教程资源</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script defer src="https://01987425-44bc-77e0-a189-165a6b6e93b4.ustat1.com/ustat.js"></script>
     <link rel="stylesheet" href="assets/css/zong.css">
+    <!-- <script defer src="assets/css/zong.css"></script> -->
+    <script defer src="https://01987425-44bc-77e0-a189-165a6b6e93b4.ustat1.com/ustat.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <!-- 装饰图形 -->
-    <!-- <div class="floating-shape" style="width: 150px; height: 150px; top: 20%; left: 5%; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+    <!-- 悬浮装饰图形 -->
+    <!-- <div class="floating-shape" style="width: 150px; height: 150px; top: 10%; left: 5%; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
     <div class="floating-shape" style="width: 100px; height: 100px; top: 60%; right: 10%; border-radius: 50%;"></div>
-    <div class="floating-shape" style="width: 80px; height: 120px; top: 40%; right: 5%;"></div> -->
+    <div class="floating-shape" style="width: 120px; height: 80px; bottom: 20%; left: 20%;"></div> -->
+
     <div class="floating-shape triangle" style="top: 20%; left: 5%; animation-delay: 0s;"></div>
     <div class="floating-shape hexagon" style="top: 60%; left: 90%; animation-delay: 2s;"></div>
     <div class="floating-shape triangle" style="top: 40%; left: 85%; animation-delay: 4s; transform: rotate(180deg);"></div>
@@ -27,8 +29,8 @@
             <a href="./index.html" class="nav-link">首页</a>
             <a href="./penetration.html" class="nav-link">渗透工具</a>
             <a href="./games.html" class="nav-link">游戏资源</a>
-            <a href="./learning.html" class="nav-link active">教程资源</a>
-            <a href="./other_resources.html" class="nav-link">其他资源</a>
+            <a href="./learning.html" class="nav-link">教程资源</a>
+            <a href="./other_resources.html" class="nav-link active">其他资源</a>
             <a href="https://ycc77.com" class="logo">杨CC 技术录</a>
         </div>
         <div class="hamburger">
@@ -83,7 +85,6 @@
                 <a href="#tutorials" class="category-btn show-subcategory">查看详情</a>
             </div>
         </div>
-        
         <!-- 二级分类内容区 -->
         <div class="subcategory-container">
             <div id="programming-languages" class="subcategory-content">
@@ -515,6 +516,7 @@
                 <div class="download-item">此版块待定，敬请期待...</div>
             </div>
         </div>
+
     </main>
 <script src="https://giscus.app/client.js"
         data-repo="Sgyling/guo_xue"
@@ -526,7 +528,7 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="purple_dark"
+        data-theme="catppuccin_mocha"
         data-lang="zh-CN"
         crossorigin="anonymous"
         async>
@@ -539,85 +541,148 @@
         </div>
     </footer>
     <script>
-                // 处理导航栏汉堡图标点击
+        // 创建更多随机悬浮形状
+        function createFloatingShapes() {
+            const shapesCount = 5;
+            const container = document.body;
+            
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('floating-shape');
+                
+                // 随机属性
+                const size = Math.random() * 100 + 50;
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.top = `${top}%`;
+                shape.style.left = `${left}%`;
+                shape.style.animationDelay = `${delay}s`;
+                
+                // 随机形状
+                const shapeType = Math.floor(Math.random() * 3);
+                switch(shapeType) {
+                    case 0: // 三角形
+                        shape.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+                        break;
+                    case 1: // 圆形
+                        shape.style.borderRadius = '50%';
+                        break;
+                    case 2: // 矩形
+                        shape.style.width = `${size * 1.5}px`;
+                        break;
+                }
+                
+                container.appendChild(shape);
+            }
+        }
+        
+        // 处理导航栏汉堡图标点击
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-        // 显示/隐藏二级分类内容
-        document.querySelectorAll('.show-subcategory').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                // 隐藏所有内容
-                document.querySelectorAll('.subcategory-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                
-                // 显示目标内容
-                if (targetElement) {
-                    targetElement.classList.add('active');
-                    // 滚动到目标位置
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
 
-        // 移动端菜单切换
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // 滚动效果
-        window.addEventListener('scroll', function() {
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+            
+            // 滚动时让卡片轻微浮动
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach((card, index) => {
+                const floatAmount = Math.sin(window.scrollY * 0.001 + index) * 3;
+                card.style.transform = `translateY(${floatAmount}px)`;
+            });
         });
 
-        // 随机生成更多装饰图形
-        function createAdditionalShapes() {
-            const shapeCount = 3;
-            for (let i = 0; i < shapeCount; i++) {
-                const shape = document.createElement('div');
-                shape.classList.add('floating-shape');
+        // 处理二级分类显示 - 添加故障溶解过渡
+        document.querySelectorAll('.show-subcategory').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href');
+                const allContents = document.querySelectorAll('.subcategory-content');
+                const targetElement = document.querySelector(targetId);
                 
-                // 随机大小
-                const size = Math.random() * 80 + 40;
-                shape.style.width = `${size}px`;
-                shape.style.height = `${size}px`;
+                // 先隐藏所有内容并添加故障效果
+                allContents.forEach(content => {
+                    if (content.style.display === 'block') {
+                        content.style.animation = 'glitchOut 0.5s forwards';
+                        setTimeout(() => {
+                            content.style.display = 'none';
+                            content.style.animation = '';
+                        }, 500);
+                    }
+                });
                 
-                // 随机位置
-                shape.style.top = `${Math.random() * 100}%`;
-                shape.style.left = `${Math.random() * 100}%`;
-                
-                // 随机形状
-                const shapeType = Math.floor(Math.random() * 3);
-                switch(shapeType) {
-                    case 0: // 圆形
-                        shape.style.borderRadius = '50%';
-                        break;
-                    case 1: // 三角形
-                        shape.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
-                        break;
-                    case 2: // 正方形
-                        // 默认就是正方形
-                        break;
-                }
-                
-                // 随机动画延迟
-                shape.style.animationDelay = `${Math.random() * 5}s`;
-                
-                document.body.appendChild(shape);
-            }
-        }
+                // 显示目标内容并添加故障进入效果
+                setTimeout(() => {
+                    targetElement.style.display = 'block';
+                    targetElement.style.animation = 'glitchIn 0.8s forwards';
+                    setTimeout(() => {
+                        targetElement.style.animation = '';
+                    }, 800);
+                    
+                    // 平滑滚动到目标位置
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }, 500);
+            });
+        });
 
-        // 页面加载完成后创建额外的装饰图形
-        window.addEventListener('load', createAdditionalShapes);
+        // 添加故障动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glitchOut {
+                0% { opacity: 1; transform: translate(0); }
+                50% { opacity: 0.5; transform: translate(-5px, 3px) scale(0.98); filter: blur(2px); }
+                100% { opacity: 0; transform: translate(10px, -5px) scale(0.9); filter: blur(5px); }
+            }
+            
+            @keyframes glitchIn {
+                0% { opacity: 0; transform: translate(10px, -5px) scale(0.9); filter: blur(5px); }
+                50% { opacity: 0.5; transform: translate(-5px, 3px) scale(0.98); filter: blur(2px); }
+                100% { opacity: 1; transform: translate(0); }
+            }
+            
+            /* 网格点闪烁动画 */
+            @keyframes gridPulse {
+                0%, 100% { opacity: 0.2; }
+                50% { opacity: 0.8; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 初始化
+        window.addEventListener('load', () => {
+            createFloatingShapes();
+            
+            // 创建随机网格点
+            const body = document.body;
+            const gridPoints = 30;
+            for (let i = 0; i < gridPoints; i++) {
+                const point = document.createElement('div');
+                point.style.position = 'absolute';
+                point.style.width = '2px';
+                point.style.height = '2px';
+                point.style.backgroundColor = ['var(--neon-blue)', 'var(--neon-pink)', 'var(--neon-purple)'][Math.floor(Math.random() * 3)];
+                point.style.left = `${Math.random() * 100}%`;
+                point.style.top = `${Math.random() * 100}%`;
+                point.style.animation = `gridPulse ${Math.random() * 5 + 3}s infinite`;
+                point.style.animationDelay = `${Math.random() * 3}s`;
+                point.style.pointerEvents = 'none';
+                point.style.zIndex = '0';
+                body.appendChild(point);
+            }
+        });
     </script>
     <script>
         // 创建更多随机悬浮图形
