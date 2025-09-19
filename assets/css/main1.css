@@ -16,7 +16,7 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
-        body {
+        /* body {
             background-color: var(--base-black);
             background-image: 
                 linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
@@ -26,6 +26,43 @@
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
+        } */
+        body {
+            background-color: var(--base-black);
+            /* 1. 背景层叠顺序：先写的在下层，后写的在上层 
+            - 电脑端背景图（下层）→ 原有网格渐变（上层）
+            - 若想让图片在渐变之上，互换顺序即可
+            */
+            background-image: 
+                url("img/壁纸.png"), /* 电脑端图片（替换成你的URL） */
+                linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+            
+            /* 2. 背景图自适应核心属性 */
+            background-size: 
+                cover, /* 图片：覆盖整个容器（优先保证填满，可能裁剪边缘） */
+                20px 20px, /* 网格渐变：保持原有20px间距 */
+                20px 20px; /* 网格渐变：保持原有20px间距 */
+            background-position: center center; /* 图片：垂直+水平居中 */
+            background-repeat: no-repeat; /* 图片：不重复平铺 */
+            background-attachment: fixed; /* 可选：滚动时背景固定（不随页面滚动），不需要可删 */
+            
+            color: var(--text-color);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 3. 媒体查询：手机端（屏幕宽度 ≤ 768px，可根据需求调整断点） */
+        @media (max-width: 768px) {
+            body {
+                background-image: 
+                    url("img/壁纸.png"), /* 替换成手机端图片URL */
+                    linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+                /* 手机端可单独调整自适应规则（若与电脑端不同），示例： */
+                /* background-size: contain, 20px 20px, 20px 20px; */
+            }
         }
 
         /* 网格点动画 */
@@ -89,11 +126,19 @@
             99% { opacity: 0.5; }
         }
 
-        /* 导航栏 - 磨砂金属效果 */
+        /* 导航栏 - 磨砂金属效果（新增磨砂半透明） */
         .navbar {
-            background-color: var(--base-gray);
+            /* 1. 半透明背景：将纯色改为 rgba，最后一位 0.7 是透明度（0-1 可调） */
+            background-color: rgba(40, 40, 40, 0); /* 替换原 var(--base-gray)，也可定义为变量：--base-gray: rgba(40,40,40,0.7) */
+            /* 保留原有网格纹理，透明度 0.03 已很淡，不影响磨砂 */
             background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 20px 100%;
+
+            /* 2. 磨砂核心：blur(8px) 是模糊半径，数值越大磨砂越明显 */
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px); /* 兼容 Safari 浏览器 */
+
+            /* 保留原有边框、阴影、定位等样式 */
             border-bottom: 1px solid var(--accent-blue);
             box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
             position: sticky;
@@ -105,7 +150,6 @@
             align-items: center;
             transition: all 0.3s ease;
             overflow: hidden;
-            position: relative;
         }
 
         .navbar::before {
@@ -155,6 +199,7 @@
             position: relative;
             padding: 0.5rem 0;
             transition: all 0.3s ease;
+            background-color: transparent;
         }
 
         .nav-link::after {
@@ -461,6 +506,7 @@
     text-shadow: 0 0 8px rgba(0, 240, 255, 0.7), 0 0 15px rgba(0, 240, 255, 0.4);
     box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
     animation: subtleFloat 6s ease-in-out infinite;
+    background-color: transparent
 }
 
 /* 赛博朋克网格背景增强 - 讲解过 */
@@ -478,6 +524,7 @@
     pointer-events: none;
     z-index: 1;
     animation: gridScan 8s linear infinite;
+    
 }
 
 /* 霓虹发光边框 - 讲解过 */
@@ -515,6 +562,7 @@
     animation: float 4s ease-in-out infinite, 
                neonPulse 2s linear infinite,
                pulseScale 2s ease-in-out infinite;
+    background-color: transparent
 }
 
 /* hover时网格变色 - 讲解过 */
@@ -578,6 +626,7 @@
     box-shadow: 0 0 8px rgba(255, 58, 58, 0.3);
     animation: subtleFloat 7s ease-in-out infinite,
                warningPulse 3s ease-in-out infinite; /* 警示脉冲动画 */
+    background-color: transparent
 }
 
 /* 未讲解项网格背景（红色主题） */
@@ -633,6 +682,7 @@
                neonPulse 2s linear infinite,
                pulseScale 2s ease-in-out infinite,
                warningPulse 1.5s ease-in-out infinite; /* 加快警示动画 */
+    background-color: transparent
 }
 
 /* 未讲解项hover网格变色 */
@@ -1049,7 +1099,7 @@
             --grid-color: #333333;
         }
 
-        body {
+        /* body {
             background-color: var(--base-black);
             background-image: 
                 linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
@@ -1059,7 +1109,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-        }
+        } */
 
         /* 网格点动画 */
         body::before {
@@ -1123,22 +1173,31 @@
             border-top: 11px solid var(--base-darkgray);
         }
 
-        /* 导航栏 - 磨砂金属风格 */
+        /* /* 导航栏 - 磨砂金属风格 */
+        /* 导航栏 - 磨砂金属效果（新增磨砂半透明） */
         .navbar {
-            background: var(--base-darkgray);
+            /* 1. 半透明背景：将纯色改为 rgba，最后一位 0.7 是透明度（0-1 可调） */
+            background-color: rgba(4, 4, 4, 0); /* 替换原 var(--base-gray)，也可定义为变量：--base-gray: rgba(40,40,40,0.7) */
+            /* 保留原有网格纹理，透明度 0.03 已很淡，不影响磨砂 */
             background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 10px 10px;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-size: 20px 100%;
+
+            /* 2. 磨砂核心：blur(8px) 是模糊半径，数值越大磨砂越明显 */
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px); /* 兼容 Safari 浏览器 */
+
+            /* 保留原有边框、阴影、定位等样式 */
+            border-bottom: 1px solid var(--accent-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
             overflow: hidden;
-            position: relative;
         }
 
         .navbar::before {
@@ -1186,6 +1245,7 @@
             background: var(--base-darkgray);
             border: 1px solid transparent;
             border-radius: 4px;
+            background-color: transparent;
         }
 
         .nav-link:hover {
@@ -1203,7 +1263,7 @@
             height: 1px;
             background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
             transition: width 0.3s;
-        }
+        } */
 
         .nav-link:hover::after {
             width: 100%;

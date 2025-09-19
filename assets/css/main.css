@@ -16,7 +16,7 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
-        body {
+        /* body {
             background-color: var(--base-black);
             background-image: 
                 linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
@@ -26,6 +26,43 @@
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
+        } */
+        body {
+            background-color: var(--base-black);
+            /* 1. 背景层叠顺序：先写的在下层，后写的在上层 
+            - 电脑端背景图（下层）→ 原有网格渐变（上层）
+            - 若想让图片在渐变之上，互换顺序即可
+            */
+            background-image: 
+                url("img/壁纸.png"), /* 电脑端图片（替换成你的URL） */
+                linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+            
+            /* 2. 背景图自适应核心属性 */
+            background-size: 
+                cover, /* 图片：覆盖整个容器（优先保证填满，可能裁剪边缘） */
+                20px 20px, /* 网格渐变：保持原有20px间距 */
+                20px 20px; /* 网格渐变：保持原有20px间距 */
+            background-position: center center; /* 图片：垂直+水平居中 */
+            background-repeat: no-repeat; /* 图片：不重复平铺 */
+            background-attachment: fixed; /* 可选：滚动时背景固定（不随页面滚动），不需要可删 */
+            
+            color: var(--text-color);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 3. 媒体查询：手机端（屏幕宽度 ≤ 768px，可根据需求调整断点） */
+        @media (max-width: 768px) {
+            body {
+                background-image: 
+                    url("img/壁纸.png"), /* 替换成手机端图片URL */
+                    linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(51, 51, 51, 0.1) 1px, transparent 1px);
+                /* 手机端可单独调整自适应规则（若与电脑端不同），示例： */
+                /* background-size: contain, 20px 20px, 20px 20px; */
+            }
         }
 
         /* 网格点动画 */
@@ -425,84 +462,384 @@
             text-shadow: 0 0 5px rgba(255, 0, 240, 0.5);
         }
 
-        /* 下载项 */
-        .download-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 2px solid var(--accent-blue);
-            padding: 0.8rem 1rem;
-            margin-bottom: 1rem;
-            border-radius: 0 4px 4px 0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+       /* 基础动画定义 - 确保所有动画无缝循环 */
+@keyframes neonBorderFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
 
-        .download-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0, 240, 255, 0.1), transparent);
-            transition: width 0.3s ease;
-        }
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+    50% { box-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
+}
 
-        .subcategory-content a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: block;
-        }
+@keyframes scanLine {
+    0% { transform: translateY(-100%) rotate(0deg); }
+    100% { transform: translateY(100%) rotate(0deg); }
+}
 
-        .subcategory-content a:hover .download-item {
-            background: rgba(255, 255, 255, 0.08);
-            border-left-color: var(--accent-pink);
-            transform: translateX(5px);
-        }
+@keyframes float {
+    0%, 100% { transform: translateX(5px) translateY(0); }
+    50% { transform: translateX(5px) translateY(-3px); }
+}
 
-        .subcategory-content a:hover .download-item::before {
-            width: 100%;
-        }
-        /* 文件下载项_未讲解 */
-            .download-item_1 {
-            background: rgba(255, 255, 255, 0.05);
-            /* border-left: 2px solid var(--accent-blue); */
-            border-left: 2px solid #ebfa1c;
-            padding: 0.8rem 1rem;
-            margin-bottom: 1rem;
-            border-radius: 0 4px 4px 0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+/* 下载项 - 基础样式 */
+/* 基础样式 - 增强圆角效果 */
+.download-item {
+    color: #00f0ff; /* 基础霓虹蓝 - 讲解过 */
+    background: rgba(10, 10, 30, 0.8);
+    border-left: 4px solid #00f0ff;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.7), 0 0 15px rgba(0, 240, 255, 0.4);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+    animation: subtleFloat 6s ease-in-out infinite;
+}
 
-        .download-item_1::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(138, 83, 211, 0.425), transparent);
-            transition: width 0.3s ease;
-        }
+/* 赛博朋克网格背景增强 - 讲解过 */
+.download-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+    animation: gridScan 8s linear infinite;
+}
 
-        .subcategory-content a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: block;
-        }
+/* 霓虹发光边框 - 讲解过 */
+.download-item::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 1px solid #00f0ff;
+    border-radius: 10px;
+    z-index: 0;
+    opacity: 0.6;
+    filter: blur(5px);
+    transition: all 0.4s ease;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 240, 255, 0.1) 51%,
+        rgba(0, 240, 255, 0.1) 52%,
+        transparent 53%
+    );
+    background-size: 100% 4px;
+    animation: scanline 10s linear infinite;
+}
 
-        .subcategory-content a:hover .download-item_1 {
-            background: rgba(255, 255, 255, 0.08);
-            /* border-left-color: var(--accent-pink); */
-            border-left-color: rgb(248, 0, 0);
-            transform: translateX(5px);
-        }
+/* 已讲解项 - hover效果（浅蓝色主题） */
+.subcategory-content a:hover .download-item {
+    color: #4deeea; /* 浅蓝 - 讲解过 */
+    background: rgba(10, 30, 30, 0.9);
+    border-left-color: #4deeea;
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 0 15px #4deeea, 0 0 30px rgba(77, 238, 234, 0.3);
+    animation: float 4s ease-in-out infinite, 
+               neonPulse 2s linear infinite,
+               pulseScale 2s ease-in-out infinite;
+}
 
-        .subcategory-content a:hover .download-item_1::before {
-            width: 100%;
-        }
+/* hover时网格变色 - 讲解过 */
+.subcategory-content a:hover .download-item::before {
+    background-image: 
+        linear-gradient(rgba(77, 238, 234, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77, 238, 234, 0.25) 1px, transparent 1px);
+}
+
+/* hover时霓虹边框变色 - 讲解过 */
+.subcategory-content a:hover .download-item::after {
+    border-color: #4deeea;
+    opacity: 0.8;
+    box-shadow: 0 0 15px #4deeea, 0 0 30px rgba(77, 238, 234, 0.5);
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(77, 238, 234, 0.2) 51%,
+        rgba(77, 238, 234, 0.2) 52%,
+        transparent 53%
+    );
+}
+
+/* 故障效果叠加层 - 讲解过 */
+.download-item .glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.subcategory-content a:hover .download-item .glitch-overlay {
+    opacity: 0.3;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 2px,
+        rgba(77, 238, 234, 0.4) 2px,
+        rgba(77, 238, 234, 0.4) 4px
+    );
+    animation: glitch 2s linear infinite;
+}
+
+/* 未讲解下载项 - 基础样式（红色主题） */
+.download-item_1 {
+    color: #ff3a3a; /* 赛博红 - 未讲解 */
+    background: rgba(30, 5, 5, 0.85);
+    border-left: 4px solid #ff3a3a;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 8px rgba(255, 58, 58, 0.7), 0 0 15px rgba(255, 58, 58, 0.4);
+    box-shadow: 0 0 8px rgba(255, 58, 58, 0.3);
+    animation: subtleFloat 7s ease-in-out infinite,
+               warningPulse 3s ease-in-out infinite; /* 警示脉冲动画 */
+}
+
+/* 未讲解项网格背景（红色主题） */
+.download-item_1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(255, 58, 58, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 58, 58, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+    animation: gridScan 10s linear infinite reverse;
+}
+
+/* 未讲解项霓虹边框（红色主题） */
+.download-item_1::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 1px solid #ff3a3a;
+    border-radius: 10px;
+    z-index: 0;
+    opacity: 0.6;
+    filter: blur(5px);
+    transition: all 0.4s ease;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(255, 58, 58, 0.1) 51%,
+        rgba(255, 58, 58, 0.1) 52%,
+        transparent 53%
+    );
+    background-size: 100% 4px;
+    animation: scanline 12s linear infinite;
+}
+
+/* 未讲解项 - hover效果（红色增强） */
+.subcategory-content a:hover .download-item_1 {
+    color: #ff6b6b; /* 亮红色 - 未讲解 */
+    background: rgba(40, 5, 5, 0.95);
+    border-left-color: #ff6b6b;
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 0 15px #ff6b6b, 0 0 30px rgba(255, 107, 107, 0.3);
+    animation: float 4.5s ease-in-out infinite, 
+               neonPulse 2s linear infinite,
+               pulseScale 2s ease-in-out infinite,
+               warningPulse 1.5s ease-in-out infinite; /* 加快警示动画 */
+}
+
+/* 未讲解项hover网格变色 */
+.subcategory-content a:hover .download-item_1::before {
+    background-image: 
+        linear-gradient(rgba(255, 107, 107, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 107, 107, 0.25) 1px, transparent 1px);
+}
+
+/* 未讲解项hover霓虹边框变色 */
+.subcategory-content a:hover .download-item_1::after {
+    border-color: #ff6b6b;
+    opacity: 0.8;
+    box-shadow: 0 0 15px #ff6b6b, 0 0 30px rgba(255, 107, 107, 0.5);
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(255, 107, 107, 0.2) 51%,
+        rgba(255, 107, 107, 0.2) 52%,
+        transparent 53%
+    );
+}
+
+/* 未讲解项故障效果（红色主题） */
+.download-item_1 .glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.subcategory-content a:hover .download-item_1 .glitch-overlay {
+    opacity: 0.4; /* 更高的不透明度增强警示 */
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 2px,
+        rgba(255, 107, 107, 0.5) 2px,
+        rgba(255, 107, 107, 0.5) 4px
+    );
+    animation: glitch 1.5s linear infinite; /* 更快的故障动画 */
+}
+
+/* 通用链接样式增强 */
+.subcategory-content a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.subcategory-content a:hover {
+    transform: scale(1.005);
+}
+
+/* 内容内部元素动画 */
+.download-item h3, .download-item_1 h3 {
+    transition: all 0.3s ease;
+    margin: 0 0 0.5rem 0;
+}
+
+.subcategory-content a:hover .download-item h3,
+.subcategory-content a:hover .download-item_1 h3 {
+    transform: translateX(3px);
+}
+
+.download-item p, .download-item_1 p {
+    margin: 0;
+    transition: all 0.3s ease 0.1s;
+}
+
+.subcategory-content a:hover .download-item p,
+.subcategory-content a:hover .download-item_1 p {
+    transform: translateX(5px);
+}
+
+/* 动画定义 */
+@keyframes gridScan {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 40px;
+    }
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 0 0 8px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+    }
+    50% {
+        text-shadow: 0 0 12px currentColor, 0 0 25px currentColor, 0 0 30px currentColor, 0 0 40px rgba(currentColor, 0.7);
+    }
+}
+
+/* 抖动效果 */
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-1px, 1px);
+    }
+    40% {
+        transform: translate(1px, -1px);
+    }
+    60% {
+        transform: translate(-1px, -1px);
+    }
+    80% {
+        transform: translate(1px, 1px);
+    }
+}
+
+/* 放大缩小循环动画 */
+@keyframes pulseScale {
+    0%, 100% {
+        transform: translateX(5px) translateY(-2px) scale(1);
+    }
+    50% {
+        transform: translateX(5px) translateY(-2px) scale(1.03);
+    }
+}
+
+/* 扫描线动画 */
+@keyframes scanline {
+    0% {
+        background-position: 0 -100vh;
+    }
+    100% {
+        background-position: 0 100vh;
+    }
+}
+
+/* 漂浮动画 */
+@keyframes float {
+    0%, 100% {
+        transform: translateX(5px) translateY(-2px);
+    }
+    50% {
+        transform: translateX(5px) translateY(2px);
+    }
+}
+
+/* 轻微漂浮动画 */
+@keyframes subtleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* 未讲解项警示脉冲动画 */
+@keyframes warningPulse {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(255, 58, 58, 0.3), 0 0 15px rgba(255, 58, 58, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(255, 58, 58, 0.5), 0 0 25px rgba(255, 58, 58, 0.4);
+    }
+}
+
+
 
 
         /* 动画效果 */
@@ -749,7 +1086,7 @@
             --grid-color: #333333;
         }
 
-        body {
+        /* body {
             background-color: var(--base-black);
             background-image: 
                 linear-gradient(rgba(51, 51, 51, 0.1) 1px, transparent 1px),
@@ -759,7 +1096,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-        }
+        } */
 
         /* 网格点动画 */
         body::before {
